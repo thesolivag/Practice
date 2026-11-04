@@ -120,3 +120,14 @@ and supply X-Cron-Secret in Advanced → Headers. The news endpoint does not sta
 Deriv markets are selectable in Settings → Markets → Pairs under their human names with Deriv labels.
 Select desired markets and save; the next hourly run will download and scan them. See ../DERIV.md for source,
 UTC candle conventions, available history, weekend coverage and signal-only order restrictions.
+
+### Render Docker deployment
+
+Use branch `claude-kevin-king`, leave Render **Root Directory empty**, set
+**Dockerfile Path** to `./Dockerfile` and **Docker Build Context Directory** to `.`.
+Leave Docker Command unset to use the image's startup command. The image runs
+Uvicorn on Render's `PORT` (default 10000) and includes the shared scanner,
+database schema, instrument catalogue and browser extension. Keep credentials
+in Render Environment; they are not built into the image. Health check: `/healthz`.
+The optional `proxy_ca` BuildKit secret is only for certificate-proxied local
+build environments; Render does not need it.
