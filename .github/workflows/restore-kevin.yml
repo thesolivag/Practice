@@ -1,0 +1,62 @@
+name: Restore Kevin source snapshot
+on:
+  push:
+    branches: [main]
+    paths: ['migration/kevin-manifest.json', '.github/workflows/restore-kevin.yml']
+permissions:
+  contents: write
+concurrency:
+  group: restore-kevin-snapshot
+  cancel-in-progress: false
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore verified archive when all parts are ready
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if [ ! -f migration/kevin-manifest.json ]; then
+            echo 'Upload receiver ready; waiting for complete manifest.'
+            exit 0
+          fi
+          python - <<'PY'
+          import os,json,base64,hashlib,urllib.request,subprocess,tarfile,pathlib
+          manifest=json.loads(pathlib.Path('migration/kevin-manifest.json').read_text())
+          target='claude-kevin-king'
+          def git(*args):return subprocess.check_output(['git',*args],text=True).strip()
+          git('fetch','origin',target)
+          expected=manifest['expected_parent']
+          if git('rev-parse','origin/'+target)!=expected:raise RuntimeError('Target branch changed; refusing to overwrite it')
+          archive=pathlib.Path('/tmp/kevin-snapshot.tar.gz')
+          h=hashlib.sha256()
+          with archive.open('wb') as dst:
+              for i,part in enumerate(manifest['parts']):
+                  req=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/git/blobs/'+part['sha'],headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+                  with urllib.request.urlopen(req,timeout=90) as response:payload=json.load(response)
+                  data=base64.b64decode(payload['content'])
+                  if len(data)!=part['size'] or hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()!=part['sha']:raise RuntimeError('Archive part hash mismatch')
+                  h.update(data);dst.write(data)
+                  print('Verified part',i+1,'of',len(manifest['parts']),flush=True)
+          if h.hexdigest()!=manifest['archive_sha256']:raise RuntimeError('Archive checksum mismatch')
+          git('checkout','-B',target,'origin/'+target)
+          git('rm','-r','--ignore-unmatch','.')
+          with tarfile.open(archive,'r:gz') as source:source.extractall('.',filter='data')
+          # Validate the complete source tree before staging a transport commit.
+          git('add','-A')
+          if git('write-tree')!=manifest['tree']:raise RuntimeError('Restored source tree differs from the original snapshot')
+          # GitHub Actions cannot introduce workflow files with its own token.
+          # The owner-authorized connector restores these after this transfer.
+          git('rm','-r','--cached','--ignore-unmatch','.github/workflows')
+          git('config','user.name','Kevin repository migration')
+          git('config','user.email','352313453+thesolivag@users.noreply.github.com')
+          git('commit','-m','Restore Kevin snapshot '+manifest['commit']+'; workflow restoration pending')
+          git('push','origin','HEAD:refs/heads/'+target)
+          print('RESTORED_COMMIT='+git('rev-parse','HEAD'))
+          print('EXPECTED_FINAL_TREE='+manifest['tree'])
+          PY
