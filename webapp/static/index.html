@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SLK Bias</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=workspace-8">
+</head>
+<body>
+  <header>
+    <nav id="tabs" hidden>
+      <button data-tab="bias" class="on">Bias</button>
+      <button data-tab="news">News</button>
+      <button data-tab="entries">Entries</button>
+      <button data-tab="orders">Orders</button>
+      <button data-tab="alerts">My alerts</button>
+      <button data-tab="journal">Journal</button>
+      <button data-tab="replay">Replay</button>
+      <button data-tab="devices">Browsers</button>
+      <button data-tab="settings">Settings</button>
+      <button data-tab="status">Status</button>
+    </nav>
+  </header>
+  <main>
+    <div id="msg" class="msg" hidden></div>
+
+    <div id="login-panel" class="card" hidden>
+      <h1>Open your SLK account</h1>
+      <p>Open Browsers in your Telegram Mini App, generate a browser code, then enter it here. Your settings and history stay together.</p>
+      <form id="browser-login-form" class="form">
+        <label class="col">Single-use code<input id="browser-login-code" autocomplete="one-time-code" required maxlength="100" spellcheck="false"></label>
+        <label class="col">Browser name<input id="browser-login-name" maxlength="80" value="My browser" required></label>
+        <button class="primary" type="submit">Connect this browser</button>
+        <p id="login-feedback" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <section id="bias">
+      <div class="filters">
+        <select id="f-pair"><option value="">All pairs</option></select>
+        <select id="f-story"><option value="">All stories</option><option>D</option><option>W</option><option>M</option></select>
+        <select id="f-status">
+          <option value="active">Active</option><option>CONFIRMED</option><option>TAPPED</option>
+          <option>TARGET_HIT</option><option>INVALIDATED</option><option>ENDED_FLIP</option><option>CANCELLED</option><option value="all">All</option>
+        </select>
+      </div>
+      <button id="send-eligible" type="button">Send eligible biases to my Telegram</button>
+      <p id="eligible-feedback" role="status" aria-live="polite"></p>
+      <div id="bias-state"></div>
+      <div id="bias-list" class="list"></div>
+    </section>
+
+    <section id="news" hidden>
+      <p>Scheduled economic events for your selected currencies and impact levels. Preferences are in Settings → Alerts.</p>
+      <div id="news-list" class="list"></div>
+    </section>
+
+    <section id="entries" hidden>
+      <div class="filters">
+        <select id="f-estatus">
+          <option value="">All</option><option>PENDING</option><option>APPROVED</option><option>TRIGGERED</option>
+          <option>MISSED</option><option>CANCELLED</option><option value="closed">Closed (paper)</option>
+          <option>TP1_HIT</option><option>TP2_HIT</option><option>SL_HIT</option><option>EXPIRED</option>
+        </select>
+      </div>
+      <div id="entries-summary"></div>
+      <div id="entries-list" class="list"></div>
+    </section>
+
+    <section id="orders" hidden><div id="orders-list" class="list"></div></section>
+
+    <section id="settings" hidden>
+      <form id="settings-form" class="form" novalidate>
+        <div id="settings-fields" class="form"></div>
+        <div class="settings-actions">
+          <p id="settings-feedback" role="status" aria-live="polite">Changes apply after you save.</p>
+          <button id="settings-save" type="submit" class="primary">Save settings</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="alerts" hidden>
+      <p>Choose a price watch or a confirmation subscription. Both send Telegram messages using the selected broker feed.</p>
+      <form id="watch-form" class="card form">
+        <label class="col">Alert me about<select id="watch-kind"><option value="price">Price</option><option value="confirmation">Confirmation</option></select></label>
+        <label class="col">Market<select id="watch-pair" required></select></label>
+        <div id="watch-price-controls" class="form">
+          <label class="col">Price condition<select id="watch-condition"></select></label>
+          <label class="col">Timeframe<select id="watch-tf"><option>H1</option><option>H2</option><option>H4</option></select></label>
+        </div>
+        <div id="watch-confirmation-controls" class="form" hidden>
+          <fieldset class="choice-box"><legend>Confirmation models</legend><label><input id="watch-any-model" type="checkbox" checked> Any of these models</label><div id="watch-models" class="chips"></div></fieldset>
+          <fieldset class="choice-box"><legend>Watch timeframes · choose up to 6</legend><div id="watch-timeframes" class="chips"></div></fieldset>
+          <label class="col">Where to look<select id="watch-scope"><option value="anywhere">Anywhere on this market</option><option value="level">At a level</option></select></label>
+          <label class="col">Notify me<select id="watch-repeat"><option value="once">For the first matching event</option><option value="each">For each new matching event until expiry</option></select></label>
+          <label class="row">Also require lower-timeframe engulfing<input id="watch-engulfing" type="checkbox"></label>
+        </div>
+        <label class="col">Direction<select id="watch-side"><option>EITHER</option><option>BUY</option><option>SELL</option></select></label>
+        <label id="watch-level-row" class="col">Price level<input id="watch-level" type="number" step="any" min="0.00000001" required></label>
+        <p id="watch-definition" class="hint"></p>
+        <label class="col">Expires after<select id="watch-expiry"><option value="24">1 day</option><option value="168" selected>1 week</option></select></label>
+        <label class="col">Note<input id="watch-note" maxlength="240" placeholder="Optional reminder for yourself"></label>
+        <button class="primary" type="submit">Create Telegram alert</button>
+        <p id="watch-feedback" role="status" aria-live="polite"></p>
+      </form>
+      <div id="watch-list" class="list"></div>
+    </section>
+
+    <section id="devices" hidden>
+      <div class="card form">
+        <h2>Connect another browser</h2>
+        <p>Generate this code inside Telegram. A code can be used once and expires shortly. Never send it to someone else.</p>
+        <label class="col">Connect as<select id="pairing-kind"><option value="browser">Website browser</option><option value="extension">Chrome extension</option></select></label>
+        <button id="create-pairing" class="primary" type="button">Generate a connection code</button>
+        <output id="pairing-code" class="pairing-code" hidden></output>
+        <p id="pairing-feedback" role="status" aria-live="polite"></p>
+        <a href="/extension/download">Download Chrome extension</a>
+        <p class="hint">Desktop Chrome: unzip the download, open chrome://extensions, enable Developer mode and choose Load unpacked. Phone users can use My alerts here.</p>
+      </div>
+      <div id="device-list" class="list"></div>
+      <button id="browser-logout" type="button" hidden>Sign out of this browser</button>
+    </section>
+
+    <section id="journal" hidden>
+      <p>Keep short trade notes here. Results are your own records, separate from broker orders and paper results.</p>
+      <form id="journal-form" class="card form">
+        <input id="journal-id" type="hidden">
+        <label class="col">Related alert or entry<select id="journal-source" required></select></label>
+        <label class="col">Market<select id="journal-pair" required></select></label>
+        <label class="col">Direction<select id="journal-side"><option>BUY</option><option>SELL</option></select></label>
+        <label class="col">Outcome<select id="journal-outcome"><option>OPEN</option><option>WIN</option><option>LOSS</option><option>BREAKEVEN</option><option>CLOSED</option></select></label>
+        <div class="form-grid">
+          <label class="col">Entry<input id="journal-entry" type="number" step="any" min="0"></label>
+          <label class="col">Stop<input id="journal-stop" type="number" step="any" min="0"></label>
+          <label class="col">Target<input id="journal-target" type="number" step="any" min="0"></label>
+          <label class="col">Result (R)<input id="journal-result" type="number" step="any" placeholder="Optional"></label>
+        </div>
+        <label class="col">Notes<textarea id="journal-notes" maxlength="2000" rows="4"></textarea></label>
+        <div class="action-row"><button class="primary" type="submit">Save journal note</button><button id="journal-reset" type="button">New note</button></div>
+        <p id="journal-feedback" role="status" aria-live="polite"></p>
+      </form>
+      <div id="journal-list" class="list"></div>
+    </section>
+
+    <section id="replay" hidden>
+      <p>Reveal historical candles one at a time. Alert replay starts from an owned event; price replay starts from a market and time you choose.</p>
+      <form id="replay-form" class="card form">
+        <label class="col">Replay mode<select id="replay-mode"><option value="alert">Alert replay</option><option value="price">Price replay</option></select></label>
+        <label id="replay-alert-controls" class="col">Saved alert<select id="replay-source" required></select></label>
+        <div id="replay-price-controls" class="form" hidden>
+          <label class="col">Market<select id="replay-pair"></select></label>
+          <label class="col"><span id="replay-zone-label">Start date and time</span><input id="replay-start" type="datetime-local" min="2018-01-15T00:00"></label>
+        </div>
+        <label class="col">Chart timeframe<select id="replay-timeframe"><option>H1</option><option>H2</option><option>H3</option><option>H4</option><option value="D">Daily</option><option value="W">Weekly</option></select></label>
+        <button class="primary" type="submit">Open replay</button>
+        <p id="replay-feedback" role="status" aria-live="polite"></p>
+      </form>
+      <div id="replay-panel" class="card" hidden>
+        <div class="action-row replay-topbar"><button id="replay-close" type="button" title="Replay settings">← Settings</button><button id="replay-expand" type="button">Full screen</button><label><span class="sr-only">Timeframe</span><select id="chart-timeframe"><option>H1</option><option>H2</option><option>H3</option><option>H4</option><option value="D">Daily</option><option value="W">Weekly</option></select></label></div>
+        <p id="replay-caption"></p>
+        <details id="chart-tools-panel"><summary>Drawing tools</summary><div class="chart-tool-content"><div class="action-row chart-tools"><label>Draw<select id="chart-tool"><option value="cursor">Select / cursor</option><option value="line">Horizontal line</option><option value="trend">Trend line</option><option value="rectangle">Rectangle / box</option><option value="text">Text note</option><option value="long">Long risk/reward</option><option value="short">Short risk/reward</option></select></label><label>Reward / risk<input id="chart-ratio" type="number" min="0.1" max="100" step="0.1" value="2"></label><button id="chart-undo" type="button">Undo</button><button id="chart-redo" type="button">Redo</button><button id="chart-clear" type="button">Clear</button><button id="chart-in" type="button">Zoom +</button><button id="chart-out" type="button">Zoom −</button><button id="chart-left" type="button">← Earlier</button><button id="chart-right" type="button">Later →</button><button id="chart-fit" type="button">Fit chart</button><button id="chart-head" type="button">Replay head</button></div>
+        <details id="chart-editor"><summary>Drawings and editing</summary>
+          <div class="action-row"><label>Selected drawing<select id="drawing-select"><option value="">None</option></select></label><button id="drawing-move" type="button" disabled>Move selected</button><button id="drawing-delete" type="button" disabled>Delete selected</button></div>
+          <label>Note text<input id="drawing-text" type="text" maxlength="200" placeholder="Type a note before placing text"></label>
+          <form id="drawing-edit" class="form" hidden>
+            <div class="form-grid"><label>Price / entry<input id="drawing-price" type="number" min="0.00000001" step="any" required></label><label id="drawing-second-label">Second price / stop<input id="drawing-second" type="number" min="0.00000001" step="any"></label><label id="drawing-time-label">Start time (settings timezone)<input id="drawing-time" type="datetime-local"></label><label id="drawing-end-label">End time (settings timezone)<input id="drawing-end" type="datetime-local"></label><label id="drawing-ratio-label">Reward / risk<input id="drawing-ratio" type="number" min="0.1" max="100" step="any"></label></div>
+            <button type="submit" class="primary">Apply changes</button>
+          </form>
+        </details>
+        <p id="chart-help" role="status">Choose a tool, then place it on the chart. Select a drawing to edit it.</p></div></details>
+        <p id="replay-bar" aria-live="off"></p>
+        <div id="replay-chart-stage"><div id="replay-chart" role="img" aria-label="Interactive replay candle chart"></div><canvas id="replay-canvas" width="1200" height="500" aria-label="Chart drawing overlay"></canvas><p id="replay-chart-status" role="status" aria-live="polite" hidden></p></div>
+        <p id="replay-markers" class="muted"></p>
+        <div class="action-row replay-playback"><button id="chart-select-start" type="button" title="Choose a revealed candle as the replay start">Select bar</button><button id="replay-reset" type="button" title="Restart replay">Restart</button><button id="replay-play" type="button">Play</button><button id="replay-next" type="button" title="Next completed candle">Next candle</button><label><span class="sr-only">Playback speed</span><select id="replay-speed"><option value="1600">0.5×</option><option value="800" selected>1×</option><option value="400">2×</option><option value="200">4×</option></select></label></div>
+
+      </div>
+    </section>
+
+    <section id="status" hidden><div id="runs-list" class="list"></div></section>
+  </main>
+  <script src="/static/vendor/lightweight-charts.standalone.production.js?v=5.0.8"></script>
+  <script src="/static/replay_chart.js?v=workspace-8"></script>
+  <script src="/static/app.js?v=workspace-8"></script>
+</body>
+</html>
