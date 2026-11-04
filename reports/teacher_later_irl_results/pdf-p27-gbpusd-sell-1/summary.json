@@ -1,0 +1,94 @@
+[
+  {
+    "case_id": "pdf-p27-gbpusd-sell-1",
+    "cutoff": "printed_source_snapshot",
+    "as_of": "2026-06-24T11:49:00Z",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+    "summary": {
+      "stories": 303,
+      "setups": 133,
+      "orders": 14,
+      "outcomes": {
+        "CENSORED": 10,
+        "LOSS": 4
+      }
+    },
+    "same_side_source_tf_groups": 0,
+    "story_sides": {
+      "BUY": 118,
+      "SELL": 185
+    },
+    "setup_routes": {
+      "confirmation_engulfed_oc:H1:BUY": 35,
+      "confirmation_bo:H1:BUY": 26,
+      "oc_break_retest:H1:BUY": 13,
+      "engulf_av_retest:H1:BUY": 13,
+      "confirmation_standing_extreme:H1:BUY": 35,
+      "confirmation_standing_extreme:H2:BUY": 11
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 42,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 274,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 3,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 2206,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 364,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  },
+  {
+    "case_id": "pdf-p27-gbpusd-sell-1",
+    "cutoff": "research_later_kl_irl",
+    "as_of": "2026-06-24T11:49:00Z",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+    "summary": {
+      "stories": 303,
+      "setups": 727,
+      "orders": 14,
+      "outcomes": {
+        "CENSORED": 10,
+        "LOSS": 4
+      }
+    },
+    "same_side_source_tf_groups": 378,
+    "story_sides": {
+      "BUY": 118,
+      "SELL": 185
+    },
+    "setup_routes": {
+      "confirmation_bo:H1:BUY": 20,
+      "confirmation_engulfed_oc:H1:BUY": 20,
+      "confirmation_standing_extreme:H1:BUY": 20,
+      "engulf_av_retest:H1:BUY": 7,
+      "oc_break_retest:H1:BUY": 7,
+      "confirmation_bo:H1:SELL": 216,
+      "engulf_av_retest:H1:SELL": 54,
+      "confirmation_bo:H2:SELL": 189,
+      "engulf_av_retest:H2:SELL": 54,
+      "confirmation_engulfed_oc:H1:SELL": 54,
+      "confirmation_standing_extreme:H2:BUY": 5,
+      "oc_break_retest:H1:SELL": 27,
+      "confirmation_sweep_bos:H2:SELL": 27,
+      "confirmation_sweep_bos:H1:SELL": 27
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 42,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 274,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 3,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 2592,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 364,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  }
+]

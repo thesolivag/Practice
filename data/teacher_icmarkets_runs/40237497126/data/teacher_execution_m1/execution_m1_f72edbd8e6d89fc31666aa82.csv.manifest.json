@@ -1,0 +1,355 @@
+{
+  "broker_symbol": "GBPUSD",
+  "calendar_id": "fx_ny_v1",
+  "anchor_id": "ny17_wall_v2",
+  "calendar_version": "fx_ny_v1_declared_hypothesis",
+  "asset_class": "FX",
+  "symbol_mapping_status": "EXACT_BROKER_NAME_ALTERNATE_SOURCE_FEED",
+  "catalogue_source": "origin/claude-kevin-king:data/broker_symbols.json",
+  "catalogue_commit": "a4adf5206577b174590aeb70f85581a617fe3c1c",
+  "catalogue_updated_at": "2026-10-22T08:13:42.528075+00:00",
+  "replay_calendar_status": "DECLARED_FX_HYPOTHESIS",
+  "symbol": "GBPUSD",
+  "tick_size": "0.00001",
+  "distance_unit": "0.0001",
+  "price_basis": "BID",
+  "venue": "ICMARKETS",
+  "provider": "IC Markets cTrader Open API",
+  "base_tf": "M1",
+  "source_id": "source_b914846f2372e77388c1c464",
+  "sha256": "eb846d2e72798484954d7212d9fe08f20b401a738c6884acd57ae7ce5b47de57",
+  "retrieved_at": "2026-10-25T21:52:56.276772+00:00",
+  "historical_availability_assumption": "bar close; actual historical receipt timestamps unavailable",
+  "requested_start": "2026-06-24T03:00:00+00:00",
+  "requested_end": "2026-07-08T11:49:00+00:00",
+  "first_bar": "2026-06-24T03:00:00+00:00",
+  "last_bar": "2026-07-08T11:48:00+00:00",
+  "rows": 14817,
+  "symbol_metadata": {
+    "symbol_id": 2,
+    "name": "GBPUSD",
+    "digits": 5,
+    "pip_position": 4,
+    "lot_size": 10000000,
+    "min_volume": 100000,
+    "max_volume": 10000000000,
+    "step_volume": 100000,
+    "candidates": [
+      2
+    ]
+  },
+  "request_count": 29,
+  "chunks": [
+    {
+      "requested_start": "2026-06-24T03:00:00+00:00",
+      "requested_end": "2026-06-24T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-24T03:00:00+00:00",
+      "last_bar": "2026-06-24T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-24T15:00:00+00:00",
+      "requested_end": "2026-06-25T03:00:00+00:00",
+      "returned_rows": 706,
+      "retained_rows": 705,
+      "first_bar": "2026-06-24T15:00:00+00:00",
+      "last_bar": "2026-06-25T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-25T03:00:00+00:00",
+      "requested_end": "2026-06-25T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-25T03:00:00+00:00",
+      "last_bar": "2026-06-25T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-25T15:00:00+00:00",
+      "requested_end": "2026-06-26T03:00:00+00:00",
+      "returned_rows": 712,
+      "retained_rows": 711,
+      "first_bar": "2026-06-25T15:00:00+00:00",
+      "last_bar": "2026-06-26T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-26T03:00:00+00:00",
+      "requested_end": "2026-06-26T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-26T03:00:00+00:00",
+      "last_bar": "2026-06-26T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-26T15:00:00+00:00",
+      "requested_end": "2026-06-27T03:00:00+00:00",
+      "returned_rows": 357,
+      "retained_rows": 357,
+      "first_bar": "2026-06-26T15:00:00+00:00",
+      "last_bar": "2026-06-26T20:56:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-27T03:00:00+00:00",
+      "requested_end": "2026-06-27T15:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-27T15:00:00+00:00",
+      "requested_end": "2026-06-28T03:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-28T03:00:00+00:00",
+      "requested_end": "2026-06-28T15:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-28T15:00:00+00:00",
+      "requested_end": "2026-06-29T03:00:00+00:00",
+      "returned_rows": 352,
+      "retained_rows": 351,
+      "first_bar": "2026-06-28T21:01:00+00:00",
+      "last_bar": "2026-06-29T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-29T03:00:00+00:00",
+      "requested_end": "2026-06-29T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-29T03:00:00+00:00",
+      "last_bar": "2026-06-29T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-29T15:00:00+00:00",
+      "requested_end": "2026-06-30T03:00:00+00:00",
+      "returned_rows": 717,
+      "retained_rows": 716,
+      "first_bar": "2026-06-29T15:00:00+00:00",
+      "last_bar": "2026-06-30T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-30T03:00:00+00:00",
+      "requested_end": "2026-06-30T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-30T03:00:00+00:00",
+      "last_bar": "2026-06-30T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-30T15:00:00+00:00",
+      "requested_end": "2026-07-01T03:00:00+00:00",
+      "returned_rows": 717,
+      "retained_rows": 716,
+      "first_bar": "2026-06-30T15:00:00+00:00",
+      "last_bar": "2026-07-01T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-01T03:00:00+00:00",
+      "requested_end": "2026-07-01T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-07-01T03:00:00+00:00",
+      "last_bar": "2026-07-01T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-01T15:00:00+00:00",
+      "requested_end": "2026-07-02T03:00:00+00:00",
+      "returned_rows": 701,
+      "retained_rows": 700,
+      "first_bar": "2026-07-01T15:00:00+00:00",
+      "last_bar": "2026-07-02T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-02T03:00:00+00:00",
+      "requested_end": "2026-07-02T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-07-02T03:00:00+00:00",
+      "last_bar": "2026-07-02T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-02T15:00:00+00:00",
+      "requested_end": "2026-07-03T03:00:00+00:00",
+      "returned_rows": 710,
+      "retained_rows": 709,
+      "first_bar": "2026-07-02T15:00:00+00:00",
+      "last_bar": "2026-07-03T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-03T03:00:00+00:00",
+      "requested_end": "2026-07-03T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-07-03T03:00:00+00:00",
+      "last_bar": "2026-07-03T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-03T15:00:00+00:00",
+      "requested_end": "2026-07-04T03:00:00+00:00",
+      "returned_rows": 353,
+      "retained_rows": 353,
+      "first_bar": "2026-07-03T15:00:00+00:00",
+      "last_bar": "2026-07-03T20:56:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-04T03:00:00+00:00",
+      "requested_end": "2026-07-04T15:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-04T15:00:00+00:00",
+      "requested_end": "2026-07-05T03:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-05T03:00:00+00:00",
+      "requested_end": "2026-07-05T15:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-05T15:00:00+00:00",
+      "requested_end": "2026-07-06T03:00:00+00:00",
+      "returned_rows": 353,
+      "retained_rows": 352,
+      "first_bar": "2026-07-05T21:01:00+00:00",
+      "last_bar": "2026-07-06T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-06T03:00:00+00:00",
+      "requested_end": "2026-07-06T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-07-06T03:00:00+00:00",
+      "last_bar": "2026-07-06T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-06T15:00:00+00:00",
+      "requested_end": "2026-07-07T03:00:00+00:00",
+      "returned_rows": 712,
+      "retained_rows": 711,
+      "first_bar": "2026-07-06T15:00:00+00:00",
+      "last_bar": "2026-07-07T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-07T03:00:00+00:00",
+      "requested_end": "2026-07-07T15:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-07-07T03:00:00+00:00",
+      "last_bar": "2026-07-07T14:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-07T15:00:00+00:00",
+      "requested_end": "2026-07-08T03:00:00+00:00",
+      "returned_rows": 708,
+      "retained_rows": 707,
+      "first_bar": "2026-07-07T15:00:00+00:00",
+      "last_bar": "2026-07-08T02:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-07-08T03:00:00+00:00",
+      "requested_end": "2026-07-08T11:49:00+00:00",
+      "returned_rows": 530,
+      "retained_rows": 529,
+      "first_bar": "2026-07-08T03:00:00+00:00",
+      "last_bar": "2026-07-08T11:48:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    }
+  ],
+  "empty_chunks": 6,
+  "zero_volume_rows": 0,
+  "observed_outside_fx_weekend_hours": 0,
+  "calendar_observation_note": "FX weekend diagnostic only; not an assumed calendar for non-FX; observed bars retained",
+  "raw_collection_status": "RAW_COLLECTED_UNVALIDATED",
+  "case_ids": [
+    "pdf-p27-gbpusd-sell-1"
+  ],
+  "collection_job": {
+    "id": "execution_m1_f72edbd8e6d89fc31666aa82",
+    "pair": "GBPUSD",
+    "base_tf": "M1",
+    "start": "2026-06-24T03:00:00+00:00",
+    "end": "2026-07-08T11:49:00+00:00",
+    "case_ids": [
+      "pdf-p27-gbpusd-sell-1"
+    ],
+    "purpose": "FROZEN_EXECUTION_ONLY_NO_DETECTION"
+  },
+  "coverage_status": "NOT_CALENDAR_VALIDATED",
+  "source_equivalence": "ALTERNATE_FEED; teacher feed/alignment may differ"
+}

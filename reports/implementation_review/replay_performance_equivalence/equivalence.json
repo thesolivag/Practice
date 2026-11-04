@@ -1,0 +1,22 @@
+{
+  "before_run": 40652436745,
+  "after_run": 40681944363,
+  "entire_result_equal": true,
+  "result_sha256": "ff2ebf1b8861e78e99a146400b43a159e21152cc1a709f49fd4b30297f1a7c8b",
+  "summary": {
+    "stories": 178,
+    "setups": 2807,
+    "orders": 9,
+    "outcomes": {
+      "CENSORED": 2,
+      "WIN": 7
+    }
+  },
+  "scope": "COMPLETE_BOUNDED_DIAGNOSTIC_EQUALITY_NOT_TEACHER_ACCEPTANCE",
+  "regression_run": 40681932479,
+  "tests_passed": 511,
+  "tests_skipped": 5,
+  "all_diagnostics_equal": true,
+  "reviewed_commit": "0bcdd70545aac1add3a42d0c9356f26711ef3b31",
+  "independent_review": "NO_BLOCKERS"
+}

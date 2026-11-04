@@ -1,0 +1,293 @@
+{
+  "schema_version": "primary_missing_frozen_inputs_v2",
+  "prior_audit": {
+    "generated_utc": "2026-10-28T22:45:02.091716+00:00",
+    "scope": "LOCAL_READ_ONLY_METADATA_AND_SMALL_SELECTED_H1_CSV_AUDIT_NO_NETWORK_NO_ENGINE_OR_FIXTURE_MUTATION",
+    "search_roots": [
+      "data",
+      "reports"
+    ],
+    "manifest_files_examined": 77,
+    "csv_or_csv_gz_files_enumerated": 83,
+    "methods": [
+      "Enumerated all manifest files including ignored paths; matched root symbol/broker_symbol/pair and H1 base_tf.",
+      "Checked named local CSV paths and primary-video replay plan JSON references. No AUDCHF/NZDCHF/USDJPY candle references in data or primary-video plans located.",
+      "Streamed only selected EURGBP H1 files for actual first/last timestamps, rows and Aug2026 day counts; verified SHA256 against manifests."
+    ],
+    "pairs": [
+      {
+        "pair": "AUDCHF",
+        "case_ids": [
+          "video-t3-audchf-buy-loss"
+        ],
+        "status": "NO_FROZEN_H1_FOUND_IN_SEARCH_SCOPE",
+        "preferred_input_path": null,
+        "frozen_inputs": [],
+        "symbol_mapping_metadata_path": "reports/teacher_icmarkets_metadata.json",
+        "symbol_mapping_metadata_present": true,
+        "symbol_mapping_is_not_candle_acquisition": true,
+        "printed_source_period_august_2026_likely_covered": "No: no local frozen H1 input for this pair located. Metadata entry alone supplies no bars.",
+        "blocking_limit": "Exact source event date/UTC clock and source-to-IC candle alignment still require independent verification; chronological coverage alone does not award replay acceptance."
+      },
+      {
+        "pair": "NZDCHF",
+        "case_ids": [
+          "video-t3-nzdchf-buy-loss"
+        ],
+        "status": "NO_FROZEN_H1_FOUND_IN_SEARCH_SCOPE",
+        "preferred_input_path": null,
+        "frozen_inputs": [],
+        "symbol_mapping_metadata_path": "reports/teacher_icmarkets_metadata.json",
+        "symbol_mapping_metadata_present": true,
+        "symbol_mapping_is_not_candle_acquisition": true,
+        "printed_source_period_august_2026_likely_covered": "No: no local frozen H1 input for this pair located. Metadata entry alone supplies no bars.",
+        "blocking_limit": "Exact source event date/UTC clock and source-to-IC candle alignment still require independent verification; chronological coverage alone does not award replay acceptance."
+      },
+      {
+        "pair": "USDJPY",
+        "case_ids": [
+          "video-t3-usdjpy-buy-manual-exit"
+        ],
+        "status": "NO_FROZEN_H1_FOUND_IN_SEARCH_SCOPE",
+        "preferred_input_path": null,
+        "frozen_inputs": [],
+        "symbol_mapping_metadata_path": "reports/teacher_icmarkets_metadata.json",
+        "symbol_mapping_metadata_present": true,
+        "symbol_mapping_is_not_candle_acquisition": true,
+        "printed_source_period_august_2026_likely_covered": "No: no local frozen H1 input for this pair located. Metadata entry alone supplies no bars.",
+        "blocking_limit": "Exact source event date/UTC clock and source-to-IC candle alignment still require independent verification; chronological coverage alone does not award replay acceptance."
+      },
+      {
+        "pair": "EURGBP",
+        "case_ids": [
+          "video-t2-eurgbp-sell"
+        ],
+        "status": "PARTIAL_FROZEN_H1_FOUND",
+        "preferred_input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+        "frozen_inputs": [
+          {
+            "path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+            "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.manifest.json",
+            "sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+            "manifest_sha256": "687e18bb96e994874c450e172744133c52bb5647cf2b5be6c2e0457bca6e3760",
+            "hash_matches_manifest": true,
+            "source_kind": "FROZEN_ALTERNATE_FEED_IC_MARKETS_BID_H1",
+            "provider": "IC Markets cTrader Open API",
+            "venue": "ICMARKETS",
+            "price_basis": "BID",
+            "base_tf": "H1",
+            "first_bar_utc": "2025-04-09T00:00:00+00:00",
+            "last_bar_utc": "2026-08-06T23:00:00+00:00",
+            "rows_counted": 8277,
+            "manifest_rows": 8277,
+            "august_2026_rows_by_date": {
+              "2026-08-02": 3,
+              "2026-08-03": 24,
+              "2026-08-04": 24,
+              "2026-08-05": 24,
+              "2026-08-06": 24
+            },
+            "august_2026_coverage": "PARTIAL_AUG01_THROUGH_AUG06_ONLY",
+            "covers_full_august_2026": false,
+            "calendar_id": "fx_ny_v1",
+            "anchor_id": "ny17_wall_v2",
+            "source_equivalence": "ALTERNATE_FEED_DIAGNOSTIC_NOT_PRINTED_CHART_SOURCE_FEED_EQUIVALENCE",
+            "temporal_coverage_is_not_gap_validation": true
+          },
+          {
+            "path": "data/examples/EURGBP_pdf_p08_icmarkets_bid_H1.csv.gz",
+            "manifest_path": "data/examples/EURGBP_pdf_p08_icmarkets_bid_H1.meta.json",
+            "sha256": "815f153eccb7ac981c06850bab82a5cd39dd41146810497f7b115d0839d559b0",
+            "manifest_sha256": "567d138bdcb65f31914b719c18e5b0943e5eb45cb521ea4368008b0130eb0bb2",
+            "hash_matches_manifest": true,
+            "source_kind": "FROZEN_ALTERNATE_FEED_IC_MARKETS_BID_H1",
+            "provider": "Existing public IC Markets cTrader BID H1 export from Kevin branch; not source FOREXCOM feed",
+            "venue": "ICMARKETS",
+            "price_basis": "BID",
+            "base_tf": "H1",
+            "first_bar_utc": "2026-01-01 22:00:00+00:00",
+            "last_bar_utc": "2026-07-31 20:00:00+00:00",
+            "rows_counted": 3624,
+            "manifest_rows": 3624,
+            "august_2026_rows_by_date": {},
+            "august_2026_coverage": "NONE",
+            "covers_full_august_2026": false,
+            "calendar_id": "fx_ny_v1",
+            "anchor_id": "ny17_wall_v2",
+            "source_equivalence": "ALTERNATE_FEED_DIAGNOSTIC_NOT_PRINTED_CHART_SOURCE_FEED_EQUIVALENCE",
+            "temporal_coverage_is_not_gap_validation": true
+          }
+        ],
+        "symbol_mapping_metadata_path": "reports/teacher_icmarkets_metadata.json",
+        "symbol_mapping_metadata_present": true,
+        "symbol_mapping_is_not_candle_acquisition": true,
+        "printed_source_period_august_2026_likely_covered": "Only Aug1\u20136 by one frozen H1 input; no coverage after Aug6 and no exact printed event date independently resolved in this audit.",
+        "blocking_limit": "Exact source event date/UTC clock and source-to-IC candle alignment still require independent verification; chronological coverage alone does not award replay acceptance."
+      }
+    ],
+    "summary": {
+      "AUDCHF": "MISSING_FROZEN_H1",
+      "NZDCHF": "MISSING_FROZEN_H1",
+      "USDJPY": "MISSING_FROZEN_H1",
+      "EURGBP": "8277-row H1 frozen 2025-04-09 through 2026-08-06 23:00 UTC; older 3624-row example ends July31. Primary episodes after Aug6 are not covered."
+    }
+  },
+  "source_period_correction": "These primary episodes are May29\u2013June12,2026, not August.",
+  "new_collection_github_run_id": 40782235154,
+  "pairs": [
+    {
+      "pair": "AUDCHF",
+      "status": "FROZEN_RAW_INPUT_PRESENT_HASH_CHECKED_NOT_TEACHER_ACCEPTED",
+      "github_run_id": 40782235154,
+      "preferred_input_path": "data/primary_missing_inputs/AUDCHF/primary_h1_764980791eb695bfcfc0e037.csv.gz",
+      "manifest_path": "data/primary_missing_inputs/AUDCHF/primary_h1_764980791eb695bfcfc0e037.csv.manifest.json",
+      "sha256": "d4c15322113cccf3c4b8731ce6506d61580296bba7c5f6f6b9a797b8bbeadbff",
+      "sha256_verified": true,
+      "rows": 7338,
+      "first_record": {
+        "time": "2025-04-09T00:00:00+00:00",
+        "open": "0.50365",
+        "high": "0.50384",
+        "low": "0.49989",
+        "close": "0.50272",
+        "volume": "8492"
+      },
+      "last_record": {
+        "time": "2026-06-12T20:00:00+00:00",
+        "open": "0.5617",
+        "high": "0.56181",
+        "low": "0.56109",
+        "close": "0.5611",
+        "volume": "2565"
+      },
+      "collection_status": "RAW_COLLECTED_UNVALIDATED",
+      "source_id": "source_bf8e4c1e97fe546a2d82a84d",
+      "warmup_and_feed_alignment_limit": "Raw collection alone is not source-to-IC alignment; H2/H3/H4 calendar and incompletebar handling must be validated in replay."
+    },
+    {
+      "pair": "NZDCHF",
+      "status": "FROZEN_RAW_INPUT_PRESENT_HASH_CHECKED_NOT_TEACHER_ACCEPTED",
+      "github_run_id": 40782235154,
+      "preferred_input_path": "data/primary_missing_inputs/NZDCHF/primary_h1_2faa2e740106d647304182c0.csv.gz",
+      "manifest_path": "data/primary_missing_inputs/NZDCHF/primary_h1_2faa2e740106d647304182c0.csv.manifest.json",
+      "sha256": "296014912f5e0b7334f2f5e208b351e7d0fbe2920b7512ce9c0828116151fae7",
+      "sha256_verified": true,
+      "rows": 7338,
+      "first_record": {
+        "time": "2025-04-09T00:00:00+00:00",
+        "open": "0.46652",
+        "high": "0.46662",
+        "low": "0.46364",
+        "close": "0.46607",
+        "volume": "7268"
+      },
+      "last_record": {
+        "time": "2026-06-12T20:00:00+00:00",
+        "open": "0.46468",
+        "high": "0.46474",
+        "low": "0.46442",
+        "close": "0.46444",
+        "volume": "2387"
+      },
+      "collection_status": "RAW_COLLECTED_UNVALIDATED",
+      "source_id": "source_288ac9f2ab1da8f1a7515070",
+      "warmup_and_feed_alignment_limit": "Raw collection alone is not source-to-IC alignment; H2/H3/H4 calendar and incompletebar handling must be validated in replay."
+    },
+    {
+      "pair": "USDJPY",
+      "status": "FROZEN_RAW_INPUT_PRESENT_HASH_CHECKED_NOT_TEACHER_ACCEPTED",
+      "github_run_id": 40782235154,
+      "preferred_input_path": "data/primary_missing_inputs/USDJPY/primary_h1_dc10ebd5b7ed5976a07282c4.csv.gz",
+      "manifest_path": "data/primary_missing_inputs/USDJPY/primary_h1_dc10ebd5b7ed5976a07282c4.csv.manifest.json",
+      "sha256": "6af51034ed2405536fadcd007e858bd404cd8bb3bc145ab0061b681be98ae6f3",
+      "sha256_verified": true,
+      "rows": 7338,
+      "first_record": {
+        "time": "2025-04-09T00:00:00+00:00",
+        "open": "145.849",
+        "high": "145.901",
+        "low": "145.133",
+        "close": "145.406",
+        "volume": "12142"
+      },
+      "last_record": {
+        "time": "2026-06-12T20:00:00+00:00",
+        "open": "160.205",
+        "high": "160.229",
+        "low": "160.186",
+        "close": "160.206",
+        "volume": "1625"
+      },
+      "collection_status": "RAW_COLLECTED_UNVALIDATED",
+      "source_id": "source_6815921a180e3d93c4c93a81",
+      "warmup_and_feed_alignment_limit": "Raw collection alone is not source-to-IC alignment; H2/H3/H4 calendar and incompletebar handling must be validated in replay."
+    },
+    {
+      "pair": "EURGBP",
+      "case_ids": [
+        "video-t2-eurgbp-sell"
+      ],
+      "status": "PARTIAL_FROZEN_H1_FOUND",
+      "preferred_input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+      "frozen_inputs": [
+        {
+          "path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+          "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.manifest.json",
+          "sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+          "manifest_sha256": "687e18bb96e994874c450e172744133c52bb5647cf2b5be6c2e0457bca6e3760",
+          "hash_matches_manifest": true,
+          "source_kind": "FROZEN_ALTERNATE_FEED_IC_MARKETS_BID_H1",
+          "provider": "IC Markets cTrader Open API",
+          "venue": "ICMARKETS",
+          "price_basis": "BID",
+          "base_tf": "H1",
+          "first_bar_utc": "2025-04-09T00:00:00+00:00",
+          "last_bar_utc": "2026-08-06T23:00:00+00:00",
+          "rows_counted": 8277,
+          "manifest_rows": 8277,
+          "august_2026_rows_by_date": {
+            "2026-08-02": 3,
+            "2026-08-03": 24,
+            "2026-08-04": 24,
+            "2026-08-05": 24,
+            "2026-08-06": 24
+          },
+          "august_2026_coverage": "PARTIAL_AUG01_THROUGH_AUG06_ONLY",
+          "covers_full_august_2026": false,
+          "calendar_id": "fx_ny_v1",
+          "anchor_id": "ny17_wall_v2",
+          "source_equivalence": "ALTERNATE_FEED_DIAGNOSTIC_NOT_PRINTED_CHART_SOURCE_FEED_EQUIVALENCE",
+          "temporal_coverage_is_not_gap_validation": true
+        },
+        {
+          "path": "data/examples/EURGBP_pdf_p08_icmarkets_bid_H1.csv.gz",
+          "manifest_path": "data/examples/EURGBP_pdf_p08_icmarkets_bid_H1.meta.json",
+          "sha256": "815f153eccb7ac981c06850bab82a5cd39dd41146810497f7b115d0839d559b0",
+          "manifest_sha256": "567d138bdcb65f31914b719c18e5b0943e5eb45cb521ea4368008b0130eb0bb2",
+          "hash_matches_manifest": true,
+          "source_kind": "FROZEN_ALTERNATE_FEED_IC_MARKETS_BID_H1",
+          "provider": "Existing public IC Markets cTrader BID H1 export from Kevin branch; not source FOREXCOM feed",
+          "venue": "ICMARKETS",
+          "price_basis": "BID",
+          "base_tf": "H1",
+          "first_bar_utc": "2026-01-01 22:00:00+00:00",
+          "last_bar_utc": "2026-07-31 20:00:00+00:00",
+          "rows_counted": 3624,
+          "manifest_rows": 3624,
+          "august_2026_rows_by_date": {},
+          "august_2026_coverage": "NONE",
+          "covers_full_august_2026": false,
+          "calendar_id": "fx_ny_v1",
+          "anchor_id": "ny17_wall_v2",
+          "source_equivalence": "ALTERNATE_FEED_DIAGNOSTIC_NOT_PRINTED_CHART_SOURCE_FEED_EQUIVALENCE",
+          "temporal_coverage_is_not_gap_validation": true
+        }
+      ],
+      "symbol_mapping_metadata_path": "reports/teacher_icmarkets_metadata.json",
+      "symbol_mapping_metadata_present": true,
+      "symbol_mapping_is_not_candle_acquisition": true,
+      "printed_source_period_august_2026_likely_covered": "Only Aug1\u20136 by one frozen H1 input; no coverage after Aug6 and no exact printed event date independently resolved in this audit.",
+      "blocking_limit": "Exact source event date/UTC clock and source-to-IC candle alignment still require independent verification; chronological coverage alone does not award replay acceptance."
+    }
+  ]
+}

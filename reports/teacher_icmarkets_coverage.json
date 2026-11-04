@@ -1,0 +1,849 @@
+{
+  "scope": "INPUT_READINESS_NOT_SETUP_OR_TEACHER_ACCEPTANCE",
+  "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+  "fixture_count": 40,
+  "counts": {
+    "BASE_COMPLETE_DECLARED_CALENDAR": 22,
+    "BASE_GAPS_REQUIRE_CENSORING": 3,
+    "UNRESOLVED_CALENDAR": 11,
+    "MISSING_EXPLICIT_MATCHING_INPUT": 3,
+    "SURROGATE_MARKET_UNRESOLVED": 1
+  },
+  "results": [
+    {
+      "id": "pdf-p02-eurcad-buy-1",
+      "pair": "EURCAD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-08-01T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_801e76e1d9582359dfbec298.csv.gz",
+      "input_sha256": "383cc1bf3499098c8e437a812a7ba3310c0a2b3e2444561c978a450bcda2decf",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-26T00:00:00+00:00",
+        "end": "2026-08-01T00:00:00+00:00",
+        "expected_slots": 621,
+        "present_slots": 621,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p03-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-30T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_82b8a9f6bfd5a4c36de79afb.csv.gz",
+      "input_sha256": "1fda0239eda2e537853ee02de0a15806a8c2b7e5f6e1c30fed073efc3407faeb",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-24T00:00:00+00:00",
+        "end": "2026-07-30T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p05-eurchf-buy-1",
+      "pair": "EURCHF",
+      "tf": "M30",
+      "status": "BASE_GAPS_REQUIRE_CENSORING",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-30T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_e05b030b924cfa6702184f6f.csv.gz",
+      "input_sha256": "ab3a64ea52bfba187ec58a6afc084ce57d4e2ad988b39dd882366ea0cd210efb",
+      "coverage": {
+        "status": "INCOMPLETE",
+        "start": "2026-06-24T00:00:00+00:00",
+        "end": "2026-07-30T00:00:00+00:00",
+        "expected_slots": 7488,
+        "present_slots": 7487,
+        "missing_slots": 1,
+        "calendar": "fx_ny_v1",
+        "base_tf": "M5",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": [
+        "2026-07-15T21:10:00+00:00"
+      ]
+    },
+    {
+      "id": "pdf-p06-eurchf-buy-1",
+      "pair": "EURCHF",
+      "tf": "M30",
+      "status": "BASE_GAPS_REQUIRE_CENSORING",
+      "clock_kind": "ANNOTATED_EXPLORATORY_EVENT_SEARCH_NOT_SETUP_OR_FILL_CLOCK",
+      "as_of": "2026-07-31T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_306e6b0b008cb8ffaa366175.csv.gz",
+      "input_sha256": "271ae1977187a37476588a3c5bca77292a96c4f4e04074fe8d04b4f30a113c9b",
+      "coverage": {
+        "status": "INCOMPLETE",
+        "start": "2026-06-22T00:00:00+00:00",
+        "end": "2026-07-31T00:00:00+00:00",
+        "expected_slots": 8352,
+        "present_slots": 8351,
+        "missing_slots": 1,
+        "calendar": "fx_ny_v1",
+        "base_tf": "M5",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": [
+        "2026-07-15T21:10:00+00:00"
+      ]
+    },
+    {
+      "id": "pdf-p08-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-23T18:08:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+      "input_sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-18T00:00:00+00:00",
+        "end": "2026-07-23T18:00:00+00:00",
+        "expected_slots": 618,
+        "present_slots": 618,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p10-usoil-buy-1",
+      "pair": "USOIL",
+      "tf": "H2",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-22T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p10-usoil-buy-2",
+      "pair": "USOIL",
+      "tf": "H2",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-22T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p11-xauusd-sell-1",
+      "pair": "XAUUSD",
+      "tf": "H1",
+      "status": "MISSING_EXPLICIT_MATCHING_INPUT",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-09T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p13-eurnzd-sell-1",
+      "pair": "EURNZD",
+      "tf": "H3",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-18T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0a3ff8aa72c9638bbd097615.csv.gz",
+      "input_sha256": "afe3642cb447c5a48587582859ad2b9f6cab1c1292a42b85021bdc14a34066b3",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-12T00:00:00+00:00",
+        "end": "2026-07-18T00:00:00+00:00",
+        "expected_slots": 621,
+        "present_slots": 621,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p15-usdcad-sell-1",
+      "pair": "USDCAD",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-16T13:35:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_c058fc002a50237cd6d2dbb0.csv.gz",
+      "input_sha256": "22eb316ec794d2f509f520e501218ce14b1870735d545e457c0df61eab874d46",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-11T00:00:00+00:00",
+        "end": "2026-07-16T13:00:00+00:00",
+        "expected_slots": 613,
+        "present_slots": 613,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p17-audusd-buy-1",
+      "pair": "AUDUSD",
+      "tf": "M30",
+      "status": "BASE_GAPS_REQUIRE_CENSORING",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-17T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_ec195349d0b75960be90f62b.csv.gz",
+      "input_sha256": "b64c540ca1732bbec0dce293f525842f1a03deac0f774cf4ef320248fbaab63d",
+      "coverage": {
+        "status": "INCOMPLETE",
+        "start": "2026-06-11T00:00:00+00:00",
+        "end": "2026-07-17T00:00:00+00:00",
+        "expected_slots": 7488,
+        "present_slots": 7474,
+        "missing_slots": 14,
+        "calendar": "fx_ny_v1",
+        "base_tf": "M5",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": [
+        "2026-06-15T09:15:00+00:00",
+        "2026-06-15T09:20:00+00:00",
+        "2026-06-15T09:25:00+00:00",
+        "2026-06-15T09:30:00+00:00",
+        "2026-06-15T21:15:00+00:00"
+      ]
+    },
+    {
+      "id": "pdf-p19-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-15T17:26:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.gz",
+      "input_sha256": "b4974a96cfaf845518d25c7c28dca7b65690955ed3e953ef0c43bf3a1dd7a2a5",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-10T00:00:00+00:00",
+        "end": "2026-07-15T17:00:00+00:00",
+        "expected_slots": 617,
+        "present_slots": 617,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p19-gbpjpy-buy-2",
+      "pair": "GBPJPY",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-15T17:26:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.gz",
+      "input_sha256": "b4974a96cfaf845518d25c7c28dca7b65690955ed3e953ef0c43bf3a1dd7a2a5",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-10T00:00:00+00:00",
+        "end": "2026-07-15T17:00:00+00:00",
+        "expected_slots": 617,
+        "present_slots": 617,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p20-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "tf": "H4",
+      "status": "MISSING_EXPLICIT_MATCHING_INPUT",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-15T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p20-usoil-buy-2",
+      "pair": "USOIL",
+      "tf": "H4",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-15T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p22-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "tf": "H2",
+      "status": "MISSING_EXPLICIT_MATCHING_INPUT",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-14T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p22-xagusd-sell-2",
+      "pair": "XAGUSD",
+      "tf": "H2",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "ANNOTATED_EXPLORATORY_EVENT_SEARCH_NOT_SETUP_OR_FILL_CLOCK",
+      "as_of": "2026-07-12T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p23-usdchf-sell-1",
+      "pair": "USDCHF",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-10T06:43:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.gz",
+      "input_sha256": "08bcbde3bb134c43517a1391f66cbfaf566c4c66a39824259a5e20461a85c60d",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-05T00:00:00+00:00",
+        "end": "2026-07-10T06:00:00+00:00",
+        "expected_slots": 606,
+        "present_slots": 606,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p23-usdchf-sell-2",
+      "pair": "USDCHF",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-07-09T14:41:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.gz",
+      "input_sha256": "08bcbde3bb134c43517a1391f66cbfaf566c4c66a39824259a5e20461a85c60d",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-04T00:00:00+00:00",
+        "end": "2026-07-09T14:00:00+00:00",
+        "expected_slots": 614,
+        "present_slots": 614,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p25-audusd-sell-1",
+      "pair": "AUDUSD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-07-09T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_5db5a84c86814f3f7d87d12f.csv.gz",
+      "input_sha256": "89db28519c998b9938d7da361fec86cf989c5919c79ebedb9fe290b39b714862",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-03T00:00:00+00:00",
+        "end": "2026-07-09T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p27-gbpusd-sell-1",
+      "pair": "GBPUSD",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-06-25T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0401ebc6fede452bfc611a77.csv.gz",
+      "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-05-20T00:00:00+00:00",
+        "end": "2026-06-25T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p29-chfjpy-sell-1",
+      "pair": "CHFJPY",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-06-25T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6d1bb9152a1c2864520ed884.csv.gz",
+      "input_sha256": "26aab4a610017467780f064a1419caccad8d3694c0f103670cb8c901368f4b32",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-05-20T00:00:00+00:00",
+        "end": "2026-06-25T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p31-gbpnzd-buy-1",
+      "pair": "GBPNZD",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-06-11T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_765217f0559bd8e6f997181d.csv.gz",
+      "input_sha256": "937ec8888d033a496d7d5e71d403d3f5a93a82c36e77de76aeb15db77a45e480",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-05-06T00:00:00+00:00",
+        "end": "2026-06-11T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p33-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-06-10T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.gz",
+      "input_sha256": "6d2f2c9a1560c3b559b6d3061fe4bdd32bfcadca96e1cb8df13e4ef844fe92da",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-05-05T00:00:00+00:00",
+        "end": "2026-06-10T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p35-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-06-05T12:13:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.gz",
+      "input_sha256": "b4974a96cfaf845518d25c7c28dca7b65690955ed3e953ef0c43bf3a1dd7a2a5",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-05-01T00:00:00+00:00",
+        "end": "2026-06-05T12:00:00+00:00",
+        "expected_slots": 612,
+        "present_slots": 612,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p37-eurgbp-sell-1",
+      "pair": "EURGBP",
+      "tf": "H1",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-06-01T16:08:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+      "input_sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-27T00:00:00+00:00",
+        "end": "2026-06-01T16:00:00+00:00",
+        "expected_slots": 616,
+        "present_slots": 616,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p38-us30-buy-1",
+      "pair": "US30",
+      "tf": "M30",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-30T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p40-audcad-buy-1",
+      "pair": "AUDCAD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-30T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_75f2e6e54f800ec7673ac7ad.csv.gz",
+      "input_sha256": "df2467183cc8b41f2fc65a1cba271fba6dd6bcfb90b29ec9cdd3fd23d77a6172",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-24T00:00:00+00:00",
+        "end": "2026-05-30T00:00:00+00:00",
+        "expected_slots": 621,
+        "present_slots": 621,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p42-usoil-sell-1",
+      "pair": "USOIL",
+      "tf": "H3",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-29T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p44-ethusdt-sell-1",
+      "pair": "ETHUSDT",
+      "tf": "H1",
+      "status": "SURROGATE_MARKET_UNRESOLVED",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-28T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p46-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "tf": "M45",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-28T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_8a5370835b90d4e05ee6bcfb.csv.gz",
+      "input_sha256": "be5cc9c63e9da15b7f01bcd3b4343ac161ed930341a838b0fa8e788a7c71f9c1",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-22T00:00:00+00:00",
+        "end": "2026-05-28T00:00:00+00:00",
+        "expected_slots": 7488,
+        "present_slots": 7488,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "M5",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p47-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-22T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.gz",
+      "input_sha256": "6d2f2c9a1560c3b559b6d3061fe4bdd32bfcadca96e1cb8df13e4ef844fe92da",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-16T00:00:00+00:00",
+        "end": "2026-05-22T00:00:00+00:00",
+        "expected_slots": 624,
+        "present_slots": 624,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p50-nas100-buy-1",
+      "pair": "NAS100",
+      "tf": "H1",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-22T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p52-nas100-sell-1",
+      "pair": "NAS100",
+      "tf": "H1",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-20T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p54-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-05-14T19:09:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+      "input_sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-09T00:00:00+00:00",
+        "end": "2026-05-14T19:00:00+00:00",
+        "expected_slots": 619,
+        "present_slots": 619,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "pdf-p55-us30-buy-1",
+      "pair": "US30",
+      "tf": "H1",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-15T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p58-jp225-buy-1",
+      "pair": "JP225",
+      "tf": "H1",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+      "as_of": "2026-05-15T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "pdf-p60-gbpaud-sell-1",
+      "pair": "GBPAUD",
+      "tf": "M45",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "SOURCE_SNAPSHOT_MINUTE_NOT_SETUP_CLOCK",
+      "as_of": "2026-05-12T08:52:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_fe5ee098bf738f55d4656f16.csv.gz",
+      "input_sha256": "c6db6f910b8f91d2d53049a17628ffd7bd8e7d3902c3ff928c344b4d506745a1",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-04-07T00:00:00+00:00",
+        "end": "2026-05-12T08:50:00+00:00",
+        "expected_slots": 7306,
+        "present_slots": 7306,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "M5",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    },
+    {
+      "id": "video-entries5-native-t1065-xauusd",
+      "pair": "XAUUSD",
+      "tf": "H3",
+      "status": "UNRESOLVED_CALENDAR",
+      "clock_kind": "ANNOTATED_EXPLORATORY_EVENT_SEARCH_NOT_SETUP_OR_FILL_CLOCK",
+      "as_of": "2026-08-08T00:00:00+00:00",
+      "input_path": null,
+      "input_sha256": null
+    },
+    {
+      "id": "video-entries5-native-t1410-eurusd",
+      "pair": "EURUSD",
+      "tf": "H2",
+      "status": "BASE_COMPLETE_DECLARED_CALENDAR",
+      "clock_kind": "ANNOTATED_EXPLORATORY_EVENT_SEARCH_NOT_SETUP_OR_FILL_CLOCK",
+      "as_of": "2026-08-08T00:00:00+00:00",
+      "input_path": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_9d564f607c262fff0a3e20b2.csv.gz",
+      "input_sha256": "bfea8d4487fbbb3154e49443703c3c9f4383f37464311b2b2fbeb6916de1f0b0",
+      "coverage": {
+        "status": "COMPLETE",
+        "start": "2026-06-29T00:00:00+00:00",
+        "end": "2026-08-08T00:00:00+00:00",
+        "expected_slots": 717,
+        "present_slots": 717,
+        "missing_slots": 0,
+        "calendar": "fx_ny_v1",
+        "base_tf": "H1",
+        "anchor": "ny17_wall_v2",
+        "metadata": {
+          "provider": "IC Markets cTrader Open API",
+          "asset_class": "FX",
+          "calendar_version": "fx_ny_v1_declared_hypothesis"
+        }
+      },
+      "first_missing_slots": []
+    }
+  ]
+}

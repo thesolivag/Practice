@@ -1,0 +1,35 @@
+{
+  "status": "COLLECTED_UNVALIDATED",
+  "periods": {
+    "H1": {
+      "status": "COLLECTED_UNVALIDATED",
+      "file": "reports/native_candle_alignment/H1.json.gz",
+      "sha256": "2a23e3b41e44bea7fdd126378480f5a2f0d8c24f65ea428c6e6eb379ebd8888b",
+      "comparison": {
+        "native_count": 51,
+        "rebuilt_count": 51,
+        "equal_boundary_count": 51,
+        "exact_ohlc_count": 51,
+        "ohlc_difference_count": 0,
+        "native_only_boundaries": [],
+        "rebuilt_only_boundaries": [],
+        "differences": []
+      }
+    },
+    "H4": {
+      "status": "COLLECTED_UNVALIDATED",
+      "file": "reports/native_candle_alignment/H4.json.gz",
+      "sha256": "516263bd0a7f5d348df60b4223c43a9d9ca0d51c95a01fc118b165f3f8fb9b32",
+      "comparison": {
+        "native_count": 13,
+        "rebuilt_count": 13,
+        "equal_boundary_count": 13,
+        "exact_ohlc_count": 13,
+        "ohlc_difference_count": 0,
+        "native_only_boundaries": [],
+        "rebuilt_only_boundaries": [],
+        "differences": []
+      }
+    }
+  }
+}

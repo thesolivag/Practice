@@ -1,0 +1,7 @@
+{
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "path": "data/teacher_execution_m1/execution_m1_f72edbd8e6d89fc31666aa82.csv.gz",
+  "manifest": "data/teacher_execution_m1/execution_m1_f72edbd8e6d89fc31666aa82.csv.manifest.json",
+  "sha256": "eb846d2e72798484954d7212d9fe08f20b401a738c6884acd57ae7ce5b47de57",
+  "rows": 14817
+}

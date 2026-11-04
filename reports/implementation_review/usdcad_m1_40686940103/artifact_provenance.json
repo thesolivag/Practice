@@ -1,0 +1,10 @@
+{
+  "run_id": 40686940103,
+  "artifact_id": 12815757386,
+  "result_sha256": "04cbcb23bb8dd2faff683920a343fad86b8f2473b9dea48d6cde3dac574b5493",
+  "result_bytes": 186327489,
+  "result_path": "reports/primary_video_replay/video-t3-usdcad-buy-open.json.gz",
+  "execution_policy": "strict_sequence_v3_terminal_target_proof",
+  "source_candidate_records_equal_to_run40682098812": true,
+  "note": "Complete oversized audit retained in GitHub artifact; curated source-clock and portfolio evidence committed."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "path": "data/usdcad_execution_m1/execution_m1_d850134abd75da6381676020.csv.gz",
+  "manifest": "data/usdcad_execution_m1/execution_m1_d850134abd75da6381676020.csv.manifest.json",
+  "sha256": "a06c8524e0e69fd2643554e621808c8f0a6194525284dfbd99aad9e8980a2b1b",
+  "rows": 8367
+}

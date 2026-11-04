@@ -1,0 +1,510 @@
+{
+  "pair": "GBPUSD",
+  "risk_profile": "owner_fixed11",
+  "run_url": "https://github.com/awujo/practicing/actions/runs/40485910721",
+  "code_commit": "de6288537794edc7083fd8f68c4c9d3581a47e0b",
+  "evaluation_days": 7,
+  "period": {
+    "history_start": "2026-09-14T20:00:00+00:00",
+    "scan_start": "2026-10-19T20:00:00+00:00",
+    "as_of": "2026-10-26T20:00:00+00:00"
+  },
+  "baseline": {
+    "orders": 39,
+    "outcomes": {
+      "LOSS": 6,
+      "WIN": 12,
+      "CANCELLED": 7,
+      "EXPIRED": 4,
+      "CENSORED": 9,
+      "OPEN": 1
+    },
+    "settled": 18,
+    "filled": 28,
+    "censored": 9,
+    "censor_reasons": {
+      "UNRESOLVED_INTRABAR_SEQUENCE": 9
+    },
+    "settled_net_r": "31.53636363636363636363636364",
+    "settled_close_boundary_drawdown_r": "3",
+    "settled_mean_r": "1.752020202020202020202020202",
+    "resolved_win_rate": 0.6666666666666666,
+    "settled_profit_factor": "6.256060606060606060606060607",
+    "qualification": "Settled trades only; open/censored/expired orders are separate. Drawdown groups simultaneous closing boundaries; intrabar and mark-to-market drawdown are unknown. No combined multi-pair portfolio claim."
+  },
+  "illustrative_cost_stress": {
+    "orders": 39,
+    "outcomes": {
+      "LOSS": 7,
+      "EXPIRED": 7,
+      "CANCELLED": 7,
+      "WIN": 9,
+      "CENSORED": 9
+    },
+    "settled": 16,
+    "filled": 25,
+    "censored": 9,
+    "censor_reasons": {
+      "UNRESOLVED_INTRABAR_SEQUENCE": 9
+    },
+    "settled_net_r": "15.15454545454545454545454547",
+    "settled_close_boundary_drawdown_r": "3.190909090909090909090909092",
+    "settled_mean_r": "0.9471590909090909090909090919",
+    "resolved_win_rate": 0.5625,
+    "settled_profit_factor": "3.035409035409035409035409033",
+    "qualification": "Settled trades only; open/censored/expired orders are separate. Drawdown groups simultaneous closing boundaries; intrabar and mark-to-market drawdown are unknown. No combined multi-pair portfolio claim."
+  },
+  "trigger_groups": 38,
+  "same_trigger_variant_groups": [
+    {
+      "trigger": [
+        "GBPUSD",
+        "H2",
+        "aggressive_kl_imbalance",
+        "BUY",
+        "2026-10-21T11:00:00+00:00",
+        133869
+      ],
+      "orders": [
+        {
+          "order_id": "order_d69e8cffa927c8c543c84671",
+          "level_id": "level_e5fbcec438e7637c361ab94c",
+          "stop_ticks": 133759,
+          "target_ticks": 134011,
+          "outcome": "WIN",
+          "net_r": "1.290909090909090909090909091"
+        },
+        {
+          "order_id": "order_ca9b129004fbd4d0a63ea07b",
+          "level_id": "level_ed238a723724e1d1c8eb0cac",
+          "stop_ticks": 133759,
+          "target_ticks": 134011,
+          "outcome": "WIN",
+          "net_r": "1.290909090909090909090909091"
+        }
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "order_id": "order_ed6cd6534d33227946675c47",
+      "model": "direct_h4",
+      "tf": "H4",
+      "side": "SELL",
+      "available_at": "2026-10-19T21:00:00+00:00",
+      "entry_ticks": 133166,
+      "stop_ticks": 133276,
+      "target_ticks": 131368,
+      "protection_shortfall": [],
+      "protected_objects": [],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "SELL",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    },
+    {
+      "order_id": "order_5996849638ca79e162e0d0d3",
+      "model": "direct_h2",
+      "tf": "H2",
+      "side": "SELL",
+      "available_at": "2026-10-19T23:00:00+00:00",
+      "entry_ticks": 133160,
+      "stop_ticks": 133270,
+      "target_ticks": 132961,
+      "protection_shortfall": [],
+      "protected_objects": [
+        [
+          "level_a17afd1c8a40bd30f614da14",
+          133170,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_01e157176b6da56cd778c7c4",
+          133166,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "oc_d901a1ecca08d5780da113f3",
+          133199,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "bar_pool_565c9fa556dbfcbc6e9e63a7",
+          133193,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "turn_pool_cd0446699670036140e5d8bc",
+          133193,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "SELL",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    },
+    {
+      "order_id": "order_95fb06ef81ef6a34e566fa41",
+      "model": "direct_h4",
+      "tf": "H4",
+      "side": "SELL",
+      "available_at": "2026-10-20T01:00:00+00:00",
+      "entry_ticks": 133166,
+      "stop_ticks": 133276,
+      "target_ticks": 131368,
+      "protection_shortfall": [
+        "turn_pool_66329f763ab5217f786e2e80"
+      ],
+      "protected_objects": [
+        [
+          "turn_pool_66329f763ab5217f786e2e80",
+          134002,
+          "active_range_protected_wick"
+        ],
+        [
+          "bar_e776c6ed0fdb45972e63fe76",
+          133176,
+          "pattern_wick"
+        ],
+        [
+          "bar_pool_1cca606aac82b8683ac67d4e",
+          133176,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_66e003abd90d566846ea7a13",
+          133176,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "SELL",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    },
+    {
+      "order_id": "order_a0e3fc35bce36df6e45d0367",
+      "model": "direct_h4",
+      "tf": "H4",
+      "side": "BUY",
+      "available_at": "2026-10-21T13:00:00+00:00",
+      "entry_ticks": 133951,
+      "stop_ticks": 133841,
+      "target_ticks": 134033,
+      "protection_shortfall": [
+        "bar_9f3a47f1142d0d78e275cc12"
+      ],
+      "protected_objects": [
+        [
+          "bar_9f3a47f1142d0d78e275cc12",
+          132307,
+          "pattern_wick"
+        ],
+        [
+          "bar_cef2ec461614b2da3797d564",
+          133885,
+          "pattern_wick"
+        ],
+        [
+          "level_c8e39477e38e152f3f17ee87",
+          133929,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_66329f763ab5217f786e2e80",
+          133911,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "bar_pool_e2374c7403abad86a8ee40fa",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_9c0a39b9bdd4cacd1978446a",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_1e135bfebe8613d54d7c80a3",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_df59c25f86090370203bfb6f",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_7fefb9ee3b0885f06ce994fa",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "entry_irl_33691093ade706833e07d434",
+          133885,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "BUY",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    },
+    {
+      "order_id": "order_e50159739e20aed2423a64dc",
+      "model": "aggressive_kl_imbalance",
+      "tf": "H1",
+      "side": "SELL",
+      "available_at": "2026-10-21T15:00:00+00:00",
+      "entry_ticks": 133893,
+      "stop_ticks": 134003,
+      "target_ticks": 131368,
+      "protection_shortfall": [],
+      "protected_objects": [
+        [
+          "oc_01a009f493a18cf0b26eeca3",
+          133911,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_329e9ac96ee8a8cb672c1825",
+          133916,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "BUY",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    },
+    {
+      "order_id": "order_bf7c16d7458309a1b8b7e3dd",
+      "model": "aggressive_kl_imbalance",
+      "tf": "H1",
+      "side": "SELL",
+      "available_at": "2026-10-22T11:00:00+00:00",
+      "entry_ticks": 133949,
+      "stop_ticks": 134059,
+      "target_ticks": 131368,
+      "protection_shortfall": [],
+      "protected_objects": [
+        [
+          "level_59af35da4a0bf140e213cc57",
+          133951,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "oc_5b3a757bc1baed68ffca4652",
+          133950,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_672061b29d398fdfad240ce0",
+          133969,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "oc_36b74ce87a09ae0a91750fb9",
+          133967,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_4bb7bb75a2ab5b3d049b0a7d",
+          133978,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_2e0b5e20492195efbaa3d7f2",
+          133968,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "oc_60997895426bb4621eb36441",
+          133978,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "BUY",
+        "H4": "BUY",
+        "M": null,
+        "W": "SELL"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    }
+  ],
+  "coverage": {
+    "base": {
+      "status": "COMPLETE",
+      "expected_slots": 720,
+      "present_slots": 720,
+      "missing_slots": 0,
+      "missing": []
+    },
+    "timeframes": {
+      "M": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-08-31T21:00:00+00:00",
+            "end": "2026-09-30T21:00:00+00:00",
+            "missing_slots": 239,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-09-30T21:00:00+00:00",
+            "end": "2026-10-31T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 0,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "W": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-13T21:00:00+00:00",
+            "end": "2026-09-18T21:00:00+00:00",
+            "missing_slots": 23,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-30T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 5,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "D": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-13T21:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 23,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 29,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H4": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T17:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T17:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 179,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H2": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T19:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T19:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 359,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H3": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T18:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T18:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 239,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H1": {
+        "status": "COMPLETE",
+        "incomplete": [],
+        "complete_bars": 720,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      }
+    }
+  },
+  "limitations": [
+    "Two FX pairs, separate capped books; no pooled portfolio return.",
+    "Only H1/H2/H3/H4 entries supported by H1 input; lower entry timeframes untested.",
+    "35-day pre-window warmup limits monthly context; complete-bar coverage is retained.",
+    "H1 execution can leave stop/target ordering unresolved; no favorable path is assumed."
+  ],
+  "qualification": "Variants are correlated alternatives, not independent mentor examples. Cost stress uses frozen baseline orders. Partial/unvalidated run; mentor agreement remains unestablished."
+}

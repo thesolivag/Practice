@@ -1,0 +1,617 @@
+{
+  "pair": "EURNZD",
+  "risk_profile": "context_liquidity",
+  "run_url": "https://github.com/awujo/practicing/actions/runs/40485910721",
+  "code_commit": "de6288537794edc7083fd8f68c4c9d3581a47e0b",
+  "evaluation_days": 7,
+  "period": {
+    "history_start": "2026-09-14T20:00:00+00:00",
+    "scan_start": "2026-10-19T20:00:00+00:00",
+    "as_of": "2026-10-26T20:00:00+00:00"
+  },
+  "baseline": {
+    "orders": 39,
+    "outcomes": {
+      "WIN": 28,
+      "CENSORED": 3,
+      "OPEN": 7,
+      "LOSS": 1
+    },
+    "settled": 29,
+    "filled": 39,
+    "censored": 3,
+    "censor_reasons": {
+      "UNRESOLVED_INTRABAR_SEQUENCE": 3
+    },
+    "settled_net_r": "9.46579281982024549945800823",
+    "settled_close_boundary_drawdown_r": "1.00000000000000000000000000",
+    "settled_mean_r": "0.3264066489593188103261382148",
+    "resolved_win_rate": 0.9655172413793104,
+    "settled_profit_factor": "10.46579281982024549945800823",
+    "qualification": "Settled trades only; open/censored/expired orders are separate. Drawdown groups simultaneous closing boundaries; intrabar and mark-to-market drawdown are unknown. No combined multi-pair portfolio claim."
+  },
+  "illustrative_cost_stress": {
+    "orders": 39,
+    "outcomes": {
+      "WIN": 28,
+      "CENSORED": 3,
+      "OPEN": 7,
+      "LOSS": 1
+    },
+    "settled": 29,
+    "filled": 39,
+    "censored": 3,
+    "censor_reasons": {
+      "UNRESOLVED_INTRABAR_SEQUENCE": 3
+    },
+    "settled_net_r": "9.322177443201869844254120122",
+    "settled_close_boundary_drawdown_r": "1.038461538461538461538461538",
+    "settled_mean_r": "0.3214543945931679256639351766",
+    "resolved_win_rate": 0.9655172413793104,
+    "settled_profit_factor": "9.976911611972170961133597159",
+    "qualification": "Settled trades only; open/censored/expired orders are separate. Drawdown groups simultaneous closing boundaries; intrabar and mark-to-market drawdown are unknown. No combined multi-pair portfolio claim."
+  },
+  "trigger_groups": 7,
+  "same_trigger_variant_groups": [
+    {
+      "trigger": [
+        "EURNZD",
+        "H4",
+        "direct_h4",
+        "SELL",
+        "2026-10-19T21:00:00+00:00",
+        198033
+      ],
+      "orders": [
+        {
+          "order_id": "order_2c2c6ffd18e1acd742819881",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 198805,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.4857512953367875647668393782"
+        },
+        {
+          "order_id": "order_1971a68b44d6bd3e57bcb393",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 200484,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.1529987760097919216646266830"
+        },
+        {
+          "order_id": "order_9d9f8de351f86067d5c444de",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 200413,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.1575630252100840336134453782"
+        },
+        {
+          "order_id": "order_19bedbcf0aae5983e692c0a6",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 198646,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.6117455138662316476345840131"
+        },
+        {
+          "order_id": "order_2e969084eb47b724139a0a3a",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 199579,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.2425614489003880983182406210"
+        },
+        {
+          "order_id": "order_f57863e5d55718505812731c",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 200661,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.1426940639269406392694063927"
+        },
+        {
+          "order_id": "order_e74122e14c445f0222496a0a",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 198941,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.4129955947136563876651982379"
+        },
+        {
+          "order_id": "order_7e8c445e98bde8a7ae402540",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 199897,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.2011802575107296137339055794"
+        },
+        {
+          "order_id": "order_04b48cd94d5df75c3bf5478c",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 199811,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.2109111361079865016872890889"
+        },
+        {
+          "order_id": "order_704b93c4875ce14c7c76c851",
+          "level_id": "level_c5e715b60ce2ae588c741627",
+          "stop_ticks": 200392,
+          "target_ticks": 197658,
+          "outcome": "WIN",
+          "net_r": "0.1589656634167019923696481560"
+        }
+      ]
+    },
+    {
+      "trigger": [
+        "EURNZD",
+        "H2",
+        "direct_h2",
+        "SELL",
+        "2026-10-20T17:00:00+00:00",
+        197709
+      ],
+      "orders": [
+        {
+          "order_id": "order_e9a5ccbc6119e0802a2171aa",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 199835,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.2271872060206961429915333960"
+        },
+        {
+          "order_id": "order_5b9c5d51ad33fd3aa6c4d30a",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 197971,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "1.843511450381679389312977099"
+        },
+        {
+          "order_id": "order_52f4366fae99a9cf3c7a13aa",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 199579,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.2582887700534759358288770053"
+        },
+        {
+          "order_id": "order_0c5f6a5e49d5f021f62ee400",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 198794,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.4451612903225806451612903226"
+        },
+        {
+          "order_id": "order_1c20e70ea58d14ea382525af",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 199737,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.2381656804733727810650887574"
+        },
+        {
+          "order_id": "order_34a57e512d0564526479dd1f",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 200231,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.1915146708961141950832672482"
+        },
+        {
+          "order_id": "order_7439e825d04dfce355deceb4",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 198423,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.6764705882352941176470588235"
+        },
+        {
+          "order_id": "order_2184ed195d1384ee5b7d6590",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 198646,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.5154749199573105656350053362"
+        },
+        {
+          "order_id": "order_c89cd4768ebf28f913aed7e2",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 200413,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.1786242603550295857988165680"
+        },
+        {
+          "order_id": "order_d10ec64c2620c9c2fafd9ea6",
+          "level_id": "level_039b3821ac6071e9c0f4ad65",
+          "stop_ticks": 200392,
+          "target_ticks": 197226,
+          "outcome": "WIN",
+          "net_r": "0.1800223630264629146477823332"
+        }
+      ]
+    },
+    {
+      "trigger": [
+        "EURNZD",
+        "H2",
+        "direct_h2",
+        "SELL",
+        "2026-10-21T23:00:00+00:00",
+        197546
+      ],
+      "orders": [
+        {
+          "order_id": "order_4155683568293c000b00fcf4",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 199441,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.4094986807387862796833773087"
+        },
+        {
+          "order_id": "order_5d4e9715f6f89ad5d1c80f08",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 201315,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.2058901565401963385513398780"
+        },
+        {
+          "order_id": "order_831bc49a7d8c681682ac1739",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 199530,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.3911290322580645161290322581"
+        },
+        {
+          "order_id": "order_0dc609760c98cd85946e8fb8",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 198794,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.6217948717948717948717948718"
+        },
+        {
+          "order_id": "order_62fae8231af541bac8e2bc09",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 200715,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.2448721994319974755443357526"
+        },
+        {
+          "order_id": "order_47b4bb520a27b76fc2a31fc0",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 200231,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.2890130353817504655493482309"
+        },
+        {
+          "order_id": "order_a9a9729dfd055e0791001ec1",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 199339,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.4327941996653653095370886782"
+        },
+        {
+          "order_id": "order_15f0b3362f28e1a9974e9192",
+          "level_id": "oc_77a2e1e1e2bdb863e8fc436b",
+          "stop_ticks": 199835,
+          "target_ticks": 196770,
+          "outcome": "WIN",
+          "net_r": "0.3390126692878986456968108344"
+        }
+      ]
+    },
+    {
+      "trigger": [
+        "EURNZD",
+        "H2",
+        "direct_h2",
+        "SELL",
+        "2026-10-26T07:00:00+00:00",
+        196841
+      ],
+      "orders": [
+        {
+          "order_id": "order_ff359ed17016e0a84c6b544b",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 197023,
+          "target_ticks": 196300,
+          "outcome": "LOSS",
+          "net_r": "-1"
+        },
+        {
+          "order_id": "order_abc7ef961c417e807f6c5b59",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 198794,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_faef34eeb3b02deb4bb55311",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 197428,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_d262768fb897a106ca7b168b",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 197971,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_eb91acf228ecd85f42e9c9a2",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 199600,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_72201e87b216cc273e45c552",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 198646,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_63e215ece21abdd545baa2c0",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 197411,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        },
+        {
+          "order_id": "order_9cb85cffca984887fcb5ab45",
+          "level_id": "level_e09c4e04bbb1ae4692ba1c46",
+          "stop_ticks": 200262,
+          "target_ticks": 196300,
+          "outcome": "OPEN",
+          "net_r": null
+        }
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "order_id": "order_ff359ed17016e0a84c6b544b",
+      "model": "direct_h2",
+      "tf": "H2",
+      "side": "SELL",
+      "available_at": "2026-10-26T07:00:00+00:00",
+      "entry_ticks": 196841,
+      "stop_ticks": 197023,
+      "target_ticks": 196300,
+      "protection_shortfall": [],
+      "protected_objects": [
+        [
+          "bar_f6fa30b4b03a5498f8b07235",
+          197018,
+          "pattern_wick"
+        ],
+        [
+          "bar_a9dbe77e3c068fda63c470f8",
+          196868,
+          "pattern_wick"
+        ],
+        [
+          "bar_ead693f5acda52ac6d837e2b",
+          196949,
+          "pattern_wick"
+        ],
+        [
+          "bar_8a5bfe9de71264867e9445b8",
+          196923,
+          "pattern_wick"
+        ],
+        [
+          "bar_442eb8ef296c678db543941b",
+          196857,
+          "pattern_wick"
+        ],
+        [
+          "bar_f1951a0a6a04404c09e3a3fb",
+          196879,
+          "pattern_wick"
+        ],
+        [
+          "level_6efe8e6370e5d6c2e0426018",
+          196855,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_9c7bd2eb0c58e24a4b88ec39",
+          196865,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "bar_pool_40965015536f787fb8fa85a1",
+          196879,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "known_local_directions": {
+        "D": "SELL",
+        "H4": "SELL",
+        "M": "BUY",
+        "W": "BUY"
+      },
+      "assessment": "Observed simulated stop; mentor error versus unavoidable loss is not established."
+    }
+  ],
+  "coverage": {
+    "base": {
+      "status": "COMPLETE",
+      "expected_slots": 720,
+      "present_slots": 720,
+      "missing_slots": 0,
+      "missing": []
+    },
+    "timeframes": {
+      "M": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-08-31T21:00:00+00:00",
+            "end": "2026-09-30T21:00:00+00:00",
+            "missing_slots": 239,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-09-30T21:00:00+00:00",
+            "end": "2026-10-31T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 0,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "W": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-13T21:00:00+00:00",
+            "end": "2026-09-18T21:00:00+00:00",
+            "missing_slots": 23,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-30T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 5,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "D": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-13T21:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 23,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 29,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H4": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T17:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T17:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 179,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H2": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T19:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T19:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 359,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H3": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-09-14T18:00:00+00:00",
+            "end": "2026-09-14T21:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T18:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 239,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H1": {
+        "status": "COMPLETE",
+        "incomplete": [],
+        "complete_bars": 720,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      }
+    }
+  },
+  "limitations": [
+    "Two FX pairs, separate capped books; no pooled portfolio return.",
+    "Only H1/H2/H3/H4 entries supported by H1 input; lower entry timeframes untested.",
+    "35-day pre-window warmup limits monthly context; complete-bar coverage is retained.",
+    "H1 execution can leave stop/target ordering unresolved; no favorable path is assumed."
+  ],
+  "qualification": "Variants are correlated alternatives, not independent mentor examples. Cost stress uses frozen baseline orders. Partial/unvalidated run; mentor agreement remains unestablished."
+}

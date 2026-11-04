@@ -1,4 +1,8 @@
-data/
 __pycache__/
+*.py[cod]
 .pytest_cache/
-node_modules/
+.venv/
+.bishop-current-cache/
+data/
+knowledge-base/frames/**/_frames/
+knowledge-base/frames/**/.extract-*/

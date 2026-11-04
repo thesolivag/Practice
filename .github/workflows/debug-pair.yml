@@ -1,43 +1,58 @@
-name: SLK debug pair
-# Exports one pair's H1 candles (IC Markets cTrader, Dukascopy if cTrader fails) to data/debug/ and explains its
-# current bias story (slk/debug_pair.py), so a bias alert can be checked offline.
+name: Bishop IC Markets teacher data
+# Branch-specific data-only implementation of the registered debug-pair workflow.
+# Kevin's branch and its live workflow are unchanged.
 on:
   workflow_dispatch:
     inputs:
-      pair: {description: "Symbol, e.g. XAUUSD", default: "XAUUSD"}
-      days: {description: "Days of history", default: "1500"}
+      pair:
+        description: Comma-separated source pair names, or ALL
+        default: ALL
+        type: string
+      days:
+        description: H1 context warmup days (M5 warmup is 35 days)
+        default: '400'
+        type: string
 permissions:
-  contents: write
-concurrency: {group: slk-debug-pair, cancel-in-progress: false}
+  contents: read
+concurrency:
+  group: bishop-teacher-data
+  cancel-in-progress: false
 jobs:
-  export:
+  collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     env:
-      IN_PAIR: ${{ inputs.pair }}
-      IN_DAYS: ${{ inputs.days }}
-      SLK_STORE: data/dbgstore
+      IN_PAIRS: ${{ inputs.pair || 'ALL' }}
+      IN_CONTEXT_DAYS: ${{ inputs.days || '400' }}
       CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
       CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
       CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-      CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
       CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
       CTRADER_ENV: demo
+      CTRADER_TOKEN_TABLE: settings
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
       DATABASE_CA: ${{ secrets.DATABASE_CA }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
-      - run: pip install -r requirements-dev.txt
-      - name: Export and explain
-        # cTrader first; on failure the error (with the client's diagnostics) is a ::warning:: and the Dukascopy
-        # fallback (what live then uses) is exported. data/debug/<PAIR>_explain.txt = point B / first touch / target.
-        run: python -m slk.debug_pair --pair "$IN_PAIR" --days "$IN_DAYS" --out data/debug
-      - name: Commit
+        with:
+          python-version: '3.12'
+      - name: Install historical-data dependencies
+        run: pip install 'protobuf>=3.20' pandas requests pymysql
+      - name: Collect frozen historical bid candles
         run: |
-          git config user.name "slk-debug"; git config user.email "actions@github.com"
-          git add -f data/debug/*.csv.gz data/debug/*_explain.txt
-          git commit -m "debug export ${IN_PAIR}" || exit 0
-          git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }}
+          python -m bishop.collect_teacher_data --collect \
+            --pairs "$IN_PAIRS" --context-days "$IN_CONTEXT_DAYS" \
+            --metadata reports/teacher_icmarkets_metadata.json \
+            --out-dir data/teacher_icmarkets
+      - name: Preserve candles, manifests and acquisition status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bishop-teacher-icmarkets-${{ github.run_id }}
+          path: |
+            data/teacher_icmarkets/
+            reports/teacher_collection_plan.json
+          if-no-files-found: error
+          retention-days: 30

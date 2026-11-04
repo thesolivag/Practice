@@ -1,0 +1,11 @@
+{
+  "id": "primary_h1_764980791eb695bfcfc0e037",
+  "pair": "AUDCHF",
+  "base_tf": "H1",
+  "start": "2025-04-09T00:00:00Z",
+  "end": "2026-06-13T00:00:00Z",
+  "case_ids": [
+    "video-t3-audchf-buy-loss"
+  ],
+  "purpose": "PRIMARY_VIDEO_WIN_AND_LOSS_COVERAGE_NOT_OUTCOME_SELECTION"
+}

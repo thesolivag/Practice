@@ -1,0 +1,11 @@
+H4 pool first-take audit
+
+Actions run https://github.com/awujo/practicing/actions/runs/40166892922 completed successfully. It ran the code regression suite and mapping assertions, then audited frozen source-snapshot contacts. The raw-input hash was checked. No historical detector was rerun locally.
+
+GBPUSD June 24 02:00 and 06:00 UTC: at H4 A 1.32026, and at V 1.32057 at 06:00, the current selector admits only the structural TURN_LEG high 1.32220. It is not taken by the contact. The closed H4 bar high 1.32047, available 05:00, is exceeded by the 06:00 H1 high 1.32090, but its BAR object lacks declared IRL role, so selection excludes it before first-take linkage. This is not a role-loss retirement of that selected first take: no such selected take exists.
+
+EURNZD July 17 09:00 UTC: H4 A 1.96339 is contacted and rejected, but zero pools pass selection. The closed H4 highs 1.96063 (available05:00) and 1.96255 (available09:00) are both exceeded by this H3 high 1.96372, but lack IRL classification. Older recognized IRL pools formed before the selected July17 01:00 parent breakout and are excluded by that chronology. No qualifying first-take link exists to be retired later. The separate two-tick strict body-engulf discrepancy also remains.
+
+Source cross-check: full_entry_study.md 983.3–1051.3 describes breakout followed by a contained candle supplying IRL; 1051.3–1255.5 describes a distinct external-sweep/reversal formation. Existing implementation recognizes these bounded patterns. The above excluded wick highs are real observations, but a high being swept alone does not identify it as the teacher's internal liquidity. full_session_study.md BE examples require breakout → liquidity → rejection → confirmation, not arbitrary standing highs. The source chart's exact H4 pool has not been independently identified on the alternate feed.
+
+Conclusion: the immediate mismatch is pool classification/parent association, not proven premature retirement. No source-backed reason was found to admit every BAR high, delete parent chronology, or revive retired liquidity. Therefore no production pool-selection rule was loosened. Next research must identify the drawn source inducement and its parent, or formalize a separately evidenced near-KL/pullback liquidity formation; source-feed/timeframe alignment remains open. These cases are UNRESOLVED, not PASS.

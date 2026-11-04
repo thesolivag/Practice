@@ -1,0 +1,1018 @@
+{
+  "schema_version": "bishop_video_breakdown_inventory_v1",
+  "provenance": "PRIMARY_MENTOR_VIDEO",
+  "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+  "scope": "T2_T3_FIRSTHAND_NAMED_EPISODES",
+  "episode_count": 17,
+  "exact_trade_count": null,
+  "denominator_note": "17 named episodes:10 T2 +7 T3. Entries/alternatives within episodes are separately labelled; this is not17 filled trades. Two T3 release assets share one source SHA and count once.",
+  "source_hash_basis": "knowledge-base/study/bishop_frame_manifest.json; source-PTS frame sampling15s,4tiles/sheet. Source video hashes are manifest-verified, not freshly re-downloaded here.",
+  "cases": [
+    {
+      "id": "video-t2-usdchf-missed-sell",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDCHF",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 30.7,
+        "pts_end": 209.9,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_003.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_004.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W initially bullish; sell KL/rejection context",
+          "D bearish BOS and D KL rejection"
+        ],
+        "h4_sequence": [
+          "H4 bearish breakout",
+          "H4 liquidity forms and is taken into KL reaction"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "engulfing",
+            "participation": "MISSED"
+          }
+        ],
+        "stop_notes": "Drawn stop above local H1 pattern; figure at195s is a reconstructed short box, not broker fill."
+      },
+      "participation": "PERSONALLY_MISSED",
+      "outcome": {
+        "classification": "NO_PERSONAL_FILL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "159.1\u2013167.4: 'I missed this trade actually I missed it'.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Exact H1 confirmation candle pair, H4 liquidity/KL IDs and initial stop price need extraction.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-usdchf-buy-sequence",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 209.9,
+        "pts_end": 430.6,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_006.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_007.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_008.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "Weekly bullish",
+          "D rejects buy KL; bullish engulf/H4 breakout supplies alignment"
+        ],
+        "h4_sequence": [
+          "Initial H4 bullish breakout and single-candle liquidity",
+          "Closest relevant H4 KL reaction",
+          "Later fresh H4 breakout/liquidity/rejection sponsors continuation"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "breakout_retest",
+            "episode_leg": "origin",
+            "participation": "ILLUSTRATED_WITH_CONDITIONAL_NARRATION"
+          },
+          {
+            "tf": "H1",
+            "model": "breakout_retest",
+            "episode_leg": "continuation",
+            "participation": "ILLUSTRATED_WITH_CONDITIONAL_NARRATION"
+          }
+        ],
+        "stop_notes": "Stop shown below each local H1 entry structure; distinguish the two legs. Figures change as target alternatives are drawn."
+      },
+      "participation": "MIXED_ACTUAL_AND_CONDITIONAL_WORDING",
+      "outcome": {
+        "classification": "CHART_DELIVERY_NOT_VERIFIED_PERSONAL_RETURNS",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "305.8\u2013311.0: 'if you are taking your entry';392.9\u2013414.6: 'first entry' and 'second entry';424.2\u2013430.6 approximately10R discussion.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "One episode contains two entry legs; not one order and not two independently proven broker fills. Do not sum drawn R as realized portfolio performance.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-usdchf-buy-outlook",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 432.6,
+        "pts_end": 459.8,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_008.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "Existing bullish context after external liquidity delivered"
+        ],
+        "h4_sequence": [
+          "Anticipated retracement to H4 liquidity/KL before another buy"
+        ],
+        "entry_paths": [],
+        "stop_notes": "No new executed stop established."
+      },
+      "participation": "FORWARD_OUTLOOK",
+      "outcome": {
+        "classification": "FUTURE_CONDITIONAL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "432.6\u2013437.4: external liquidity taken, expecting reversal/retracement.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "A forecast is a conditional no-premature-entry check, not another filled trade.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-gbpjpy-buy",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "GBPJPY",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 463,
+        "pts_end": 632,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_010.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_011.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W bullish",
+          "Monday D bullish breakout; D low swept while high remains standing"
+        ],
+        "h4_sequence": [
+          "H4 bullish breakout",
+          "Single-candle liquidity",
+          "Reaction occurs at lower KL than first anticipated; swept liquidity and rejection matter"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "breakout_retest",
+            "participation": "CONDITIONAL_ILLUSTRATION"
+          }
+        ],
+        "stop_notes": "F600 shows drawn12pip stop; narration599.3\u2013603.8 calls placement conditional. Approx5.6R spoken differs from a later changed box."
+      },
+      "participation": "PERSONAL_FILL_NOT_ESTABLISHED",
+      "outcome": {
+        "classification": "CHART_TARGET_DELIVERY_NOT_PERSONAL_WIN",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "563.3\u2013579.6: expected one KL but used lower KL;592.1\u2013599.3: 'if your entry was at this particular point'.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Do not force first/nearest expected KL or claim a personal fill from the box. Exact candles and target front-run distance unresolved.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-usoil-abandoned",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USOIL",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 681.2,
+        "pts_end": 735.3,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_013.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "Weekly/Daily sell expectation discussed"
+        ],
+        "h4_sequence": [
+          "Explanation abandoned before complete setup specification"
+        ],
+        "entry_paths": [],
+        "stop_notes": "No complete stop plan extracted."
+      },
+      "participation": "ABANDONED_EXAMPLE",
+      "outcome": {
+        "classification": "NOT_AN_ACCEPTANCE_TRADE",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "Narrator says this is not an ideal example and moves on; F720 shows USOIL Daily, F735 switches SPX500.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Incomplete discarded example; preserve exclusion rather than invent entry or symbol-scale conversion.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-us30-buy-outlook",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "US30",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 746.3,
+        "pts_end": 773.2,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_013.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "Daily buy expectation shown"
+        ],
+        "h4_sequence": [
+          "Return to marked Daily level then upward projection"
+        ],
+        "entry_paths": [],
+        "stop_notes": "No executed stop established."
+      },
+      "participation": "NO_PERSONAL_ENTRY_OPPORTUNITY",
+      "outcome": {
+        "classification": "OUTLOOK_NOT_PERSONAL_FILL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "Screen at750/765 is US30 FOREXCOM Daily; surrounding ASR symbol is unreliable.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Symbol corrected from screen, not substituted by price similarity. No complete H4-to-entry chain established.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-ger40-passed-sell",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "GER40",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 774,
+        "pts_end": 906,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_015.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_016.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W bullish but rejecting",
+          "D bearish breakout permits temporary sales"
+        ],
+        "h4_sequence": [
+          "D single-candle liquidity resolves into H4 advanced/algorithmic structure",
+          "Wait for that liquidity to be taken",
+          "H4 reaction before preferred lower confirmation"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "engulfing",
+            "participation": "PASSED_ALTERNATIVE",
+            "timeframe_evidence": "Narrated875.1\u2013883.7; sampled screen at870\u2013900 retains4h header."
+          }
+        ],
+        "stop_notes": "Drawn alternative stop above local sell pattern; exact H2 stop cannot be certified while displayed chart remains H4."
+      },
+      "participation": "PERSONALLY_PASSED",
+      "outcome": {
+        "classification": "ILLUSTRATED_4_TO_5R_NOT_PERSONAL_WIN",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "870.5\u2013879.1: personally waiting for breakout, alternative 'probably an engulfing on the two hours'.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Resolve narrated H2 versus actual H4 screen before exact candle mapping. Do not recast his passed alternative as taken.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-nas100-missed-sell",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "NAS100",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 943.9,
+        "pts_end": 1047.7,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_016.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_017.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "ATH context",
+          "D high sweep with low standing"
+        ],
+        "h4_sequence": [
+          "H4 bearish breaks",
+          "Waits cleaner repeat breakout/liquidity"
+        ],
+        "entry_paths": [
+          {
+            "tf": "M45",
+            "model": "preferred_confirmation_retest",
+            "participation": "MISSED_NO_RETEST"
+          },
+          {
+            "tf": "M30",
+            "model": "preferred_confirmation_retest",
+            "participation": "MISSED_NO_RETEST"
+          }
+        ],
+        "stop_notes": "No filled stop established."
+      },
+      "participation": "PERSONALLY_MISSED",
+      "outcome": {
+        "classification": "NO_PERSONAL_FILL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1042.8\u20131047.7: missed entry on almost all preferred lower timeframes; source screen is NAS100.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Earlier915\u2013945 screens already NAS100 despite transitional EURGBP speech. Exact preferred-model subtype and absent retest candles need extraction.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-jp225-missed-sell",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "JP225",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 1048.9,
+        "pts_end": 1194.6,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_019.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_020.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W ATH/bullish",
+          "No clean D sell structure; explicitly experience-based discretionary context"
+        ],
+        "h4_sequence": [
+          "H4 bearish breakout/liquidity/reaction"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "high_swept_low_standing",
+            "participation": "MISSED_OR_ILLUSTRATED"
+          },
+          {
+            "tf": "M30",
+            "model": "sweep_bos",
+            "participation": "EARLIER_ALTERNATIVE"
+          }
+        ],
+        "stop_notes": "Illustrated stop above H1 sweep/extreme; not an executed initial SL."
+      },
+      "participation": "PERSONALLY_MISSED",
+      "outcome": {
+        "classification": "NO_PERSONAL_FILL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1048.9\u20131062.6: 'missed the original sale'; F1155/1170 H1 with rejected high and drawn short.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Cannot manufacture missing Daily mechanical confirmation from hindsight. Keep H1 and M30 alternatives separate.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t2-eurgbp-sell",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "EURGBP",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+        "sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+        "pts_start": 1196.5,
+        "pts_end": 1368.6,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_022.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/sheets/sheet_023.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W bearish with no subsequent bullish break",
+          "D bearish breakout then KL rejection/close below"
+        ],
+        "h4_sequence": [
+          "H4 sell breakout",
+          "Single-candle liquidity",
+          "H4 KL rejection"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "engulfing",
+            "participation": "PERSONAL_LIMIT_NARRATED"
+          },
+          {
+            "tf": "H2",
+            "model": "later_bos_liquidity",
+            "participation": "SUPPORT_FOR_RETAINING_EXISTING_LIMIT_NOT_AUTOMATIC_SECOND_ORDER"
+          }
+        ],
+        "stop_notes": "Drawn stop above local structure; target is marked KL/liquidity. Exact initial SL needs unambiguous extraction."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "CLEAN_TRADE_NARRATED_REALIZED_ACCOUNTING_UNVERIFIED",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1216.9\u20131227.6 identifies own sale;1318.8\u20131355.7 leaves limit because later H2 BOS/liquidity supports context.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "No universal24h limit expiry inferred. Later H2 evidence must not backdate original H1 entry.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-gbpcad-buy",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "GBPCAD",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 28.9,
+        "pts_end": 577.1,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_007.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_008.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W high sweep suggests sale but D never confirms Weekly sale",
+          "Monthly bullish/low sweep supports D bullish breakout and KL rejection/low sweep"
+        ],
+        "h4_sequence": [
+          "H4 sweep+BOS",
+          "Single-candle liquidity",
+          "H4 KL reaction"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "breakout_retest",
+            "participation": "PERSONAL_TRADE_NARRATED"
+          },
+          {
+            "tf": "H1",
+            "model": "simultaneous_breakout_retest",
+            "participation": "PASSED_FOR_H2_NOT_ADDITIONAL_ORDER"
+          }
+        ],
+        "stop_notes": "Stop below local protection; target just before H1 external liquidity. Drawn roughly5\u20136R plan, no exact realized-R certification."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "NARRATED_FAVORABLE_DELIVERY_NO_AUDITED_FILL_LEDGER",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "496.5\u2013514.4: simultaneous H2/H1 breaks, chooses H2;569.2\u2013577.1 later bias persists but no further entry.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Primary replay priority. Visible June chart may define exploratory window, never exact UTC fill. Do not force Weekly veto or choose profitable TF retrospectively.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-audchf-buy-loss",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "AUDCHF",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 577.9,
+        "pts_end": 677.3,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_011.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_012.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W bullish despite prior high sweep",
+          "No positive D bearish confirmation; D buy KL rejection"
+        ],
+        "h4_sequence": [
+          "H4 bullish breakout and liquidity"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "engulfing",
+            "participation": "PERSONAL_TRADE_NARRATED"
+          }
+        ],
+        "stop_notes": "Own stop/local wick shown around losing H1 setup; exact initial numeric SL unresolved."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "LOSS_EXPLICIT",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "577.9\u2013584.2: 'I took a loss on AUDCHF';647.5\u2013672.0 H1 engulf and loss acknowledged.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "A loss remains in denominator. He declines an external-breakout filter as his own rule; do not add it to remove this loss.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-nzdchf-buy-loss",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "NZDCHF",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 687.8,
+        "pts_end": 902.8,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_012.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_014.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W bullish/rejection still developing",
+          "D rejects D; he says waiting for fresh D breakout would have been better"
+        ],
+        "h4_sequence": [
+          "H4 bullish breakout/liquidity",
+          "First rejection lacks clean CE",
+          "Later H4 KL rejection"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "breakout_with_liquidity",
+            "participation": "PERSONAL_TRADE_NARRATED",
+            "correction": "Journal813.8\u2013851.4 corrects uncertain H1/engulf recollection to H2."
+          }
+        ],
+        "stop_notes": "Narrator corrects recalled stop to below relevant KL; no invented exact value."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "IMMEDIATE_STOP_LOSS_EXPLICIT",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "792.2\u2013821.0 checks journal, entry H2;856.6\u2013888.0 instantaneous loss/stop-out.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Screen establishes NZDCHF despite ASR. Preserve corrected entry TF and stop uncertainty; do not overwrite loss with proposed better setup.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-usdjpy-buy-manual-exit",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDJPY",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 903.8,
+        "pts_end": 1110.9,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_018.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W and D bullish"
+        ],
+        "h4_sequence": [
+          "H4 bullish breakout/liquidity",
+          "H4 KL reaction"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H1",
+            "model": "breakout_or_engulf",
+            "participation": "FIRST_CONFIRMATION_MISSED_OR_PASSED"
+          },
+          {
+            "tf": "H3",
+            "model": "breakout_retest",
+            "participation": "PERSONAL_TRADE_NARRATED"
+          }
+        ],
+        "stop_notes": "Stop covers engulf structure; spike misses by1\u20132pips. Planned W high; pictured larger R is not actual exit."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "MANUAL_PROFIT_EXIT_ABOUT_2R_NARRATED",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1089.1\u20131110.9: hypothetical3R paid but closed around2R due consolidation concerns.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "No mechanical stalling threshold stated. Separate original target, actual manual exit and post-exit crash.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-gbpusd-sell-mixed-accounts",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "GBPUSD",
+      "side": "SELL",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 1112.6,
+        "pts_end": 1364,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_022.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "Monthly/W broader structure bullish",
+          "Weekly high swept plus D sell breakout allows temporary sale",
+          "D high sweep/rejection"
+        ],
+        "h4_sequence": [
+          "H4 sell breakout and liquidity",
+          "H4 context supports lower CE"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "engulfing",
+            "participation": "PERSONAL_TRADE_NARRATED"
+          }
+        ],
+        "stop_notes": "Stop beyond nearby H4 liquidity/KL, not merely H2 engulf high. Tighter1\u20132pip variants stopped on one/two accounts."
+      },
+      "participation": "PERSONAL_MULTI_ACCOUNT_TRADE",
+      "outcome": {
+        "classification": "MIXED_TIGHTER_ACCOUNTS_STOPPED_OTHER_ACCOUNT_TP_NARRATED",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1287.7\u20131348.1 explains stop above liquidity/KL and tighter-account stop-outs.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Not a single unqualified win. Exact per-account entries/SLs and which account TP are separate unresolved execution facts.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-usdchf-buy",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 1364.9,
+        "pts_end": 1508.5,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_025.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W and D bullish",
+          "D KL reaction"
+        ],
+        "h4_sequence": [
+          "Initial H4 breakout/liquidity opportunity missed",
+          "Fresh H4 breakout/liquidity/rejection sponsors next entry"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "engulfing",
+            "participation": "PERSONAL_TRADE_NARRATED"
+          }
+        ],
+        "stop_notes": "Stop below local engulf/near structure; target external/previous high. Spoken roughly3.5\u20134R and F1485 box3.29 must not be forced equal."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "TARGET_DELIVERY_NARRATED",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1419.1\u20131425.2 first entry missed;1464.9\u20131472.5 H2 engulf, Thursday; later reversal at target.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Separate first missed setup from fresh executed episode. Initial numeric SL/management not independently fixed.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    },
+    {
+      "id": "video-t3-usdcad-buy-open",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+      "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+      "instrument": "USDCAD",
+      "side": "BUY",
+      "source": {
+        "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+        "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+        "pts_start": 1515,
+        "pts_end": 1735.3,
+        "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "frame_paths": [
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_028.jpg",
+          "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_029.jpg"
+        ]
+      },
+      "expected_qualitative": {
+        "bias_context": [
+          "W and D bullish",
+          "Contrary H4 breakout does not alone flip larger story"
+        ],
+        "h4_sequence": [
+          "H4 breakout/liquidity/reaction",
+          "Original H2 plan later personally deleted",
+          "Additional H1 breakout and KL reaction; H1 low swept while high stands"
+        ],
+        "entry_paths": [
+          {
+            "tf": "H2",
+            "model": "engulfing",
+            "participation": "ORIGINAL_LIMIT_DELETED_NOT_FINAL_FILL"
+          },
+          {
+            "tf": "H1",
+            "model": "confirmation_on_confirmation_then_low_swept_high_standing",
+            "participation": "ADDITIONAL_PERSONAL_FILTER"
+          },
+          {
+            "tf": "M30",
+            "model": "engulfing",
+            "participation": "FINAL_PERSONAL_BUY_NARRATED"
+          }
+        ],
+        "stop_notes": "Original H2 plan stop below wick around5R; replacement M30 plan around6R with own local stop. Do not merge stop plans."
+      },
+      "participation": "PERSONAL_TRADE_NARRATED",
+      "outcome": {
+        "classification": "STILL_OPEN_NO_FINAL_TP_SL",
+        "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+        "numeric_realized_r": null
+      },
+      "narration_locator": "1656.6\u20131682.6 added H1 confirmation and sweep;1713.5\u20131719.5: 'I'm still on this trade'.",
+      "unresolved": {
+        "setup_utc": null,
+        "fill_utc": null,
+        "initial_entry": null,
+        "initial_stop": null,
+        "initial_target": null,
+        "case_specific": "Preserve explicit deletion/replacement and open status. H1/M30 drawings are nested sequence, not automatic simultaneous fills.",
+        "common": [
+          "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+          "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+          "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+          "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+        ]
+      }
+    }
+  ]
+}

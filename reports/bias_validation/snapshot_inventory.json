@@ -1,0 +1,1709 @@
+{
+  "scope": "SOURCE_CREATION_SNAPSHOT_DIRECTION_ONLY",
+  "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+  "qualification": "No teacher setup clocks verified. Direction agreement is not teacher-example acceptance.",
+  "counts": {
+    "SOURCE_BIAS_PENDING": 13,
+    "AGREES_AT_SNAPSHOT": 14,
+    "INPUT_PENDING": 8,
+    "SOURCE_SNAPSHOT_TIME_PENDING": 5
+  },
+  "examples": [
+    {
+      "case_id": "pdf-p02-eurcad-buy-1",
+      "pair": "EURCAD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-31T18:51:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p03-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-29T18:55:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_82b8a9f6bfd5a4c36de79afb.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_82b8a9f6bfd5a4c36de79afb.csv.manifest.json",
+      "input_sha256": "1fda0239eda2e537853ee02de0a15806a8c2b7e5f6e1c30fed073efc3407faeb",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-24T18:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-07-28T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_5afec79a68add4ee0fd33a1f",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "EURJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-28T21:00:00+00:00",
+              "occurred_to": "2026-07-28T21:00:00+00:00",
+              "available_at": "2026-07-28T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_044d1c1d27e5ed02b575b6c1",
+            "price_ticks": 186426,
+            "scope_id": "range_bcb52394b5f448752e6f2e2d",
+            "bar_ids": [
+              "bar_cd2b97428caf8504483f6777"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_b5cbd16047660df4ce67c8c6",
+              "candidate_id": null,
+              "reference_formed_at": "2026-07-23T21:00:00+00:00",
+              "reference_available_at": "2026-07-24T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          },
+          {
+            "id": "structure_event_accb1143e7947f130fec29cf",
+            "kind": "BREAKOUT",
+            "instrument": "EURJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-28T21:00:00+00:00",
+              "occurred_to": "2026-07-28T21:00:00+00:00",
+              "available_at": "2026-07-28T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_044d1c1d27e5ed02b575b6c1",
+            "price_ticks": 186426,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_cd2b97428caf8504483f6777"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-07-23T21:00:00+00:00",
+              "reference_available_at": "2026-07-24T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_bcb52394b5f448752e6f2e2d",
+            "side": "BUY",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_b5cbd16047660df4ce67c8c6",
+            "origin_ticks": 184208,
+            "available_at": "2026-07-28T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-24T18:00:00+00:00",
+          "observed_end": "2026-07-29T18:00:00+00:00",
+          "as_of": "2026-07-29T18:55:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_5afec79a68add4ee0fd33a1f",
+              "bar_ids": [
+                "bar_cd2b97428caf8504483f6777"
+              ],
+              "reference_id": "turn_044d1c1d27e5ed02b575b6c1",
+              "reference_bar_id": "bar_de9278b43d97f11219485c54"
+            },
+            {
+              "event_id": "structure_event_accb1143e7947f130fec29cf",
+              "bar_ids": [
+                "bar_cd2b97428caf8504483f6777"
+              ],
+              "reference_id": "turn_044d1c1d27e5ed02b575b6c1",
+              "reference_bar_id": "bar_de9278b43d97f11219485c54"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p05-eurchf-buy-1",
+      "pair": "EURCHF",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-29T07:59:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p06-eurchf-buy-1",
+      "pair": "EURCHF",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p08-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-23T18:08:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p10-usoil-buy-1",
+      "pair": "USOIL",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-21T13:41:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p10-usoil-buy-2",
+      "pair": "USOIL",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-21T13:41:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p11-xauusd-sell-1",
+      "pair": "XAUUSD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-08T07:09:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p13-eurnzd-sell-1",
+      "pair": "EURNZD",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-17T18:46:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0a3ff8aa72c9638bbd097615.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0a3ff8aa72c9638bbd097615.csv.manifest.json",
+      "input_sha256": "afe3642cb447c5a48587582859ad2b9f6cab1c1292a42b85021bdc14a34066b3",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-12T18:00:00+00:00",
+      "structural_direction": "SELL",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "SELL",
+        "available_at": "2026-07-09T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_3070b72c3f2ec52d3b632112",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "EURNZD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-09T21:00:00+00:00",
+              "occurred_to": "2026-07-09T21:00:00+00:00",
+              "available_at": "2026-07-09T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+            "price_ticks": 200254,
+            "scope_id": "range_0e10d1d734bfa88ab2995ed9",
+            "bar_ids": [
+              "bar_1818b8476918920535dd1e14"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_eacf764c91ab920309ed5515",
+              "candidate_id": "turn_68cbf83bdfa4776b8a5a5597",
+              "reference_formed_at": "2026-07-03T21:00:00+00:00",
+              "reference_available_at": "2026-07-06T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          },
+          {
+            "id": "structure_event_dd01bfd550075511d5f8802b",
+            "kind": "BOS",
+            "instrument": "EURNZD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-09T21:00:00+00:00",
+              "occurred_to": "2026-07-09T21:00:00+00:00",
+              "available_at": "2026-07-09T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+            "price_ticks": 200254,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_1818b8476918920535dd1e14"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-07-03T21:00:00+00:00",
+              "reference_available_at": "2026-07-06T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_0e10d1d734bfa88ab2995ed9",
+            "side": "SELL",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_eacf764c91ab920309ed5515",
+            "origin_ticks": 202164,
+            "available_at": "2026-07-09T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-12T18:00:00+00:00",
+          "observed_end": "2026-07-17T18:00:00+00:00",
+          "as_of": "2026-07-17T18:46:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_3070b72c3f2ec52d3b632112",
+              "bar_ids": [
+                "bar_1818b8476918920535dd1e14"
+              ],
+              "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+              "reference_bar_id": "bar_9c7bbe3628319b35fd6e0bfa"
+            },
+            {
+              "event_id": "structure_event_dd01bfd550075511d5f8802b",
+              "bar_ids": [
+                "bar_1818b8476918920535dd1e14"
+              ],
+              "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+              "reference_bar_id": "bar_9c7bbe3628319b35fd6e0bfa"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p15-usdcad-sell-1",
+      "pair": "USDCAD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-16T13:35:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p17-audusd-buy-1",
+      "pair": "AUDUSD",
+      "source_side": "BUY",
+      "source_tf": "H4",
+      "snapshot_time": "2026-07-16T12:00:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_5db5a84c86814f3f7d87d12f.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_5db5a84c86814f3f7d87d12f.csv.manifest.json",
+      "input_sha256": "89db28519c998b9938d7da361fec86cf989c5919c79ebedb9fe290b39b714862",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-11T12:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "H4",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-07-15T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_4cecb8fc655e65b0460ce21f",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "AUDUSD",
+            "tf": "H4",
+            "clock": {
+              "occurred_from": "2026-07-15T21:00:00+00:00",
+              "occurred_to": "2026-07-15T21:00:00+00:00",
+              "available_at": "2026-07-15T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+            "price_ticks": 69961,
+            "scope_id": "range_07cb7b72913ee36f8d7bbdd7",
+            "bar_ids": [
+              "bar_153f465e8ff82aaa10d1e87a"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_6ac242fe875a6041065dcc92",
+              "candidate_id": null,
+              "reference_formed_at": "2026-07-15T13:00:00+00:00",
+              "reference_available_at": "2026-07-15T17:00:00+00:00",
+              "scope_type": "CHILD"
+            }
+          },
+          {
+            "id": "structure_event_95be7fe3ed166924e739df10",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "AUDUSD",
+            "tf": "H4",
+            "clock": {
+              "occurred_from": "2026-07-15T21:00:00+00:00",
+              "occurred_to": "2026-07-15T21:00:00+00:00",
+              "available_at": "2026-07-15T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+            "price_ticks": 69961,
+            "scope_id": "range_5c843e6897660e3bb67ddaf3",
+            "bar_ids": [
+              "bar_153f465e8ff82aaa10d1e87a"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_6ac242fe875a6041065dcc92",
+              "candidate_id": null,
+              "reference_formed_at": "2026-07-15T13:00:00+00:00",
+              "reference_available_at": "2026-07-15T17:00:00+00:00",
+              "scope_type": "CHILD"
+            }
+          },
+          {
+            "id": "structure_event_db2a195aa8265fafe098baae",
+            "kind": "BREAKOUT",
+            "instrument": "AUDUSD",
+            "tf": "H4",
+            "clock": {
+              "occurred_from": "2026-07-15T21:00:00+00:00",
+              "occurred_to": "2026-07-15T21:00:00+00:00",
+              "available_at": "2026-07-15T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+            "price_ticks": 69961,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_153f465e8ff82aaa10d1e87a"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-07-15T13:00:00+00:00",
+              "reference_available_at": "2026-07-15T17:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_19562670e56afc52814d8d23",
+            "side": "SELL",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_de5c9c914514563dc72a5e26",
+            "origin_ticks": 70816,
+            "available_at": "2026-07-16T09:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-11T12:00:00+00:00",
+          "observed_end": "2026-07-16T12:00:00+00:00",
+          "as_of": "2026-07-16T12:00:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_4cecb8fc655e65b0460ce21f",
+              "bar_ids": [
+                "bar_153f465e8ff82aaa10d1e87a"
+              ],
+              "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+              "reference_bar_id": "bar_590d7208d00ff6f49cb7cd45"
+            },
+            {
+              "event_id": "structure_event_95be7fe3ed166924e739df10",
+              "bar_ids": [
+                "bar_153f465e8ff82aaa10d1e87a"
+              ],
+              "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+              "reference_bar_id": "bar_590d7208d00ff6f49cb7cd45"
+            },
+            {
+              "event_id": "structure_event_db2a195aa8265fafe098baae",
+              "bar_ids": [
+                "bar_153f465e8ff82aaa10d1e87a"
+              ],
+              "reference_id": "turn_22bbb0e1ed696d1880e88e31",
+              "reference_bar_id": "bar_590d7208d00ff6f49cb7cd45"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p19-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-15T17:26:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.manifest.json",
+      "input_sha256": "b4974a96cfaf845518d25c7c28dca7b65690955ed3e953ef0c43bf3a1dd7a2a5",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-10T17:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-07-14T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_3e273422000eb0c6902ca7d0",
+            "kind": "SWEEP_BOS",
+            "instrument": "GBPJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-14T21:00:00+00:00",
+              "occurred_to": "2026-07-14T21:00:00+00:00",
+              "available_at": "2026-07-14T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_db6192be8615846c39d9b54f",
+            "price_ticks": 217019,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_49e6c681635df3ae245e1e12"
+            ],
+            "evidence_ids": [
+              "structure_event_67abcbe753f68e955a8360e0",
+              "turn_c6942eb8f9a146908d65afc1"
+            ],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "sweep_event_id": "structure_event_67abcbe753f68e955a8360e0",
+              "sweep_reference_id": "turn_afac5197fa0516cc2c58d301",
+              "sweep_leg_id": "sweep_leg_511410355c279988fc91b39d",
+              "parent_range_id": null,
+              "reference_formed_at": "2026-07-06T21:00:00+00:00",
+              "reference_available_at": "2026-07-07T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_d3cdfdc1566ae4f090a680ab",
+            "side": "BUY",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_c0109af1020fd7ce6756099b",
+            "origin_ticks": 213048,
+            "available_at": "2026-07-13T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-10T17:00:00+00:00",
+          "observed_end": "2026-07-15T17:00:00+00:00",
+          "as_of": "2026-07-15T17:26:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_3e273422000eb0c6902ca7d0",
+              "bar_ids": [
+                "bar_49e6c681635df3ae245e1e12"
+              ],
+              "reference_id": "turn_db6192be8615846c39d9b54f",
+              "reference_bar_id": "bar_db38c7a068c3daba5d33d9d1"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p19-gbpjpy-buy-2",
+      "pair": "GBPJPY",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-15T17:26:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6c9fa7ccc237c681eade1120.csv.manifest.json",
+      "input_sha256": "b4974a96cfaf845518d25c7c28dca7b65690955ed3e953ef0c43bf3a1dd7a2a5",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-10T17:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-07-14T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_3e273422000eb0c6902ca7d0",
+            "kind": "SWEEP_BOS",
+            "instrument": "GBPJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-14T21:00:00+00:00",
+              "occurred_to": "2026-07-14T21:00:00+00:00",
+              "available_at": "2026-07-14T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_db6192be8615846c39d9b54f",
+            "price_ticks": 217019,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_49e6c681635df3ae245e1e12"
+            ],
+            "evidence_ids": [
+              "structure_event_67abcbe753f68e955a8360e0",
+              "turn_c6942eb8f9a146908d65afc1"
+            ],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "sweep_event_id": "structure_event_67abcbe753f68e955a8360e0",
+              "sweep_reference_id": "turn_afac5197fa0516cc2c58d301",
+              "sweep_leg_id": "sweep_leg_511410355c279988fc91b39d",
+              "parent_range_id": null,
+              "reference_formed_at": "2026-07-06T21:00:00+00:00",
+              "reference_available_at": "2026-07-07T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_d3cdfdc1566ae4f090a680ab",
+            "side": "BUY",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_c0109af1020fd7ce6756099b",
+            "origin_ticks": 213048,
+            "available_at": "2026-07-13T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-10T17:00:00+00:00",
+          "observed_end": "2026-07-15T17:00:00+00:00",
+          "as_of": "2026-07-15T17:26:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_3e273422000eb0c6902ca7d0",
+              "bar_ids": [
+                "bar_49e6c681635df3ae245e1e12"
+              ],
+              "reference_id": "turn_db6192be8615846c39d9b54f",
+              "reference_bar_id": "bar_db38c7a068c3daba5d33d9d1"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p20-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-14T07:12:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p20-usoil-buy-2",
+      "pair": "USOIL",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-14T09:05:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p22-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-13T05:24:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p22-xagusd-sell-2",
+      "pair": "XAGUSD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p23-usdchf-sell-1",
+      "pair": "USDCHF",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-10T06:43:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p23-usdchf-sell-2",
+      "pair": "USDCHF",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-07-09T14:41:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p25-audusd-sell-1",
+      "pair": "AUDUSD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-07-08T11:29:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_5db5a84c86814f3f7d87d12f.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_5db5a84c86814f3f7d87d12f.csv.manifest.json",
+      "input_sha256": "89db28519c998b9938d7da361fec86cf989c5919c79ebedb9fe290b39b714862",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-06-03T11:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-07-02T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_783fc33c4f3c3084f7c2de7b",
+            "kind": "BREAKOUT",
+            "instrument": "AUDUSD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-07-02T21:00:00+00:00",
+              "occurred_to": "2026-07-02T21:00:00+00:00",
+              "available_at": "2026-07-02T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_8f3a522e52b2e5c123073bc2",
+            "price_ticks": 69196,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_596315c6d58a52e67ef0b26f"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-06-30T21:00:00+00:00",
+              "reference_available_at": "2026-07-01T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_7526b5b0b18934b632bd3063",
+            "side": "SELL",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_8267025cbdf7b900fae9b2eb",
+            "origin_ticks": 70699,
+            "available_at": "2026-07-07T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-06-03T11:00:00+00:00",
+          "observed_end": "2026-07-08T11:00:00+00:00",
+          "as_of": "2026-07-08T11:29:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_783fc33c4f3c3084f7c2de7b",
+              "bar_ids": [
+                "bar_596315c6d58a52e67ef0b26f"
+              ],
+              "reference_id": "turn_8f3a522e52b2e5c123073bc2",
+              "reference_bar_id": "bar_2a84659a338f4e0b0e3b0d42"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p27-gbpusd-sell-1",
+      "pair": "GBPUSD",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-06-24T11:49:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0401ebc6fede452bfc611a77.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_0401ebc6fede452bfc611a77.csv.manifest.json",
+      "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-05-20T11:00:00+00:00",
+      "structural_direction": "SELL",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "SELL",
+        "available_at": "2026-06-23T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_51961223fb5a6900741c07dc",
+            "kind": "BREAKOUT",
+            "instrument": "GBPUSD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-06-23T21:00:00+00:00",
+              "occurred_to": "2026-06-23T21:00:00+00:00",
+              "available_at": "2026-06-23T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_8030f48a146e23599311c0fd",
+            "price_ticks": 132043,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_0920b60ead1090a314fd521b"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-06-18T21:00:00+00:00",
+              "reference_available_at": "2026-06-19T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          },
+          {
+            "id": "structure_event_8c93dcf6e5cdbc448a3906a5",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "GBPUSD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-06-23T21:00:00+00:00",
+              "occurred_to": "2026-06-23T21:00:00+00:00",
+              "available_at": "2026-06-23T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_8030f48a146e23599311c0fd",
+            "price_ticks": 132043,
+            "scope_id": "range_4ce4ad82ed7f4eae1b98f5c1",
+            "bar_ids": [
+              "bar_0920b60ead1090a314fd521b"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_49db39365f9ebb7900fdda42",
+              "candidate_id": null,
+              "reference_formed_at": "2026-06-18T21:00:00+00:00",
+              "reference_available_at": "2026-06-19T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_4ce4ad82ed7f4eae1b98f5c1",
+            "side": "SELL",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_49db39365f9ebb7900fdda42",
+            "origin_ticks": 135061,
+            "available_at": "2026-06-23T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-05-20T11:00:00+00:00",
+          "observed_end": "2026-06-24T11:00:00+00:00",
+          "as_of": "2026-06-24T11:49:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_51961223fb5a6900741c07dc",
+              "bar_ids": [
+                "bar_0920b60ead1090a314fd521b"
+              ],
+              "reference_id": "turn_8030f48a146e23599311c0fd",
+              "reference_bar_id": "bar_d27b1fe159ec0f69bfe726db"
+            },
+            {
+              "event_id": "structure_event_8c93dcf6e5cdbc448a3906a5",
+              "bar_ids": [
+                "bar_0920b60ead1090a314fd521b"
+              ],
+              "reference_id": "turn_8030f48a146e23599311c0fd",
+              "reference_bar_id": "bar_d27b1fe159ec0f69bfe726db"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p29-chfjpy-sell-1",
+      "pair": "CHFJPY",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-06-24T13:37:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6d1bb9152a1c2864520ed884.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_6d1bb9152a1c2864520ed884.csv.manifest.json",
+      "input_sha256": "26aab4a610017467780f064a1419caccad8d3694c0f103670cb8c901368f4b32",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-05-20T13:00:00+00:00",
+      "structural_direction": "SELL",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "SELL",
+        "available_at": "2026-06-23T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_9ceea1f909db06ccd44d3f68",
+            "kind": "BREAKOUT",
+            "instrument": "CHFJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-06-23T21:00:00+00:00",
+              "occurred_to": "2026-06-23T21:00:00+00:00",
+              "available_at": "2026-06-23T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_1915173aada89755db0e6047",
+            "price_ticks": 199802,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_628a842cb26cde63ffbe20ee"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-06-19T21:00:00+00:00",
+              "reference_available_at": "2026-06-22T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          },
+          {
+            "id": "structure_event_e6a2a4122a06bfd54c37715f",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "CHFJPY",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-06-23T21:00:00+00:00",
+              "occurred_to": "2026-06-23T21:00:00+00:00",
+              "available_at": "2026-06-23T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_1915173aada89755db0e6047",
+            "price_ticks": 199802,
+            "scope_id": "range_0f7022876fb33a02a2912799",
+            "bar_ids": [
+              "bar_628a842cb26cde63ffbe20ee"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_4a1b9153a989c9511c35fd0f",
+              "candidate_id": null,
+              "reference_formed_at": "2026-06-19T21:00:00+00:00",
+              "reference_available_at": "2026-06-22T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_0f7022876fb33a02a2912799",
+            "side": "SELL",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_4a1b9153a989c9511c35fd0f",
+            "origin_ticks": 203806,
+            "available_at": "2026-06-23T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-05-20T13:00:00+00:00",
+          "observed_end": "2026-06-24T13:00:00+00:00",
+          "as_of": "2026-06-24T13:37:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_9ceea1f909db06ccd44d3f68",
+              "bar_ids": [
+                "bar_628a842cb26cde63ffbe20ee"
+              ],
+              "reference_id": "turn_1915173aada89755db0e6047",
+              "reference_bar_id": "bar_7d26af8aebd83d0805593c90"
+            },
+            {
+              "event_id": "structure_event_e6a2a4122a06bfd54c37715f",
+              "bar_ids": [
+                "bar_628a842cb26cde63ffbe20ee"
+              ],
+              "reference_id": "turn_1915173aada89755db0e6047",
+              "reference_bar_id": "bar_7d26af8aebd83d0805593c90"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p31-gbpnzd-buy-1",
+      "pair": "GBPNZD",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-06-10T19:38:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p33-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-06-09T18:44:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.manifest.json",
+      "input_sha256": "6d2f2c9a1560c3b559b6d3061fe4bdd32bfcadca96e1cb8df13e4ef844fe92da",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-05-05T18:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-06-03T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_e4691c29585f6096eb48059f",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "GBPCAD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-06-03T21:00:00+00:00",
+              "occurred_to": "2026-06-03T21:00:00+00:00",
+              "available_at": "2026-06-03T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_af2bcbd1d478b5baf8adbaa1",
+            "price_ticks": 186409,
+            "scope_id": "range_0eae12e30d8604f0ddad4eb7",
+            "bar_ids": [
+              "bar_320596632abc9304ccd2c57f"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_b04cae965980868b3f32d2e6",
+              "candidate_id": "turn_411a83f29b2a72cc3e732deb",
+              "reference_formed_at": "2026-05-25T21:00:00+00:00",
+              "reference_available_at": "2026-05-26T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_0eae12e30d8604f0ddad4eb7",
+            "side": "BUY",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_b04cae965980868b3f32d2e6",
+            "origin_ticks": 183113,
+            "available_at": "2026-06-08T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-05-05T18:00:00+00:00",
+          "observed_end": "2026-06-09T18:00:00+00:00",
+          "as_of": "2026-06-09T18:44:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_e4691c29585f6096eb48059f",
+              "bar_ids": [
+                "bar_320596632abc9304ccd2c57f"
+              ],
+              "reference_id": "turn_af2bcbd1d478b5baf8adbaa1",
+              "reference_bar_id": "bar_ec517b5eb35d5a2fa88fedba"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p35-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_SNAPSHOT_TIME_PENDING"
+    },
+    {
+      "case_id": "pdf-p37-eurgbp-sell-1",
+      "pair": "EURGBP",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-06-01T16:08:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_d4c44fb0ef3d2811737e1571.csv.manifest.json",
+      "input_sha256": "acc586861c5e9bb2846097fadbd2d5d3368fd83b082845d0ca87cf9a47c43195",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-04-27T16:00:00+00:00",
+      "structural_direction": "SELL",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "SELL",
+        "available_at": "2026-05-25T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_b7760a38fe61398e937d015e",
+            "kind": "BOS",
+            "instrument": "EURGBP",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-05-25T21:00:00+00:00",
+              "occurred_to": "2026-05-25T21:00:00+00:00",
+              "available_at": "2026-05-25T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_69cb01932498e5390217feff",
+            "price_ticks": 86229,
+            "scope_id": "range_aed7b63905590e83ab4de0b7",
+            "bar_ids": [
+              "bar_b8965b80b4b30bb2e1c99901"
+            ],
+            "evidence_ids": [
+              "structure_event_886552244379aa8cc897582a"
+            ],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_formed_at": "2026-04-30T21:00:00+00:00",
+              "reference_available_at": "2026-05-01T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          }
+        ],
+        "active_root_ranges": [],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-04-27T16:00:00+00:00",
+          "observed_end": "2026-06-01T16:00:00+00:00",
+          "as_of": "2026-06-01T16:08:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_b7760a38fe61398e937d015e",
+              "bar_ids": [
+                "bar_b8965b80b4b30bb2e1c99901"
+              ],
+              "reference_id": "turn_69cb01932498e5390217feff",
+              "reference_bar_id": "bar_87672e6fa71faa77587b963c"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p38-us30-buy-1",
+      "pair": "US30",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-29T15:00:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p40-audcad-buy-1",
+      "pair": "AUDCAD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-29T12:52:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_75f2e6e54f800ec7673ac7ad.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_75f2e6e54f800ec7673ac7ad.csv.manifest.json",
+      "input_sha256": "df2467183cc8b41f2fc65a1cba271fba6dd6bcfb90b29ec9cdd3fd23d77a6172",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-04-24T12:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-05-21T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_2db9f293ee4fe070b2d022a7",
+            "kind": "BOS",
+            "instrument": "AUDCAD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-05-21T21:00:00+00:00",
+              "occurred_to": "2026-05-21T21:00:00+00:00",
+              "available_at": "2026-05-21T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_5406a20cd3e5d63da0ac7d31",
+            "price_ticks": 98479,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_5c34069b3f0ad7fbab2afda7"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-05-18T21:00:00+00:00",
+              "reference_available_at": "2026-05-19T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_a18d0d272a884c2db25a0816",
+            "side": "BUY",
+            "status": "PROVISIONAL_BREAKOUT",
+            "protected_turn_id": "turn_9fcd7feb3610f443a1c213fe",
+            "origin_ticks": 97636,
+            "available_at": "2026-05-20T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-04-24T12:00:00+00:00",
+          "observed_end": "2026-05-29T12:00:00+00:00",
+          "as_of": "2026-05-29T12:52:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_2db9f293ee4fe070b2d022a7",
+              "bar_ids": [
+                "bar_5c34069b3f0ad7fbab2afda7"
+              ],
+              "reference_id": "turn_5406a20cd3e5d63da0ac7d31",
+              "reference_bar_id": "bar_dcd8719ad6b8d76ba6601eaa"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p42-usoil-sell-1",
+      "pair": "USOIL",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-28T14:41:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p44-ethusdt-sell-1",
+      "pair": "ETHUSDT",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-27T13:59:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p46-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "source_side": "BUY",
+      "source_tf": "H4",
+      "snapshot_time": "2026-05-27T07:15:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_82b8a9f6bfd5a4c36de79afb.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_82b8a9f6bfd5a4c36de79afb.csv.manifest.json",
+      "input_sha256": "1fda0239eda2e537853ee02de0a15806a8c2b7e5f6e1c30fed073efc3407faeb",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-04-22T07:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "H4",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-05-27T01:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_d8e829c959c705ba70b5a7b3",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "EURJPY",
+            "tf": "H4",
+            "clock": {
+              "occurred_from": "2026-05-27T01:00:00+00:00",
+              "occurred_to": "2026-05-27T01:00:00+00:00",
+              "available_at": "2026-05-27T01:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_e8dc32cb4061c1e076def274",
+            "price_ticks": 185276,
+            "scope_id": "range_1e9bd59ce121f72da418315b",
+            "bar_ids": [
+              "bar_ea7856263a89e71d84871e55"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_cbc614a35486b01165724dc8",
+              "candidate_id": null,
+              "reference_formed_at": "2026-05-12T05:00:00+00:00",
+              "reference_available_at": "2026-05-12T09:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_1e9bd59ce121f72da418315b",
+            "side": "BUY",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_cbc614a35486b01165724dc8",
+            "origin_ticks": 184341,
+            "available_at": "2026-05-27T01:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-04-22T07:00:00+00:00",
+          "observed_end": "2026-05-27T07:00:00+00:00",
+          "as_of": "2026-05-27T07:15:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_d8e829c959c705ba70b5a7b3",
+              "bar_ids": [
+                "bar_ea7856263a89e71d84871e55"
+              ],
+              "reference_id": "turn_e8dc32cb4061c1e076def274",
+              "reference_bar_id": "bar_d6a55bacb4f20dc630b17272"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p47-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-21T19:06:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_301365c74eab831b3e361482.csv.manifest.json",
+      "input_sha256": "6d2f2c9a1560c3b559b6d3061fe4bdd32bfcadca96e1cb8df13e4ef844fe92da",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-04-16T19:00:00+00:00",
+      "structural_direction": "BUY",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "BUY",
+        "available_at": "2026-05-20T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_f76ba1be2e4574268f64519f",
+            "kind": "BOS",
+            "instrument": "GBPCAD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-05-20T21:00:00+00:00",
+              "occurred_to": "2026-05-20T21:00:00+00:00",
+              "available_at": "2026-05-20T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "BUY",
+            "reference_id": "turn_17cc49c38349404321456050",
+            "price_ticks": 184543,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_443336c361c73ed3f58dba88"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-05-18T21:00:00+00:00",
+              "reference_available_at": "2026-05-19T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_e2721d8930d02d87f49356d5",
+            "side": "SELL",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_a4a337c8c66592859698af0f",
+            "origin_ticks": 186373,
+            "available_at": "2026-05-20T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-04-16T19:00:00+00:00",
+          "observed_end": "2026-05-21T19:00:00+00:00",
+          "as_of": "2026-05-21T19:06:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_f76ba1be2e4574268f64519f",
+              "bar_ids": [
+                "bar_443336c361c73ed3f58dba88"
+              ],
+              "reference_id": "turn_17cc49c38349404321456050",
+              "reference_bar_id": "bar_bfeb2a075994c9f5c0d9989d"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "pdf-p50-nas100-buy-1",
+      "pair": "NAS100",
+      "source_side": null,
+      "source_tf": null,
+      "snapshot_time": "2026-05-21T06:01:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_BIAS_PENDING"
+    },
+    {
+      "case_id": "pdf-p52-nas100-sell-1",
+      "pair": "NAS100",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_SNAPSHOT_TIME_PENDING"
+    },
+    {
+      "case_id": "pdf-p54-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_SNAPSHOT_TIME_PENDING"
+    },
+    {
+      "case_id": "pdf-p55-us30-buy-1",
+      "pair": "US30",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-14T12:34:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p58-jp225-buy-1",
+      "pair": "JP225",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-14T04:21:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "INPUT_PENDING",
+      "reason": "No matching H1 snapshot with declared calendar and bounded warmup coverage"
+    },
+    {
+      "case_id": "pdf-p60-gbpaud-sell-1",
+      "pair": "GBPAUD",
+      "source_side": "SELL",
+      "source_tf": "D",
+      "snapshot_time": "2026-05-12T08:52:00Z",
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "AGREES_AT_SNAPSHOT",
+      "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_4ff515a1b7f00468d56b2963.csv.gz",
+      "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_4ff515a1b7f00468d56b2963.csv.manifest.json",
+      "input_sha256": "4bc7d5191a225626ead12bba932b7625a414f1d6e39430d0c83cbc147b28e68f",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "history_start": "2026-04-07T08:00:00+00:00",
+      "structural_direction": "SELL",
+      "structural_state": "DIRECTIONAL",
+      "structural_context": {
+        "tf": "D",
+        "state": "DIRECTIONAL",
+        "side": "SELL",
+        "available_at": "2026-05-11T21:00:00+00:00",
+        "recent_breaks": [
+          {
+            "id": "structure_event_5ce13de2ba815a87512f0380",
+            "kind": "EXTERNAL_BREAK",
+            "instrument": "GBPAUD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-05-11T21:00:00+00:00",
+              "occurred_to": "2026-05-11T21:00:00+00:00",
+              "available_at": "2026-05-11T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_c77ba24828888e564c64dbc9",
+            "price_ticks": 187809,
+            "scope_id": "range_f5ebdcdfad998198de64da81",
+            "bar_ids": [
+              "bar_04d514329d85cc289252e4b6"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "old_origin_id": "turn_b18030429f1ea3397a700808",
+              "candidate_id": null,
+              "reference_formed_at": "2026-05-06T21:00:00+00:00",
+              "reference_available_at": "2026-05-07T21:00:00+00:00",
+              "scope_type": "ROOT"
+            }
+          },
+          {
+            "id": "structure_event_8764fe408f1c443fd6a27da5",
+            "kind": "BREAKOUT",
+            "instrument": "GBPAUD",
+            "tf": "D",
+            "clock": {
+              "occurred_from": "2026-05-11T21:00:00+00:00",
+              "occurred_to": "2026-05-11T21:00:00+00:00",
+              "available_at": "2026-05-11T21:00:00+00:00",
+              "precision": "EXACT"
+            },
+            "side": "SELL",
+            "reference_id": "turn_c77ba24828888e564c64dbc9",
+            "price_ticks": 187809,
+            "scope_id": null,
+            "bar_ids": [
+              "bar_04d514329d85cc289252e4b6"
+            ],
+            "evidence_ids": [],
+            "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+            "evidence_status": "KNOWN",
+            "details": {
+              "reference_type": "TURN",
+              "crossing_mode": "TRADED",
+              "reference_formed_at": "2026-05-06T21:00:00+00:00",
+              "reference_available_at": "2026-05-07T21:00:00+00:00",
+              "scope_type": "LOCAL"
+            }
+          }
+        ],
+        "active_root_ranges": [
+          {
+            "id": "range_f5ebdcdfad998198de64da81",
+            "side": "SELL",
+            "status": "DEFINED",
+            "protected_turn_id": "turn_b18030429f1ea3397a700808",
+            "origin_ticks": 188781,
+            "available_at": "2026-05-11T21:00:00+00:00"
+          }
+        ],
+        "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+        "current_segment": {
+          "ready": true,
+          "scope": "CURRENT_SEGMENT_ONLY",
+          "start": "2026-04-07T08:00:00+00:00",
+          "observed_end": "2026-05-12T08:00:00+00:00",
+          "as_of": "2026-05-12T08:52:00+00:00",
+          "reasons": [],
+          "checked_evidence": [
+            {
+              "event_id": "structure_event_5ce13de2ba815a87512f0380",
+              "bar_ids": [
+                "bar_04d514329d85cc289252e4b6"
+              ],
+              "reference_id": "turn_c77ba24828888e564c64dbc9",
+              "reference_bar_id": "bar_d9b2826ac56da8243ffb2d21"
+            },
+            {
+              "event_id": "structure_event_8764fe408f1c443fd6a27da5",
+              "bar_ids": [
+                "bar_04d514329d85cc289252e4b6"
+              ],
+              "reference_id": "turn_c77ba24828888e564c64dbc9",
+              "reference_bar_id": "bar_d9b2826ac56da8243ffb2d21"
+            }
+          ],
+          "historical_missing_slots": 0
+        }
+      },
+      "setup_story_state": "NOT_EVALUATED",
+      "interpretation": "Same-TF structural direction only; does not establish source-object identity, setup agreement, entry agreement or profitability."
+    },
+    {
+      "case_id": "video-entries5-native-t1065-xauusd",
+      "pair": "XAUUSD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_SNAPSHOT_TIME_PENDING"
+    },
+    {
+      "case_id": "video-entries5-native-t1410-eurusd",
+      "pair": "EURUSD",
+      "source_side": "BUY",
+      "source_tf": "D",
+      "snapshot_time": null,
+      "teacher_acceptance": "SOURCE_ASSESSMENT_CLOCK_UNRESOLVED",
+      "status": "SOURCE_SNAPSHOT_TIME_PENDING"
+    }
+  ],
+  "actions_run": 40393851319,
+  "engine_commit": "6a85f5b"
+}

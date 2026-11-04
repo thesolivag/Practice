@@ -1,0 +1,63 @@
+name: Bishop evolving bias and paper backtest
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: Evaluation days (warmup stays unchanged)
+        type: choice
+        options: ['7', '28']
+        default: '28'
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-market-backtest.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-market-backtest
+  cancel-in-progress: false
+jobs:
+  replay:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        pair: [GBPUSD, EURNZD]
+        risk: [owner_fixed11, context_liquidity]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Reuse frozen IC Markets candles from the completed current-data run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAIR: ${{ matrix.pair }}
+        run: gh run download 40393856297 --repo awujo/practicing --name "bishop-current-bias-$PAIR" --dir market-input
+      - name: Reuse completed causal bias replay
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAIR: ${{ matrix.pair }}
+        run: gh run download 40448984855 --repo awujo/practicing --name "bishop-market-backtest-$PAIR" --dir market-bias
+      - name: Replay supported paper-entry engine against the saved bias timeline
+        env:
+          PAIR: ${{ matrix.pair }}
+          RISK: ${{ matrix.risk }}
+          DAYS: ${{ inputs.days }}
+        run: |
+          python -u -m reports.backtest_bishop_market --inputs market-input \
+            --pair "$PAIR" --days "$DAYS" --stage paper --risk "$RISK" \
+            --rolling "market-bias/$PAIR/rolling_bias.json" \
+            --out "reports/market_backtest/$PAIR/$RISK"
+      - name: Preserve results even if a diagnostic fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bishop-market-backtest-${{ matrix.pair }}-${{ matrix.risk }}
+          path: reports/market_backtest/${{ matrix.pair }}/${{ matrix.risk }}/
+          if-no-files-found: warn
+          retention-days: 30

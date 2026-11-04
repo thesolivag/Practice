@@ -1,0 +1,1072 @@
+{
+  "scope": "CLOSED_H4_BOUNDARY_WALK_FORWARD",
+  "start": "2026-09-28T20:00:00+00:00",
+  "end": "2026-10-26T20:00:00+00:00",
+  "checkpoints": 122,
+  "future_price_invariance": {
+    "status": "PASS",
+    "future_bars_changed": 480,
+    "tested_at": "2026-09-28T20:00:00+00:00"
+  },
+  "state_transitions": 28,
+  "confirmed_direction_flips": 24,
+  "changes_by_tf": {
+    "D": 8,
+    "H4": 18,
+    "M": 1,
+    "W": 1
+  },
+  "initial_states_included": true,
+  "mentor_comparison": "Documented source snapshot agreement is separate; no live Bishop commentary feed is available.",
+  "qualification": "M/W/D/H4 context can update only on closed bars. Forward movement is not entry P&L or proof of a parent-story reversal.",
+  "transitions": [
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -32,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 158,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 455,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-09-25T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 32,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -158,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -455,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-09-28T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "M",
+      "side": null,
+      "state": "DATA_INCOMPLETE",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "REQUESTED_WINDOW",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [],
+      "parent_ranges": []
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "W",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -32,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 158,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 455,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_d59534e057549da9481aba6b",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_5704c7eb1d608aec799c0217",
+          "origin_ticks": 136536,
+          "available_at": "2026-09-18T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 73,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 177,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 235,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-09-28T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-30T09:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 134,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -121,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -636,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-09-30T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-30T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 53,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -515,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -682,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-09-30T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-01T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 388,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 657,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 398,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-01T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-01T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 108,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -130,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -419,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-01T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-02T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -27,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 215,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -17,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-02T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-05T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -223,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -46,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -69,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-05T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-06T09:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 313,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 326,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -17,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-06T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-06T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -121,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -343,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -619,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-06T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-07T01:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 134,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 597,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 543,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-07T01:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-07T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 45,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 176,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -163,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-07T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-08T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 153,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 291,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 136,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-08T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-12T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -4,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -85,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -367,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-12T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-13T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 70,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 72,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -606,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-13T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-13T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 70,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 72,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -606,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-13T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-14T13:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 488,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -293,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -495,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-14T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-14T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -395,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -642,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -821,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-14T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-15T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 146,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 421,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 552,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-15T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "D",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-15T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -60,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 517,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 504,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_049a25aac81a89844439e2eb",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_0aca72ff5e1da68fe2b9f640",
+          "origin_ticks": 135463,
+          "available_at": "2026-10-15T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-19T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 4,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -292,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -670,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-19T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-20T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 152,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 378,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 402,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-20T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-22T13:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -273,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -292,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -106,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-22T13:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-23T01:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -139,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -186,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -202,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-23T01:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "GBPUSD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-23T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 125,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 191,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 92,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_040a083b39d7b2dd4a2044c1",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_2e32d0c2fc474f7a69c3fdff",
+          "origin_ticks": 136646,
+          "available_at": "2026-10-23T05:00:00+00:00"
+        }
+      ]
+    }
+  ],
+  "run_url": "https://github.com/awujo/practicing/actions/runs/40448984855",
+  "paper_backtest_status": "TIMED_OUT_WITHOUT_SETTLED_RESULTS",
+  "latest_directions": {
+    "D": "BUY",
+    "H4": "SELL",
+    "M": null,
+    "W": "SELL"
+  },
+  "finding": "Latest local structural direction is not a confirmed parent reversal or verified mentor bias."
+}

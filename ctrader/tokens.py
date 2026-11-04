@@ -2,8 +2,9 @@
 
 Tokens are read from the DB `settings` table (keys ctrader_access_token, ctrader_refresh_token,
 ctrader_token_expiry = unix seconds) when available, else from env CTRADER_ACCESS_TOKEN /
-CTRADER_REFRESH_TOKEN. Refreshed tokens are written back to the DB (the refresh call invalidates
-the previous refresh token, so without a DB the new pair is only kept in memory for this process).
+CTRADER_REFRESH_TOKEN. Shared tokens are read-only even when DB access is unavailable.
+Set CTRADER_TOKEN_TABLE to an empty string only for Bishop's separately owned tokens;
+then refreshed tokens are stored in bishop_settings (or process-local memory without a DB).
 
 CLI (one-time setup, see ctrader/README.md):
     python -m ctrader.tokens auth-url --redirect-uri https://example.com/callback
@@ -12,10 +13,10 @@ CLI (one-time setup, see ctrader/README.md):
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.parse
-from contextlib import contextmanager
 
 AUTH_URI = "https://openapi.ctrader.com/apps/auth"
 TOKEN_URI = "https://openapi.ctrader.com/apps/token"
@@ -23,61 +24,68 @@ REFRESH_MARGIN_S = 3 * 24 * 3600  # refresh when < 3 days left
 
 
 class MemorySettings:
-    """Fallback settings store (no DB): env-seeded, process-local."""
+    """Process-local fallback with the same shared-token policy as DbSettings.
 
-    def __init__(self, initial=None):
+    Losing database access must never grant permission to rotate shared tokens.
+    Explicit borrowed=False is for separately owned token stores and isolated tests.
+    """
+
+    def __init__(self, initial=None, borrowed=None):
         self.d = dict(initial or {})
+        self.borrowed = bool(os.environ.get("CTRADER_TOKEN_TABLE", "settings")) if borrowed is None else borrowed
 
     def get(self, k, default=None):
         return self.d.get(k, default)
 
     def set(self, k, v):
+        if self.borrowed and k.startswith("ctrader_"):
+            return
         self.d[k] = None if v is None else str(v)
 
 
 class DbSettings:
-    """Owner settings on dedicated connections, safe beside threaded news and alert jobs."""
+    """Adapter over bishop/db.py (get_setting / set_setting) as defined in CONTRACT.md.
 
-    def __init__(self, db):
+    OUR CHOICE (Bishop bot shares the owner's single cTrader demo login with the Kevin bot): a cTrader refresh
+    invalidates the previous refresh token, so if this bot refreshed too it would break the Kevin bot's stored
+    tokens. By default the ctrader_* keys are therefore BORROWED read-only from the Kevin table `settings`
+    (env CTRADER_TOKEN_TABLE, default `settings`; set it empty to use bishop_settings and refresh here instead).
+    A borrowed token is never refreshed or written by this bot: the Kevin hourly job keeps it fresh; when it is
+    expired the candle layer falls back to Dukascopy.
+    """
+
+    def __init__(self, db, token_table=None):
         self.db = db
+        self.token_table = os.environ.get("CTRADER_TOKEN_TABLE", "settings") if token_table is None else token_table
+        if self.token_table and not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", self.token_table):
+            raise ValueError("CTRADER_TOKEN_TABLE must be empty or a plain SQL identifier of at most 64 characters")
+        self.borrowed = bool(self.token_table)
 
     def get(self, k, default=None):
-        from slk import tenancy
-        with tenancy.scope(None):
-            conn = self.db.connect()
+        if self.borrowed and k.startswith("ctrader_"):
             try:
-                with conn.cursor() as cur:
-                    cur.execute("SELECT v FROM settings WHERE k=%s", (k,))
-                    row = cur.fetchone()
-                return row["v"] if row and row["v"] is not None else default
-            finally:
-                conn.close()
+                rows = self.db.query(f"SELECT v FROM `{self.token_table}` WHERE k=%s", (k,))
+            except Exception:
+                return default
+            return rows[0]["v"] if rows and rows[0]["v"] is not None else default
+        return self.db.get_setting(k, default)
 
     def set(self, k, v):
-        from slk import tenancy
-        with tenancy.scope(None):
-            conn = self.db.connect()
-            try:
-                with conn.cursor() as cur:
-                    cur.execute("INSERT INTO settings (k,v) VALUES (%s,%s) ON DUPLICATE KEY UPDATE v=VALUES(v)",
-                                (k, None if v is None else str(v)))
-                conn.commit()
-            except Exception:
-                conn.rollback()
-                raise
-            finally:
-                conn.close()
+        if self.borrowed and k.startswith("ctrader_"):
+            return  # never write the other bot's tokens
+        self.db.set_setting(k, None if v is None else str(v))
 
 
 def default_settings(strict=True):
     """DbSettings when DATABASE_URL is set, else MemorySettings. With strict=True an unusable DB
-    raises (so the kill switch is never silently skipped); strict=False falls back to memory."""
+    raises (so the kill switch is never silently skipped); strict=False falls back to memory.
+    Both paths preserve the read-only shared-token policy from CTRADER_TOKEN_TABLE.
+    """
     if os.environ.get("DATABASE_URL"):
         try:
-            from slk import db  # optional dependency, see CONTRACT.md
-            store = DbSettings(db)
-            store.get("kill_switch", "off")
-            return store
+            from bishop import db  # optional dependency, see CONTRACT.md
+            db.get_setting("kill_switch", "off")
+            return DbSettings(db)
         except Exception as e:
             if strict:
                 raise
@@ -86,16 +94,6 @@ def default_settings(strict=True):
 
 
 def load_tokens(settings):
-    if isinstance(settings, DbSettings):
-        # One statement observes a coherent committed token pair. Three separate
-        # reads could straddle another runner's atomic rotation.
-        from slk import tenancy
-        with tenancy.scope(None):
-            conn = settings.db.connect()
-            try:
-                return _read_pair(conn)
-            finally:
-                conn.close()
     return {
         "access_token": settings.get("ctrader_access_token") or os.environ.get("CTRADER_ACCESS_TOKEN"),
         "refresh_token": settings.get("ctrader_refresh_token") or os.environ.get("CTRADER_REFRESH_TOKEN"),
@@ -131,10 +129,8 @@ def _token_request(params, http_get=None):
 def refresh_tokens(settings=None, refresh_token=None, client_id=None, client_secret=None, http_get=None):
     """OAuth refresh. Stores new access/refresh token + expiry in settings; returns the tokens dict."""
     settings = settings if settings is not None else default_settings()
-    if isinstance(settings, DbSettings):
-        # Observe before waiting: another runner may rotate this pair while we wait.
-        observed = load_tokens(settings)
-        return _refresh_db(settings, observed, refresh_token, client_id, client_secret, http_get)
+    if getattr(settings, "borrowed", False):
+        raise RuntimeError("cTrader tokens are borrowed from the Kevin bot (read-only); refresh is done there")
     refresh_token = refresh_token or load_tokens(settings)["refresh_token"]
     if not refresh_token:
         raise RuntimeError("no refresh token (CTRADER_REFRESH_TOKEN / settings.ctrader_refresh_token)")
@@ -148,9 +144,8 @@ def refresh_tokens(settings=None, refresh_token=None, client_id=None, client_sec
 
 
 def _store(settings, data):
-    if isinstance(settings, DbSettings):
-        with _oauth_lock(settings) as conn:
-            return _persist_pair(conn, data, _read_pair(conn))
+    if getattr(settings, "borrowed", False):
+        raise RuntimeError("cTrader tokens are borrowed from the Kevin bot (read-only); token writes are disabled")
     expiry = int(time.time() + int(data.get("expiresIn") or 0)) if data.get("expiresIn") else None
     settings.set("ctrader_access_token", data["accessToken"])
     if data.get("refreshToken"):
@@ -159,94 +154,6 @@ def _store(settings, data):
         settings.set("ctrader_token_expiry", expiry)
     return {"access_token": data["accessToken"], "refresh_token": data.get("refreshToken"), "expiry": expiry}
 
-
-
-TOKEN_LOCK = "slk:ctrader:oauth-refresh:v1"
-TOKEN_KEYS = ("ctrader_access_token", "ctrader_refresh_token", "ctrader_token_expiry")
-
-
-@contextmanager
-def _oauth_lock(settings):
-    """A separate connection owns this server-side lock across HTTP and persistence.
-
-    This is deliberately not the market-feed lease, which callers may already own.
-    A busy/unavailable DB never permits an unlocked refresh or env-only fallback.
-    """
-    from slk import tenancy
-    with tenancy.scope(None):
-        conn = settings.db.connect()
-        acquired = False
-        try:
-            with conn.cursor() as cur:
-                cur.execute("SELECT GET_LOCK(%s,60) AS acquired", (TOKEN_LOCK,))
-                row = cur.fetchone()
-                acquired = bool(row and row.get("acquired") == 1)
-            if not acquired:
-                raise RuntimeError("cTrader token refresh is busy; retry on the next run")
-            yield conn
-        finally:
-            if acquired:
-                try:
-                    with conn.cursor() as cur:
-                        cur.execute("SELECT RELEASE_LOCK(%s)", (TOKEN_LOCK,))
-                except Exception:
-                    pass  # Closing the dedicated connection also releases its named lock.
-            conn.close()
-
-
-def _read_pair(conn):
-    with conn.cursor() as cur:
-        cur.execute("SELECT k,v FROM settings WHERE k IN (%s,%s,%s)", TOKEN_KEYS)
-        values = {r["k"]: r["v"] for r in cur.fetchall()}
-    return {"access_token": values.get(TOKEN_KEYS[0]) or os.environ.get("CTRADER_ACCESS_TOKEN"),
-            "refresh_token": values.get(TOKEN_KEYS[1]) or os.environ.get("CTRADER_REFRESH_TOKEN"),
-            "expiry": _to_float(values.get(TOKEN_KEYS[2]))}
-
-
-def _persist_pair(conn, data, previous):
-    """One commit publishes all three fields, so readers never see a partial pair."""
-    expiry = int(time.time() + int(data["expiresIn"])) if data.get("expiresIn") else None
-    result = {"access_token": data["accessToken"],
-              "refresh_token": data.get("refreshToken") or previous.get("refresh_token"), "expiry": expiry}
-    values = [(TOKEN_KEYS[0], result["access_token"]), (TOKEN_KEYS[1], result["refresh_token"]),
-              (TOKEN_KEYS[2], str(expiry) if expiry is not None else None)]
-    try:
-        conn.begin()
-        with conn.cursor() as cur:
-            cur.executemany("INSERT INTO settings (k,v) VALUES (%s,%s) ON DUPLICATE KEY UPDATE v=VALUES(v)", values)
-        conn.commit()
-    except Exception:
-        conn.rollback()
-        raise
-    return result
-
-
-def _refresh_db(settings, observed, requested, client_id, client_secret, http_get):
-    with _oauth_lock(settings) as conn:
-        current = _read_pair(conn)
-        changed = ((current["access_token"], current["refresh_token"]) !=
-                   (observed["access_token"], observed["refresh_token"]))
-        stale_argument = bool(requested and requested != current["refresh_token"])
-        usable = current["access_token"] and (not current["expiry"] or current["expiry"] > time.time())
-        if usable and (changed or stale_argument):
-            return current
-        # The DB pair wins over a stale explicit refresh token, even when access expired.
-        refresh = current["refresh_token"] or requested
-        if not refresh:
-            raise RuntimeError("no cTrader refresh token is configured")
-        try:
-            if not (client_id and client_secret):
-                from slk.runtime_config import credentials
-                configured_id,configured_secret=credentials(settings)
-                client_id,client_secret=configured_id,configured_secret
-            if not (client_id and client_secret):
-                raise RuntimeError("Broker application credentials are not configured")
-            data = _token_request({"grant_type": "refresh_token", "refresh_token": refresh,
-                                   "client_id": client_id, "client_secret": client_secret}, http_get)
-        except Exception:
-            # HTTP exceptions may embed query parameters containing OAuth secrets.
-            raise RuntimeError("cTrader token refresh failed") from None
-        return _persist_pair(conn, data, current)
 
 def auth_url(client_id, redirect_uri, scope="trading"):
     q = urllib.parse.urlencode({"client_id": client_id, "redirect_uri": redirect_uri, "scope": scope})

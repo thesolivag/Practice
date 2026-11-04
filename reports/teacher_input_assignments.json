@@ -1,0 +1,62 @@
+{
+  "scope": "METADATA_ASSOCIATION_ONLY_NOT_TEACHER_ACCEPTANCE",
+  "assignments": [
+    {
+      "case_id": "pdf-p11-xauusd-sell-1",
+      "path": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_53e33d93c26d61188f104818.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_53e33d93c26d61188f104818.csv.manifest.json",
+      "derivation": {
+        "source_manifest": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_48e4c6ec69834554621d98e3.csv.manifest.json",
+        "source_manifest_sha256": "cb6a7716aebcb88a8ef8ae29243599075e417629523504a6c6a3a245b6612e73",
+        "source_data": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_48e4c6ec69834554621d98e3.csv.gz",
+        "source_data_sha256": "1c78295e2d1843197b051d9d1037d303fd38fad69facfab7f07118b58f3203b1",
+        "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+        "assigned_case": "pdf-p11-xauusd-sell-1",
+        "selection": "matching_pair_required_resolution_declared_window_then_path_NO_OUTCOME_OR_PRICE_SELECTION",
+        "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+        "as_of": "2026-07-09T00:00:00+00:00",
+        "history_start": "2026-06-03T00:00:00+00:00",
+        "calendar_approval": false,
+        "teacher_acceptance": false
+      }
+    },
+    {
+      "case_id": "pdf-p20-xagusd-sell-1",
+      "path": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_6187c04f862c413a5941638c.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_6187c04f862c413a5941638c.csv.manifest.json",
+      "derivation": {
+        "source_manifest": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_4c8faea748e531e3871d5955.csv.manifest.json",
+        "source_manifest_sha256": "f5351cc662918cef3fc972a45a76d5092bca394427d638f3e6f2100dfba5f868",
+        "source_data": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_4c8faea748e531e3871d5955.csv.gz",
+        "source_data_sha256": "4d824829bdc96445672df0427dc94fab6a9e72c0f44d1fcdb7a4e3afaee65a54",
+        "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+        "assigned_case": "pdf-p20-xagusd-sell-1",
+        "selection": "matching_pair_required_resolution_declared_window_then_path_NO_OUTCOME_OR_PRICE_SELECTION",
+        "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+        "as_of": "2026-07-15T00:00:00+00:00",
+        "history_start": "2026-06-09T00:00:00+00:00",
+        "calendar_approval": false,
+        "teacher_acceptance": false
+      }
+    },
+    {
+      "case_id": "pdf-p22-xagusd-sell-1",
+      "path": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_6595264be0cfbe36ff4efee9.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_case_assignments/case_assignment_6595264be0cfbe36ff4efee9.csv.manifest.json",
+      "derivation": {
+        "source_manifest": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_4c8faea748e531e3871d5955.csv.manifest.json",
+        "source_manifest_sha256": "f5351cc662918cef3fc972a45a76d5092bca394427d638f3e6f2100dfba5f868",
+        "source_data": "data/teacher_icmarkets_runs/40078970602/data/teacher_icmarkets_supplement/candles/collect_4c8faea748e531e3871d5955.csv.gz",
+        "source_data_sha256": "4d824829bdc96445672df0427dc94fab6a9e72c0f44d1fcdb7a4e3afaee65a54",
+        "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+        "assigned_case": "pdf-p22-xagusd-sell-1",
+        "selection": "matching_pair_required_resolution_declared_window_then_path_NO_OUTCOME_OR_PRICE_SELECTION",
+        "clock_kind": "EXPLORATORY_END_OF_SNAPSHOT_DATE_NOT_TEACHER_CLOCK",
+        "as_of": "2026-07-14T00:00:00+00:00",
+        "history_start": "2026-06-08T00:00:00+00:00",
+        "calendar_approval": false,
+        "teacher_acceptance": false
+      }
+    }
+  ]
+}

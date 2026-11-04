@@ -48,7 +48,7 @@ def volume_to_lots(volume, lot_size):
     return volume / lot_size
 
 
-def client_order_id(entry_id, prefix="slk"):
+def client_order_id(entry_id, prefix="bishop"):
     """Deterministic client order id for an `entries` row: same entry -> same id -> no duplicate order."""
     s = str(entry_id).strip()
     if not s:

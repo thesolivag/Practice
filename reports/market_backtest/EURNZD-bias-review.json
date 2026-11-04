@@ -1,0 +1,746 @@
+{
+  "scope": "CLOSED_H4_BOUNDARY_WALK_FORWARD",
+  "start": "2026-09-28T20:00:00+00:00",
+  "end": "2026-10-26T20:00:00+00:00",
+  "checkpoints": 122,
+  "future_price_invariance": {
+    "status": "PASS",
+    "future_bars_changed": 480,
+    "tested_at": "2026-09-28T20:00:00+00:00"
+  },
+  "state_transitions": 19,
+  "confirmed_direction_flips": 15,
+  "changes_by_tf": {
+    "D": 2,
+    "H4": 15,
+    "M": 1,
+    "W": 1
+  },
+  "initial_states_included": true,
+  "mentor_comparison": "Documented source snapshot agreement is separate; no live Bishop commentary feed is available.",
+  "qualification": "M/W/D/H4 context can update only on closed bars. Forward movement is not entry P&L or proof of a parent-story reversal.",
+  "transitions": [
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "D",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 95,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 319,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 474,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_4fd70f3230842a4ac70d3cc7",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_b571533a3ff0e58524f651a8",
+          "origin_ticks": 202164,
+          "available_at": "2026-09-23T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -95,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -319,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -474,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-09-28T13:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "M",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 95,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 319,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 474,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": []
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "W",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": null,
+      "previous_side": null,
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-28T20:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 95,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 319,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 474,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_93eda7cc8971159620eb51c0",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_5d1025250409ed303d04fc4b",
+          "origin_ticks": 202109,
+          "available_at": "2026-09-04T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-09-29T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -1,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -114,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 199,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-09-29T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-01T13:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 622,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 157,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 1016,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-01T13:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "D",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-01T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -365,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 244,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 207,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_4fd70f3230842a4ac70d3cc7",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_b571533a3ff0e58524f651a8",
+          "origin_ticks": 202164,
+          "available_at": "2026-10-01T21:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-05T13:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -256,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -319,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -265,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-05T13:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-06T01:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -43,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -54,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 85,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-06T01:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-06T09:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -274,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -444,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -978,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-06T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-06T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 38,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -134,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 281,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-06T13:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-08T01:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -115,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 45,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 30,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-08T01:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-08T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -151,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -67,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 147,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-08T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-08T09:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 9,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -48,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -126,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-08T09:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-09T05:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -172,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 250,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -96,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-09T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-13T01:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -79,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": -456,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": -590,
+          "status": "OPPOSED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-13T01:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-13T09:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 67,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 15,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 312,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-13T05:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "BUY",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "SELL",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-14T17:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": -48,
+          "status": "OPPOSED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 99,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 320,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-14T17:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "kind": "BIAS_CHANGED",
+      "instrument": "EURNZD",
+      "tf": "H4",
+      "side": "SELL",
+      "state": "DIRECTIONAL",
+      "previous_state": "DIRECTIONAL",
+      "previous_side": "BUY",
+      "coverage_scope": "CURRENT_SEGMENT_ONLY",
+      "as_of": "2026-10-15T21:00:00+00:00",
+      "forward_h4_movement": [
+        {
+          "bars": 1,
+          "direction_adjusted_ticks": 263,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 3,
+          "direction_adjusted_ticks": 1297,
+          "status": "ALIGNED"
+        },
+        {
+          "bars": 6,
+          "direction_adjusted_ticks": 869,
+          "status": "ALIGNED"
+        }
+      ],
+      "parent_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-15T17:00:00+00:00"
+        }
+      ]
+    }
+  ],
+  "run_url": "https://github.com/awujo/practicing/actions/runs/40448984855",
+  "paper_backtest_status": "TIMED_OUT_WITHOUT_SETTLED_RESULTS",
+  "latest_directions": {
+    "D": "SELL",
+    "H4": "SELL",
+    "M": "BUY",
+    "W": "BUY"
+  },
+  "finding": "Latest local structural direction is not a confirmed parent reversal or verified mentor bias."
+}

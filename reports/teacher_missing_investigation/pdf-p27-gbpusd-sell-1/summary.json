@@ -1,0 +1,76 @@
+[
+  {
+    "case_id": "pdf-p27-gbpusd-sell-1",
+    "cutoff": "previous_exploratory_cutoff",
+    "as_of": "2026-06-25T00:00:00+00:00",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+    "summary": {
+      "stories": 304,
+      "setups": 17,
+      "orders": 4,
+      "outcomes": {
+        "CENSORED": 4
+      }
+    },
+    "same_side_source_tf_groups": 0,
+    "story_sides": {
+      "BUY": 118,
+      "SELL": 186
+    },
+    "setup_routes": {
+      "confirmation_standing_extreme:H1:BUY": 12,
+      "confirmation_engulfed_oc:H1:BUY": 5
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 43,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 274,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 3,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 3573,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 364,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  },
+  {
+    "case_id": "pdf-p27-gbpusd-sell-1",
+    "cutoff": "printed_source_snapshot",
+    "as_of": "2026-06-24T11:49:00Z",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+    "summary": {
+      "stories": 303,
+      "setups": 12,
+      "orders": 4,
+      "outcomes": {
+        "CENSORED": 4
+      }
+    },
+    "same_side_source_tf_groups": 0,
+    "story_sides": {
+      "BUY": 118,
+      "SELL": 185
+    },
+    "setup_routes": {
+      "confirmation_standing_extreme:H1:BUY": 7,
+      "confirmation_engulfed_oc:H1:BUY": 5
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 42,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 274,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 3,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 3339,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 364,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  }
+]

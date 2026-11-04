@@ -1,0 +1,143 @@
+{
+  "status": "BLOCKED_EXTERNAL_GITHUB_AUTHORIZATION",
+  "observed_error": "HTTP403: Sorry. Your account was suspended",
+  "checked_access_paths": [
+    "gh authenticated API",
+    "GitHub connector",
+    "anonymous repository run API"
+  ],
+  "local_verification": {
+    "passed": 118,
+    "seconds": 1.91,
+    "scope": "focused runtime-index, entry-parent, bias-coupling, projection and cache regressions; no historical strategy rerun"
+  },
+  "last_unretrieved_nested_run": 40864738971,
+  "last_completed_bounded_primary_run": 40862692957,
+  "primary_result": "AUDCHF aborted600-second budget; no teacher match awarded",
+  "local_fixes": [
+    "Stable original-parent reaction eligibility index; monotone-publication prefix bisect with nonmonotone full-scan fallback",
+    "Bias display preserves unrelated opposite scopes, matching entry activity; explicit flip/invalidation still retires"
+  ],
+  "resume_order": [
+    "Restore or reconnect GitHub access to this repository",
+    "Fetch run40864738971 artifacts before launching any further nested replay",
+    "Push saved branch commit; let GitHub run full checks",
+    "Run only AUDCHF via bishop-primary-replay-batch.yml cases=[video-t3-audchf-buy-loss] to verify normal-path runtime",
+    "Only after completed bounded results, replay remaining primary cases and investigate actual source mismatches"
+  ],
+  "limitations": [
+    "No new GitHub push or full regression was possible after the403",
+    "Historical teacher matching and profitability are not established by local code regressions"
+  ],
+  "audCHF_runtime_evidence": {
+    "summary.json": {
+      "case_id": "video-t3-audchf-buy-loss",
+      "execution_status": "ABORTED_RUNTIME",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    "stage_times.json": [
+      {
+        "stage": "analyze",
+        "seconds": 0.0263,
+        "completed": true
+      },
+      {
+        "stage": "analyze",
+        "seconds": 0.2087,
+        "completed": true
+      },
+      {
+        "stage": "analyze",
+        "seconds": 2.4804,
+        "completed": true
+      },
+      {
+        "stage": "analyze",
+        "seconds": 8.0736,
+        "completed": true
+      },
+      {
+        "stage": "analyze",
+        "seconds": 4.6972,
+        "completed": true
+      },
+      {
+        "stage": "analyze",
+        "seconds": 23.0884,
+        "completed": true
+      },
+      {
+        "stage": "find_stories",
+        "seconds": 49.4725,
+        "completed": true
+      },
+      {
+        "stage": "detect_setups",
+        "seconds": 505.4216,
+        "completed": false
+      }
+    ],
+    "cpu_samples.json": [
+      [
+        "entries.py:detect_setups:770 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        104
+      ],
+      [
+        "types.py:available_at:304 <- entries.py:detect_setups:828 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        45
+      ],
+      [
+        "entries.py:_latest_reaction:347 <- entries.py:reaction_for:835 <- entries.py:detect_setups:852 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        22
+      ],
+      [
+        "entries.py:<genexpr>:830 <- entries.py:detect_setups:830 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        19
+      ],
+      [
+        "entries.py:detect_setups:856 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        19
+      ],
+      [
+        "entries.py:_latest_reaction:342 <- entries.py:reaction_for:835 <- entries.py:detect_setups:852 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        17
+      ],
+      [
+        "types.py:available_at:186 <- entries.py:detect_setups:829 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        17
+      ],
+      [
+        "entries.py:_first_take_for_reaction:324 <- entries.py:linked_takes:465 <- entries.py:reaction_context:755 <- entries.py:detect_setups:827 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        16
+      ],
+      [
+        "entries.py:<genexpr>:347 <- entries.py:_latest_reaction:347 <- entries.py:reaction_for:835 <- entries.py:detect_setups:852 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        15
+      ],
+      [
+        "types.py:available_at:186 <- entries.py:_first_take_for_reaction:323 <- entries.py:linked_takes:465 <- entries.py:reaction_context:755 <- entries.py:detect_setups:827 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158",
+        14
+      ],
+      [
+        "entries.py:linked_takes:464 <- entries.py:reaction_context:755 <- entries.py:detect_setups:827 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        13
+      ],
+      [
+        "entries.py:_first_take_for_reaction:293 <- entries.py:linked_takes:465 <- entries.py:reaction_context:755 <- entries.py:detect_setups:827 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        11
+      ],
+      [
+        "entries.py:<genexpr>:473 <- entries.py:linked_takes:473 <- entries.py:reaction_context:755 <- entries.py:detect_setups:827 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        9
+      ],
+      [
+        "entries.py:key:338 <- entries.py:_latest_reaction:346 <- entries.py:reaction_for:835 <- entries.py:detect_setups:852 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:304 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        9
+      ],
+      [
+        "stories.py:<genexpr>:527 <- stories.py:_closed_bar_invalidation_at:527 <- stories.py:_confirm:567 <- stories.py:find_stories:740 <- replay_primary_video_case.py:invoke:131 <- engine.py:run:296 <- replay_primary_video_case.py:main:158 <- <stdin>:<module>:6",
+        8
+      ]
+    ]
+  }
+}

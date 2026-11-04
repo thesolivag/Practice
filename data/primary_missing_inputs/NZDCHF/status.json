@@ -1,0 +1,7 @@
+{
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "path": "data/primary_missing_inputs/NZDCHF/primary_h1_2faa2e740106d647304182c0.csv.gz",
+  "manifest": "data/primary_missing_inputs/NZDCHF/primary_h1_2faa2e740106d647304182c0.csv.manifest.json",
+  "sha256": "296014912f5e0b7334f2f5e208b351e7d0fbe2920b7512ce9c0828116151fae7",
+  "rows": 7338
+}

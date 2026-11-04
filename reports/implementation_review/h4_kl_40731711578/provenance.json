@@ -1,0 +1,8 @@
+{
+  "run_id": 40731711578,
+  "commit": "42846f8",
+  "artifact_id": 12836825443,
+  "artifact_sha256": "13adce443bc179d14c2e3931a741bd6233a0c168889c94c7da34b19bc21efde9",
+  "result": "ABORTED_RUNTIME_NOT_TEACHER_ACCEPTANCE",
+  "diagnosis": "Detection completed; no full execution result preserved. Separate detection-only audit added; no policy or fixture tuned."
+}

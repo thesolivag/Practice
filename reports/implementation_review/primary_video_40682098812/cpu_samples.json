@@ -1,0 +1,502 @@
+[
+  [
+    "entries.py:detect_setups:641 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    27
+  ],
+  [
+    "entries.py:_latest_reaction:291 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    14
+  ],
+  [
+    "entries.py:<genexpr>:599 <- entries.py:pools:599 <- entries.py:reaction_context:624 <- entries.py:detect_setups:698 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    12
+  ],
+  [
+    "entries.py:_latest_reaction:296 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    12
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    12
+  ],
+  [
+    "encoder.py:iterencode:258 <- encoder.py:encode:200 <- __init__.py:dumps:231 <- replay_primary_video_case.py:main:117 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    12
+  ],
+  [
+    "types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    10
+  ],
+  [
+    "entries.py:detect_setups:727 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    8
+  ],
+  [
+    "risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    8
+  ],
+  [
+    "risk.py:plan:73 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    8
+  ],
+  [
+    "encoder.py:iterencode:258 <- encoder.py:encode:200 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    7
+  ],
+  [
+    "entries.py:<genexpr>:296 <- entries.py:_latest_reaction:296 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    7
+  ],
+  [
+    "stories.py:_confirm:416 <- stories.py:find_stories:483 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    4
+  ],
+  [
+    "types.py:_freeze:55 <- types.py:__post_init__:184 <- <string>:__init__:17 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111",
+    4
+  ],
+  [
+    "entries.py:episode_reason:496 <- entries.py:reaction_for:710 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    4
+  ],
+  [
+    "types.py:available_at:304 <- entries.py:detect_setups:722 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    4
+  ],
+  [
+    "entries.py:_breakout_retest_level:316 <- entries.py:detect_setups:742 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    4
+  ],
+  [
+    "risk.py:standing:54 <- risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    4
+  ],
+  [
+    "dataclasses.py:is_dataclass:1301 <- types.py:jsonable:39 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    4
+  ],
+  [
+    "dataclasses.py:<genexpr>:1293 <- dataclasses.py:fields:1293 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    4
+  ],
+  [
+    "types.py:jsonable:42 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    4
+  ],
+  [
+    "types.py:stable_id:50 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    3
+  ],
+  [
+    "encoder.py:encode:203 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111",
+    3
+  ],
+  [
+    "entries.py:detect_setups:443 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    3
+  ],
+  [
+    "entries.py:detect_setups:698 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    3
+  ],
+  [
+    "risk.py:standing:54 <- risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    3
+  ],
+  [
+    "risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    3
+  ],
+  [
+    "structure.py:analyze:296 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    2
+  ],
+  [
+    "stories.py:_role_qualification:160 <- stories.py:_role:184 <- stories.py:_destination:436 <- stories.py:find_stories:523 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    2
+  ],
+  [
+    "stories.py:_role:178 <- stories.py:_destination:436 <- stories.py:find_stories:523 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    2
+  ],
+  [
+    "<frozen abc>:__instancecheck__:119 <- types.py:jsonable:41 <- types.py:jsonable:44 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    2
+  ],
+  [
+    "encoder.py:iterencode:249 <- encoder.py:encode:200 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    2
+  ],
+  [
+    "types.py:<genexpr>:64 <- types.py:_ticks:64 <- types.py:__post_init__:181 <- <string>:__init__:17 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    2
+  ],
+  [
+    "continuity.py:<lambda>:56 <- continuity.py:suspend_stories:56 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    2
+  ],
+  [
+    "entries.py:key:287 <- entries.py:_latest_reaction:295 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    2
+  ],
+  [
+    "types.py:available_at:186 <- entries.py:detect_setups:642 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    2
+  ],
+  [
+    "entries.py:_latest_reaction:285 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    2
+  ],
+  [
+    "risk.py:current:44 <- risk.py:plan:91 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    2
+  ],
+  [
+    "types.py:utc:24 <- types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    2
+  ],
+  [
+    "types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    2
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:44 <- types.py:stable_id:49 <- types.py:__post_init__:150 <- <string>:__init__:15 <- aggregation.py:aggregate:155 <- engine.py:run:122 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "weakref.py:get:194 <- _zoneinfo.py:__new__:41 <- aggregation.py:bounds:19 <- aggregation.py:__call__:114 <- aggregation.py:aggregate:140 <- engine.py:run:122 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "types.py:_ticks:63 <- types.py:__post_init__:263 <- <string>:__init__:14 <- structure.py:analyze:457 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "encoder.py:iterencode:258 <- encoder.py:encode:200 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- structure.py:emit:143 <- structure.py:analyze:261 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125",
+    1
+  ],
+  [
+    "types.py:utc:24 <- types.py:__post_init__:266 <- <string>:__init__:14 <- structure.py:analyze:457 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "types.py:jsonable:44 <- types.py:stable_id:49 <- structure.py:emit:143 <- structure.py:analyze:247 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "types.py:__post_init__:82 <- <string>:__init__:7 <- structure.py:emit:142 <- structure.py:analyze:263 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "structure.py:analyze:295 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "structure.py:analyze:315 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "types.py:_freeze:55 <- types.py:__post_init__:184 <- <string>:__init__:17 <- structure.py:emit:143 <- structure.py:analyze:247 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "<frozen abc>:__instancecheck__:119 <- types.py:jsonable:41 <- types.py:stable_id:49 <- structure.py:emit:143 <- structure.py:analyze:263 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "<string>:__init__:5 <- structure.py:emit:142 <- structure.py:analyze:268 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "structure.py:<genexpr>:400 <- structure.py:analyze:400 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "encoder.py:iterencode:249 <- encoder.py:encode:200 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- structure.py:emit:143 <- structure.py:analyze:263 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:125",
+    1
+  ],
+  [
+    "stories.py:_role:178 <- stories.py:_reaction_candidates:220 <- stories.py:find_stories:459 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:_role_qualification:160 <- stories.py:_role:184 <- stories.py:_reaction_candidates:220 <- stories.py:find_stories:459 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "stories.py:_role:180 <- stories.py:_reaction_candidates:220 <- stories.py:find_stories:459 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:find_stories:521 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "stories.py:_invalidated:284 <- stories.py:_confirm:426 <- stories.py:find_stories:483 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:_role:180 <- stories.py:_destination:436 <- stories.py:find_stories:523 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:_role_side:198 <- stories.py:_destination:436 <- stories.py:find_stories:523 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:_role_side:200 <- stories.py:_destination:436 <- stories.py:find_stories:523 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "<string>:__init__:16 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "stories.py:_event:24 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "types.py:jsonable:30 <- types.py:jsonable:44 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "stories.py:find_stories:585 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "stories.py:find_stories:574 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "dataclasses.py:is_dataclass:1305 <- types.py:jsonable:39 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "types.py:available_at:304 <- stories.py:find_stories:582 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "<frozen abc>:__instancecheck__:119 <- types.py:_freeze:54 <- types.py:__post_init__:184 <- <string>:__init__:17 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    1
+  ],
+  [
+    "<string>:__init__:2 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "<string>:__init__:3 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "<string>:__init__:5 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "__init__.py:dumps:234 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "<string>:__init__:4 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "types.py:__post_init__:180 <- <string>:__init__:17 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "<string>:__init__:15 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "types.py:_freeze:53 <- types.py:_freeze:55 <- types.py:__post_init__:184 <- <string>:__init__:17 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    1
+  ],
+  [
+    "types.py:jsonable:30 <- types.py:jsonable:44 <- types.py:jsonable:44 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135",
+    1
+  ],
+  [
+    "stories.py:find_stories:583 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "types.py:jsonable:44 <- types.py:stable_id:49 <- stories.py:_event:26 <- stories.py:find_stories:591 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "stories.py:<lambda>:613 <- stories.py:find_stories:613 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "stories.py:find_stories:613 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "replay_primary_video_case.py:invoke:86 <- engine.py:run:135 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "structure.py:<genexpr>:65 <- structure.py:__init__:65 <- entries.py:detect_setups:359 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "entries.py:detect_setups:371 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "entries.py:<genexpr>:471 <- entries.py:detect_setups:471 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "types.py:available_at:186 <- entries.py:_reaction_episode_reason:184 <- entries.py:_first_take_for_reaction:280 <- entries.py:linked_takes:414 <- entries.py:reaction_context:626 <- entries.py:detect_setups:698 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140",
+    1
+  ],
+  [
+    "entries.py:reaction_context:621 <- entries.py:detect_setups:698 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "entries.py:<lambda>:623 <- entries.py:reaction_context:623 <- entries.py:detect_setups:698 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "entries.py:reaction_for:703 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "entries.py:visible:288 <- entries.py:_latest_reaction:292 <- entries.py:reaction_for:706 <- entries.py:detect_setups:723 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "types.py:available_at:304 <- entries.py:detect_setups:699 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "entries.py:<genexpr>:701 <- entries.py:detect_setups:701 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "risk.py:standing:54 <- risk.py:plan:118 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "entries.py:detect_setups:763 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "risk.py:plan:40 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "risk.py:standing:54 <- risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:776 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "encoder.py:iterencode:258 <- encoder.py:encode:200 <- __init__.py:dumps:238 <- types.py:stable_id:49 <- entries.py:emit:555 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140",
+    1
+  ],
+  [
+    "types.py:unit_ticks:119 <- risk.py:plan:96 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "risk.py:plan:73 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "risk.py:plan:94 <- entries.py:emit:550 <- entries.py:detect_setups:776 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "risk.py:plan:74 <- entries.py:emit:550 <- entries.py:detect_setups:751 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "entries.py:<lambda>:551 <- risk.py:plan:128 <- entries.py:emit:550 <- entries.py:detect_setups:766 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "entries.py:detect_setups:876 <- replay_primary_video_case.py:invoke:84 <- engine.py:run:140 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "engine.py:run:146 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "types.py:available_at:348 <- engine.py:run:176 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "encoder.py:_iterencode_dict:384 <- encoder.py:_iterencode_list:326 <- encoder.py:_iterencode:430 <- encoder.py:encode:202 <- __init__.py:dumps:238 <- replay_primary_video_case.py:invoke:87 <- engine.py:run:178 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "<frozen abc>:__subclasscheck__:121 <- <frozen abc>:__instancecheck__:119 <- types.py:jsonable:41 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "dataclasses.py:is_dataclass:1301 <- types.py:jsonable:39 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "dataclasses.py:fields:1293 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88",
+    1
+  ],
+  [
+    "types.py:utc:22 <- types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "types.py:jsonable:30 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "types.py:utc:19 <- types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:42 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111 <- replay_primary_video_case.py:<module>:148",
+    1
+  ],
+  [
+    "dataclasses.py:is_dataclass:1301 <- types.py:jsonable:39 <- types.py:jsonable:44 <- types.py:jsonable:42 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- engine.py:run:210",
+    1
+  ],
+  [
+    "dataclasses.py:<genexpr>:1293 <- dataclasses.py:fields:1293 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42",
+    1
+  ],
+  [
+    "<frozen abc>:__subclasscheck__:123 <- <frozen abc>:__instancecheck__:119 <- types.py:jsonable:41 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42",
+    1
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:42 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42 <- types.py:jsonable:42",
+    1
+  ],
+  [
+    "dataclasses.py:<genexpr>:1293 <- dataclasses.py:fields:1293 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42 <- types.py:jsonable:42",
+    1
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:40 <- types.py:jsonable:42 <- types.py:jsonable:42 <- types.py:jsonable:42",
+    1
+  ],
+  [
+    "types.py:jsonable:36 <- types.py:jsonable:40 <- types.py:jsonable:40 <- types.py:jsonable:44 <- types.py:jsonable:42 <- types.py:jsonable:42 <- engine.py:run:210 <- replay_primary_video_case.py:main:111",
+    1
+  ],
+  [
+    "replay_primary_video_case.py:main:116 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "replay_primary_video_case.py:main:117 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ],
+  [
+    "gzip.py:compress:629 <- replay_primary_video_case.py:main:117 <- replay_primary_video_case.py:<module>:148 <- <frozen runpy>:_run_code:88 <- <frozen runpy>:_run_module_as_main:198",
+    1
+  ]
+]

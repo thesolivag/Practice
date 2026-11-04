@@ -1,147 +1,236 @@
-name: SLK backtest
+name: Bishop frozen teacher-example replay
 on:
-  push:
-    branches: [claude-kevin-king]
-    paths: ["slk/story.py", "slk/structure.py", "slk/levels.py", "slk/candles.py", "slk/entry.py", "slk/backtest.py", "slk/entry_backtest.py", "slk/store.py", "slk/leg_backtest.py", "slk/trend_study.py", "slk/ltf_features.py", "slk/ltf_discovery.py", ".github/workflows/backtest.yml"]
   workflow_dispatch:
     inputs:
-      pairs: {description: "Comma list, empty = all 28", default: ""}
-      start: {default: "2018"}
-      end: {default: "2025"}
-      cfg: {description: "JSON overrides of slk/story.py DEFAULT", default: "{}"}
-      entry_cfg: {description: "JSON overrides of slk/entry.py DEFAULT", default: "{}"}
+      mode:
+        description: Full replay or focused source investigation
+        type: choice
+        options: [full, investigate, mapping, behavior, isolated, refine, refine_m1]
+        default: full
 permissions:
-  contents: write
-concurrency: {group: slk-backtest, cancel-in-progress: false}
+  actions: read
+  contents: read
+concurrency:
+  group: bishop-frozen-teacher-replay
+  cancel-in-progress: false
 jobs:
-  backtest:
+  replay:
+    if: inputs.mode == 'full'
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # cached candles + one process per CPU; a cold cache fetches 2018-2025 from cTrader (minutes)
-    env:  # workflow inputs reach the scripts only through env (no shell injection)
-      IN_START: ${{ inputs.start || '2018' }}
-      IN_END: ${{ inputs.end || '2025' }}
-      IN_PAIRS: ${{ inputs.pairs }}
-      IN_CFG: ${{ inputs.cfg || '{}' }}
-      IN_ENTRY_CFG: ${{ inputs.entry_cfg || '{}' }}
-      SLK_STORE: data/store
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      REPLAY_SHARD: ${{ matrix.shard }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
-      - run: pip install -r requirements-dev.txt
-      - run: python -m pytest -q tests
-      - name: Restore candle store (same cTrader store as the live job / backfill)
-        uses: actions/cache/restore@v4
         with:
-          path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: candles-v3-
-      # a failing run turns the step red (the report is still committed below)
-      - name: Backtest
-        id: bt
-        env:  # missing months come from IC Markets cTrader (Dukascopy fallback); refreshed tokens persist in the DB
-          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
-          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
-          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
-          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
-          CTRADER_ENV: demo
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+          python-version: '3.12'
+      - name: Install offline dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Replay fixed cases with frozen orders and explicit unresolved gates
         run: |
-          ARGS=(--start "$IN_START" --end "$IN_END" --out reports)
-          [ -n "$IN_PAIRS" ] && ARGS+=(--pairs "$IN_PAIRS")
-          mkdir -p reports
-          set +e
-          python -m slk.backtest "${ARGS[@]}" --cfg "$IN_CFG" --entry-cfg "$IN_ENTRY_CFG" --variants > reports/run.log 2>&1
-          rc=$?
-          echo "exit=$rc" >> reports/run.log
-          tail -c 60000 reports/run.log >> "$GITHUB_STEP_SUMMARY"
-          exit $rc
-      - name: Entry backtest
-        if: ${{ !cancelled() && steps.bt.outcome != 'skipped' }}  # also after a failed story backtest
-        env:  # missing months come from IC Markets cTrader (Dukascopy fallback); refreshed tokens persist in the DB
-          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
-          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
-          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
-          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
-          CTRADER_ENV: demo
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_CA: ${{ secrets.DATABASE_CA }}
-        run: |
-          ARGS=(--start "$IN_START" --end "$IN_END" --out reports)
-          [ -n "$IN_PAIRS" ] && ARGS+=(--pairs "$IN_PAIRS")
-          mkdir -p reports
-          set +e
-          python -m slk.entry_backtest "${ARGS[@]}" --cfg "$IN_CFG" --entry-cfg "$IN_ENTRY_CFG" --variants > reports/entry_run.log 2>&1
-          rc=$?
-          echo "exit=$rc" >> reports/entry_run.log
-          tail -c 60000 reports/entry_run.log >> "$GITHUB_STEP_SUMMARY"
-          exit $rc
-      - name: Leg backtest (structural stops; continuation after the target)
-        if: ${{ !cancelled() && steps.bt.outcome != 'skipped' }}
-        env:  # missing months come from IC Markets cTrader (Dukascopy fallback); refreshed tokens persist in the DB
-          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
-          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
-          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
-          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
-          CTRADER_ENV: demo
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_CA: ${{ secrets.DATABASE_CA }}
-        run: |
-          ARGS=(--start "$IN_START" --end "$IN_END" --out reports)
-          [ -n "$IN_PAIRS" ] && ARGS+=(--pairs "$IN_PAIRS")
-          set +e
-          python -m slk.leg_backtest "${ARGS[@]}" > reports/leg_run.log 2>&1
-          rc=$?
-          echo "exit=$rc" >> reports/leg_run.log
-          tail -c 30000 reports/leg_run.log >> "$GITHUB_STEP_SUMMARY"
-          exit 0
-      - name: Trend entries + lower-TF discovery (research/TREND_LTF_PLAN.md)
-        if: ${{ !cancelled() && steps.bt.outcome != 'skipped' }}
-        env:  # missing months come from IC Markets cTrader (Dukascopy fallback); refreshed tokens persist in the DB
-          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
-          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
-          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
-          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
-          CTRADER_ENV: demo
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_CA: ${{ secrets.DATABASE_CA }}
-        run: |
-          ARGS=(--start "$IN_START" --end "$IN_END" --out reports)
-          [ -n "$IN_PAIRS" ] && ARGS+=(--pairs "$IN_PAIRS")
-          set +e
-          python -m slk.trend_study "${ARGS[@]}" > reports/trend_run.log 2>&1
-          rc=$?
-          echo "exit=$rc" >> reports/trend_run.log
-          if [ -f reports/pattern_trades.csv.gz ]; then
-            python -m slk.ltf_discovery --trades reports/pattern_trades.csv.gz --split 2023 --out reports > reports/ltf_run.log 2>&1
-            echo "exit=$?" >> reports/ltf_run.log
-          fi
-          tail -c 20000 reports/trend_run.log >> "$GITHUB_STEP_SUMMARY"
-          exit 0
-      - name: Is the candle store complete?
-        id: chk
+          python - <<'PY'
+          import json, os
+          from reports.replay_collected_teacher_examples_v2 import execute
+          shard=int(os.environ['REPLAY_SHARD'])
+          cases=json.load(open('tests/bishop_examples.json'))['examples']
+          ids=[case['id'] for i,case in enumerate(cases) if i%8==shard]
+          result=execute('tests/bishop_examples.json','data/teacher_icmarkets_runs',
+                         f'reports/teacher_icmarkets_batch/shard_{shard}',
+                         case_ids=ids,time_budget_seconds=600,
+                         clock_annotations='reports/teacher_clock_annotations.json',forward_days=14)
+          print(json.dumps({'shard':shard,'requested':ids,'strict_counts':result['strict_counts']}))
+          PY
+      - name: Preserve every result, including unresolved and budget-limited cases
         if: always()
-        run: |
-          if python -m slk.store --check --start 2018 --source ctrader; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
-      - name: Save candle store
-        if: always() && steps.chk.outputs.ok == 'true'
-        uses: actions/cache/save@v4
+        uses: actions/upload-artifact@v4
         with:
-          path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Commit report
-        if: success() || failure()  # a cancelled run must not commit half a report
+          name: bishop-teacher-replay-${{ github.run_id }}-${{ matrix.shard }}
+          path: reports/teacher_icmarkets_batch/
+          if-no-files-found: error
+          retention-days: 30
+  collect:
+    needs: replay
+    if: always() && inputs.mode == 'full'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPLAY_RUN: ${{ github.run_id }}
+    steps:
+      - name: Collect and summarize saved results
+        env:
+          REPO: ${{ github.repository }}
         run: |
-          git config user.name "slk-backtest"; git config user.email "actions@github.com"
-          git add reports
-          git commit -m "Backtest report ($(date -u +%F))" || exit 0
-          git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }}
+          mkdir -p results
+          gh run view "$REPLAY_RUN" --repo "$REPO" --json status,conclusion,headSha > results/source_run.json
+          python - <<'PY'
+          import json
+          r=json.load(open('results/source_run.json'))
+          # needs: replay already waits for every replay job; this collector keeps the run active.
+          PY
+          gh run download "$REPLAY_RUN" --repo "$REPO" --pattern 'bishop-teacher-replay-*' --dir results/artifacts
+          python - <<'PY'
+          import json, pathlib, collections, os
+          root=pathlib.Path('results'); rows={}; indexes=list(root.glob('artifacts/**/index.json'))
+          for path in indexes:
+              for row in json.loads(path.read_text())['results']:
+                  if row['status']=='NOT_REQUESTED': continue
+                  if row['id'] in rows: raise SystemExit('Duplicate case: '+row['id'])
+                  rows[row['id']]=row
+          counts=dict(collections.Counter(r['status'] for r in rows.values()))
+          strict=dict(collections.Counter(r.get('strict_status','UNRESOLVED') for r in rows.values()))
+          summary=dict(source_run=json.load(open(root/'source_run.json')),shards=len(indexes),case_count=len(rows),complete=len(indexes)==8 and len(rows)==40,status_counts=counts,strict_counts=strict,results=list(rows.values()))
+          (root/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+          text='Bishop replay results\n\nCases collected: '+str(len(rows))+'/40\n\nExecution status: '+json.dumps(counts)+'\n\nTeacher acceptance: '+json.dumps(strict)+'\n\nSuccessful workflow execution does not establish teacher-example matches.\n'
+          (root/'summary.md').write_text(text)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f: f.write(text)
+          if not summary['complete']: raise SystemExit('Incomplete result set; inspect preserved artifacts')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-processed-results-${{ env.REPLAY_RUN }}
+          path: results/
+          retention-days: 90
+  investigate:
+    if: inputs.mode == 'investigate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [pdf-p13-eurnzd-sell-1, pdf-p27-gbpusd-sell-1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Run code regression checks
+        run: python -m pytest -q
+      - name: Trace source chain and both publication cutoffs
+        env:
+          INVESTIGATE_CASE: ${{ matrix.case }}
+        run: python -m reports.investigate_teacher_missing
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-investigation-${{ matrix.case }}
+          path: reports/teacher_missing_runs/${{ matrix.case }}/
+  mapping:
+    if: inputs.mode == 'mapping'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - run: python -m reports.map_teacher_lineage
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-lineage-mapping
+          path: reports/teacher_lineage_mapping/
+
+  behavior:
+    if: inputs.mode == 'behavior' || inputs.mode == 'isolated' || inputs.mode == 'refine'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - name: Reuse completed investigation traces
+        run: |
+          gh run download 40167342640 --repo "$GITHUB_REPOSITORY" --pattern 'bishop-investigation-*' --dir /tmp/bishop-traces
+          rm -rf reports/teacher_trade_behavior
+          mkdir -p /tmp/bishop-selected
+          for case in pdf-p13-eurnzd-sell-1 pdf-p27-gbpusd-sell-1; do
+            cp "/tmp/bishop-traces/bishop-investigation-$case/$case/research_later_kl_irl.json.gz" "/tmp/bishop-selected/$case.json.gz"
+          done
+      - name: Audit timeframes protection and frozen-order outcomes
+        if: inputs.mode == 'behavior'
+        run: python -m reports.audit_teacher_trade_behavior /tmp/bishop-selected/*.json.gz --output reports/teacher_trade_behavior
+      - name: Test deduplicated eligible candidates independently
+        if: inputs.mode == 'isolated'
+        run: python -m reports.replay_teacher_candidates_isolated /tmp/bishop-selected/*.json.gz --output reports/teacher_trade_behavior
+      - name: Refine uncertain GBPUSD execution using existing M5 candles
+        if: inputs.mode == 'refine'
+        run: |
+          python -m reports.refine_teacher_execution \
+            --trace /tmp/bishop-selected/pdf-p27-gbpusd-sell-1.json.gz \
+            --previous reports/teacher_isolated_candidates/pdf-p27-gbpusd-sell-1.json \
+            --manifest data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_77ac48e7deb9c0c4b224f1a2.csv.manifest.json \
+            --feed data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_77ac48e7deb9c0c4b224f1a2.csv.gz \
+            --output reports/teacher_trade_behavior/gbpusd_refined_execution.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-trade-${{ inputs.mode }}
+          path: reports/teacher_trade_behavior/
+
+  refine_m1:
+    if: inputs.mode == 'refine_m1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: bishop-teacher-data
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+      - name: Collect bounded execution-only GBPUSD M1 data
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m reports.collect_teacher_execution_m1
+      - name: Reuse frozen GBPUSD trace
+        run: |
+          gh run download 40167342640 --repo "$GITHUB_REPOSITORY" --name bishop-investigation-pdf-p27-gbpusd-sell-1 --dir /tmp/bishop-m1-trace
+      - name: Refine frozen executions on M1
+        run: |
+          python - <<'PYTHON'
+          import json,subprocess,sys
+          from pathlib import Path
+          status=json.loads(Path('data/teacher_execution_m1/status.json').read_text())
+          subprocess.run([sys.executable,'-m','reports.refine_teacher_execution',
+            '--trace','/tmp/bishop-m1-trace/pdf-p27-gbpusd-sell-1/research_later_kl_irl.json.gz',
+            '--previous','reports/teacher_isolated_candidates/pdf-p27-gbpusd-sell-1.json',
+            '--manifest',status['manifest'],'--feed',status['path'],
+            '--output','reports/teacher_execution_m1/gbpusd_refined_execution.json'],check=True)
+          PYTHON
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-execution-m1
+          path: |
+            data/teacher_execution_m1/
+            reports/teacher_execution_m1/
+          if-no-files-found: error
+          retention-days: 90

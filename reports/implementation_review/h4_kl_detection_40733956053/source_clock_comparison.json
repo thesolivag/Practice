@@ -1,0 +1,3609 @@
+{
+  "scope": "EXPLICIT_ROUTE_COMPARISON_NOT_TEACHER_ACCEPTANCE",
+  "source_run": 40733956053,
+  "source_route": "Bishop explicitly narrates liquidity at1695.5-1708.2; do not replace with nearest KL",
+  "baseline_candidate_count": 130,
+  "baseline_plans": [
+    {
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 140240,
+      "status": "ELIGIBLE",
+      "count": 130
+    }
+  ],
+  "current_candidate_count": 122,
+  "current_plans": [
+    {
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "count": 122
+    }
+  ],
+  "candidate_lineage_equivalence": "NOT_ESTABLISHED_130_TO_122_CONTEXT_VARIANTS_REQUIRE_REVIEW",
+  "orders_and_execution": "NOT_RUN",
+  "contexts": {
+    "target_context_2439130223a377e0322729ee": {
+      "instrument": "USDCAD",
+      "tf": "H4",
+      "side": "BUY",
+      "sponsor_id": "structure_event_8b15e8c116418a4800f5dca9",
+      "scope_id": null,
+      "available_at": "2026-06-12T16:00:00+00:00",
+      "objective_kind": "KL",
+      "objective_ref_id": "level_ff7e35f0308a6ed0f1686661",
+      "objective_price_ticks": 139838,
+      "objective_available_at": "2026-06-12T13:00:00+00:00",
+      "objective_formed_at": "2026-06-12T09:00:00+00:00",
+      "objective_bar_ids": [
+        "bar_c6279c1b2484f382a18116e7",
+        "bar_1c8709b3486174631af38937",
+        "bar_327c3621010e48ef7713bf41"
+      ],
+      "objective_role": "SELL",
+      "status": "KNOWN",
+      "reasons": [],
+      "provenance": {
+        "policy": "nearest_opposing_h4_kl_from_entry_v1",
+        "sponsor_available_at": "2026-06-12T09:00:00+00:00",
+        "range_version_id": null,
+        "range_available_at": null,
+        "source": "video-16-storyline-1:1098.8-1155.3",
+        "entry_ticks": 139680,
+        "candidate_ids": [
+          "level_84bcc4fe8ab527651a76a676",
+          "level_ff7e35f0308a6ed0f1686661"
+        ],
+        "scope_policy": "EXPLICIT_H4_SPONSOR_NO_INFERRED_RANGE"
+      },
+      "id": "target_context_2439130223a377e0322729ee"
+    }
+  },
+  "all_source_clock_candidates": [
+    {
+      "id": "setup_000457bab9622b6fadc8cc4d",
+      "story_id": "story_e589812121f3a1f1a4fc556a",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e589812121f3a1f1a4fc556a",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_05a8974cd3b6f7f4e5bdc605",
+      "story_id": "story_e946a689bf780093bbbb2591",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e946a689bf780093bbbb2591",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_071117c301e30418f0e9bbc3",
+      "story_id": "story_a1a17d1f6f8e01c7b893d8ca",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a1a17d1f6f8e01c7b893d8ca",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_074e73992bd255289c29790c",
+      "story_id": "story_c8c05ad4ba55a8a35d8ce3f0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_c8c05ad4ba55a8a35d8ce3f0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_0a1d813046e3af07032bcf6d",
+      "story_id": "story_72188941a5a6253806c10002",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_72188941a5a6253806c10002",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_0c4363227e3d32bd925468b1",
+      "story_id": "story_954002e6216fe947b2b52b58",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_954002e6216fe947b2b52b58",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_0e2fe15f060a7673be46e13c",
+      "story_id": "story_25f5292ced86ce782a2ac999",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_25f5292ced86ce782a2ac999",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_105d9780f87682df0cf366e2",
+      "story_id": "story_59dea93f789ca56859f2990c",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_59dea93f789ca56859f2990c",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_1085593b4d0b4db9a993d1aa",
+      "story_id": "story_8995e8de912366ec3ad8b72e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_8995e8de912366ec3ad8b72e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_10af73b915425f4f8e6c20a7",
+      "story_id": "story_843b9c58fd005b8178bf323e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_843b9c58fd005b8178bf323e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_12412a0dd239dd433917f2e6",
+      "story_id": "story_09fbac880f1ef7d88fcf6993",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_09fbac880f1ef7d88fcf6993",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_127f66415620aa7df6ce5eab",
+      "story_id": "story_0a505dbf97feeb9a90c4511b",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_0a505dbf97feeb9a90c4511b",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_136e8f00dc77a725e8f3d7b4",
+      "story_id": "story_7c7d457a6dbc599a7b4312bc",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_7c7d457a6dbc599a7b4312bc",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_138140628aa61bbb4d014fd1",
+      "story_id": "story_9401795bf67ab30e6d4adea9",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_9401795bf67ab30e6d4adea9",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_14e8022ee7ac4cd63a64be5d",
+      "story_id": "story_f960d1ee7b00f76e33ee3aef",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f960d1ee7b00f76e33ee3aef",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_15e7b1fde7228f6bf19d6d62",
+      "story_id": "story_2072c675dd2e2b583c25ffe9",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_2072c675dd2e2b583c25ffe9",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_190c47aa693154b46479bec4",
+      "story_id": "story_110afc876259075ffe9cd4d5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_110afc876259075ffe9cd4d5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_1a28ff11d9438bf66f753a8e",
+      "story_id": "story_5949206c93773e8b64959b60",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_5949206c93773e8b64959b60",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_1a982741310d050419402dd8",
+      "story_id": "story_f17f2de566ef07092c444b14",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f17f2de566ef07092c444b14",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_1b819652a528cf8c0a9ddea9",
+      "story_id": "story_a60937be1d376fe63e45f124",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a60937be1d376fe63e45f124",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2152ccf73cb06abb923580ac",
+      "story_id": "story_085475e2d4df80ecaaf5402f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_085475e2d4df80ecaaf5402f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2643de48429fce8716c1740d",
+      "story_id": "story_48f19e396e814f18ce10e327",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_48f19e396e814f18ce10e327",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2afb1f25aaa8fa2870a709e4",
+      "story_id": "story_46e2bade93501d3fedf10a41",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_46e2bade93501d3fedf10a41",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2b1079de60e3c69535798a0a",
+      "story_id": "story_3166bd3502a3918e723eb060",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_3166bd3502a3918e723eb060",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2b6b074920ae411b9e6bab35",
+      "story_id": "story_ff7db794dadf84f76c3d4fc8",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_ff7db794dadf84f76c3d4fc8",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2dd3f550c535c96f7a6e6414",
+      "story_id": "story_a469b21c709404115288236f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a469b21c709404115288236f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2e092bbd941c750280e9064c",
+      "story_id": "story_e411f2b5bc35d77f71c47dd0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e411f2b5bc35d77f71c47dd0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_2ffd64c8330e8ee34f3ae851",
+      "story_id": "story_177102a5e5119e1a3d3aeb74",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_177102a5e5119e1a3d3aeb74",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_3b1cd86b178fdba085d0b47b",
+      "story_id": "story_90d59faa3b3452302f775c37",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_90d59faa3b3452302f775c37",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_412a248cdc0ad2b5b7e07a53",
+      "story_id": "story_e76f7a23fb9d162f9d477691",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e76f7a23fb9d162f9d477691",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_433cda0f236ad2b6b1b76d7a",
+      "story_id": "story_4feedc0afd186873487f3b00",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_4feedc0afd186873487f3b00",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_44a2ec9a9f1e230ebb00718c",
+      "story_id": "story_916c0a8ebd19ae5153891315",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_916c0a8ebd19ae5153891315",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_4565344445436de22f270e2e",
+      "story_id": "story_4004ecf3a14cc0f335be3368",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_4004ecf3a14cc0f335be3368",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_459dbd1d78db2512630853dd",
+      "story_id": "story_89c413d68358f30f35ddd3f8",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_89c413d68358f30f35ddd3f8",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_488d28c7e194a8939607af10",
+      "story_id": "story_a171b316ab3d057d4289ea9e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a171b316ab3d057d4289ea9e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_496b47061894d87541307f20",
+      "story_id": "story_561f095ef7ddc38cec1d0764",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_561f095ef7ddc38cec1d0764",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_49e43a4c06f06a3ddac847aa",
+      "story_id": "story_5be7466b8fef85ab48f55a77",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_5be7466b8fef85ab48f55a77",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_4a81a66e3d829f7485badaf8",
+      "story_id": "story_d038be8e7e367a335e4c7348",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_d038be8e7e367a335e4c7348",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_4af402d4aaf44c2f0b5aa030",
+      "story_id": "story_737685b603a72938887cf53c",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_737685b603a72938887cf53c",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_4c65d3c770c666b89e42542d",
+      "story_id": "story_9279d12a7398e53b2ce1f366",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_9279d12a7398e53b2ce1f366",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_4efae672b8176819a68d358b",
+      "story_id": "story_d01d238c9aae9aa4cba773b5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_d01d238c9aae9aa4cba773b5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_5048823428286cad8df017ec",
+      "story_id": "story_5f29e4b5c903b46cd7ac915f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_5f29e4b5c903b46cd7ac915f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_508cae2f68b86e42e438748f",
+      "story_id": "story_7079dc3ee25362f5bac672a9",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_7079dc3ee25362f5bac672a9",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_56279684d6ff317cd0ecb029",
+      "story_id": "story_11bfa8eee4784a3ca951ebc0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_11bfa8eee4784a3ca951ebc0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_57015a668f1138b5612d86d1",
+      "story_id": "story_e9892343de656cc023eed80b",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e9892343de656cc023eed80b",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_58cad8b722fa8e0056f9e64c",
+      "story_id": "story_880aba920b7c182d120e449b",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_880aba920b7c182d120e449b",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_5ef62d348645e7858b528a5e",
+      "story_id": "story_60a574758cf953dff91098ff",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_60a574758cf953dff91098ff",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_61bc96374847f34993850db2",
+      "story_id": "story_795f2852636a947bfb5471cf",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_795f2852636a947bfb5471cf",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_6be07fc5b3037c557e7ab1ed",
+      "story_id": "story_69a0d5927fa60654473950a0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_69a0d5927fa60654473950a0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_6d457d51b79f933c8bd25dc7",
+      "story_id": "story_3e35518c97f2316463b05f86",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_3e35518c97f2316463b05f86",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_6f23470a283d4da42013f63b",
+      "story_id": "story_0516345b5ce2b941f24a9cc0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_0516345b5ce2b941f24a9cc0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_70c141aeebafe1b9f8d42527",
+      "story_id": "story_1009e21062dc990044b37f7f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_1009e21062dc990044b37f7f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_71339c16c072d085e533d8f5",
+      "story_id": "story_a29a6ce50aa456953899ec08",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a29a6ce50aa456953899ec08",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_71a77f5ec866c51161833b30",
+      "story_id": "story_f20b5a3b7365b1770e68e07f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f20b5a3b7365b1770e68e07f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_72744502161483a24f66ab69",
+      "story_id": "story_c762642831a622558694082e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_c762642831a622558694082e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_750f5b9b7b7204b6a2f6bf9c",
+      "story_id": "story_cbc8c772f78cbfafe41d8844",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_cbc8c772f78cbfafe41d8844",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_75709f10c6266ae585f113d5",
+      "story_id": "story_45e11e39aae652ef9f4617d1",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_45e11e39aae652ef9f4617d1",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_770fa9efb3cce0e3f2c2267e",
+      "story_id": "story_73ad35d6d181aae0178d501f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_73ad35d6d181aae0178d501f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_7788bb7dc667638af6fc9903",
+      "story_id": "story_348478a30cb2b926716ff7ea",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_348478a30cb2b926716ff7ea",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_779afd02fbff6328cc29b02d",
+      "story_id": "story_af60776f0ddc1f37c5d7d390",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_af60776f0ddc1f37c5d7d390",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_78d561da232955f8faa175ab",
+      "story_id": "story_4979d7f2161b6c7dbbf0554c",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_4979d7f2161b6c7dbbf0554c",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_78db86cf611098729d6f2eac",
+      "story_id": "story_996996cfd4381d6826cb54a4",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_996996cfd4381d6826cb54a4",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_792e746018ba51c29739385e",
+      "story_id": "story_19c8766d2ef6db75764afb9a",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_19c8766d2ef6db75764afb9a",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_79d5bff0529853f1de02cb30",
+      "story_id": "story_538dc9e694c8a055ff3993be",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_538dc9e694c8a055ff3993be",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_7e32cd84759f078472771133",
+      "story_id": "story_2af9ec3b12fd52ccd1eea3f5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_2af9ec3b12fd52ccd1eea3f5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_7f6119daf391436ec63286b7",
+      "story_id": "story_c9f95c147f551f4bcbf8224d",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_c9f95c147f551f4bcbf8224d",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_826920c44990528fd73ee0a8",
+      "story_id": "story_efe0d4117ce5ba9c91afacd0",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_efe0d4117ce5ba9c91afacd0",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_850d374c7c16bfa6e6bb6ae6",
+      "story_id": "story_8e12989bcad4906221e6f045",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_8e12989bcad4906221e6f045",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_8521e49dfce82364e08a620a",
+      "story_id": "story_95f6484f83eb9b2289ab749e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_95f6484f83eb9b2289ab749e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_8abb21d430a01602a2bcca8e",
+      "story_id": "story_69c06a22efc87a1557a978cd",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_69c06a22efc87a1557a978cd",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_8d1022359555022cb52377e9",
+      "story_id": "story_0f10ddd698fe2d9d9389eb2e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_0f10ddd698fe2d9d9389eb2e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_8eecb27a3c6056220ee372f0",
+      "story_id": "story_2558a46fbdbdc9d528712012",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_2558a46fbdbdc9d528712012",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_9ce41e5a9a806e3cbecc042c",
+      "story_id": "story_93690f43f9843fff7fb5317f",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_93690f43f9843fff7fb5317f",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_9f3cf7e0a99c4c30fd071988",
+      "story_id": "story_10a541e63b661a802de414c5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_10a541e63b661a802de414c5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a144b3c120c60268fc1bae3c",
+      "story_id": "story_e62385cdc2f31187c5881ec3",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_e62385cdc2f31187c5881ec3",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a17e75c438540478a8ae7c9b",
+      "story_id": "story_425b6d4671623409b089893b",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_425b6d4671623409b089893b",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a18b2c93d39842ca5fd3e64c",
+      "story_id": "story_0c4ad705f540209f09668f69",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_0c4ad705f540209f09668f69",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a569d4a0f1c733a7bdaf147f",
+      "story_id": "story_f3674b0ab370821f1c0dcb21",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f3674b0ab370821f1c0dcb21",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a8b760212a996d700166526e",
+      "story_id": "story_af375447815d7c984b9187b5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_af375447815d7c984b9187b5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_a9bb4a4bcf6e673820eba2f8",
+      "story_id": "story_5f25420197782d6eeb27bb6a",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_5f25420197782d6eeb27bb6a",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_abb22feba8ca202e1e3647af",
+      "story_id": "story_348ba5eff4264f0a707e1bf8",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_348ba5eff4264f0a707e1bf8",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_b3ad59e1fb1f5f831f9adc1a",
+      "story_id": "story_10dac77d9980908e2cb32a13",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_10dac77d9980908e2cb32a13",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_bac7fe1cd40d6dc07219a7bc",
+      "story_id": "story_c10b4b5447904d71441665d9",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_c10b4b5447904d71441665d9",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_bd436a4005a916d61ed7ee91",
+      "story_id": "story_f9f7df10c5d300df6d9bef29",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f9f7df10c5d300df6d9bef29",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c0fcda1bd06fa73d48582b41",
+      "story_id": "story_55d0397c786047f6a2a2ace1",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_55d0397c786047f6a2a2ace1",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c5d6f5089eed322b68d66118",
+      "story_id": "story_89fc76cd6797a825f051b8a9",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_89fc76cd6797a825f051b8a9",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c5e57ecf527dff9c7157c17b",
+      "story_id": "story_6a0435d49473b52ae9fb409b",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_6a0435d49473b52ae9fb409b",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c6b5cf4805615798b76c7b3b",
+      "story_id": "story_9d6f7c6a29a7f36c1ac6b9b3",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_9d6f7c6a29a7f36c1ac6b9b3",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c6fd026c9c597566580e5411",
+      "story_id": "story_ac7c4be6cbc66fcd1fec1401",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_ac7c4be6cbc66fcd1fec1401",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c7aaf3b13d5517cb5a5b90ad",
+      "story_id": "story_a25e59c516f42b8b76a6979e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_a25e59c516f42b8b76a6979e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_c8aa837364d1fe35f10a347f",
+      "story_id": "story_f3322a26603954eb95367e57",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f3322a26603954eb95367e57",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_cbc131edfd6a7654b54e1931",
+      "story_id": "story_043dff8492b1ddf0c591357c",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_043dff8492b1ddf0c591357c",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_cd0ca1c4f7d62a7ba62c3941",
+      "story_id": "story_f86553082ff484f383a3c666",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f86553082ff484f383a3c666",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d0620dba6777f32b1528973d",
+      "story_id": "story_bc75c0d601b0bd7ebffe3146",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_bc75c0d601b0bd7ebffe3146",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d1352619cae779b04f2b662f",
+      "story_id": "story_f18c788ffafc494e90aa10a4",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_f18c788ffafc494e90aa10a4",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d270411d290af6c74684c106",
+      "story_id": "story_91b48649a49a0d06bf78cd83",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_91b48649a49a0d06bf78cd83",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d3b5dc0ca6adaf316db1aab1",
+      "story_id": "story_7ff2cf3ff1e65b2f17c6f5a2",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_7ff2cf3ff1e65b2f17c6f5a2",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d63b9e9254c3cfdeea943ab1",
+      "story_id": "story_de68dee7651d9d0f29368758",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_de68dee7651d9d0f29368758",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d67ff9fd421aa5d098a1576b",
+      "story_id": "story_efeda0451eea16aca4ebc692",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_efeda0451eea16aca4ebc692",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d6aaa4a7c0860afc54c2e0ed",
+      "story_id": "story_fee5f89351b83ee8b068b565",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_fee5f89351b83ee8b068b565",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_d80b40774635c6303615e2ff",
+      "story_id": "story_9d24c16c0ced97c4c71f79fe",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_9d24c16c0ced97c4c71f79fe",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_dbb352e1307fe5c6f8687375",
+      "story_id": "story_233f0f7672c3574ff70a884a",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_233f0f7672c3574ff70a884a",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_ddbf5f8bfe509c9ea8dd3736",
+      "story_id": "story_eccb99f95547902207404678",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_eccb99f95547902207404678",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_de5ba5af353492f969e90e58",
+      "story_id": "story_d073867cb69744c65ab2c1e5",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_d073867cb69744c65ab2c1e5",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_e3f6a77dc9b2771e31b1a8f7",
+      "story_id": "story_bf9a7dbad7d78cc578e79604",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_bf9a7dbad7d78cc578e79604",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_e5a55a8eb5d3f478c5a7277d",
+      "story_id": "story_1a0c62276652780cf85c38a2",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_1a0c62276652780cf85c38a2",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_e73fb107db0ce0834f7f1b1b",
+      "story_id": "story_ed83bf1f35886821d421b107",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_ed83bf1f35886821d421b107",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_e8e1883855bbe09f66025830",
+      "story_id": "story_1e891be6886a6d91a6e866fc",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_1e891be6886a6d91a6e866fc",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_e99358093cedb482151aacab",
+      "story_id": "story_bf24fbc19db63ccfd0396950",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_bf24fbc19db63ccfd0396950",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_eb56c72c47120bd832474dbf",
+      "story_id": "story_30291e678bef455aaa112e9a",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_30291e678bef455aaa112e9a",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_ebffd3ddc3e07d7653976e12",
+      "story_id": "story_bcbb2d0410129f84807bfdd2",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_bcbb2d0410129f84807bfdd2",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_efd92b4a579489dbf0e79da0",
+      "story_id": "story_2d59df1d3b44ed968346ecc7",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_2d59df1d3b44ed968346ecc7",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f23b181d0e9a3f80485481bc",
+      "story_id": "story_cd588d8d8dcb15bcdbae9aef",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_cd588d8d8dcb15bcdbae9aef",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f241f5f5696b841a9975dd1a",
+      "story_id": "story_b4e17e729f62f52a50932e36",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_b4e17e729f62f52a50932e36",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f40244f7cebdf2e940da62b4",
+      "story_id": "story_9d6b8b3f196820c375e22cfc",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_9d6b8b3f196820c375e22cfc",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f51149adefd5d686c541e8ab",
+      "story_id": "story_586149ee3bcb29425cedf0d7",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_586149ee3bcb29425cedf0d7",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f70a0d89540dd347854c901c",
+      "story_id": "story_b44e22168041c6d6f60ee9ce",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_b44e22168041c6d6f60ee9ce",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_f9def51d4bd664cddc3542e2",
+      "story_id": "story_65b06e2d69d234eebc708e35",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_65b06e2d69d234eebc708e35",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_fc48478cb877298d868790c8",
+      "story_id": "story_6dc59fee9fa56603c9046266",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_6dc59fee9fa56603c9046266",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_fde66f8d9777732eb9cd7db9",
+      "story_id": "story_461b90c2591dfa0aaa6253fb",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_461b90c2591dfa0aaa6253fb",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_fe57420b3c5aab9848d65cc6",
+      "story_id": "story_13b63b9e749520bf595bc03e",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_13b63b9e749520bf595bc03e",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    },
+    {
+      "id": "setup_ff02d8ebfa7381304d4b9c83",
+      "story_id": "story_c736687093728f83f9850a2c",
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "side": "BUY",
+      "clock": {
+        "occurred_from": "2026-06-12T16:00:00+00:00",
+        "occurred_to": "2026-06-12T16:00:00+00:00",
+        "available_at": "2026-06-12T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139680,
+      "stop_ticks": 139587,
+      "target_ticks": 139838,
+      "status": "ELIGIBLE",
+      "evidence_ids": [
+        "story_c736687093728f83f9850a2c",
+        "level_dcb56c1a3856541c6304dfa7",
+        "bar_dd09dc5d9966e76e7013b202",
+        "level_423e2fe1f90144bdcea7ecd1",
+        "structure_event_8b15e8c116418a4800f5dca9",
+        "entry_irl_ec9a6f3e45e0894e8ab839a0",
+        "entry_first_take_f4536da2f8d667cdd7112f43",
+        "bar_2e73689b6807e1664e67c7ca",
+        "bar_2d395ddee1460875946e3645"
+      ],
+      "target_context_id": "target_context_2439130223a377e0322729ee"
+    }
+  ],
+  "limitations": [
+    "H1 source-clock geometry is not final nested M30 entry acceptance.",
+    "A separately taught H4-KL target is not this trade's narrated liquidity target.",
+    "No profitability comparison is supported by this detection-only audit."
+  ]
+}

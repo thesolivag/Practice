@@ -1,0 +1,1031 @@
+{
+  "schema_version": "bishop_offline_v2_1",
+  "scope": "BIAS_ONLY",
+  "story_context_evaluated": false,
+  "run_id": "run_b6a83d76f5ea0c6dd4f736b5",
+  "status": "PARTIAL_UNVALIDATED",
+  "as_of": "2026-10-26T20:00:00+00:00",
+  "scan_start": null,
+  "instrument": {
+    "symbol": "EURNZD",
+    "tick_size": "0.00001",
+    "distance_unit": "0.0001",
+    "calendar_id": "fx_ny_v1",
+    "anchor_id": "ny17_wall_v2",
+    "price_basis": "BID",
+    "source_id": "source_4180c7d1521413b4d3f606b1",
+    "venue": "ICMARKETS"
+  },
+  "input": {
+    "sha256": "2d8be2b4e90d8029efa1a03bc82f5be62bdb529284ea14b2f93c29315eca8544",
+    "manifest": "manifest_7469465f38a0eb1921e0160c",
+    "source_id": "source_4180c7d1521413b4d3f606b1",
+    "prefix": "feed_prefix_e9b2dbed604cf2ec0be03fb5"
+  },
+  "policy": {
+    "version": "bishop_v2_policy_6",
+    "source_profile": "owner_aggressive",
+    "risk_profile": "owner_fixed11",
+    "target_profile": "nearest_erl",
+    "oc_gap_ticks": 0,
+    "impulse_atr_fraction": null,
+    "impulse_atr_period": 20,
+    "near_atr_period": 20,
+    "near_atr_fraction": "0.25",
+    "fixed_stop_units": "11",
+    "stop_buffer_units": "0.5",
+    "pending_minutes": 1440,
+    "fallback_rejections": 1,
+    "allow_counterweekly": true,
+    "research_later_kl_irl": false,
+    "entry_tfs": [
+      "H4",
+      "H3",
+      "H2",
+      "H1",
+      "M45",
+      "M30",
+      "M15",
+      "M5"
+    ],
+    "origin_tfs": [
+      "M",
+      "W",
+      "D",
+      "H4"
+    ],
+    "id": "policy_0c3ff3a8812bd63387a1e95f"
+  },
+  "costs": {
+    "spread_ticks": "0",
+    "entry_slippage_ticks": "0",
+    "stop_slippage_ticks": "0",
+    "commission_ticks": "0",
+    "financing_ticks": "0"
+  },
+  "selection": {
+    "mode": "PROSPECTIVE_CAPPED",
+    "max_open_orders": 10,
+    "rejected": [],
+    "aliases": [],
+    "dedup_policy": "same_model_level_clock_risk_v1_first_context"
+  },
+  "coverage": {
+    "base": {
+      "status": "INCOMPLETE",
+      "expected_slots": 6863,
+      "present_slots": 6812,
+      "missing_slots": 51,
+      "missing": [
+        "2025-12-24T22:00:00+00:00",
+        "2025-12-24T23:00:00+00:00",
+        "2025-12-25T00:00:00+00:00",
+        "2025-12-25T01:00:00+00:00",
+        "2025-12-25T02:00:00+00:00",
+        "2025-12-25T03:00:00+00:00",
+        "2025-12-25T04:00:00+00:00",
+        "2025-12-25T05:00:00+00:00",
+        "2025-12-25T06:00:00+00:00",
+        "2025-12-25T07:00:00+00:00",
+        "2025-12-25T08:00:00+00:00",
+        "2025-12-25T09:00:00+00:00",
+        "2025-12-25T10:00:00+00:00",
+        "2025-12-25T11:00:00+00:00",
+        "2025-12-25T12:00:00+00:00",
+        "2025-12-25T13:00:00+00:00",
+        "2025-12-25T14:00:00+00:00",
+        "2025-12-25T15:00:00+00:00",
+        "2025-12-25T16:00:00+00:00",
+        "2025-12-25T17:00:00+00:00",
+        "2025-12-25T18:00:00+00:00",
+        "2025-12-25T19:00:00+00:00",
+        "2025-12-25T20:00:00+00:00",
+        "2025-12-25T21:00:00+00:00",
+        "2025-12-25T22:00:00+00:00",
+        "2025-12-25T23:00:00+00:00",
+        "2025-12-26T00:00:00+00:00",
+        "2025-12-31T22:00:00+00:00",
+        "2025-12-31T23:00:00+00:00",
+        "2026-01-01T00:00:00+00:00",
+        "2026-01-01T01:00:00+00:00",
+        "2026-01-01T02:00:00+00:00",
+        "2026-01-01T03:00:00+00:00",
+        "2026-01-01T04:00:00+00:00",
+        "2026-01-01T05:00:00+00:00",
+        "2026-01-01T06:00:00+00:00",
+        "2026-01-01T07:00:00+00:00",
+        "2026-01-01T08:00:00+00:00",
+        "2026-01-01T09:00:00+00:00",
+        "2026-01-01T10:00:00+00:00",
+        "2026-01-01T11:00:00+00:00",
+        "2026-01-01T12:00:00+00:00",
+        "2026-01-01T13:00:00+00:00",
+        "2026-01-01T14:00:00+00:00",
+        "2026-01-01T15:00:00+00:00",
+        "2026-01-01T16:00:00+00:00",
+        "2026-01-01T17:00:00+00:00",
+        "2026-01-01T18:00:00+00:00",
+        "2026-01-01T19:00:00+00:00",
+        "2026-01-01T20:00:00+00:00",
+        "2026-01-01T21:00:00+00:00"
+      ]
+    },
+    "timeframes": {
+      "M": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-08-31T21:00:00+00:00",
+            "end": "2025-09-30T21:00:00+00:00",
+            "missing_slots": 360,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-11-30T22:00:00+00:00",
+            "end": "2025-12-31T22:00:00+00:00",
+            "missing_slots": 27,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-31T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-09-30T21:00:00+00:00",
+            "end": "2026-10-31T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 10,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "W": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-12-21T22:00:00+00:00",
+            "end": "2025-12-26T22:00:00+00:00",
+            "missing_slots": 27,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-28T22:00:00+00:00",
+            "end": "2026-01-02T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-30T21:00:00+00:00",
+            "missing_slots": 97,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 55,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "D": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T22:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-25T21:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 282,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H4": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T02:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T02:00:00+00:00",
+            "end": "2025-12-25T06:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T06:00:00+00:00",
+            "end": "2025-12-25T10:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T10:00:00+00:00",
+            "end": "2025-12-25T14:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T14:00:00+00:00",
+            "end": "2025-12-25T18:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T18:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T02:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T02:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T02:00:00+00:00",
+            "end": "2026-01-01T06:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T06:00:00+00:00",
+            "end": "2026-01-01T10:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T10:00:00+00:00",
+            "end": "2026-01-01T14:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T14:00:00+00:00",
+            "end": "2026-01-01T18:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T18:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-10-26T17:00:00+00:00",
+            "end": "2026-10-26T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": true
+          }
+        ],
+        "complete_bars": 1702,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      }
+    }
+  },
+  "support": [],
+  "structural_context": {
+    "M": {
+      "tf": "M",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "available_at": "2026-09-30T21:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_652f43806476f951ca85ce26",
+          "kind": "SWEEP_BOS",
+          "instrument": "EURNZD",
+          "tf": "M",
+          "clock": {
+            "occurred_from": "2026-09-30T21:00:00+00:00",
+            "occurred_to": "2026-09-30T21:00:00+00:00",
+            "available_at": "2026-09-30T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_ba116fe5b6b980f824fb7667",
+          "price_ticks": 201063,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_4db71be4abcff9e4a8f838e9"
+          ],
+          "evidence_ids": [
+            "structure_event_311d52edc5840e7e1298dd0d",
+            "turn_1aeac1f2d424580c11299929"
+          ],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "sweep_event_id": "structure_event_311d52edc5840e7e1298dd0d",
+            "sweep_reference_id": "turn_d373ce73be61ea93411587f8",
+            "sweep_leg_id": "sweep_leg_020a863d7f2a7c29bdc36bbb",
+            "parent_range_id": null,
+            "reference_formed_at": "2026-03-31T21:00:00+00:00",
+            "reference_available_at": "2026-04-30T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_0d38e928988b3478ed0e63a1",
+          "side": "BUY",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_1aeac1f2d424580c11299929",
+          "origin_ticks": 195645,
+          "available_at": "2026-09-30T21:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-26T20:00:00+00:00",
+        "as_of": "2026-10-26T20:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_652f43806476f951ca85ce26",
+            "bar_ids": [
+              "bar_4db71be4abcff9e4a8f838e9"
+            ],
+            "reference_id": "turn_ba116fe5b6b980f824fb7667",
+            "reference_bar_id": "bar_4bbee8b7b1d36def1737a3e5"
+          }
+        ],
+        "historical_missing_slots": 51
+      }
+    },
+    "W": {
+      "tf": "W",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "available_at": "2026-09-11T21:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_7765946499aa741bbc0fccbb",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "W",
+          "clock": {
+            "occurred_from": "2026-09-11T21:00:00+00:00",
+            "occurred_to": "2026-09-11T21:00:00+00:00",
+            "available_at": "2026-09-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_39074c6ba12b925ee33dc6b3",
+          "price_ticks": 196389,
+          "scope_id": "range_4327a0dd5a5c9c4256e5bff2",
+          "bar_ids": [
+            "bar_6e7be4ef8bed22de69943056"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_3120fa3135f460544f9d3f41",
+            "candidate_id": null,
+            "reference_formed_at": "2026-07-24T21:00:00+00:00",
+            "reference_available_at": "2026-07-31T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_93eda7cc8971159620eb51c0",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_5d1025250409ed303d04fc4b",
+          "origin_ticks": 202109,
+          "available_at": "2026-10-02T21:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-26T20:00:00+00:00",
+        "as_of": "2026-10-26T20:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_7765946499aa741bbc0fccbb",
+            "bar_ids": [
+              "bar_6e7be4ef8bed22de69943056"
+            ],
+            "reference_id": "turn_39074c6ba12b925ee33dc6b3",
+            "reference_bar_id": "bar_743d23f7536f446888a2ee55"
+          }
+        ],
+        "historical_missing_slots": 51
+      }
+    },
+    "D": {
+      "tf": "D",
+      "state": "DIRECTIONAL",
+      "side": "SELL",
+      "available_at": "2026-10-23T21:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_3d4c5b528bbb3221030198bc",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-23T21:00:00+00:00",
+            "occurred_to": "2026-10-23T21:00:00+00:00",
+            "available_at": "2026-10-23T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_9dad30fc5a817a802ebf210a",
+          "price_ticks": 197037,
+          "scope_id": "range_904af7e70b09ff247cd95df8",
+          "bar_ids": [
+            "bar_a5aa6d07e2de218bb7af6bec"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_d4e0920bb96ccfc046c189bd",
+            "candidate_id": null,
+            "reference_formed_at": "2026-10-21T21:00:00+00:00",
+            "reference_available_at": "2026-10-22T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_44eb1e432216bbdff0fcaab2",
+          "kind": "BREAKOUT",
+          "instrument": "EURNZD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-23T21:00:00+00:00",
+            "occurred_to": "2026-10-23T21:00:00+00:00",
+            "available_at": "2026-10-23T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_9dad30fc5a817a802ebf210a",
+          "price_ticks": 197037,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_a5aa6d07e2de218bb7af6bec"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "crossing_mode": "TRADED",
+            "reference_formed_at": "2026-10-21T21:00:00+00:00",
+            "reference_available_at": "2026-10-22T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        },
+        {
+          "id": "structure_event_541440565e40a59181c43d4e",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-23T21:00:00+00:00",
+            "occurred_to": "2026-10-23T21:00:00+00:00",
+            "available_at": "2026-10-23T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_9dad30fc5a817a802ebf210a",
+          "price_ticks": 197037,
+          "scope_id": "range_c5cffa14b58e307071552b8e",
+          "bar_ids": [
+            "bar_a5aa6d07e2de218bb7af6bec"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_d4e0920bb96ccfc046c189bd",
+            "candidate_id": null,
+            "reference_formed_at": "2026-10-21T21:00:00+00:00",
+            "reference_available_at": "2026-10-22T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_c54f7a093678174c8db82d66",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-23T21:00:00+00:00",
+            "occurred_to": "2026-10-23T21:00:00+00:00",
+            "available_at": "2026-10-23T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_9dad30fc5a817a802ebf210a",
+          "price_ticks": 197037,
+          "scope_id": "range_79dcb8c2eda1728ab9c47167",
+          "bar_ids": [
+            "bar_a5aa6d07e2de218bb7af6bec"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_d4e0920bb96ccfc046c189bd",
+            "candidate_id": null,
+            "reference_formed_at": "2026-10-21T21:00:00+00:00",
+            "reference_available_at": "2026-10-22T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_d3ca7aa6c7a58e8a43c0d67c",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-23T21:00:00+00:00",
+            "occurred_to": "2026-10-23T21:00:00+00:00",
+            "available_at": "2026-10-23T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_9dad30fc5a817a802ebf210a",
+          "price_ticks": 197037,
+          "scope_id": "range_d79a2c20042feb7140b1a3de",
+          "bar_ids": [
+            "bar_a5aa6d07e2de218bb7af6bec"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_d4e0920bb96ccfc046c189bd",
+            "candidate_id": null,
+            "reference_formed_at": "2026-10-21T21:00:00+00:00",
+            "reference_available_at": "2026-10-22T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_4fd70f3230842a4ac70d3cc7",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_b571533a3ff0e58524f651a8",
+          "origin_ticks": 202164,
+          "available_at": "2026-10-23T21:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-26T20:00:00+00:00",
+        "as_of": "2026-10-26T20:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_3d4c5b528bbb3221030198bc",
+            "bar_ids": [
+              "bar_a5aa6d07e2de218bb7af6bec"
+            ],
+            "reference_id": "turn_9dad30fc5a817a802ebf210a",
+            "reference_bar_id": "bar_d47071f763108c121eca140a"
+          },
+          {
+            "event_id": "structure_event_44eb1e432216bbdff0fcaab2",
+            "bar_ids": [
+              "bar_a5aa6d07e2de218bb7af6bec"
+            ],
+            "reference_id": "turn_9dad30fc5a817a802ebf210a",
+            "reference_bar_id": "bar_d47071f763108c121eca140a"
+          },
+          {
+            "event_id": "structure_event_541440565e40a59181c43d4e",
+            "bar_ids": [
+              "bar_a5aa6d07e2de218bb7af6bec"
+            ],
+            "reference_id": "turn_9dad30fc5a817a802ebf210a",
+            "reference_bar_id": "bar_d47071f763108c121eca140a"
+          },
+          {
+            "event_id": "structure_event_c54f7a093678174c8db82d66",
+            "bar_ids": [
+              "bar_a5aa6d07e2de218bb7af6bec"
+            ],
+            "reference_id": "turn_9dad30fc5a817a802ebf210a",
+            "reference_bar_id": "bar_d47071f763108c121eca140a"
+          },
+          {
+            "event_id": "structure_event_d3ca7aa6c7a58e8a43c0d67c",
+            "bar_ids": [
+              "bar_a5aa6d07e2de218bb7af6bec"
+            ],
+            "reference_id": "turn_9dad30fc5a817a802ebf210a",
+            "reference_bar_id": "bar_d47071f763108c121eca140a"
+          }
+        ],
+        "historical_missing_slots": 51
+      }
+    },
+    "H4": {
+      "tf": "H4",
+      "state": "DIRECTIONAL",
+      "side": "SELL",
+      "available_at": "2026-10-23T13:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_2de0331898c95e45ed3db426",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_bb638beac4d3de7a09ac8c9b",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_bb7b0d1b74fe4a057ab48b61",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_608262c3906567807b26972e",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_56ee98ed8acecfeccc002569",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_bb7b0d1b74fe4a057ab48b61",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_776747c1c1090e5f4b7098a4",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_cc5329bc1a7c3dd1152981a2",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_bb7b0d1b74fe4a057ab48b61",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_b9da3abaf1549d210476b7ce",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_16a161cf6898d0efb3ab1a78",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_c3fe0edee01c247c21a0090e",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_d7928d7649be6eaeb1151ab6",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_010496b1540a93a3eb1e62bb",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_2998764e47db2228ac11a6aa",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_f0621b564ffec001fa766891",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "EURNZD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-23T13:00:00+00:00",
+            "occurred_to": "2026-10-23T13:00:00+00:00",
+            "available_at": "2026-10-23T13:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+          "price_ticks": 196806,
+          "scope_id": "range_f0774b30ee56c588bb80db55",
+          "bar_ids": [
+            "bar_8e23078e51d1c1c0bfb07021"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_bb7b0d1b74fe4a057ab48b61",
+            "candidate_id": "turn_2d96a48a6fb36f40f267ad4e",
+            "reference_formed_at": "2026-10-22T01:00:00+00:00",
+            "reference_available_at": "2026-10-22T05:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_6019dadcae2ecd6205f2836a",
+          "side": "SELL",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_de7f5aa3adf5eded81a21915",
+          "origin_ticks": 202962,
+          "available_at": "2026-10-26T17:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate.",
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-26T20:00:00+00:00",
+        "as_of": "2026-10-26T20:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_2de0331898c95e45ed3db426",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          },
+          {
+            "event_id": "structure_event_608262c3906567807b26972e",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          },
+          {
+            "event_id": "structure_event_776747c1c1090e5f4b7098a4",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          },
+          {
+            "event_id": "structure_event_b9da3abaf1549d210476b7ce",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          },
+          {
+            "event_id": "structure_event_d7928d7649be6eaeb1151ab6",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          },
+          {
+            "event_id": "structure_event_f0621b564ffec001fa766891",
+            "bar_ids": [
+              "bar_8e23078e51d1c1c0bfb07021"
+            ],
+            "reference_id": "turn_c6b86d6c19b9091a622f8e7c",
+            "reference_bar_id": "bar_11ea98f7d76da0aea6d997da"
+          }
+        ],
+        "historical_missing_slots": 51
+      }
+    }
+  },
+  "stories": [],
+  "story_events": [],
+  "data_gap_events": [
+    {
+      "id": "base_gap_16f8ca834863f55b7dadb034",
+      "kind": "DATA_GAP",
+      "instrument": "EURNZD",
+      "tf": "H1",
+      "clock": {
+        "occurred_from": "2025-12-24T22:00:00+00:00",
+        "occurred_to": "2025-12-26T01:00:00+00:00",
+        "available_at": "2025-12-26T02:00:00+00:00",
+        "precision": "BAR"
+      },
+      "side": null,
+      "reference_id": null,
+      "price_ticks": null,
+      "scope_id": null,
+      "bar_ids": [
+        "bar_4a1a1fa5093c0e308169baa5",
+        "bar_18d4fcf1d433d9b385ba5904"
+      ],
+      "evidence_ids": [],
+      "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+      "evidence_status": "UNKNOWN",
+      "details": {
+        "reason": "MISSING_OBSERVATIONS",
+        "previous_segment": "0",
+        "next_segment": "1"
+      }
+    },
+    {
+      "id": "base_gap_7893b40af540ba937cab62e6",
+      "kind": "DATA_GAP",
+      "instrument": "EURNZD",
+      "tf": "H1",
+      "clock": {
+        "occurred_from": "2025-12-31T22:00:00+00:00",
+        "occurred_to": "2026-01-01T22:00:00+00:00",
+        "available_at": "2026-01-01T23:00:00+00:00",
+        "precision": "BAR"
+      },
+      "side": null,
+      "reference_id": null,
+      "price_ticks": null,
+      "scope_id": null,
+      "bar_ids": [
+        "bar_d5159d7c3f438335da728738",
+        "bar_3280314c4782a360acbe97e3"
+      ],
+      "evidence_ids": [],
+      "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+      "evidence_status": "UNKNOWN",
+      "details": {
+        "reason": "MISSING_OBSERVATIONS",
+        "previous_segment": "1",
+        "next_segment": "2"
+      }
+    }
+  ],
+  "liquidity_take_events": [],
+  "setups": [],
+  "orders": [],
+  "actions": [],
+  "execution_events": [],
+  "observations": [],
+  "positions": [],
+  "summary": {
+    "stories": 0,
+    "setups": 0,
+    "orders": 0,
+    "outcomes": {}
+  },
+  "teacher_acceptance": "NOT_REPLAYED",
+  "limitations": [
+    "OHLC execution censors ambiguous intrabar sequences.",
+    "Numerical policies are implementation choices; teacher replay acceptance is pending."
+  ]
+}

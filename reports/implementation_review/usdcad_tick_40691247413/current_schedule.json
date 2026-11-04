@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-10-28T12:51:44.448039+00:00",
+  "status": "CURRENT_SCHEDULE_NOT_VERIFIED_FOR_JUNE2026",
+  "timezone": "America/New_York",
+  "intervals": [
+    {
+      "start_second": 61260,
+      "end_second": 147540
+    },
+    {
+      "start_second": 147660,
+      "end_second": 233940
+    },
+    {
+      "start_second": 234060,
+      "end_second": 320340
+    },
+    {
+      "start_second": 320460,
+      "end_second": 406740
+    },
+    {
+      "start_second": 406860,
+      "end_second": 493020
+    }
+  ],
+  "holiday_count": 1
+}

@@ -1,0 +1,1806 @@
+[
+  {
+    "id": "order_52c0f7f267bb7ca2dcdcba5a",
+    "setup_id": "setup_01e8f39afab04959b081a995",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139013",
+    "fill_window": {
+      "start": "2026-06-05T02:24:00+00:00",
+      "end": "2026-06-05T02:25:00+00:00",
+      "observed_at": "2026-06-05T02:25:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "238",
+    "net_r": "0.3020304568527918781725888325",
+    "censor_reason": null,
+    "initial_stop_ticks": 138225,
+    "initial_target_ticks": 139251,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_fd60f9b91dcf15f57994f2ca",
+    "setup_id": "setup_238aa5e10a0f6aabb75b4f44",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139102",
+    "fill_window": {
+      "start": "2026-06-05T14:15:00+00:00",
+      "end": "2026-06-05T14:16:00+00:00",
+      "observed_at": "2026-06-05T14:16:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-25",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 139013,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_3e50be2f794151f706aeaf20",
+    "setup_id": "setup_0012287a4b5915d955ec3a67",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139039",
+    "fill_window": {
+      "start": "2026-06-05T13:43:00+00:00",
+      "end": "2026-06-05T13:44:00+00:00",
+      "observed_at": "2026-06-05T13:44:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "13",
+    "net_r": "0.1477272727272727272727272727",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 139026,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_8120b523ea1372c7218ac3a8",
+    "setup_id": "setup_08556ea7e04db66c1e46ad67",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139058",
+    "fill_window": {
+      "start": "2026-06-05T14:00:00+00:00",
+      "end": "2026-06-05T14:01:00+00:00",
+      "observed_at": "2026-06-05T14:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "1",
+    "net_r": "0.02631578947368421052631578947",
+    "censor_reason": null,
+    "initial_stop_ticks": 139096,
+    "initial_target_ticks": 139057,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_a2010b14e8ba6d841ab4346b",
+    "setup_id": "setup_1b6a0585721b55c33996b333",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139017",
+    "fill_window": {
+      "start": "2026-06-05T13:39:00+00:00",
+      "end": "2026-06-05T13:40:00+00:00",
+      "observed_at": "2026-06-05T13:40:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "4",
+    "net_r": "0.03636363636363636363636363636",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 139013,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_a993c657f913b9ad693e960c",
+    "setup_id": "setup_29322ed3f54481708d0929d8",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139017",
+    "fill_window": {
+      "start": "2026-06-05T13:39:00+00:00",
+      "end": "2026-06-05T13:40:00+00:00",
+      "observed_at": "2026-06-05T13:40:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "4",
+    "net_r": "0.03636363636363636363636363636",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 139013,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_8d39b81aeff6de85cb31675b",
+    "setup_id": "setup_08a9d9eb7c9f1812684009a0",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138894",
+    "fill_window": {
+      "start": "2026-06-05T08:48:00+00:00",
+      "end": "2026-06-05T08:49:00+00:00",
+      "observed_at": "2026-06-05T08:49:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "2",
+    "net_r": "0.008583690987124463519313304721",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 138892,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_9776ab703ead72e5d1c12bdd",
+    "setup_id": "setup_02559f82ba18937f569d899d",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138907",
+    "fill_window": {
+      "start": "2026-06-05T12:26:00+00:00",
+      "end": "2026-06-05T12:27:00+00:00",
+      "observed_at": "2026-06-05T12:27:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "2",
+    "net_r": "0.009090909090909090909090909091",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 138905,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_c14c3280d867fd44d6882542",
+    "setup_id": "setup_0297ebaabe63dd97dc45870c",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138918",
+    "fill_window": {
+      "start": "2026-06-05T12:27:00+00:00",
+      "end": "2026-06-05T12:28:00+00:00",
+      "observed_at": "2026-06-05T12:28:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "1",
+    "net_r": "0.004784688995215311004784688995",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 138917,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_ca52ee5fe3f6efbe652f2c76",
+    "setup_id": "setup_02488bd48e556598b2f0e424",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138943",
+    "fill_window": {
+      "start": "2026-06-05T12:30:00+00:00",
+      "end": "2026-06-05T12:31:00+00:00",
+      "observed_at": "2026-06-05T12:31:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "1",
+    "net_r": "0.005434782608695652173913043478",
+    "censor_reason": null,
+    "initial_stop_ticks": 139127,
+    "initial_target_ticks": 138942,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_4aeba35da91430f36e62f2e4",
+    "setup_id": "setup_0649625fc7446ed8fbbdb1d1",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138983",
+    "fill_window": {
+      "start": "2026-06-05T13:07:00+00:00",
+      "end": "2026-06-05T13:08:00+00:00",
+      "observed_at": "2026-06-05T13:08:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "84",
+    "net_r": "0.7433628318584070796460176991",
+    "censor_reason": null,
+    "initial_stop_ticks": 139096,
+    "initial_target_ticks": 138899,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_30b86f93c5cd532772410d72",
+    "setup_id": "setup_002e3aa568aa8fa8cfd42e85",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138888",
+    "fill_window": {
+      "start": "2026-06-05T13:01:00+00:00",
+      "end": "2026-06-05T13:02:00+00:00",
+      "observed_at": "2026-06-05T13:02:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "363",
+    "net_r": "1.592105263157894736842105263",
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139251,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_fbeb53d0d42dad45270957b7",
+    "setup_id": "setup_026aed047be7f29442e3b41b",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "138888",
+    "fill_window": {
+      "start": "2026-06-05T13:01:00+00:00",
+      "end": "2026-06-05T13:02:00+00:00",
+      "observed_at": "2026-06-05T13:02:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "363",
+    "net_r": "1.592105263157894736842105263",
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139251,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_1fdf017f56b4f7a47a0d40d1",
+    "setup_id": "setup_01bd825ab1d5f563c07a8558",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139005",
+    "fill_window": {
+      "start": "2026-06-05T14:03:00+00:00",
+      "end": "2026-06-05T14:04:00+00:00",
+      "observed_at": "2026-06-05T14:04:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "246",
+    "net_r": "0.7130434782608695652173913043",
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139251,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_26ff0f777a749b459eb16e98",
+    "setup_id": "setup_04507b1c05a5f2f69a6dbc6d",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139023",
+    "fill_window": {
+      "start": "2026-06-05T14:02:00+00:00",
+      "end": "2026-06-05T14:03:00+00:00",
+      "observed_at": "2026-06-05T14:03:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "228",
+    "net_r": "0.6280991735537190082644628099",
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139251,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_2655aeb94bce33f88ef683d1",
+    "setup_id": "setup_042c7ed2f7ee620975209ba9",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_2ce62091aeb2416b86c72bfc",
+    "setup_id": "setup_00275e9f3102fce7f98427df",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_3aae417ba6b19b95a0b623ef",
+    "setup_id": "setup_0048cc1922bcf32a75191459",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_cac40bddf5333c57ef09d170",
+    "setup_id": "setup_000be6a09f2a39ee2e3dbd2f",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_fc999b81b4b50d1486d9b5b2",
+    "setup_id": "setup_0484ae82c47e790d43b9989f",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_3a3e7c2ef9502cd5e3f4fda6",
+    "setup_id": "setup_00182f3ec4d4f7e299417d08",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_5e2c5fbd1c58f45e9402f7f8",
+    "setup_id": "setup_031dcaf1f928c4e8ac97834e",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_b8ac760a545c71478ed9c51e",
+    "setup_id": "setup_0007a407deb361b15a605845",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138660,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_5df102a9d7ef779bcd6d727a",
+    "setup_id": "setup_0d75e57e3e396a9355681f49",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139511,
+    "initial_target_ticks": 139389,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_f7c5b16d825e5736d6144aec",
+    "setup_id": "setup_27e1efeb884f6b9f121090cf",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139511,
+    "initial_target_ticks": 139389,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_6e763c071a47fc6a627f4d56",
+    "setup_id": "setup_00c0bef68efb9365465359ab",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139312",
+    "fill_window": {
+      "start": "2026-06-08T11:20:00+00:00",
+      "end": "2026-06-08T11:21:00+00:00",
+      "observed_at": "2026-06-08T11:21:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "194",
+    "net_r": "2.552631578947368421052631579",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139506,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_5b255d434829da03b1918063",
+    "setup_id": "setup_002892a92ce2fbab0be32356",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139495",
+    "fill_window": {
+      "start": "2026-06-07T23:10:00+00:00",
+      "end": "2026-06-07T23:11:00+00:00",
+      "observed_at": "2026-06-07T23:11:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-259",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_2cad43eaf8fa98d123168412",
+    "setup_id": "setup_0108f645d764d91015160056",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139442",
+    "fill_window": {
+      "start": "2026-06-08T00:01:00+00:00",
+      "end": "2026-06-08T00:02:00+00:00",
+      "observed_at": "2026-06-08T00:02:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-206",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_3a30f71c2d08e1621b03a67a",
+    "setup_id": "setup_020d5bb325bfc81438e7a363",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139393",
+    "fill_window": {
+      "start": "2026-06-08T00:54:00+00:00",
+      "end": "2026-06-08T00:55:00+00:00",
+      "observed_at": "2026-06-08T00:55:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-157",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_7e9bb2ad73198acd34aa3973",
+    "setup_id": "setup_0509beac0b964434ac30c43e",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139442",
+    "fill_window": {
+      "start": "2026-06-08T00:01:00+00:00",
+      "end": "2026-06-08T00:02:00+00:00",
+      "observed_at": "2026-06-08T00:02:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-206",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_d8b528182366e230812d1e85",
+    "setup_id": "setup_00ad4f4277308b77e0338b08",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139427",
+    "fill_window": {
+      "start": "2026-06-08T00:36:00+00:00",
+      "end": "2026-06-08T00:37:00+00:00",
+      "observed_at": "2026-06-08T00:37:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-191",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139236,
+    "initial_target_ticks": 139667,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_8462326ce45fbb76c969bbee",
+    "setup_id": "setup_0d46316f2d91ef174cabe5aa",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139393",
+    "fill_window": {
+      "start": "2026-06-08T01:00:00+00:00",
+      "end": "2026-06-08T01:01:00+00:00",
+      "observed_at": "2026-06-08T01:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "13",
+    "net_r": "0.09701492537313432835820895522",
+    "censor_reason": null,
+    "initial_stop_ticks": 139527,
+    "initial_target_ticks": 139380,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_f2c3404b112437c02d5aaf7d",
+    "setup_id": "setup_24bda46231e7ea82ad0e9554",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139427",
+    "fill_window": {
+      "start": "2026-06-08T01:17:00+00:00",
+      "end": "2026-06-08T01:18:00+00:00",
+      "observed_at": "2026-06-08T01:18:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-84",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139511,
+    "initial_target_ticks": 139400,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_64971c3b2426509bcb5b0b04",
+    "setup_id": "setup_0191cdf35813770b41baaad6",
+    "status": "FILLED",
+    "outcome": "CENSORED",
+    "fill_ticks": "139467",
+    "fill_window": {
+      "start": "2026-06-08T04:03:00+00:00",
+      "end": "2026-06-08T04:04:00+00:00",
+      "observed_at": "2026-06-08T04:04:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+    "initial_stop_ticks": 139515,
+    "initial_target_ticks": 139462,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_6c2450e56258183b293b51ec",
+    "setup_id": "setup_026bb278f5446de69fd0b653",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139511",
+    "fill_window": {
+      "start": "2026-06-09T01:22:00+00:00",
+      "end": "2026-06-09T01:23:00+00:00",
+      "observed_at": "2026-06-09T01:23:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-203",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139308,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_6fb9e9dac86cae0164ac366b",
+    "setup_id": "setup_024737882fe5e9593423dc4e",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139461",
+    "fill_window": {
+      "start": "2026-06-09T03:12:00+00:00",
+      "end": "2026-06-09T03:13:00+00:00",
+      "observed_at": "2026-06-09T03:13:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-153",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139308,
+    "initial_target_ticks": 139595,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_072f8301ce1f7e5d1780134b",
+    "setup_id": "setup_0072d1972dae19a4779063b6",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139389",
+    "fill_window": {
+      "start": "2026-06-09T08:00:00+00:00",
+      "end": "2026-06-09T08:01:00+00:00",
+      "observed_at": "2026-06-09T08:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-90",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139299,
+    "initial_target_ticks": 139595,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_0a76fe19aefd07c3b1ea3c75",
+    "setup_id": "setup_0170ffe907f9e5e9aa5ad224",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139371",
+    "fill_window": {
+      "start": "2026-06-09T09:00:00+00:00",
+      "end": "2026-06-09T09:01:00+00:00",
+      "observed_at": "2026-06-09T09:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-72",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139299,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_87b311e115c856e5d5a11f94",
+    "setup_id": "setup_04b388aaba94dca3d30bd508",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139312",
+    "fill_window": {
+      "start": "2026-06-10T08:28:00+00:00",
+      "end": "2026-06-10T08:29:00+00:00",
+      "observed_at": "2026-06-10T08:29:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-127",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139595,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_0ee671b7cfd93ac5366030c0",
+    "setup_id": "setup_01ec30a55ecf767d99ca4cc9",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139380",
+    "fill_window": {
+      "start": "2026-06-10T06:46:00+00:00",
+      "end": "2026-06-10T06:47:00+00:00",
+      "observed_at": "2026-06-10T06:47:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-195",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_16c0ca26588a0fcb4522b898",
+    "setup_id": "setup_0a7ef320dcf8faabddccc5d3",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139379",
+    "fill_window": {
+      "start": "2026-06-10T06:46:00+00:00",
+      "end": "2026-06-10T06:47:00+00:00",
+      "observed_at": "2026-06-10T06:47:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-194",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_7737fad2ff7abbf939d435ff",
+    "setup_id": "setup_01103ebedd89a9e4462cb39f",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139442",
+    "fill_window": {
+      "start": "2026-06-09T15:10:00+00:00",
+      "end": "2026-06-09T15:11:00+00:00",
+      "observed_at": "2026-06-09T15:11:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "170",
+    "net_r": "0.6614785992217898832684824903",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_7e8db4aa214826c6189719c4",
+    "setup_id": "setup_015c13a2ac3f4692cddb0265",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139216",
+    "fill_window": {
+      "start": "2026-06-10T13:27:00+00:00",
+      "end": "2026-06-10T13:28:00+00:00",
+      "observed_at": "2026-06-10T13:28:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-41",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139175,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_86ace490b80a6fd65b8e41db",
+    "setup_id": "setup_01474da2db7e09ded8fcde1d",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139379",
+    "fill_window": {
+      "start": "2026-06-10T06:46:00+00:00",
+      "end": "2026-06-10T06:47:00+00:00",
+      "observed_at": "2026-06-10T06:47:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-194",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_a481901f3528ca0ae1b77362",
+    "setup_id": "setup_02115762972cbbd4a3d269a4",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139442",
+    "fill_window": {
+      "start": "2026-06-09T15:10:00+00:00",
+      "end": "2026-06-09T15:11:00+00:00",
+      "observed_at": "2026-06-09T15:11:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "170",
+    "net_r": "0.6614785992217898832684824903",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_bb3b035829071c36d8c2b555",
+    "setup_id": "setup_00db7ef4d4e892188207b8a1",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139380",
+    "fill_window": {
+      "start": "2026-06-10T06:46:00+00:00",
+      "end": "2026-06-10T06:47:00+00:00",
+      "observed_at": "2026-06-10T06:47:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-195",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139185,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_bd3dc8f52829664cab332477",
+    "setup_id": "setup_023fde917b95f8ddded90ad0",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139216",
+    "fill_window": {
+      "start": "2026-06-10T13:27:00+00:00",
+      "end": "2026-06-10T13:28:00+00:00",
+      "observed_at": "2026-06-10T13:28:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-54",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139162,
+    "initial_target_ticks": 139612,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_621d8b06f418438f320e52cc",
+    "setup_id": "setup_024ea15c34ab722c75ef9cc7",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139491",
+    "fill_window": {
+      "start": "2026-06-10T00:22:00+00:00",
+      "end": "2026-06-10T00:23:00+00:00",
+      "observed_at": "2026-06-10T00:23:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-83",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139408,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_9fb7168b06b14648b4630c66",
+    "setup_id": "setup_0060a6859db33213dde704ee",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139491",
+    "fill_window": {
+      "start": "2026-06-10T00:22:00+00:00",
+      "end": "2026-06-10T00:23:00+00:00",
+      "observed_at": "2026-06-10T00:23:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-83",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139408,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_1b077f23f964f1954e3bda54",
+    "setup_id": "setup_0099db7f571362b1f88d6b47",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139312",
+    "fill_window": {
+      "start": "2026-06-10T12:02:00+00:00",
+      "end": "2026-06-10T12:03:00+00:00",
+      "observed_at": "2026-06-10T12:03:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-77",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139235,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_c771dd2306e454a0924d8818",
+    "setup_id": "setup_01826ac10c2f7fdd269176cf",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139322",
+    "fill_window": {
+      "start": "2026-06-10T12:02:00+00:00",
+      "end": "2026-06-10T12:03:00+00:00",
+      "observed_at": "2026-06-10T12:03:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-87",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139235,
+    "initial_target_ticks": 139572,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_e933880857c08163c22196d0",
+    "setup_id": "setup_00a815eb3c9479234199cf1d",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_a949211b246d12f4409ead0a",
+    "setup_id": "setup_0162464fc831af65bbba78a9",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139312",
+    "fill_window": {
+      "start": "2026-06-10T17:00:00+00:00",
+      "end": "2026-06-10T17:01:00+00:00",
+      "observed_at": "2026-06-10T17:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "381",
+    "net_r": "1.175925925925925925925925926",
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_4832ff73bd0d3857cbcd2d2c",
+    "setup_id": "setup_010b47364b992e020d1854b5",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139249,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_4cd062df0faea1fe4974c717",
+    "setup_id": "setup_007a7576d80a7afacf6d03e5",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139364",
+    "fill_window": {
+      "start": "2026-06-10T19:00:00+00:00",
+      "end": "2026-06-10T19:01:00+00:00",
+      "observed_at": "2026-06-10T19:01:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "329",
+    "net_r": "0.875",
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_7879fdcf5369296a54339743",
+    "setup_id": "setup_059dc594ce13628fa1574315",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139249,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_b1753ab94e60a215885bd92c",
+    "setup_id": "setup_003ff1769d78f2742c8eaf0b",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139249,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_e1b00a4be5e00baa9f481077",
+    "setup_id": "setup_00ef73b807ec3f38e5ea2ee9",
+    "status": "MISSED",
+    "outcome": "EXPIRED",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_b905d101c9982fc2069be30e",
+    "setup_id": "setup_01b644d8878fc5661875ad52",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139389",
+    "fill_window": {
+      "start": "2026-06-11T01:04:00+00:00",
+      "end": "2026-06-11T01:05:00+00:00",
+      "observed_at": "2026-06-11T01:05:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "304",
+    "net_r": "0.7581047381546134663341645885",
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_c5b358c177c8ab85a8934b11",
+    "setup_id": "setup_01b8907cf751925110496d59",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "139427",
+    "fill_window": {
+      "start": "2026-06-10T20:23:00+00:00",
+      "end": "2026-06-10T20:24:00+00:00",
+      "observed_at": "2026-06-10T20:24:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "266",
+    "net_r": "0.6059225512528473804100227790",
+    "censor_reason": null,
+    "initial_stop_ticks": 138988,
+    "initial_target_ticks": 139693,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_c7d0793622257394e72be0f5",
+    "setup_id": "setup_0ac5a7df3ba1327ea2a64f4f",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139592",
+    "fill_window": {
+      "start": "2026-06-12T15:28:00+00:00",
+      "end": "2026-06-12T15:29:00+00:00",
+      "observed_at": "2026-06-12T15:29:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139311,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_23febc85c6a7c319d1b5193b",
+    "setup_id": "setup_05990fbfc6254b1757d42233",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139636",
+    "fill_window": {
+      "start": "2026-06-12T15:23:00+00:00",
+      "end": "2026-06-12T15:24:00+00:00",
+      "observed_at": "2026-06-12T15:24:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-32",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139604,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_5470444b97e3f0e89d441c75",
+    "setup_id": "setup_009e420186eb12f74f4152ff",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139659",
+    "fill_window": {
+      "start": "2026-06-12T15:01:00+00:00",
+      "end": "2026-06-12T15:02:00+00:00",
+      "observed_at": "2026-06-12T15:02:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139348,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_7d4e375f5c6a2c53d07d2972",
+    "setup_id": "setup_00398b94b604e39d9aacc733",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139659",
+    "fill_window": {
+      "start": "2026-06-12T15:01:00+00:00",
+      "end": "2026-06-12T15:02:00+00:00",
+      "observed_at": "2026-06-12T15:02:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139311,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_9dfc8bd5c1e424af76dc16bc",
+    "setup_id": "setup_026db19ca63525479256718f",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139726",
+    "fill_window": {
+      "start": "2026-06-12T05:00:00+00:00",
+      "end": "2026-06-12T05:01:00+00:00",
+      "observed_at": "2026-06-12T05:01:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139311,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_0b55267c2d493bb360c12d91",
+    "setup_id": "setup_018072fcd868205006abc33d",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139795",
+    "fill_window": {
+      "start": "2026-06-12T06:03:00+00:00",
+      "end": "2026-06-12T06:04:00+00:00",
+      "observed_at": "2026-06-12T06:04:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139311,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_e0eb23fe9966e0837c6d7e54",
+    "setup_id": "setup_0105e1fe3c7bdabe031a96aa",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139805",
+    "fill_window": {
+      "start": "2026-06-12T06:03:00+00:00",
+      "end": "2026-06-12T06:04:00+00:00",
+      "observed_at": "2026-06-12T06:04:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139311,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_b14f7fb8a59df76533e1825c",
+    "setup_id": "setup_04d27a557da75284bab05a56",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139805",
+    "fill_window": {
+      "start": "2026-06-12T08:17:00+00:00",
+      "end": "2026-06-12T08:18:00+00:00",
+      "observed_at": "2026-06-12T08:18:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-71",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139734,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_e88a65542ee80481c3147eb1",
+    "setup_id": "setup_019f7174c2eaaa1878fd6268",
+    "status": "CLOSED",
+    "outcome": "LOSS",
+    "fill_ticks": "139805",
+    "fill_window": {
+      "start": "2026-06-12T08:17:00+00:00",
+      "end": "2026-06-12T08:18:00+00:00",
+      "observed_at": "2026-06-12T08:18:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "-71",
+    "net_r": "-1",
+    "censor_reason": null,
+    "initial_stop_ticks": 139734,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_5603fd3d77ec39cb1729d7a2",
+    "setup_id": "setup_01d19558a8cb1f2cf6a3ca48",
+    "status": "FILLED",
+    "outcome": "OPEN",
+    "fill_ticks": "139680",
+    "fill_window": {
+      "start": "2026-06-12T16:13:00+00:00",
+      "end": "2026-06-12T16:14:00+00:00",
+      "observed_at": "2026-06-12T16:14:00+00:00"
+    },
+    "remaining_quantity": "1",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139587,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_a3505ebc3c5c4ed2e10fe590",
+    "setup_id": "setup_02afd7d1e9e6ac98356b6993",
+    "status": "PENDING",
+    "outcome": "OPEN",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139587,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  {
+    "id": "order_06a42c9eaaa4b67300b9e7d2",
+    "setup_id": "setup_017afa0c242864cbb4c18611",
+    "status": "PENDING",
+    "outcome": "OPEN",
+    "fill_ticks": null,
+    "fill_window": null,
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "0",
+    "net_r": null,
+    "censor_reason": null,
+    "initial_stop_ticks": 139587,
+    "initial_target_ticks": 140240,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  }
+]

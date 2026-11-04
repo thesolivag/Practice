@@ -1,0 +1,65 @@
+{
+  "scope": "CURRENT_SCHEDULE_HYPOTHESIS_NOT_HISTORICAL_CERTIFICATION",
+  "results": [
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_aa13b3fd1897a841fdf7ade1.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_aa13b3fd1897a841fdf7ade1.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_5665096419ab3cd8a76b419a.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_5665096419ab3cd8a76b419a.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_5665096419ab3cd8a76b419a.calendar_ledger.json"
+    },
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_3d6fb995fe3fde5e7525f351.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_3d6fb995fe3fde5e7525f351.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_2efe05bec071a6adf62f85f7.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_2efe05bec071a6adf62f85f7.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_2efe05bec071a6adf62f85f7.calendar_ledger.json"
+    },
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_dc9cd9c90e9fd2e4bac74a94.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_dc9cd9c90e9fd2e4bac74a94.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_04d4f331eec180c84dba83d0.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_04d4f331eec180c84dba83d0.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_04d4f331eec180c84dba83d0.calendar_ledger.json"
+    },
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_aee7c1ad78c1c2962aa37257.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_aee7c1ad78c1c2962aa37257.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_de60651ba5b55e700d3a8848.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_de60651ba5b55e700d3a8848.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_de60651ba5b55e700d3a8848.calendar_ledger.json"
+    },
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_cc04e991915f8bf4b651a0df.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_cc04e991915f8bf4b651a0df.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_68de04cb9a0a26e3c41850ce.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_68de04cb9a0a26e3c41850ce.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_68de04cb9a0a26e3c41850ce.calendar_ledger.json"
+    },
+    {
+      "raw_path": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_b7a4392badad825ed9019366.csv.gz",
+      "source_manifest": "data/teacher_icmarkets_runs/40099888654/data/teacher_icmarkets_m1/collect_b7a4392badad825ed9019366.csv.manifest.json",
+      "subset_start": null,
+      "subset_end": null,
+      "status": "DERIVED_HYPOTHESIS",
+      "path": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_f5697906ab352dccbc8644a8.csv.gz",
+      "manifest": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_f5697906ab352dccbc8644a8.csv.manifest.json",
+      "ledger": "data/teacher_icmarkets_runs/derived_session_m1/calendar_derivation_f5697906ab352dccbc8644a8.calendar_ledger.json"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "case_id": "video-t3-gbpcad-buy",
+  "scope": "PRIMARY_MENTOR_VIDEO_ALTERNATE_FEED_DIAGNOSTIC",
+  "source": {
+    "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+    "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+    "pts_start": 28.9,
+    "pts_end": 577.1,
+    "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+    "frame_paths": [
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_007.jpg",
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_008.jpg"
+    ]
+  },
+  "source_case": {
+    "id": "video-t3-gbpcad-buy",
+    "provenance": "PRIMARY_MENTOR_VIDEO",
+    "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+    "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+    "instrument": "GBPCAD",
+    "side": "BUY",
+    "source": {
+      "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+      "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+      "pts_start": 28.9,
+      "pts_end": 577.1,
+      "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+      "frame_paths": [
+        "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_007.jpg",
+        "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_008.jpg"
+      ]
+    },
+    "expected_qualitative": {
+      "bias_context": [
+        "W high sweep suggests sale but D never confirms Weekly sale",
+        "Monthly bullish/low sweep supports D bullish breakout and KL rejection/low sweep"
+      ],
+      "h4_sequence": [
+        "H4 sweep+BOS",
+        "Single-candle liquidity",
+        "H4 KL reaction"
+      ],
+      "entry_paths": [
+        {
+          "tf": "H2",
+          "model": "breakout_retest",
+          "participation": "PERSONAL_TRADE_NARRATED"
+        },
+        {
+          "tf": "H1",
+          "model": "simultaneous_breakout_retest",
+          "participation": "PASSED_FOR_H2_NOT_ADDITIONAL_ORDER"
+        }
+      ],
+      "stop_notes": "Stop below local protection; target just before H1 external liquidity. Drawn roughly5\u20136R plan, no exact realized-R certification."
+    },
+    "participation": "PERSONAL_TRADE_NARRATED",
+    "outcome": {
+      "classification": "NARRATED_FAVORABLE_DELIVERY_NO_AUDITED_FILL_LEDGER",
+      "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+      "numeric_realized_r": null
+    },
+    "narration_locator": "496.5\u2013514.4: simultaneous H2/H1 breaks, chooses H2;569.2\u2013577.1 later bias persists but no further entry.",
+    "unresolved": {
+      "setup_utc": null,
+      "fill_utc": null,
+      "initial_entry": null,
+      "initial_stop": null,
+      "initial_target": null,
+      "case_specific": "Primary replay priority. Visible June chart may define exploratory window, never exact UTC fill. Do not force Weekly veto or choose profitable TF retrospectively.",
+      "common": [
+        "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+        "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+        "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+        "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+      ]
+    }
+  },
+  "source_clock_status": "VISIBLE_JUNE9_FORMATION_NOT_VERIFIED_SETUP_OR_FILL_CLOCK",
+  "as_of": "2026-06-13T00:00:00Z",
+  "history_start": "2026-05-04T00:00:00Z",
+  "scan_start": "2026-06-05T00:00:00Z",
+  "input_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_e73ce81f932a6e7107109aeb.csv.gz",
+  "manifest_path": "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_e73ce81f932a6e7107109aeb.csv.manifest.json",
+  "frozen_sha256": {
+    "tests/bishop_video_breakdown_cases.json": "70d45ad9e4ec4885b453b4122dd603f9d9a57e973995acdf3ae84879d7ca0e40",
+    "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_e73ce81f932a6e7107109aeb.csv.manifest.json": "133f60d700f1f7db82dbee0dc5f3c78a950c1cc333b7a6ec5f635a4bdc20767f",
+    "data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/collect_e73ce81f932a6e7107109aeb.csv.gz": "5bc0038c8d5fe763171ea02f5f9d2317b92671fb9c5925dca98c7ca4dd99ae15",
+    "/home/runner/work/practicing/practicing/reports/replay_primary_video_case.py": "0a6cb078eab9c843f35836ee78452251be0bc553871db8c3247bfbe26003a3a8",
+    "knowledge-base/study/bishop_frame_manifest.json": "18f5be6ecc377e9a01abd911ba4cef4dbf0f7de422ee52a7834abc3a9d3c5b1f",
+    "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_007.jpg": "770f55f2f49a340cd47d30da23d631faf7dda08c06e05ab70db208c5d219e139",
+    "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_008.jpg": "e8c07a7e0b8678d2dc5b2c6e7da6185424f48c66b1f4d95f48d2a7f21cfb05c8",
+    "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt": "9b0df7a6eef72b336d881066d80d1abb840ab8eafdcad3451cf53393cda01209",
+    "bishop/v2/__init__.py": "5d01aada68ed7c07d4d5642c41e3b93e685c52fbb4b752fdf9a21b6b67b1841e",
+    "bishop/v2/aggregation.py": "d313f92c346bc3cb7d6711b3d452d26120626ad2549c49ac00e241e59bf7c098",
+    "bishop/v2/backtest.py": "8bad0a578ef05fd572f340294ee54e1242c8d1ce0d373b5af783475a02990835",
+    "bishop/v2/continuity.py": "eda11292c9e2ac9a74f077cc2d45308e45947dd5f9fcdd587c2f8a14d08a7c99",
+    "bishop/v2/engine.py": "9ec342c3ac165c9e5616b17926da6d1c9d2ea09b2e92af1d046262b0e5fb401c",
+    "bishop/v2/entries.py": "94f3e74750f225372f58736634c6b7a1cc5a0a7694b7304be18aba10ccfab977",
+    "bishop/v2/feed.py": "0dccf8f8d3f7e9b8a716d282b50f7b71b495b5fe67c60ed861ae4537be8ed853",
+    "bishop/v2/impulse.py": "d234946e31522fe2b5d256c85079e15a44731c3e7ca055e10a44bea4e21cb0cd",
+    "bishop/v2/liquidity_forms.py": "9b7256ee52754cbc09d6b5332758c04f485af2e155aced97d6079fcc08e0a757",
+    "bishop/v2/risk.py": "0cd5e5c61285409ab973c62212e21eb856b40353523b32dbacd16fd0080906c8",
+    "bishop/v2/sessions.py": "887e34aa3c9cdf91328d1b284f674fa7c8e73ae6ec8bfed99efbfaaf240294c7",
+    "bishop/v2/simulation.py": "1f3a1839bbd92d81ab1585ab804dfac8c33ad63f15fabebe217d18b7cb3b4a9c",
+    "bishop/v2/stories.py": "3cde9b0478780d2e6424839b8c826fde513c4af984a01b378e18d2c456a3cf07",
+    "bishop/v2/structure.py": "d7d2fbdef352d426036b4301d379f49cb5283f6e387aa66b7166677e0ae23543",
+    "bishop/v2/types.py": "a617721bcb38567c2a14480a5428cec08840649384451f021b06f75e33af3f2e",
+    "bishop/v2/weekly_context.py": "9bcc46f168b18139bb0bf072ffe21a2b666717c90a215a6444977eac355f9b84"
+  },
+  "costs": "EXPLICIT_ZERO_COST",
+  "limitations": [
+    "Source-visible exploratory window is not a teacher fill window.",
+    "Forty-day entry context cannot establish full Monthly history.",
+    "IC and FOREXcom chart alignment is unverified.",
+    "A detected pattern/order is not automatically the source trade.",
+    "No source numeric tolerance or expected outcome is fitted."
+  ]
+}

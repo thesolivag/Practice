@@ -1,0 +1,47 @@
+name: Bishop missing firsthand FX inputs
+on:
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-primary-inputs.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bishop-primary-input-collection
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pair: [AUDCHF, NZDCHF, USDJPY]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Collect historical candles without token refresh or account writes
+        env:
+          PAIR: ${{ matrix.pair }}
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m reports.collect_missing_primary_inputs --pair "$PAIR"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-primary-input-${{ matrix.pair }}
+          path: data/primary_missing_inputs/${{ matrix.pair }}/
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,474 @@
+{
+  "case_id": "pdf-p27-gbpusd-sell-1",
+  "strict_teacher_status": "UNRESOLVED",
+  "scope": "FROZEN_INDEPENDENT_CANDIDATE_EXECUTION_NOT_PORTFOLIO_OR_TEACHER_OUTCOME",
+  "detection_rerun": false,
+  "detector_input_sha256": "77be54ba59ee3819432a5d0af287da173baa2341503f51858f55901095a3d9b5",
+  "execution_input_sha256": "7972c34b49c756ee74a3b7e85f22e13d49d010e42cf1d0970e88989f41be991e",
+  "execution_tf": "M5",
+  "costs": {
+    "spread_ticks": "0",
+    "entry_slippage_ticks": "0",
+    "stop_slippage_ticks": "0",
+    "commission_ticks": "0",
+    "financing_ticks": "0"
+  },
+  "coverage": {
+    "status": "COMPLETE",
+    "start": "2026-06-24T03:00:00+00:00",
+    "end": "2026-07-08T11:45:00+00:00",
+    "expected_slots": 2985,
+    "present_slots": 2985,
+    "missing_slots": 0,
+    "missing": [],
+    "calendar": "fx_ny_v1",
+    "base_tf": "M5",
+    "anchor": "ny17_wall_v2",
+    "metadata": {
+      "provider": "IC Markets cTrader Open API",
+      "asset_class": "FX",
+      "calendar_version": "fx_ny_v1_declared_hypothesis"
+    }
+  },
+  "coarse_consistency": {
+    "compared_bars": 248,
+    "missing_fine_aggregates": [],
+    "mismatches": [],
+    "status": "CONSISTENT"
+  },
+  "refinement_status": "COMPARABLE",
+  "outcome_counts": {
+    "LOSS": 2,
+    "WIN": 1,
+    "CENSORED": 4
+  },
+  "records": [
+    {
+      "order_id": "isolated_teacher_candidate_57cb2de47ec53dfcb312c1db",
+      "setup_id": "setup_096d664af248dfd3a2408653",
+      "tf": "H1",
+      "model": "engulf_av_retest",
+      "entry_ticks": 132011,
+      "stop_ticks": 132052,
+      "target_ticks": 131894,
+      "prior": {
+        "id": "isolated_teacher_candidate_57cb2de47ec53dfcb312c1db",
+        "setup_id": "setup_096d664af248dfd3a2408653",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "132011",
+        "fill_window": {
+          "start": "2026-06-24T03:00:00+00:00",
+          "end": "2026-06-24T04:00:00+00:00",
+          "observed_at": "2026-06-24T04:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132052,
+        "initial_target_ticks": 131894,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_57cb2de47ec53dfcb312c1db",
+        "setup_id": "setup_096d664af248dfd3a2408653",
+        "status": "CLOSED",
+        "outcome": "LOSS",
+        "fill_ticks": "132011",
+        "fill_window": {
+          "start": "2026-06-24T03:40:00+00:00",
+          "end": "2026-06-24T03:45:00+00:00",
+          "observed_at": "2026-06-24T03:45:00+00:00"
+        },
+        "remaining_quantity": "0",
+        "realized_ticks_quantity": "-41",
+        "net_r": "-1",
+        "censor_reason": null,
+        "initial_stop_ticks": 132052,
+        "initial_target_ticks": 131894,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_c0bd83dba528b9df5e9827d5",
+      "setup_id": "setup_0ec1ffb3ec288a9812b6c764",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "entry_ticks": 131942,
+      "stop_ticks": 132052,
+      "target_ticks": 131894,
+      "prior": {
+        "id": "isolated_teacher_candidate_c0bd83dba528b9df5e9827d5",
+        "setup_id": "setup_0ec1ffb3ec288a9812b6c764",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131942",
+        "fill_window": {
+          "start": "2026-06-24T03:00:00+00:00",
+          "end": "2026-06-24T04:00:00+00:00",
+          "observed_at": "2026-06-24T04:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132052,
+        "initial_target_ticks": 131894,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_c0bd83dba528b9df5e9827d5",
+        "setup_id": "setup_0ec1ffb3ec288a9812b6c764",
+        "status": "CLOSED",
+        "outcome": "LOSS",
+        "fill_ticks": "131942",
+        "fill_window": {
+          "start": "2026-06-24T03:20:00+00:00",
+          "end": "2026-06-24T03:25:00+00:00",
+          "observed_at": "2026-06-24T03:25:00+00:00"
+        },
+        "remaining_quantity": "0",
+        "realized_ticks_quantity": "-110",
+        "net_r": "-1",
+        "censor_reason": null,
+        "initial_stop_ticks": 132052,
+        "initial_target_ticks": 131894,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_41c3b9718abcfaf6baf2789e",
+      "setup_id": "setup_02a13e30e554506260871131",
+      "tf": "H2",
+      "model": "engulf_av_retest",
+      "entry_ticks": 131933,
+      "stop_ticks": 132095,
+      "target_ticks": 131869,
+      "prior": {
+        "id": "isolated_teacher_candidate_41c3b9718abcfaf6baf2789e",
+        "setup_id": "setup_02a13e30e554506260871131",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131933",
+        "fill_window": {
+          "start": "2026-06-24T07:00:00+00:00",
+          "end": "2026-06-24T08:00:00+00:00",
+          "observed_at": "2026-06-24T08:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_41c3b9718abcfaf6baf2789e",
+        "setup_id": "setup_02a13e30e554506260871131",
+        "status": "CLOSED",
+        "outcome": "WIN",
+        "fill_ticks": "131933",
+        "fill_window": {
+          "start": "2026-06-24T07:30:00+00:00",
+          "end": "2026-06-24T07:35:00+00:00",
+          "observed_at": "2026-06-24T07:35:00+00:00"
+        },
+        "remaining_quantity": "0",
+        "realized_ticks_quantity": "64",
+        "net_r": "0.3950617283950617283950617284",
+        "censor_reason": null,
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_d9fdb52d10c52584b30a79ea",
+      "setup_id": "setup_06bc0d752e71eda70db99dcc",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "entry_ticks": 131875,
+      "stop_ticks": 132095,
+      "target_ticks": 131869,
+      "prior": {
+        "id": "isolated_teacher_candidate_d9fdb52d10c52584b30a79ea",
+        "setup_id": "setup_06bc0d752e71eda70db99dcc",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-24T07:00:00+00:00",
+          "end": "2026-06-24T08:00:00+00:00",
+          "observed_at": "2026-06-24T08:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_d9fdb52d10c52584b30a79ea",
+        "setup_id": "setup_06bc0d752e71eda70db99dcc",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-24T07:00:00+00:00",
+          "end": "2026-06-24T07:05:00+00:00",
+          "observed_at": "2026-06-24T07:05:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_20c9a75155c8b24dd39c8650",
+      "setup_id": "setup_031ef172212caa6a9471a2b7",
+      "tf": "H1",
+      "model": "oc_break_retest",
+      "entry_ticks": 131875,
+      "stop_ticks": 132095,
+      "target_ticks": 131869,
+      "prior": {
+        "id": "isolated_teacher_candidate_20c9a75155c8b24dd39c8650",
+        "setup_id": "setup_031ef172212caa6a9471a2b7",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-25T08:00:00+00:00",
+          "end": "2026-06-25T09:00:00+00:00",
+          "observed_at": "2026-06-25T09:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_20c9a75155c8b24dd39c8650",
+        "setup_id": "setup_031ef172212caa6a9471a2b7",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-25T08:00:00+00:00",
+          "end": "2026-06-25T08:05:00+00:00",
+          "observed_at": "2026-06-25T08:05:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_c749ad36a25d0a773e246f0e",
+      "setup_id": "setup_03a5453148232c2fe31c3942",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "entry_ticks": 131875,
+      "stop_ticks": 132095,
+      "target_ticks": 131869,
+      "prior": {
+        "id": "isolated_teacher_candidate_c749ad36a25d0a773e246f0e",
+        "setup_id": "setup_03a5453148232c2fe31c3942",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-25T08:00:00+00:00",
+          "end": "2026-06-25T09:00:00+00:00",
+          "observed_at": "2026-06-25T09:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_c749ad36a25d0a773e246f0e",
+        "setup_id": "setup_03a5453148232c2fe31c3942",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131875",
+        "fill_window": {
+          "start": "2026-06-25T08:00:00+00:00",
+          "end": "2026-06-25T08:05:00+00:00",
+          "observed_at": "2026-06-25T08:05:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131869,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    },
+    {
+      "order_id": "isolated_teacher_candidate_7619c718f7b9661b787036d3",
+      "setup_id": "setup_156a1034cfa13deea4d01a54",
+      "tf": "H1",
+      "model": "engulf_av_retest",
+      "entry_ticks": 131927,
+      "stop_ticks": 132095,
+      "target_ticks": 131907,
+      "prior": {
+        "id": "isolated_teacher_candidate_7619c718f7b9661b787036d3",
+        "setup_id": "setup_156a1034cfa13deea4d01a54",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131927",
+        "fill_window": {
+          "start": "2026-06-25T08:00:00+00:00",
+          "end": "2026-06-25T09:00:00+00:00",
+          "observed_at": "2026-06-25T09:00:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131907,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      },
+      "refined": {
+        "id": "isolated_teacher_candidate_7619c718f7b9661b787036d3",
+        "setup_id": "setup_156a1034cfa13deea4d01a54",
+        "status": "FILLED",
+        "outcome": "CENSORED",
+        "fill_ticks": "131927",
+        "fill_window": {
+          "start": "2026-06-25T08:20:00+00:00",
+          "end": "2026-06-25T08:25:00+00:00",
+          "observed_at": "2026-06-25T08:25:00+00:00"
+        },
+        "remaining_quantity": "1",
+        "realized_ticks_quantity": "0",
+        "net_r": null,
+        "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+        "initial_stop_ticks": 132095,
+        "initial_target_ticks": 131907,
+        "costs": {
+          "spread_ticks": "0",
+          "entry_slippage_ticks": "0",
+          "stop_slippage_ticks": "0",
+          "commission_ticks": "0",
+          "financing_ticks": "0"
+        },
+        "management": []
+      }
+    }
+  ]
+}

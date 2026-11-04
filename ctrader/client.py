@@ -113,15 +113,13 @@ def _norm(name):
 class CTraderClient:
     def __init__(self, env=None, client_id=None, client_secret=None, account_id=None, settings=None,
                  timeout=20.0, connect_timeout=15.0):
-        self.settings = settings if settings is not None else tokens.default_settings()
-        from slk.runtime_config import load as private_broker_config
-        configured = private_broker_config(self.settings) if client_id is None and client_secret is None else {}
-        self.env = (env or os.environ.get("CTRADER_ENV") or configured.get("environment") or "demo").lower()
+        self.env = (env or os.environ.get("CTRADER_ENV") or "demo").lower()
         if self.env not in HOSTS:
             raise ValueError(f"CTRADER_ENV must be demo or live, got {self.env!r}")
-        self.client_id = client_id or configured.get("client_id") or os.environ.get("CTRADER_CLIENT_ID")
-        self.client_secret = client_secret or configured.get("client_secret") or os.environ.get("CTRADER_CLIENT_SECRET")
-        self.account_id_cfg = account_id or os.environ.get("CTRADER_ACCOUNT_ID") or configured.get("account_id")
+        self.client_id = client_id or os.environ.get("CTRADER_CLIENT_ID")
+        self.client_secret = client_secret or os.environ.get("CTRADER_CLIENT_SECRET")
+        self.account_id_cfg = account_id or os.environ.get("CTRADER_ACCOUNT_ID")
+        self.settings = settings if settings is not None else tokens.default_settings()
         self.timeout, self.connect_timeout = timeout, connect_timeout
         self.account_id = None  # ctidTraderAccountId after account_auth
         self.account_is_live = None
@@ -285,7 +283,7 @@ class CTraderClient:
 
     def account_auth(self):
         tk = tokens.load_tokens(self.settings)
-        if tokens.needs_refresh(tk):
+        if tokens.needs_refresh(tk) and not getattr(self.settings, "borrowed", False):
             tk = self._refresh()
         if not tk["access_token"]:
             raise RuntimeError("no access token (CTRADER_ACCESS_TOKEN / settings.ctrader_access_token)")
@@ -365,7 +363,7 @@ class CTraderClient:
         return self._symbols[key]
 
     def get_trendbars(self, symbol, period="H1", start=None, end=None):
-        """OHLC DataFrame (UTC index 't', columns open/high/low/close, bid prices) like slk.data.hourly."""
+        """OHLC DataFrame (UTC index 't', columns open/high/low/close, bid prices) like bishop.data.hourly."""
         end = end or datetime.now(timezone.utc)
         start = start or (datetime.now(timezone.utc) - timedelta(days=7))
         return rows_to_frame([r[:5] for r in self.trendbar_rows(symbol, period, start, end)])
@@ -552,7 +550,7 @@ class CTraderClient:
         return side, info, volume, existing
 
     def place_market_order(self, symbol, side, volume, stop_loss=None, take_profit=None, client_order_id=None,
-                           label="SLK", allow_live=False, max_volume=None, ref_price=None):
+                           label="BISHOP", allow_live=False, max_volume=None, ref_price=None):
         """Market order with broker-side SL/TP. Market orders only accept *relative* SL/TP, so they are
         derived from ref_price (default: current ask/bid), then amended to the exact absolute prices
         after the fill. Returns {status: FILLED|DUPLICATE, ...}."""
@@ -584,7 +582,7 @@ class CTraderClient:
         return res
 
     def place_limit_order(self, symbol, side, volume, price, stop_loss=None, take_profit=None, client_order_id=None,
-                          label="SLK", allow_live=False, max_volume=None, expiry=None):
+                          label="BISHOP", allow_live=False, max_volume=None, expiry=None):
         """Pending LIMIT order with absolute broker-side SL/TP. expiry: datetime/epoch -> GOOD_TILL_DATE."""
         side, info, volume, existing = self._prepare(symbol, side, volume, client_order_id, allow_live, max_volume)
         if existing:

@@ -1,0 +1,11 @@
+{
+  "audit_run": 40705312536,
+  "audit_artifact": 12821979736,
+  "audit_commit": "87e9f24",
+  "source_strategy_run": 40693590233,
+  "audit_sha256": "b1449844a2373a4a0869fbbc57ee502c023ecd8d9bf02691c4a38499d699622c",
+  "scope": "FROZEN_SELECTED_ORDER_AND_SOURCE_SCOPE_REVIEW_NO_REPLAY",
+  "regression_run": 40703689363,
+  "tests_passed": 555,
+  "tests_skipped": 5
+}

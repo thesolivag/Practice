@@ -1,0 +1,59 @@
+name: Bishop development checks
+
+on:
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['bishop/**', 'ctrader/**', 'db/**', 'tests/**', '.github/workflows/bishop-checks.yml']
+  workflow_dispatch:
+    inputs:
+      include_frame_checks:
+        description: Install optional media dependencies for frame-extraction checks
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bishop-development-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ci-root-only
+          MYSQL_DATABASE: bishop_ci
+          MYSQL_USER: bishop
+          MYSQL_PASSWORD: ci-bishop-only
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pci-root-only --silent"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=20
+    env:
+      BISHOP_TEST_MYSQL_URL: mysql://bishop:ci-bishop-only@127.0.0.1:3306/bishop_ci?ssl-mode=DISABLED
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: pip install 'pymysql[rsa]'
+      - name: Install optional frame extraction test dependency
+        if: inputs.include_frame_checks == true
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20
+            sudo apt-get install -y ffmpeg
+          fi
+      - name: Offline regression tests (not teacher replay acceptance)
+        run: python -m pytest -q tests
+      - name: Backfill CLI import check
+        run: python -m bishop.store --help

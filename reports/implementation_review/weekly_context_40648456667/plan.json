@@ -1,0 +1,13 @@
+{
+  "scope": "W_D_H4_CONTEXT_ONLY_NOT_FULL_ENGINE_OR_TEACHER_ACCEPTANCE",
+  "as_of": "2026-06-12T16:00:00Z",
+  "history_start": "2025-06-11T00:00:00+00:00",
+  "input": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_c058fc002a50237cd6d2dbb0.csv.gz",
+  "input_sha256": "22eb316ec794d2f509f520e501218ce14b1870735d545e457c0df61eab874d46",
+  "policy": "latest_confirmed_weekly_ROOT_batch_v1_OUR_CHOICE",
+  "entry_execution": "NOT_RUN",
+  "limitations": [
+    "Weekly-story context with its D and H4 confirmation routes; does not choose among D/H4-origin stories or place orders.",
+    "Source chart agreement and full history sufficiency are not presumed."
+  ]
+}

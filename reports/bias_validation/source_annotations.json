@@ -1,0 +1,1153 @@
+{
+  "qualification": "Source-only bias observations: explicit labels/context are separate from trade direction. Missing bias labels and every actual setup-assessment UTC clock remain unresolved; this is not replay acceptance.",
+  "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+  "reviewed_cases": 40,
+  "explicit_directional_bias_cases": 27,
+  "examples": [
+    {
+      "case_id": "pdf-p02-eurcad-buy-1",
+      "pair": "EURCAD",
+      "trade_side": "BUY",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "H2 Engulfing Confirmation Entry",
+      "snapshot_time": "2026-07-31T18:51:00Z",
+      "snapshot_time_source": "Jul 31, 2026 19:51 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 2
+      },
+      "limitations": [
+        "No explicit directional daily/weekly bias label is printed. H4 breakout context alone does not establish the higher-timeframe bias direction.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p03-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout",
+      "setup_context": "H4 bullish breakout with idm; H4RH4",
+      "entry_confirmation": "H2 Engulfing Confirmation Entry",
+      "snapshot_time": "2026-07-29T18:55:00Z",
+      "snapshot_time_source": "Entry-panel header Jul 29, 2026 19:55 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 3
+      },
+      "limitations": [
+        "Daily panel is separately stamped Jul 29, 2026 19:54 UTC+1 (18:54Z); entry panel is stamped one minute later.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p05-eurchf-buy-1",
+      "pair": "EURCHF",
+      "trade_side": "BUY",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-29T07:59:00Z",
+      "snapshot_time_source": "Main-panel header Jul 29, 2026 08:59 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "M30",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 5
+      },
+      "limitations": [
+        "The two EURCHF panels contain drawn plans and horizontal levels but no printed bias or entry-model label. No model is inferred from candle geometry in this label-extraction pass.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p06-eurchf-buy-1",
+      "pair": "EURCHF",
+      "trade_side": "BUY",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": null,
+      "snapshot_time_source": null,
+      "source_feed": null,
+      "entry_tf": "M30",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 6
+      },
+      "limitations": [
+        "Broker screenshot shows EURCHF.x M30, BUY LIMIT, SL and TP labels, but no directional higher-timeframe bias label.",
+        "Phone time 8:58 and chart dates 28/29 Jul do not establish a complete UTC snapshot timestamp or broker feed identity.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p08-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "trade_side": "BUY",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": "H4 breakout; H4 breakout with idm; H4RH4",
+      "entry_confirmation": "H2 High swept, Low standing; V-shaped kl; 4thman's CE",
+      "snapshot_time": "2026-07-23T18:08:00Z",
+      "snapshot_time_source": "Jul 23, 2026 19:08 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 8
+      },
+      "limitations": [
+        "The original label literally reads 'High swept, Low standing' beside a BUY plan. Preserve this discrepancy with the user's low-swept/high-standing buy description; do not silently reverse the source wording.",
+        "No explicit directional daily/weekly bias label is printed.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p10-usoil-buy-1",
+      "pair": "USOIL",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout",
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "1st Confirmation Entry; H2 Engulfing",
+      "snapshot_time": "2026-07-21T13:41:00Z",
+      "snapshot_time_source": "Jul 21, 2026 14:41 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 10
+      },
+      "limitations": [
+        "Two separately labeled confirmation entries share this page and higher-timeframe context.",
+        "The source chart is USOIL while the companion broker screenshot is USWTI.p H1; exact quote scaling and broker-symbol equivalence are not asserted.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p10-usoil-buy-2",
+      "pair": "USOIL",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout",
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "2nd Confirmation Entry; H2 Breakout",
+      "snapshot_time": "2026-07-21T13:41:00Z",
+      "snapshot_time_source": "Jul 21, 2026 14:41 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 10
+      },
+      "limitations": [
+        "Two separately labeled confirmation entries share this page and higher-timeframe context.",
+        "The source chart is USOIL while the companion broker screenshot is USWTI.p H1; exact quote scaling and broker-symbol equivalence are not asserted.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p11-xauusd-sell-1",
+      "pair": "XAUUSD",
+      "trade_side": "SELL",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-08T07:09:00Z",
+      "snapshot_time_source": "Left-panel header Jul 08, 2026 03:09 UTC-4",
+      "source_feed": null,
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 11
+      },
+      "limitations": [
+        "Right panel is separately stamped Jul 08, 2026 04:25 UTC-4 (08:25Z).",
+        "Creator shown is mindguy0x and watermark reads Fudoshin - Unshakable / SLK. Bishop authorship and teaching attribution are not established by this page alone.",
+        "Neither panel prints a higher-timeframe bias explanation or feed/venue name; XAUUSD | 60 is shown.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p13-eurnzd-sell-1",
+      "pair": "EURNZD",
+      "trade_side": "SELL",
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish breakout",
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "H3 Engulfing Confirmation Entry",
+      "snapshot_time": "2026-07-17T18:46:00Z",
+      "snapshot_time_source": "Jul 17, 2026 19:46 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H3",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 13
+      },
+      "limitations": [
+        "Daily breakout is explicitly labeled but its originating daily candle is not independently time-mapped.",
+        "This page does not demonstrate a completed target hit.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p15-usdcad-sell-1",
+      "pair": "USDCAD",
+      "trade_side": "SELL",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "H1 Breakout Confirmation Entry",
+      "snapshot_time": "2026-07-16T13:35:00Z",
+      "snapshot_time_source": "Jul 16, 2026 14:35 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 15
+      },
+      "limitations": [
+        "No explicit directional daily/weekly bias label is printed. H4 setup context is retained separately from an unresolved bias direction.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p17-audusd-buy-1",
+      "pair": "AUDUSD",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "H4",
+      "reason": "H4 bullish breakout",
+      "setup_context": "H4 bullish breakout; H4RH4",
+      "entry_confirmation": "M30 Engulfing Confirmation Entry",
+      "snapshot_time": "2026-07-16T12:00:00Z",
+      "snapshot_time_source": "Jul 16, 2026 13:00 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "M30",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 17
+      },
+      "limitations": [
+        "The explicit directional source label is H4; no daily/weekly bias label is visible, so no daily bias is inferred.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p19-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout; Daily reject Daily",
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "H1 breakout; Confirmation Entry 1",
+      "snapshot_time": "2026-07-15T17:26:00Z",
+      "snapshot_time_source": "Jul 15, 2026 18:26 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 19
+      },
+      "limitations": [
+        "Two separately labeled H1 confirmation entries share the page and daily/H4 context.",
+        "The wording 'Daily reject Daily' is preserved verbatim rather than normalized into an unstated rule.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p19-gbpjpy-buy-2",
+      "pair": "GBPJPY",
+      "trade_side": "BUY",
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout; Daily reject Daily",
+      "setup_context": "H4 breakout with idm; H4rH4",
+      "entry_confirmation": "H1 Breakout with idm; Confirmation Entry 2",
+      "snapshot_time": "2026-07-15T17:26:00Z",
+      "snapshot_time_source": "Jul 15, 2026 18:26 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 19
+      },
+      "limitations": [
+        "Two separately labeled H1 confirmation entries share the page and daily/H4 context.",
+        "The wording 'Daily reject Daily' is preserved verbatim rather than normalized into an unstated rule.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p20-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "trade_side": "SELL",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-14T07:12:00Z",
+      "snapshot_time_source": "XAGUSD-panel header Jul 14, 2026 08:12 UTC+1",
+      "source_feed": "SAXO",
+      "entry_tf": "H4",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 20
+      },
+      "limitations": [
+        "Page contains separate XAGUSD and USOIL panels with trade drawings and levels but no printed bias or confirmation-model explanation.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p20-usoil-buy-2",
+      "pair": "USOIL",
+      "trade_side": "BUY",
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-14T09:05:00Z",
+      "snapshot_time_source": "USOIL-panel header Jul 14, 2026 10:05 UTC+1",
+      "source_feed": "FOREXCOM",
+      "entry_tf": "H4",
+      "assessment_time": null,
+      "label_review": "BIAS_DIRECTION_NOT_EXPLICIT",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 20
+      },
+      "limitations": [
+        "Page contains separate XAGUSD and USOIL panels with trade drawings and levels but no printed bias or confirmation-model explanation.",
+        "Snapshot creation time, when available, is not the setup/assessment or fill time.",
+        "This extraction does not claim engine agreement, trade fill or profitability."
+      ]
+    },
+    {
+      "case_id": "pdf-p22-xagusd-sell-1",
+      "pair": "XAGUSD",
+      "trade_side": "SELL",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish breakout\nPDH swept",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-07-13T05:24:00Z",
+      "snapshot_label": "Jul 13, 2026 06:24 UTC+1",
+      "source_feed": "Saxo",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 22
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p22-xagusd-sell-2",
+      "pair": "XAGUSD",
+      "trade_side": "SELL",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": null,
+      "snapshot_label": null,
+      "source_feed": "broker",
+      "page_context_bias": {
+        "side": "SELL",
+        "tf": "D",
+        "source_text": "Daily bearish breakout / PDH swept",
+        "source_feed": "Saxo",
+        "source_snapshot": "2026-07-13T05:24:00Z"
+      },
+      "label_review": "VISUALLY_REVIEWED_NO_EXPLICIT_BIAS",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 22
+      },
+      "limitations": [
+        "Broker screenshot itself has no explicit higher-timeframe bias label or dated creation header. Adjacent Saxo chart narration is page context only; timing/identity of this separate broker execution is unresolved.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p23-usdchf-sell-1",
+      "pair": "USDCHF",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-10T06:43:00Z",
+      "source_feed": "FOREXCOM",
+      "snapshot_label": "Jul 10, 2026 07:43 UTC+1 (left snapshot)",
+      "label_review": "VISUALLY_REVIEWED_NO_EXPLICIT_BIAS",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 23
+      },
+      "limitations": [
+        "No higher-timeframe bias or confirmation type is explicitly labeled on either snapshot.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p23-usdchf-sell-2",
+      "pair": "USDCHF",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-07-09T14:41:00Z",
+      "source_feed": "FOREXCOM",
+      "snapshot_label": "Jul 09, 2026 15:41 UTC+1 (right snapshot)",
+      "label_review": "VISUALLY_REVIEWED_NO_EXPLICIT_BIAS",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 23
+      },
+      "limitations": [
+        "No higher-timeframe bias or confirmation type is explicitly labeled on either snapshot.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p25-audusd-sell-1",
+      "pair": "AUDUSD",
+      "trade_side": "SELL",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily recent breakout was bullish\nLooking for shorts to the liquidity\nMore confidence since weekly is bearish",
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-07-08T11:29:00Z",
+      "snapshot_label": "Jul 08, 2026 12:29 UTC+1",
+      "source_feed": "FOREXCOM",
+      "context_biases": [
+        {
+          "tf": "W",
+          "side": "SELL",
+          "source_text": "weekly is bearish"
+        }
+      ],
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 25
+      },
+      "limitations": [
+        "The DAILY bias is explicitly bullish despite the SELL trade; this is a narrated short toward liquidity with bearish weekly context. Do not replace daily bias with trade direction.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p27-gbpusd-sell-1",
+      "pair": "GBPUSD",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily recent breakout bearish",
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-06-24T11:49:00Z",
+      "snapshot_label": "Jun 24, 2026 12:49 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 27
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p29-chfjpy-sell-1",
+      "pair": "CHFJPY",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearis[clipped]",
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-06-24T13:37:00Z",
+      "snapshot_label": "Jun 24, 2026 14:37 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 29
+      },
+      "limitations": [
+        "The daily bias label is clipped at the right edge after Daily bearis; do not infer the missing remainder or a particular daily trigger.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p31-gbpnzd-buy-1",
+      "pair": "GBPNZD",
+      "trade_side": "BUY",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-06-10T19:38:00Z",
+      "snapshot_label": "Jun 10, 2026 20:38 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_REVIEWED_NO_EXPLICIT_BIAS",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 31
+      },
+      "limitations": [
+        "No explicit daily/weekly bias label; H4 breakout setup label does not independently state a bullish higher-timeframe bias.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p33-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "trade_side": "BUY",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nPDL swept\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-06-09T18:44:00Z",
+      "snapshot_label": "Jun 09, 2026 19:44 UTC+1 (H2 entry chart)",
+      "source_feed": "FOREXCOM",
+      "additional_snapshots": [
+        {
+          "tf": "H4",
+          "snapshot_time": "2026-06-09T18:42:00Z",
+          "source_text": "Jun 09, 2026 19:42 UTC+1"
+        }
+      ],
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 33
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p35-gbpjpy-buy-1",
+      "pair": "GBPJPY",
+      "trade_side": "BUY",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nPDL Swept",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": null,
+      "snapshot_label": "Jun 05, 2026 13:13 U[clipped]",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 35
+      },
+      "limitations": [
+        "Chart creation header is clipped before full timezone offset; no UTC timestamp assigned.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p37-eurgbp-sell-1",
+      "pair": "EURGBP",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily recent breakout bearish\nPDH swept\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-06-01T16:08:00Z",
+      "snapshot_label": "Jun 01, 2026 17:08 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 37
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p38-us30-buy-1",
+      "pair": "US30",
+      "trade_side": "BUY",
+      "entry_tf": "M30",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-05-29T15:00:00Z",
+      "snapshot_label": "May 29, 2026 16:00 UTC+1 (M30 entry chart)",
+      "source_feed": "FOREXCOM",
+      "additional_snapshots": [
+        {
+          "tf": "H4",
+          "snapshot_time": "2026-05-29T14:40:00Z",
+          "source_text": "May 29, 2026 15:40 UTC+1"
+        }
+      ],
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 38
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p40-audcad-buy-1",
+      "pair": "AUDCAD",
+      "trade_side": "BUY",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nPDL swept\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4RH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-05-29T12:52:00Z",
+      "snapshot_label": "May 29, 2026 13:52 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 40
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p42-usoil-sell-1",
+      "pair": "USOIL",
+      "trade_side": "SELL",
+      "entry_tf": "H3",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish breakout",
+      "setup_context": "H4 breakout with idm\nH4 rejects H4 at extreme",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-05-28T14:41:00Z",
+      "snapshot_label": "May 28, 2026 15:41 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 42
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p44-ethusdt-sell-1",
+      "pair": "ETHUSDT",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish breakout",
+      "setup_context": "H4 bearish breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-05-27T13:59:00Z",
+      "snapshot_label": "May 27, 2026 14:59 UTC+1",
+      "source_feed": "Bybit",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 44
+      },
+      "limitations": [
+        "TradingView source instrument is ETHUSDT.P on Bybit; IC Markets ETHUSD is a surrogate and is not established equivalent.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p46-eurjpy-buy-1",
+      "pair": "EURJPY",
+      "trade_side": "BUY",
+      "entry_tf": "M45",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "H4",
+      "reason": "H4 bullish breakout with idm\nH4rH4",
+      "setup_context": "H4 bullish breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-05-27T07:15:00Z",
+      "snapshot_label": "May 27, 2026 08:15 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 46
+      },
+      "limitations": [
+        "Explicit bullish direction is labeled on H4 only; no daily or weekly bias label is present.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p47-gbpcad-buy-1",
+      "pair": "GBPCAD",
+      "trade_side": "BUY",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Engulfing",
+      "snapshot_time": "2026-05-21T19:06:00Z",
+      "snapshot_label": "May 21, 2026 20:06 UTC+1 (H2 entry chart)",
+      "source_feed": "FOREXCOM",
+      "additional_snapshots": [
+        {
+          "tf": "D",
+          "snapshot_time": "2026-05-21T19:04:00Z",
+          "source_text": "May 21, 2026 20:04 UTC+1"
+        }
+      ],
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 47
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p50-nas100-buy-1",
+      "pair": "NAS100",
+      "trade_side": "BUY",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": null,
+      "bias_tf": null,
+      "reason": null,
+      "setup_context": null,
+      "entry_confirmation": null,
+      "snapshot_time": "2026-05-21T06:01:00Z",
+      "snapshot_label": "May 21, 2026 07:01 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_REVIEWED_NO_EXPLICIT_BIAS",
+      "replay_status": "SOURCE_BIAS_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 50
+      },
+      "limitations": [
+        "No bias, setup type or entry confirmation type is explicitly labeled. The long-position tool is not higher-timeframe bias evidence.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p52-nas100-sell-1",
+      "pair": "NAS100",
+      "trade_side": "SELL",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish br[clipped]\nDaily reject Dail[clipped]",
+      "setup_context": "H4 Breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": null,
+      "snapshot_label": "May 19, 2026 14:32 U[clipped]",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 52
+      },
+      "limitations": [
+        "Daily label and creation header are clipped at the right edge. Bearish direction and Daily timeframe are visible; missing trigger text and timezone offset are not reconstructed.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p54-eurgbp-buy-1",
+      "pair": "EURGBP",
+      "trade_side": "BUY",
+      "entry_tf": "H2",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nPDL swept\nDaily reject Daily",
+      "setup_context": "H4 breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": null,
+      "snapshot_label": "May 14, 2026 20:09 U[clipped]",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 54
+      },
+      "limitations": [
+        "Chart creation header is clipped before full timezone offset; no UTC timestamp assigned.",
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p55-us30-buy-1",
+      "pair": "US30",
+      "trade_side": "BUY",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nDaily reject Daily",
+      "setup_context": "H4 Breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-05-14T12:34:00Z",
+      "snapshot_label": "May 14, 2026 13:34 UTC+1 (H1 entry chart)",
+      "source_feed": "FOREXCOM",
+      "additional_snapshots": [
+        {
+          "tf": "D",
+          "snapshot_time": "2026-05-14T12:30:00Z",
+          "source_text": "May 14, 2026 13:30 UTC+1"
+        }
+      ],
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 55
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p58-jp225-buy-1",
+      "pair": "JP225",
+      "trade_side": "BUY",
+      "entry_tf": "H1",
+      "assessment_time": null,
+      "side": "BUY",
+      "bias_tf": "D",
+      "reason": "Daily bullish breakout\nDaily reject Daily",
+      "setup_context": "H4 Breakout with idm\nH4rH4",
+      "entry_confirmation": "Breakout",
+      "snapshot_time": "2026-05-14T04:21:00Z",
+      "snapshot_label": "May 14, 2026 05:21 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 58
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "case_id": "pdf-p60-gbpaud-sell-1",
+      "pair": "GBPAUD",
+      "trade_side": "SELL",
+      "entry_tf": "M45",
+      "assessment_time": null,
+      "side": "SELL",
+      "bias_tf": "D",
+      "reason": "Daily bearish breakout\nDaily reject Daily",
+      "setup_context": "2nd Entry\nH4 breakout with idm\nH4rH4\nM45 break with idm",
+      "entry_confirmation": "M45 break with idm (2nd Entry)",
+      "snapshot_time": "2026-05-12T08:52:00Z",
+      "snapshot_label": "May 12, 2026 09:52 UTC+1",
+      "source_feed": "FOREXCOM",
+      "label_review": "VISUALLY_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "evidence": {
+        "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+        "page": 60
+      },
+      "limitations": [
+        "Exact UTC bias-assessment/setup time is not independently established; chart creation time is not an entry/assessment timestamp.",
+        "Alternate broker-feed candle alignment and chart-object identity remain unverified; this is source annotation, not engine agreement."
+      ]
+    },
+    {
+      "side": "BUY",
+      "bias_tf": "D",
+      "assessment_time": null,
+      "snapshot_time": null,
+      "snapshot_time_source": null,
+      "label_review": "FRAME_AND_CANONICAL_TRANSCRIPT_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "case_id": "video-entries5-native-t1065-xauusd",
+      "pair": "XAUUSD",
+      "trade_side": "BUY",
+      "reason": "Daily bullish breakout following weekly rejection; teacher says the bias checklist was complete.",
+      "setup_context": "Weekly V-shaped key-level rejection; daily bullish breakout; daily key-level rejection; H4 upside breakout / sweep and break; lower-timeframe engulfing entry.",
+      "entry_tf": "H3",
+      "entry_confirmation": "Engulfing",
+      "source_feed": "SAXO",
+      "evidence": {
+        "path": "knowledge-base/study/examples/entries5-native-t1065.png",
+        "source_video_slug": "bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case",
+        "source_pts_seconds": 1065
+      },
+      "transcript_evidence": [
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 859.9,
+          "end_seconds": 888.0,
+          "quote": "personally ... I wasn't very bullish ... structurally, we were ... bearish",
+          "note": "Teacher distinguishes prior structural bearishness/personal hesitation from the subsequently described bullish daily checklist."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 918.6,
+          "end_seconds": 942.0,
+          "quote": "we had a daily bullish breakouts, which means our checklist on bias was complete, technically, weekly rejection, daily breakouts ... eventually came back into this key level for a buy"
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 942.0,
+          "end_seconds": 967.9,
+          "quote": "we now have a daily reject daily ... when you have a daily rejection, you're waiting for a four hours breakout ... breakout to the upside ... sweep and break"
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1019.4,
+          "end_seconds": 1057.8,
+          "quote": "when we had this rejection now ... looking for our confirmation entries on the lower timeframes ... Price engulfed at 2 a.m. ... a very good confirmation entry and engulfing"
+        }
+      ],
+      "limitations": [
+        "The teacher first describes structural bearishness and personal reluctance; the BUY label here is the explicit subsequent daily bias sequence, not a claim that every higher timeframe was bullish.",
+        "Native PTS1065 shows the selected H3 chart and a manipulated position tool, not an independently verified actual fill.",
+        "The drawing anchor Wed 05 Aug 26 02:00 and spoken 2 a.m. do not independently establish a UTC setup-availability or fill clock.",
+        "Bottom-right display time has no complete calendar date; no snapshot UTC timestamp is invented.",
+        "Teacher subsequently changes target and stop while demonstrating; this record does not claim engine agreement or a completed executed trade."
+      ],
+      "source_frame_sha256": "007dc6ed1607c618807e0a2cc11ae7c4b11cdb50d06570be6f0ccce50daab220"
+    },
+    {
+      "side": "BUY",
+      "bias_tf": "D",
+      "assessment_time": null,
+      "snapshot_time": null,
+      "snapshot_time_source": null,
+      "label_review": "FRAME_AND_CANONICAL_TRANSCRIPT_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "case_id": "video-entries5-native-t1410-eurusd",
+      "pair": "EURUSD",
+      "trade_side": "BUY",
+      "reason": "Teacher explicitly says EURUSD daily was bullish, with breakout(s) to the upside.",
+      "setup_context": "Daily bullish breakout; H4 upside breakout; external-liquidity target; H4 single-candle liquidity sweep and rejection; lower-timeframe upside breakout with liquidity.",
+      "entry_tf": "H2",
+      "entry_confirmation": "Breakout with liquidity",
+      "source_feed": "FOREXCOM",
+      "evidence": {
+        "path": "knowledge-base/study/examples/entries5-native-t1410.png",
+        "source_video_slug": "bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case",
+        "source_pts_seconds": 1410
+      },
+      "transcript_evidence": [
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1275.0,
+          "end_seconds": 1305.0,
+          "quote": "something interesting on EU ... I want to be sure where I got this entry from ... It was on a lower timeframe ... there was an engulfing somewhere",
+          "note": "Initial recollection is uncertain and is not substituted for the later narrated breakout and visible H2 template."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1324.3,
+          "end_seconds": 1331.1,
+          "quote": "So on the daily on EU as well, we were bullish by three cents breakouts to the upside.",
+          "note": "ASR phrase 'three cents' is uncertain; the explicit daily/bullish/upside words establish direction without resolving that phrase."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1336.9,
+          "end_seconds": 1384.5,
+          "quote": "moving to the four hours ... our target, our external liquidity ... upside ... single ... liquidity to be swept ... rejected ... looking for ... confirmation entries ... a breakout to the upside ... this breakout also had liquidity",
+          "note": "Several intervening ASR words are unclear; no extra pattern rule is inferred from them."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1403.0,
+          "end_seconds": 1418.2,
+          "quote": "personally, I would have done something like this ... this is how I would have placed mine",
+          "note": "Hypothetical position-tool example; repeated ASR \"five hour\" is an R-multiple discussion, not an H5 confirmation timeframe."
+        }
+      ],
+      "limitations": [
+        "The native frame at PTS1410 shows the selected H2 chart; timeframe is read from the visible selector rather than uncertain spoken recollection.",
+        "The daily bullish bias is explicit in the canonical transcript, although the native H2 frame itself does not print a daily bias label.",
+        "Drawing/cursor time labels are not UTC setup-availability or fill timestamps.",
+        "Bottom-right display time has no complete calendar date; no snapshot UTC timestamp is invented.",
+        "The teacher says what he would have done and adjusts the position tool; no actual filled trade or engine agreement is established."
+      ],
+      "source_frame_sha256": "d70022d953705898eafc6a9291ea868f3593ffae18f94dd98cb1a23cc3a5270d"
+    }
+  ]
+}

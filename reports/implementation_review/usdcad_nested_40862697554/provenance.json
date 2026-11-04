@@ -1,0 +1,9 @@
+{
+  "run_id": 40862697554,
+  "artifact_id": 12892194384,
+  "artifact_zip_sha256": "805266a11ddd5bf073737a8828a46c8bcf020d7eac43ee0197c71744c21deeb7",
+  "source_commit": "5a00098",
+  "status": "ABORTED_RUNTIME_NO_TRADE_RESULT",
+  "qualification": "Pre-a13dc65 nested profile diagnostic; not authoritative Bishop replay",
+  "no_strategy_rerun_locally": true
+}

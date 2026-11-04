@@ -1,0 +1,11 @@
+{
+  "id": "execution_m1_d850134abd75da6381676020",
+  "pair": "USDCAD",
+  "base_tf": "M1",
+  "start": "2026-06-05T00:00:00Z",
+  "end": "2026-06-13T00:00:00Z",
+  "case_ids": [
+    "video-t3-usdcad-buy-open"
+  ],
+  "purpose": "EXECUTION_ONLY_ALL_PORTFOLIO_ORDERS_NO_OUTCOME_SELECTION"
+}

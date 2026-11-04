@@ -1,0 +1,10 @@
+{
+  "run_id": 40733956053,
+  "commit": "4d4d7e3",
+  "artifact_id": 12835244714,
+  "artifact_zip_sha256": "4341c3c2a73e4900e1c5c9243993bed732c7c10499304125867f9cc12c3b0a4c",
+  "full_result_file": "video-t3-usdcad-buy-open.json.gz",
+  "full_result_sha256": "7454cff176849b33a8a9ecafeeb12648dad661280e411043bc2a1e8585a83b2f",
+  "execution_status": "DETECTION_ONLY_NOT_EXECUTED",
+  "teacher_acceptance": "NOT_ESTABLISHED"
+}

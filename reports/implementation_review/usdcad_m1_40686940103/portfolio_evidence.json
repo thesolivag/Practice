@@ -1,0 +1,1205 @@
+{
+  "orders": [
+    {
+      "id": "order_52c0f7f267bb7ca2dcdcba5a",
+      "setup_id": "setup_01e8f39afab04959b081a995",
+      "instrument": "USDCAD",
+      "tf": "H3",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T00:00:00+00:00",
+        "occurred_to": "2026-06-05T00:00:00+00:00",
+        "available_at": "2026-06-05T00:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139013,
+      "stop_ticks": 138225,
+      "target_ticks": 139251,
+      "quantity": "1",
+      "expires_at": "2026-06-06T00:00:00+00:00",
+      "details": {
+        "story_id": "story_114c30772278b88d71f5df1b",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_dfbcc634ef0757cef27a9dd5",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_fd60f9b91dcf15f57994f2ca",
+      "setup_id": "setup_238aa5e10a0f6aabb75b4f44",
+      "instrument": "USDCAD",
+      "tf": "H3",
+      "model": "confirmation_standing_extreme",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T03:00:00+00:00",
+        "occurred_to": "2026-06-05T03:00:00+00:00",
+        "available_at": "2026-06-05T03:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139102,
+      "stop_ticks": 139127,
+      "target_ticks": 139013,
+      "quantity": "1",
+      "expires_at": "2026-06-06T03:00:00+00:00",
+      "details": {
+        "story_id": "story_6720ca30ffdc758cc2cbc8f8",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_aebc1b190a6278d6250c7dc4",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_a2010b14e8ba6d841ab4346b",
+      "setup_id": "setup_1b6a0585721b55c33996b333",
+      "instrument": "USDCAD",
+      "tf": "H2",
+      "model": "confirmation_bo",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T07:00:00+00:00",
+        "occurred_to": "2026-06-05T07:00:00+00:00",
+        "available_at": "2026-06-05T07:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139017,
+      "stop_ticks": 139127,
+      "target_ticks": 139013,
+      "quantity": "1",
+      "expires_at": "2026-06-06T07:00:00+00:00",
+      "details": {
+        "story_id": "story_ed98f8f83dad02e971cd243f",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_f7c9cb32f836cc1c7440cac5",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_3e50be2f794151f706aeaf20",
+      "setup_id": "setup_0012287a4b5915d955ec3a67",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T07:00:00+00:00",
+        "occurred_to": "2026-06-05T07:00:00+00:00",
+        "available_at": "2026-06-05T07:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139039,
+      "stop_ticks": 139127,
+      "target_ticks": 139026,
+      "quantity": "1",
+      "expires_at": "2026-06-06T07:00:00+00:00",
+      "details": {
+        "story_id": "story_5e2c1f769c55210ab622e497",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_ee7b8fa7bc456df326d7a034",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_8120b523ea1372c7218ac3a8",
+      "setup_id": "setup_08556ea7e04db66c1e46ad67",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "engulf_av_retest",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T07:00:00+00:00",
+        "occurred_to": "2026-06-05T07:00:00+00:00",
+        "available_at": "2026-06-05T07:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139058,
+      "stop_ticks": 139096,
+      "target_ticks": 139057,
+      "quantity": "1",
+      "expires_at": "2026-06-06T07:00:00+00:00",
+      "details": {
+        "story_id": "story_10c8ea150569c05cc1929fe3",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_b7fd3ad2f7b5ba813d1982c2",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_a993c657f913b9ad693e960c",
+      "setup_id": "setup_29322ed3f54481708d0929d8",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T07:00:00+00:00",
+        "occurred_to": "2026-06-05T07:00:00+00:00",
+        "available_at": "2026-06-05T07:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139017,
+      "stop_ticks": 139127,
+      "target_ticks": 139013,
+      "quantity": "1",
+      "expires_at": "2026-06-06T07:00:00+00:00",
+      "details": {
+        "story_id": "story_34e6b831352fc8a93273385a",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_378670adce5231e04f588d02",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_ca52ee5fe3f6efbe652f2c76",
+      "setup_id": "setup_02488bd48e556598b2f0e424",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T08:00:00+00:00",
+        "occurred_to": "2026-06-05T08:00:00+00:00",
+        "available_at": "2026-06-05T08:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138943,
+      "stop_ticks": 139127,
+      "target_ticks": 138942,
+      "quantity": "1",
+      "expires_at": "2026-06-06T08:00:00+00:00",
+      "details": {
+        "story_id": "story_10c8ea150569c05cc1929fe3",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_34a1914db8ea796843987ea5",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_9776ab703ead72e5d1c12bdd",
+      "setup_id": "setup_02559f82ba18937f569d899d",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T08:00:00+00:00",
+        "occurred_to": "2026-06-05T08:00:00+00:00",
+        "available_at": "2026-06-05T08:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138907,
+      "stop_ticks": 139127,
+      "target_ticks": 138905,
+      "quantity": "1",
+      "expires_at": "2026-06-06T08:00:00+00:00",
+      "details": {
+        "story_id": "story_6720ca30ffdc758cc2cbc8f8",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_69768e1d07c36eee5fa3593b",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_c14c3280d867fd44d6882542",
+      "setup_id": "setup_0297ebaabe63dd97dc45870c",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T08:00:00+00:00",
+        "occurred_to": "2026-06-05T08:00:00+00:00",
+        "available_at": "2026-06-05T08:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138918,
+      "stop_ticks": 139127,
+      "target_ticks": 138917,
+      "quantity": "1",
+      "expires_at": "2026-06-06T08:00:00+00:00",
+      "details": {
+        "story_id": "story_34e6b831352fc8a93273385a",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_cb0b9b78ec7300a197b8748f",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_8d39b81aeff6de85cb31675b",
+      "setup_id": "setup_08a9d9eb7c9f1812684009a0",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T08:00:00+00:00",
+        "occurred_to": "2026-06-05T08:00:00+00:00",
+        "available_at": "2026-06-05T08:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138894,
+      "stop_ticks": 139127,
+      "target_ticks": 138892,
+      "quantity": "1",
+      "expires_at": "2026-06-06T08:00:00+00:00",
+      "details": {
+        "story_id": "story_3f2ba5429e38fa8845418b8e",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_a0133b8ca151b0e1b87b60d6",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_30b86f93c5cd532772410d72",
+      "setup_id": "setup_002e3aa568aa8fa8cfd42e85",
+      "instrument": "USDCAD",
+      "tf": "H2",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T13:00:00+00:00",
+        "occurred_to": "2026-06-05T13:00:00+00:00",
+        "available_at": "2026-06-05T13:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138888,
+      "stop_ticks": 138660,
+      "target_ticks": 139251,
+      "quantity": "1",
+      "expires_at": "2026-06-06T13:00:00+00:00",
+      "details": {
+        "story_id": "story_f109d260949aa6c5f91a04f9",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_9861ef1d96e2235a04635866",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_fbeb53d0d42dad45270957b7",
+      "setup_id": "setup_026aed047be7f29442e3b41b",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T13:00:00+00:00",
+        "occurred_to": "2026-06-05T13:00:00+00:00",
+        "available_at": "2026-06-05T13:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 138888,
+      "stop_ticks": 138660,
+      "target_ticks": 139251,
+      "quantity": "1",
+      "expires_at": "2026-06-06T13:00:00+00:00",
+      "details": {
+        "story_id": "story_8c0b303ba739ee443563fa9b",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_e4cedc68ae80d274cda87fa4",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_1fdf017f56b4f7a47a0d40d1",
+      "setup_id": "setup_01bd825ab1d5f563c07a8558",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T14:00:00+00:00",
+        "occurred_to": "2026-06-05T14:00:00+00:00",
+        "available_at": "2026-06-05T14:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139005,
+      "stop_ticks": 138660,
+      "target_ticks": 139251,
+      "quantity": "1",
+      "expires_at": "2026-06-06T14:00:00+00:00",
+      "details": {
+        "story_id": "story_f109d260949aa6c5f91a04f9",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_ebefb060f64a841b34b9260b",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_26ff0f777a749b459eb16e98",
+      "setup_id": "setup_04507b1c05a5f2f69a6dbc6d",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T14:00:00+00:00",
+        "occurred_to": "2026-06-05T14:00:00+00:00",
+        "available_at": "2026-06-05T14:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139023,
+      "stop_ticks": 138660,
+      "target_ticks": 139251,
+      "quantity": "1",
+      "expires_at": "2026-06-06T14:00:00+00:00",
+      "details": {
+        "story_id": "story_f6e8ac8e0342491491762c1b",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_dd010a1a92636049bf81e427",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_cac40bddf5333c57ef09d170",
+      "setup_id": "setup_000be6a09f2a39ee2e3dbd2f",
+      "instrument": "USDCAD",
+      "tf": "H3",
+      "model": "confirmation_bo",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T15:00:00+00:00",
+        "occurred_to": "2026-06-05T15:00:00+00:00",
+        "available_at": "2026-06-05T15:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139058,
+      "stop_ticks": 138660,
+      "target_ticks": 139667,
+      "quantity": "1",
+      "expires_at": "2026-06-06T15:00:00+00:00",
+      "details": {
+        "story_id": "story_558c1498b52b028b9a51db38",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_673a211e79ebfb5689815072",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_2ce62091aeb2416b86c72bfc",
+      "setup_id": "setup_00275e9f3102fce7f98427df",
+      "instrument": "USDCAD",
+      "tf": "H3",
+      "model": "oc_break_retest",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T15:00:00+00:00",
+        "occurred_to": "2026-06-05T15:00:00+00:00",
+        "available_at": "2026-06-05T15:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139094,
+      "stop_ticks": 138660,
+      "target_ticks": 139667,
+      "quantity": "1",
+      "expires_at": "2026-06-06T15:00:00+00:00",
+      "details": {
+        "story_id": "story_f18f67632cbfabc355e51a04",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_d65260169db85eff09a9001c",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_b8ac760a545c71478ed9c51e",
+      "setup_id": "setup_0007a407deb361b15a605845",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T16:00:00+00:00",
+        "occurred_to": "2026-06-05T16:00:00+00:00",
+        "available_at": "2026-06-05T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139224,
+      "stop_ticks": 138660,
+      "target_ticks": 139667,
+      "quantity": "1",
+      "expires_at": "2026-06-06T16:00:00+00:00",
+      "details": {
+        "story_id": "story_10d354e55c74a653e0894dec",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_8dcd64acda8544cb43596793",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_3a3e7c2ef9502cd5e3f4fda6",
+      "setup_id": "setup_00182f3ec4d4f7e299417d08",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T16:00:00+00:00",
+        "occurred_to": "2026-06-05T16:00:00+00:00",
+        "available_at": "2026-06-05T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139312,
+      "stop_ticks": 138660,
+      "target_ticks": 139667,
+      "quantity": "1",
+      "expires_at": "2026-06-06T16:00:00+00:00",
+      "details": {
+        "story_id": "story_ec241d4a3555843098dd854d",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_c279ec6778a169c1818e27ae",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_5e2c5fbd1c58f45e9402f7f8",
+      "setup_id": "setup_031dcaf1f928c4e8ac97834e",
+      "instrument": "USDCAD",
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "side": "BUY",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T16:00:00+00:00",
+        "occurred_to": "2026-06-05T16:00:00+00:00",
+        "available_at": "2026-06-05T16:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139205,
+      "stop_ticks": 138660,
+      "target_ticks": 139667,
+      "quantity": "1",
+      "expires_at": "2026-06-06T16:00:00+00:00",
+      "details": {
+        "story_id": "story_d2a3a3937955ae16ac34729b",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_e209cba7e56805544c61c946",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_f7c5b16d825e5736d6144aec",
+      "setup_id": "setup_27e1efeb884f6b9f121090cf",
+      "instrument": "USDCAD",
+      "tf": "H3",
+      "model": "confirmation_standing_extreme",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T21:00:00+00:00",
+        "occurred_to": "2026-06-05T21:00:00+00:00",
+        "available_at": "2026-06-05T21:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139427,
+      "stop_ticks": 139511,
+      "target_ticks": 139389,
+      "quantity": "1",
+      "expires_at": "2026-06-06T21:00:00+00:00",
+      "details": {
+        "story_id": "story_6720ca30ffdc758cc2cbc8f8",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_f1f5b546b285676310b91c0c",
+        "context_policy": "first_causal_context_canonical"
+      }
+    },
+    {
+      "id": "order_5df102a9d7ef779bcd6d727a",
+      "setup_id": "setup_0d75e57e3e396a9355681f49",
+      "instrument": "USDCAD",
+      "tf": "H2",
+      "model": "confirmation_standing_extreme",
+      "side": "SELL",
+      "kind": "LIMIT",
+      "clock": {
+        "occurred_from": "2026-06-05T21:00:00+00:00",
+        "occurred_to": "2026-06-05T21:00:00+00:00",
+        "available_at": "2026-06-05T21:00:00+00:00",
+        "precision": "BAR"
+      },
+      "entry_ticks": 139495,
+      "stop_ticks": 139511,
+      "target_ticks": 139389,
+      "quantity": "1",
+      "expires_at": "2026-06-06T21:00:00+00:00",
+      "details": {
+        "story_id": "story_6720ca30ffdc758cc2cbc8f8",
+        "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+        "economic_signal_id": "economic_signal_e388da9778b2c26a1a78a72c",
+        "context_policy": "first_causal_context_canonical"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "order_52c0f7f267bb7ca2dcdcba5a",
+      "setup_id": "setup_01e8f39afab04959b081a995",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139013",
+      "fill_window": {
+        "start": "2026-06-05T02:24:00+00:00",
+        "end": "2026-06-05T02:25:00+00:00",
+        "observed_at": "2026-06-05T02:25:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "238",
+      "net_r": "0.3020304568527918781725888325",
+      "censor_reason": null,
+      "initial_stop_ticks": 138225,
+      "initial_target_ticks": 139251,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_fd60f9b91dcf15f57994f2ca",
+      "setup_id": "setup_238aa5e10a0f6aabb75b4f44",
+      "status": "CLOSED",
+      "outcome": "LOSS",
+      "fill_ticks": "139102",
+      "fill_window": {
+        "start": "2026-06-05T14:15:00+00:00",
+        "end": "2026-06-05T14:16:00+00:00",
+        "observed_at": "2026-06-05T14:16:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "-25",
+      "net_r": "-1",
+      "censor_reason": null,
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 139013,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_3e50be2f794151f706aeaf20",
+      "setup_id": "setup_0012287a4b5915d955ec3a67",
+      "status": "FILLED",
+      "outcome": "CENSORED",
+      "fill_ticks": "139039",
+      "fill_window": {
+        "start": "2026-06-05T13:43:00+00:00",
+        "end": "2026-06-05T13:44:00+00:00",
+        "observed_at": "2026-06-05T13:44:00+00:00"
+      },
+      "remaining_quantity": "1",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 139026,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_8120b523ea1372c7218ac3a8",
+      "setup_id": "setup_08556ea7e04db66c1e46ad67",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139058",
+      "fill_window": {
+        "start": "2026-06-05T14:00:00+00:00",
+        "end": "2026-06-05T14:01:00+00:00",
+        "observed_at": "2026-06-05T14:01:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "1",
+      "net_r": "0.02631578947368421052631578947",
+      "censor_reason": null,
+      "initial_stop_ticks": 139096,
+      "initial_target_ticks": 139057,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_a2010b14e8ba6d841ab4346b",
+      "setup_id": "setup_1b6a0585721b55c33996b333",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139017",
+      "fill_window": {
+        "start": "2026-06-05T13:39:00+00:00",
+        "end": "2026-06-05T13:40:00+00:00",
+        "observed_at": "2026-06-05T13:40:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "4",
+      "net_r": "0.03636363636363636363636363636",
+      "censor_reason": null,
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 139013,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_a993c657f913b9ad693e960c",
+      "setup_id": "setup_29322ed3f54481708d0929d8",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139017",
+      "fill_window": {
+        "start": "2026-06-05T13:39:00+00:00",
+        "end": "2026-06-05T13:40:00+00:00",
+        "observed_at": "2026-06-05T13:40:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "4",
+      "net_r": "0.03636363636363636363636363636",
+      "censor_reason": null,
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 139013,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_8d39b81aeff6de85cb31675b",
+      "setup_id": "setup_08a9d9eb7c9f1812684009a0",
+      "status": "FILLED",
+      "outcome": "CENSORED",
+      "fill_ticks": "138894",
+      "fill_window": {
+        "start": "2026-06-05T08:48:00+00:00",
+        "end": "2026-06-05T08:49:00+00:00",
+        "observed_at": "2026-06-05T08:49:00+00:00"
+      },
+      "remaining_quantity": "1",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 138892,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_9776ab703ead72e5d1c12bdd",
+      "setup_id": "setup_02559f82ba18937f569d899d",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "138907",
+      "fill_window": {
+        "start": "2026-06-05T12:26:00+00:00",
+        "end": "2026-06-05T12:27:00+00:00",
+        "observed_at": "2026-06-05T12:27:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "2",
+      "net_r": "0.009090909090909090909090909091",
+      "censor_reason": null,
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 138905,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_c14c3280d867fd44d6882542",
+      "setup_id": "setup_0297ebaabe63dd97dc45870c",
+      "status": "FILLED",
+      "outcome": "CENSORED",
+      "fill_ticks": "138918",
+      "fill_window": {
+        "start": "2026-06-05T12:27:00+00:00",
+        "end": "2026-06-05T12:28:00+00:00",
+        "observed_at": "2026-06-05T12:28:00+00:00"
+      },
+      "remaining_quantity": "1",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "UNRESOLVED_INTRABAR_SEQUENCE",
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 138917,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_ca52ee5fe3f6efbe652f2c76",
+      "setup_id": "setup_02488bd48e556598b2f0e424",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "138943",
+      "fill_window": {
+        "start": "2026-06-05T12:30:00+00:00",
+        "end": "2026-06-05T12:31:00+00:00",
+        "observed_at": "2026-06-05T12:31:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "1",
+      "net_r": "0.005434782608695652173913043478",
+      "censor_reason": null,
+      "initial_stop_ticks": 139127,
+      "initial_target_ticks": 138942,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_30b86f93c5cd532772410d72",
+      "setup_id": "setup_002e3aa568aa8fa8cfd42e85",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "138888",
+      "fill_window": {
+        "start": "2026-06-05T13:01:00+00:00",
+        "end": "2026-06-05T13:02:00+00:00",
+        "observed_at": "2026-06-05T13:02:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "363",
+      "net_r": "1.592105263157894736842105263",
+      "censor_reason": null,
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139251,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_fbeb53d0d42dad45270957b7",
+      "setup_id": "setup_026aed047be7f29442e3b41b",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "138888",
+      "fill_window": {
+        "start": "2026-06-05T13:01:00+00:00",
+        "end": "2026-06-05T13:02:00+00:00",
+        "observed_at": "2026-06-05T13:02:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "363",
+      "net_r": "1.592105263157894736842105263",
+      "censor_reason": null,
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139251,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_1fdf017f56b4f7a47a0d40d1",
+      "setup_id": "setup_01bd825ab1d5f563c07a8558",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139005",
+      "fill_window": {
+        "start": "2026-06-05T14:03:00+00:00",
+        "end": "2026-06-05T14:04:00+00:00",
+        "observed_at": "2026-06-05T14:04:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "246",
+      "net_r": "0.7130434782608695652173913043",
+      "censor_reason": null,
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139251,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_26ff0f777a749b459eb16e98",
+      "setup_id": "setup_04507b1c05a5f2f69a6dbc6d",
+      "status": "CLOSED",
+      "outcome": "WIN",
+      "fill_ticks": "139023",
+      "fill_window": {
+        "start": "2026-06-05T14:02:00+00:00",
+        "end": "2026-06-05T14:03:00+00:00",
+        "observed_at": "2026-06-05T14:03:00+00:00"
+      },
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "228",
+      "net_r": "0.6280991735537190082644628099",
+      "censor_reason": null,
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139251,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_2ce62091aeb2416b86c72bfc",
+      "setup_id": "setup_00275e9f3102fce7f98427df",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139667,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_cac40bddf5333c57ef09d170",
+      "setup_id": "setup_000be6a09f2a39ee2e3dbd2f",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139667,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_3a3e7c2ef9502cd5e3f4fda6",
+      "setup_id": "setup_00182f3ec4d4f7e299417d08",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139667,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_5e2c5fbd1c58f45e9402f7f8",
+      "setup_id": "setup_031dcaf1f928c4e8ac97834e",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139667,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_b8ac760a545c71478ed9c51e",
+      "setup_id": "setup_0007a407deb361b15a605845",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 138660,
+      "initial_target_ticks": 139667,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_5df102a9d7ef779bcd6d727a",
+      "setup_id": "setup_0d75e57e3e396a9355681f49",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 139511,
+      "initial_target_ticks": 139389,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    },
+    {
+      "id": "order_f7c5b16d825e5736d6144aec",
+      "setup_id": "setup_27e1efeb884f6b9f121090cf",
+      "status": "CENSORED",
+      "outcome": "CENSORED",
+      "fill_ticks": null,
+      "fill_window": null,
+      "remaining_quantity": "0",
+      "realized_ticks_quantity": "0",
+      "net_r": null,
+      "censor_reason": "MISSING_ACTIVE_DATA",
+      "initial_stop_ticks": 139511,
+      "initial_target_ticks": 139389,
+      "costs": {
+        "spread_ticks": "0",
+        "entry_slippage_ticks": "0",
+        "stop_slippage_ticks": "0",
+        "commission_ticks": "0",
+        "financing_ticks": "0"
+      },
+      "management": []
+    }
+  ],
+  "execution_input": {
+    "scope": "EXECUTION_ONLY_DETECTION_UNCHANGED",
+    "hashes": {
+      "sha256": "a06c8524e0e69fd2643554e621808c8f0a6194525284dfbd99aad9e8980a2b1b",
+      "manifest": "manifest_aa52d42ed439b913c8fc8e9d",
+      "source_id": "source_919a3776ecac1a363911bf23"
+    },
+    "coverage": {
+      "status": "INCOMPLETE",
+      "start": "2026-06-05T00:00:00+00:00",
+      "end": "2026-06-13T00:00:00+00:00",
+      "expected_slots": 8460,
+      "present_slots": 8367,
+      "missing_slots": 93,
+      "missing": [
+        "2026-06-05T20:57:00+00:00",
+        "2026-06-05T20:58:00+00:00",
+        "2026-06-05T20:59:00+00:00",
+        "2026-06-07T21:00:00+00:00",
+        "2026-06-07T21:02:00+00:00",
+        "2026-06-07T21:03:00+00:00",
+        "2026-06-07T21:04:00+00:00",
+        "2026-06-07T21:06:00+00:00",
+        "2026-06-07T21:07:00+00:00",
+        "2026-06-07T21:08:00+00:00",
+        "2026-06-07T21:09:00+00:00",
+        "2026-06-07T21:10:00+00:00",
+        "2026-06-07T21:11:00+00:00",
+        "2026-06-07T21:12:00+00:00",
+        "2026-06-07T21:13:00+00:00",
+        "2026-06-07T21:14:00+00:00",
+        "2026-06-07T21:18:00+00:00",
+        "2026-06-07T21:19:00+00:00",
+        "2026-06-07T21:27:00+00:00",
+        "2026-06-07T21:53:00+00:00",
+        "2026-06-08T20:59:00+00:00",
+        "2026-06-08T21:00:00+00:00",
+        "2026-06-08T21:02:00+00:00",
+        "2026-06-08T21:03:00+00:00",
+        "2026-06-08T21:04:00+00:00",
+        "2026-06-08T21:05:00+00:00",
+        "2026-06-08T21:06:00+00:00",
+        "2026-06-08T21:09:00+00:00",
+        "2026-06-08T21:10:00+00:00",
+        "2026-06-08T21:11:00+00:00",
+        "2026-06-08T21:12:00+00:00",
+        "2026-06-08T21:14:00+00:00",
+        "2026-06-08T21:15:00+00:00",
+        "2026-06-08T21:16:00+00:00",
+        "2026-06-08T21:17:00+00:00",
+        "2026-06-08T21:18:00+00:00",
+        "2026-06-08T21:19:00+00:00",
+        "2026-06-08T21:24:00+00:00",
+        "2026-06-09T20:43:00+00:00",
+        "2026-06-09T20:59:00+00:00",
+        "2026-06-09T21:00:00+00:00",
+        "2026-06-09T21:02:00+00:00",
+        "2026-06-09T21:04:00+00:00",
+        "2026-06-09T21:07:00+00:00",
+        "2026-06-09T21:09:00+00:00",
+        "2026-06-09T21:10:00+00:00",
+        "2026-06-09T21:12:00+00:00",
+        "2026-06-09T21:14:00+00:00",
+        "2026-06-09T21:15:00+00:00",
+        "2026-06-09T21:16:00+00:00",
+        "2026-06-09T21:17:00+00:00",
+        "2026-06-09T21:19:00+00:00",
+        "2026-06-09T21:21:00+00:00",
+        "2026-06-09T21:22:00+00:00",
+        "2026-06-09T21:23:00+00:00",
+        "2026-06-09T21:24:00+00:00",
+        "2026-06-09T21:26:00+00:00",
+        "2026-06-09T21:27:00+00:00",
+        "2026-06-09T21:42:00+00:00",
+        "2026-06-09T21:51:00+00:00",
+        "2026-06-09T21:52:00+00:00",
+        "2026-06-09T21:55:00+00:00",
+        "2026-06-10T20:59:00+00:00",
+        "2026-06-10T21:00:00+00:00",
+        "2026-06-10T21:03:00+00:00",
+        "2026-06-10T21:04:00+00:00",
+        "2026-06-10T21:05:00+00:00",
+        "2026-06-10T21:06:00+00:00",
+        "2026-06-10T21:07:00+00:00",
+        "2026-06-10T21:08:00+00:00",
+        "2026-06-10T21:09:00+00:00",
+        "2026-06-10T21:11:00+00:00",
+        "2026-06-10T21:12:00+00:00",
+        "2026-06-10T21:13:00+00:00",
+        "2026-06-10T21:14:00+00:00",
+        "2026-06-10T21:16:00+00:00",
+        "2026-06-10T21:18:00+00:00",
+        "2026-06-10T21:19:00+00:00",
+        "2026-06-10T21:28:00+00:00",
+        "2026-06-10T21:56:00+00:00",
+        "2026-06-10T21:59:00+00:00",
+        "2026-06-11T20:59:00+00:00",
+        "2026-06-11T21:00:00+00:00",
+        "2026-06-11T21:02:00+00:00",
+        "2026-06-11T21:03:00+00:00",
+        "2026-06-11T21:04:00+00:00",
+        "2026-06-11T21:08:00+00:00",
+        "2026-06-11T21:14:00+00:00",
+        "2026-06-11T21:44:00+00:00",
+        "2026-06-11T21:59:00+00:00",
+        "2026-06-12T20:57:00+00:00",
+        "2026-06-12T20:58:00+00:00",
+        "2026-06-12T20:59:00+00:00"
+      ],
+      "calendar": "fx_ny_v1",
+      "base_tf": "M1",
+      "anchor": "ny17_wall_v2",
+      "metadata": {
+        "provider": "IC Markets cTrader Open API",
+        "asset_class": "FX",
+        "calendar_version": "fx_ny_v1_declared_hypothesis"
+      }
+    },
+    "rollup_status": "EXACT_ON_COMPLETE_BINS_PARTIAL_COVERAGE",
+    "compared_bars": 130,
+    "incomparable_bins": [
+      "2026-06-05T20:00:00+00:00",
+      "2026-06-07T21:00:00+00:00",
+      "2026-06-08T20:00:00+00:00",
+      "2026-06-08T21:00:00+00:00",
+      "2026-06-09T20:00:00+00:00",
+      "2026-06-09T21:00:00+00:00",
+      "2026-06-10T20:00:00+00:00",
+      "2026-06-10T21:00:00+00:00",
+      "2026-06-11T20:00:00+00:00",
+      "2026-06-11T21:00:00+00:00",
+      "2026-06-12T20:00:00+00:00"
+    ],
+    "missing_data_policy": "CENSOR_ACTIVE_EXECUTION_NO_IMPUTATION_NO_FALLBACK"
+  }
+}

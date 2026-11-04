@@ -1,0 +1,11 @@
+{
+  "id": "execution_m1_f72edbd8e6d89fc31666aa82",
+  "pair": "GBPUSD",
+  "base_tf": "M1",
+  "start": "2026-06-24T03:00:00+00:00",
+  "end": "2026-07-08T11:49:00+00:00",
+  "case_ids": [
+    "pdf-p27-gbpusd-sell-1"
+  ],
+  "purpose": "FROZEN_EXECUTION_ONLY_NO_DETECTION"
+}

@@ -1,0 +1,19 @@
+{
+  "source_video_sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+  "source_pts_seconds": 420,
+  "source_chart_tf": "H2",
+  "source_chart_venue": "FOREXcom",
+  "bishop_drawn_entry": 1.86183,
+  "bishop_drawn_stop": 1.86041,
+  "bishop_drawn_target": 1.87039,
+  "bot_setup_id": "setup_11d59fd06d2c40d4d01b18e9",
+  "bot_available_at": "2026-06-09T03:00:00+00:00",
+  "bot_entry_ticks": 186145,
+  "bot_stop_ticks": 185847,
+  "bot_target_ticks": 186262,
+  "tick_size": "0.00001",
+  "all_seven_stop_ticks": 185847,
+  "source_entry_identity": "NOT_ESTABLISHED",
+  "bot_order_status": "EXPIRED_UNFILLED",
+  "frozen_report_sha256": "34428748d2781a9984ea5fb1394edcfb4e1153c05d0f599d6393269fd2c30ec0"
+}

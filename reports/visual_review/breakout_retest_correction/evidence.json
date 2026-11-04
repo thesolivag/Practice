@@ -1,0 +1,433 @@
+{
+  "run": 40586614121,
+  "setup": {
+    "id": "setup_00cc31794b7b423f1b951774",
+    "instrument": "GBPCAD",
+    "tf": "H2",
+    "model": "confirmation_bo",
+    "side": "BUY",
+    "story_id": "story_a39579beaa142f7f23e4cabf",
+    "clock": {
+      "occurred_from": "2026-06-09T05:00:00+00:00",
+      "occurred_to": "2026-06-09T05:00:00+00:00",
+      "available_at": "2026-06-09T05:00:00+00:00",
+      "precision": "BAR"
+    },
+    "entry_ticks": 186179,
+    "stop_ticks": 185847,
+    "target_ticks": 187040,
+    "risk_profile": "context_liquidity",
+    "order_type": "LIMIT",
+    "status": "ELIGIBLE",
+    "level_id": "level_155885ad57954e0276368594",
+    "liquidity_ids": [
+      "entry_irl_8ff20f2f92d2fadcdf30ce24"
+    ],
+    "evidence_ids": [
+      "story_a39579beaa142f7f23e4cabf",
+      "level_155885ad57954e0276368594",
+      "bar_0598b61d696e7f292e16b07a",
+      "oc_7b35925ba14de633f3a19296",
+      "structure_event_f9f0f7e07398b4a40315b3bd",
+      "entry_irl_8ff20f2f92d2fadcdf30ce24",
+      "entry_first_take_9129dd0d5a8aed9ad8606670",
+      "structure_event_1f0b84c4e06018986daaff7c",
+      "bar_4e68d63dc8d041f6bafe1841"
+    ],
+    "expires_at": "2026-06-10T05:00:00+00:00",
+    "details": {
+      "protected_objects": [
+        [
+          "bar_4e68d63dc8d041f6bafe1841",
+          185852,
+          "pattern_wick"
+        ],
+        [
+          "bar_0598b61d696e7f292e16b07a",
+          186026,
+          "pattern_wick"
+        ],
+        [
+          "bar_9bda7aa82a12c070299d8087",
+          186159,
+          "pattern_wick"
+        ],
+        [
+          "level_9f55d5b729fc5be71b95ebe6",
+          186145,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "oc_124359bd307be543ac14c443",
+          186144,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_17b68770a60b8e74317c8934",
+          186124,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "bar_pool_e7386fa230d95ccac7c7103b",
+          186159,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "protection_shortfall": [],
+      "story_destination_ticks": 185097,
+      "story_destination_ref_id": "level_c4ac1a9a95032ba2d053d0c2",
+      "target_candidates": [
+        [
+          187040,
+          "turn_pool_7bebb823b391e09621764616",
+          "entry_tf_erl"
+        ]
+      ],
+      "selected_target_ticks": 187040,
+      "target_adjustments": [],
+      "risk_profile": "context_liquidity",
+      "target_profile": "nearest_erl",
+      "zone_bounds": null,
+      "zone_edge_experiment": false,
+      "zone_geometry_policy": null,
+      "numerical_conventions": "OUR_CHOICE",
+      "protection_scope_policy": "entry_episode_linked_v1",
+      "protection_evidence_ids": [
+        "bar_0598b61d696e7f292e16b07a",
+        "oc_7b35925ba14de633f3a19296",
+        "structure_event_f9f0f7e07398b4a40315b3bd",
+        "entry_irl_8ff20f2f92d2fadcdf30ce24",
+        "entry_first_take_9129dd0d5a8aed9ad8606670",
+        "structure_event_1f0b84c4e06018986daaff7c",
+        "bar_4e68d63dc8d041f6bafe1841",
+        "level_155885ad57954e0276368594"
+      ],
+      "protection_range_ids": [
+        "range_19ae914a278e753feec46695"
+      ],
+      "range_origin_protection_linked": false,
+      "excluded_objects": [
+        [
+          "range_17df133a813e891afe73469d",
+          "NO_ENTRY_EPISODE_PROTECTION_LINK",
+          "turn_pool_e7f7882fa486d9170c28d2e8"
+        ],
+        [
+          "bar_pool_3f2c3c13aaccfb347321d04d",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_d4e43a563aa642da4effa83b"
+        ],
+        [
+          "bar_pool_3e9b13e04cacbccafa52814b",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_303872970280ee45202832e1"
+        ],
+        [
+          "bar_pool_baf8ba753752c59b239c5daf",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_2941f2ae98de66ffd5672994"
+        ],
+        [
+          "turn_pool_b12c31e77f2cf0dbe8ca5b81",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_578f2f29801c0c64b17d70e9"
+        ],
+        [
+          "bar_pool_3074b9be1be30e11b23afa18",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_578f2f29801c0c64b17d70e9"
+        ],
+        [
+          "bar_pool_df469d7746766d14cd15fd70",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_bef0ec4e81de8643020fd759"
+        ],
+        [
+          "bar_pool_526cf034a5cd782b6e77c115",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_1790d9157fb79fee1fd5e3fb"
+        ],
+        [
+          "bar_pool_2a3833893d6d3a81459e91ed",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_1790d9157fb79fee1fd5e3fb"
+        ],
+        [
+          "turn_pool_78cee3a9a6c95a0ce331a99a",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_1790d9157fb79fee1fd5e3fb"
+        ],
+        [
+          "bar_pool_23ea221d60f7b04d87c9821a",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_9e0c7ef2738947fc41d697f6"
+        ],
+        [
+          "bar_pool_2fa166a8610872031b022408",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_1790d9157fb79fee1fd5e3fb"
+        ],
+        [
+          "bar_pool_85e6533731ca57d27f097866",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_3aa452e66b37a5ce3e7671a8"
+        ],
+        [
+          "bar_pool_0ad48f42faa9c32490f58dca",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_3aa452e66b37a5ce3e7671a8"
+        ],
+        [
+          "turn_pool_2016c36a5cec42097fb74339",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c61a9d7e6d5100cfb39c6917"
+        ],
+        [
+          "bar_pool_ec99702d48db391b6838824e",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c61a9d7e6d5100cfb39c6917"
+        ],
+        [
+          "bar_pool_e62a1b64eae0a1703bd5fc55",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c61a9d7e6d5100cfb39c6917"
+        ],
+        [
+          "bar_pool_97058819d128f62e470568ed",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c61a9d7e6d5100cfb39c6917"
+        ],
+        [
+          "bar_pool_3cd7321eab16e0c96d0ec475",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_7dd92520f56c5fa81da23c18"
+        ],
+        [
+          "bar_pool_c32508f894949ae905b036fa",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "bar_pool_261823235ca2595aeb22c79f",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_871797a7eac1ab576c3588b2"
+        ],
+        [
+          "turn_pool_bf91007e5e4aa8f4cac067e2",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_871797a7eac1ab576c3588b2"
+        ],
+        [
+          "bar_pool_c6b9de2baf9d2e365d2f2a23",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_9e1b44ae5708f364bcd991f6"
+        ],
+        [
+          "bar_pool_811225b840c0166b7dc94cf8",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_93efe2fe9ab756728f3c2583"
+        ],
+        [
+          "bar_pool_bfcfeae4a9c138ce107eb9e4",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_11e0e10e7e36cc1c0a2a1c79"
+        ],
+        [
+          "bar_pool_3f0fb1f6b9615daf8a65469c",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_11e0e10e7e36cc1c0a2a1c79"
+        ],
+        [
+          "entry_irl_ad0a1a61aba2ca7edff410c0",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "entry_irl_afbc3b08752c9397c7e19810",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "entry_irl_731af900fccdfc4495e89711",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "entry_irl_7092936484596e7a7bde8a31",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "entry_irl_df5bf3fbb6f645c4d3e52a2d",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c29b1f31285e10a979adc07b"
+        ],
+        [
+          "entry_irl_fb2b404e9a42a4d9c07c0c30",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_9e1b44ae5708f364bcd991f6"
+        ],
+        [
+          "entry_irl_600306df374dd5c414aaad71",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_9e1b44ae5708f364bcd991f6"
+        ],
+        [
+          "entry_irl_e518ac6825dc21c3cc271f72",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_93efe2fe9ab756728f3c2583"
+        ],
+        [
+          "entry_irl_a1521abf1883c405680bae77",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_93efe2fe9ab756728f3c2583"
+        ]
+      ],
+      "current_segment": "1",
+      "current_segment_start": "2026-05-04T01:00:00+00:00",
+      "near_ticks": "58.2875",
+      "entry_range_id": "range_17df133a813e891afe73469d",
+      "entry_range_version": "range_version_f3611c2b667d88f5c8628fa1",
+      "unresolved_reasons": [],
+      "entry_weekly_relation": "UNKNOWN",
+      "entry_weekly_context": {
+        "status": "UNKNOWN",
+        "side": null,
+        "story_ids": [],
+        "available_at": null,
+        "policy": "latest_confirmed_weekly_ROOT_batch_v1_OUR_CHOICE"
+      },
+      "confirmation_protection_bar_ids": [],
+      "confirmation_protection_policy": null,
+      "protection_episode_bar_ids": [
+        "bar_4e68d63dc8d041f6bafe1841",
+        "bar_0598b61d696e7f292e16b07a"
+      ],
+      "protection_episode_policy": "linked_first_take_through_reaction_v1_OUR_CHOICE",
+      "phase": "origin",
+      "source_profile": "bishop_confirmation",
+      "model_enabled": true,
+      "causal_selection": "first_eligible_then_higher_tf_same_batch_OUR_CHOICE",
+      "expected_sweep_is_not_fill_veto": true,
+      "entry_reference_policy": "exact_broken_av_retest_v1",
+      "breakout_event_id": "structure_event_1f0b84c4e06018986daaff7c",
+      "broken_level_id": "level_155885ad57954e0276368594",
+      "broken_level_price_ticks": 186179,
+      "breakout_closed_at": "2026-06-09T05:00:00+00:00",
+      "entry_requires_later_retest": true
+    }
+  },
+  "order": {
+    "id": "order_e9304ec056aa10550332e6e3",
+    "setup_id": "setup_00cc31794b7b423f1b951774",
+    "instrument": "GBPCAD",
+    "tf": "H2",
+    "model": "confirmation_bo",
+    "side": "BUY",
+    "kind": "LIMIT",
+    "clock": {
+      "occurred_from": "2026-06-09T05:00:00+00:00",
+      "occurred_to": "2026-06-09T05:00:00+00:00",
+      "available_at": "2026-06-09T05:00:00+00:00",
+      "precision": "BAR"
+    },
+    "entry_ticks": 186179,
+    "stop_ticks": 185847,
+    "target_ticks": 187040,
+    "quantity": "1",
+    "expires_at": "2026-06-10T05:00:00+00:00",
+    "details": {
+      "story_id": "story_a39579beaa142f7f23e4cabf",
+      "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+      "economic_signal_id": "economic_signal_74fa3d16e464bc009e922b37",
+      "context_policy": "first_causal_context_canonical"
+    }
+  },
+  "observation": {
+    "id": "order_e9304ec056aa10550332e6e3",
+    "setup_id": "setup_00cc31794b7b423f1b951774",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "186179",
+    "fill_window": {
+      "start": "2026-06-09T06:05:00+00:00",
+      "end": "2026-06-09T06:10:00+00:00",
+      "observed_at": "2026-06-09T06:10:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "861",
+    "net_r": "2.593373493975903614457831325",
+    "censor_reason": null,
+    "initial_stop_ticks": 185847,
+    "initial_target_ticks": 187040,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  "broken_A": {
+    "id": "level_155885ad57954e0276368594",
+    "instrument": "GBPCAD",
+    "tf": "H2",
+    "kind": "A",
+    "price_ticks": 186179,
+    "side": "SELL",
+    "formed_at": "2026-06-08T17:00:00+00:00",
+    "available_at": "2026-06-08T19:00:00+00:00",
+    "bar_ids": [
+      "bar_957ab82b59759ec681170cbc",
+      "bar_d9e14e3e27f43d7f49c98585",
+      "bar_62cf4691611796cee487b139"
+    ],
+    "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+    "details": {
+      "turn_id": "turn_6932a12569a84d681646fc33",
+      "formation": "CLOSE_TURN"
+    }
+  },
+  "breakout_event": {
+    "id": "structure_event_1f0b84c4e06018986daaff7c",
+    "kind": "EXTERNAL_BREAK",
+    "instrument": "GBPCAD",
+    "tf": "H2",
+    "clock": {
+      "occurred_from": "2026-06-09T05:00:00+00:00",
+      "occurred_to": "2026-06-09T05:00:00+00:00",
+      "available_at": "2026-06-09T05:00:00+00:00",
+      "precision": "EXACT"
+    },
+    "side": "BUY",
+    "reference_id": "turn_6932a12569a84d681646fc33",
+    "price_ticks": 186179,
+    "scope_id": "range_19ae914a278e753feec46695",
+    "bar_ids": [
+      "bar_9bda7aa82a12c070299d8087"
+    ],
+    "evidence_ids": [],
+    "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+    "evidence_status": "KNOWN",
+    "details": {
+      "old_origin_id": "turn_c2f7fb6b1e4e6bbdc968f82c",
+      "candidate_id": "turn_ed16ee4968d348de3611c5bd",
+      "reference_formed_at": "2026-06-08T17:00:00+00:00",
+      "reference_available_at": "2026-06-08T19:00:00+00:00",
+      "scope_type": "CHILD"
+    }
+  },
+  "source_entry": 1.86183,
+  "source_stop": 1.86041,
+  "source_pts": 420,
+  "entry_difference_pips": 0.4,
+  "stop_difference_pips": 19.4,
+  "teacher_acceptance": "NOT_ESTABLISHED",
+  "owner_stop_review": {
+    "status": "LOGICAL_BREAKOUT_STOP_CONFIRMED",
+    "numeric_gap_is_engine_defect": false,
+    "source_engulf_stop_rationale": "OWNER_INTERPRETATION_FOR_THIS_TRADE",
+    "universal_engulf_stop_rule": false
+  }
+}

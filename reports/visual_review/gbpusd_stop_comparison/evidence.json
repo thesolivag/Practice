@@ -1,0 +1,17 @@
+{
+  "source_pts_seconds": 1350,
+  "source_video_sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+  "source_entry": 1.33793,
+  "source_stop": 1.33925,
+  "source_target": 1.33308,
+  "bot_stop": 1.33923,
+  "difference_pips": 0.2,
+  "bot_engulf_setup_id": "setup_0f9192d267314cc5c6820e2b",
+  "bot_engulf_available_at": "2026-06-11T15:00:00+00:00",
+  "bot_engulf_entry": 1.33613,
+  "bot_engulf_order_status": "HELD_EXPOSURE_CAP",
+  "earlier_bot_candidate_model": "confirmation_standing_extreme",
+  "earlier_bot_entry": 1.3383600000000002,
+  "source_trade_identity": "NOT_ESTABLISHED",
+  "frozen_report_sha256": "75ebeaf2e9a10b7009ef81fa1708cd5c2d3edc19fd567fac730ae2c49182f9fc"
+}

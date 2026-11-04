@@ -8,10 +8,14 @@ name: Extract course video frames
 on:
   workflow_dispatch:
     inputs:
+      slug_prefix:
+        description: "Folder prefix: video (18-video course: tags video1, remaining-videes) or bishop (defi-bishop, plug-and-play)"
+        required: false
+        default: "bishop"
       release_tag:
         description: "Release tag holding the videos"
         required: true
-        default: "kevin_King"
+        default: "remaining-videes"
       interval:
         description: "Seconds between frames"
         required: false
@@ -42,10 +46,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.release_tag }}
+          PREFIX: ${{ inputs.slug_prefix }}
         run: |
           m=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq '
             [.assets[] | select(.name|test("\\.mp4$"))
-             | {id: .id, slug: ("kevin-" + (.name | ascii_downcase | sub("(\\.mp4)+$";"") | gsub("[^a-z0-9]+";"-") | sub("-+$";"")))}]')
+             | {id: .id, slug: (($ENV.PREFIX // "bishop") + "-" + (.name | ascii_downcase | sub("(\\.mp4)+$";"") | gsub("[^a-z0-9]+";"-") | sub("-+$";"")))}]')
           echo "matrix={\"include\":$(echo "$m" | jq -c .)}" >> "$GITHUB_OUTPUT"
 
   process:

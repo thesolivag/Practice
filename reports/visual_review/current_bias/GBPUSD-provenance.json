@@ -1,0 +1,13 @@
+{
+  "run_id": 40738280130,
+  "engine_commit": "7e9f929",
+  "artifact_id": 12838760962,
+  "as_of": "2026-10-28T17:00:00+00:00",
+  "pair": "GBPUSD",
+  "input_sha256": "ac292e5ca922b177090fab89a0ce3c7ec8f9bfbbdb875a15063a16a4a50bdff9",
+  "artifact_sha256": "e5569f5cb5cbc2f5db80d3cc7bdd35f6918065f1ba76f6413721f65029e5f9ce",
+  "preview_only": true,
+  "orders_created": 0,
+  "persisted": false,
+  "telegram_delivery": false
+}

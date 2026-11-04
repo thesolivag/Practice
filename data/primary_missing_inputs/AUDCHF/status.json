@@ -1,0 +1,7 @@
+{
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "path": "data/primary_missing_inputs/AUDCHF/primary_h1_764980791eb695bfcfc0e037.csv.gz",
+  "manifest": "data/primary_missing_inputs/AUDCHF/primary_h1_764980791eb695bfcfc0e037.csv.manifest.json",
+  "sha256": "d4c15322113cccf3c4b8731ce6506d61580296bba7c5f6f6b9a797b8bbeadbff",
+  "rows": 7338
+}

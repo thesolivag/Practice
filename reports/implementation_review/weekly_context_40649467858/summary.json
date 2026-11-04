@@ -1,0 +1,533 @@
+{
+  "execution_status": "COMPUTED_CONTEXT_ONLY",
+  "weekly_context": {
+    "status": "KNOWN",
+    "side": "BUY",
+    "story_ids": [
+      "story_7f94b85ea79f24c5e509ad52"
+    ],
+    "available_at": "2026-05-08T13:00:00+00:00",
+    "policy": "latest_confirmed_weekly_ROOT_batch_v1_OUR_CHOICE"
+  },
+  "base_bars": 6253,
+  "gap_count": 2,
+  "story_counts": {
+    "W:ROOT": 7,
+    "W:CHILD": 10,
+    "W:LOCAL": 6
+  },
+  "coverage": {
+    "W": {
+      "status": "PARTIAL",
+      "incomplete": [
+        {
+          "start": "2025-06-08T21:00:00+00:00",
+          "end": "2025-06-13T21:00:00+00:00",
+          "missing_slots": 51,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-21T22:00:00+00:00",
+          "end": "2025-12-26T22:00:00+00:00",
+          "missing_slots": 27,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-28T22:00:00+00:00",
+          "end": "2026-01-02T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-06-07T21:00:00+00:00",
+          "end": "2026-06-12T21:00:00+00:00",
+          "missing_slots": 5,
+          "crossing": false,
+          "forming": true
+        }
+      ],
+      "complete_bars": 49,
+      "calendar": "fx_ny_v1",
+      "anchor": "ny17_wall_v2"
+    },
+    "D": {
+      "status": "PARTIAL",
+      "incomplete": [
+        {
+          "start": "2025-06-10T21:00:00+00:00",
+          "end": "2025-06-11T21:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-24T22:00:00+00:00",
+          "end": "2025-12-25T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T22:00:00+00:00",
+          "end": "2025-12-26T22:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-31T22:00:00+00:00",
+          "end": "2026-01-01T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-06-11T21:00:00+00:00",
+          "end": "2026-06-12T21:00:00+00:00",
+          "missing_slots": 5,
+          "crossing": false,
+          "forming": true
+        }
+      ],
+      "complete_bars": 258,
+      "calendar": "fx_ny_v1",
+      "anchor": "ny17_wall_v2"
+    },
+    "H4": {
+      "status": "PARTIAL",
+      "incomplete": [
+        {
+          "start": "2025-06-10T21:00:00+00:00",
+          "end": "2025-06-11T01:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-24T22:00:00+00:00",
+          "end": "2025-12-25T02:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T02:00:00+00:00",
+          "end": "2025-12-25T06:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T06:00:00+00:00",
+          "end": "2025-12-25T10:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T10:00:00+00:00",
+          "end": "2025-12-25T14:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T14:00:00+00:00",
+          "end": "2025-12-25T18:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T18:00:00+00:00",
+          "end": "2025-12-25T22:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T22:00:00+00:00",
+          "end": "2025-12-26T02:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-31T22:00:00+00:00",
+          "end": "2026-01-01T02:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-01-01T02:00:00+00:00",
+          "end": "2026-01-01T06:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-01-01T06:00:00+00:00",
+          "end": "2026-01-01T10:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-01-01T10:00:00+00:00",
+          "end": "2026-01-01T14:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-01-01T14:00:00+00:00",
+          "end": "2026-01-01T18:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-01-01T18:00:00+00:00",
+          "end": "2026-01-01T22:00:00+00:00",
+          "missing_slots": 4,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-06-12T13:00:00+00:00",
+          "end": "2026-06-12T17:00:00+00:00",
+          "missing_slots": 1,
+          "crossing": false,
+          "forming": true
+        }
+      ],
+      "complete_bars": 1562,
+      "calendar": "fx_ny_v1",
+      "anchor": "ny17_wall_v2"
+    }
+  },
+  "structural_context": {
+    "W": {
+      "tf": "W",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "available_at": "2026-06-05T21:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_04d50956d63d9fc1a58a682e",
+          "kind": "BOS",
+          "instrument": "USDCAD",
+          "tf": "W",
+          "clock": {
+            "occurred_from": "2026-06-05T21:00:00+00:00",
+            "occurred_to": "2026-06-05T21:00:00+00:00",
+            "available_at": "2026-06-05T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_6e8762156c74d8eb116997b9",
+          "price_ticks": 138206,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_f9e50d795da4cce4dc35d218"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "crossing_mode": "TRADED",
+            "reference_formed_at": "2026-05-22T21:00:00+00:00",
+            "reference_available_at": "2026-05-29T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        },
+        {
+          "id": "structure_event_1ae1a9eac03c4c3ef4439a17",
+          "kind": "BOS",
+          "instrument": "USDCAD",
+          "tf": "W",
+          "clock": {
+            "occurred_from": "2026-06-05T21:00:00+00:00",
+            "occurred_to": "2026-06-05T21:00:00+00:00",
+            "available_at": "2026-06-05T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_a68bb88d22a3fee6cd75154b",
+          "price_ticks": 139364,
+          "scope_id": "range_ebf989a2100eeb28ad10c297",
+          "bar_ids": [
+            "bar_f9e50d795da4cce4dc35d218"
+          ],
+          "evidence_ids": [
+            "structure_event_3b89213471a642984ae29135"
+          ],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_formed_at": "2026-04-03T21:00:00+00:00",
+            "reference_available_at": "2026-04-10T21:00:00+00:00",
+            "scope_type": "ROOT"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_58398436b9185988067c1001",
+          "side": "BUY",
+          "status": "PROVISIONAL_BREAKOUT",
+          "protected_turn_id": "turn_0aaad2d9fba42d33a6384178",
+          "origin_ticks": 135906,
+          "available_at": "2026-06-05T21:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+    },
+    "D": {
+      "tf": "D",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "available_at": "2026-06-11T21:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_07a51ae9c82bf07a856ce0ae",
+          "kind": "BREAKOUT",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "crossing_mode": "TRADED",
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        },
+        {
+          "id": "structure_event_2bef6e0acb74701cc14487e9",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": "range_0c24b4fd7b54f4bcf8e4b912",
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_5c93a070e33771bc77b0b40a",
+            "candidate_id": null,
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_7675bb7ad7c2f5e47c235fa1",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": "range_6bdae202ef56b279c6c64888",
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_2e99040ed3aaf312180eae86",
+            "candidate_id": null,
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_863932251eeed73e05e4fd35",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": "range_5d825f2a7787cae968f7c823",
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_5c6888e169bbb64ae8c1647c",
+            "candidate_id": null,
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "ROOT"
+          }
+        },
+        {
+          "id": "structure_event_9077c07f91e8b081d44ef34a",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": "range_30cfa4dc3a28e9660bc0c2bf",
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_cfb6375fd110f6bcf8ad88e7",
+            "candidate_id": null,
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_f1ba715a2e71f1e21b818436",
+          "kind": "EXTERNAL_BREAK",
+          "instrument": "USDCAD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-06-11T21:00:00+00:00",
+            "occurred_to": "2026-06-11T21:00:00+00:00",
+            "available_at": "2026-06-11T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_202d17ad72e96e17836c5e3c",
+          "price_ticks": 139537,
+          "scope_id": "range_e402037e9dc7fef09579c94d",
+          "bar_ids": [
+            "bar_1b782238f2b3a0306a867e83"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "old_origin_id": "turn_cfb6375fd110f6bcf8ad88e7",
+            "candidate_id": null,
+            "reference_formed_at": "2026-06-08T21:00:00+00:00",
+            "reference_available_at": "2026-06-09T21:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_5d825f2a7787cae968f7c823",
+          "side": "BUY",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_5c6888e169bbb64ae8c1647c",
+          "origin_ticks": 134887,
+          "available_at": "2026-06-11T21:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+    },
+    "H4": {
+      "tf": "H4",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "available_at": "2026-06-12T09:00:00+00:00",
+      "recent_breaks": [
+        {
+          "id": "structure_event_9f206b8a18c46cf6450148af",
+          "kind": "BREAKOUT",
+          "instrument": "USDCAD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-06-12T09:00:00+00:00",
+            "occurred_to": "2026-06-12T09:00:00+00:00",
+            "available_at": "2026-06-12T09:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_d40c461df92558723ad1a0ee",
+          "price_ticks": 139770,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_1c8709b3486174631af38937"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_8fcf20c8ade54b6c3a98918b",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "crossing_mode": "TRADED",
+            "reference_formed_at": "2026-06-12T01:00:00+00:00",
+            "reference_available_at": "2026-06-12T05:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        }
+      ],
+      "active_root_ranges": [
+        {
+          "id": "range_50ed45ab8d881331d7f8303f",
+          "side": "BUY",
+          "status": "DEFINED",
+          "protected_turn_id": "turn_ae6da24b8a93fa72d128a9e7",
+          "origin_ticks": 138330,
+          "available_at": "2026-06-12T09:00:00+00:00"
+        }
+      ],
+      "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+    }
+  }
+}

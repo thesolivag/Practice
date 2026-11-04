@@ -81,10 +81,10 @@ def run(args, env, settings):
             cid = sizing.client_order_id(f"smoke{int(time.time())}")
             print(f"spot bid {bid} ask {ask}; test BUY {info['min_volume']} with SL/TP 20 pips, id {cid}")
             r = c.place_market_order(args.symbol, "BUY", info["min_volume"], stop_loss=ask - 20 * pip,
-                                     take_profit=ask + 20 * pip, client_order_id=cid, label="SLK-smoke", ref_price=ask)
+                                     take_profit=ask + 20 * pip, client_order_id=cid, label="BISHOP-smoke", ref_price=ask)
             print(f"order: {r}")
             again = c.place_market_order(args.symbol, "BUY", info["min_volume"], stop_loss=ask - 20 * pip,
-                                         take_profit=ask + 20 * pip, client_order_id=cid, label="SLK-smoke", ref_price=ask)
+                                         take_profit=ask + 20 * pip, client_order_id=cid, label="BISHOP-smoke", ref_price=ask)
             print(f"idempotency re-send -> {again['status']}")
             if r.get("position_id"):
                 print(f"close: {c.close_position(r['position_id'])}")
@@ -102,7 +102,7 @@ def similar_symbols(c, symbol):
 
 def pip_check(symbol, info):
     try:
-        from slk import instruments
+        from bishop import instruments
     except Exception:  # slk needs pandas/numpy only; the smoke job installs them
         return "pip table not available"
     m = instruments.mismatch(symbol, info["pip_position"])

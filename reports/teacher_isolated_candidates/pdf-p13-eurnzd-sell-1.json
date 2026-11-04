@@ -1,0 +1,2477 @@
+{
+  "case_id": "pdf-p13-eurnzd-sell-1",
+  "teacher_tf": "H3",
+  "direction": "SELL",
+  "strict_teacher_status": "UNRESOLVED",
+  "interpretation": "Each deduplicated eligible same-direction candidate tested independently. Exposure cap alone bypassed; owner blocks and known story cancellations preserved. Overlapping alternatives are not a portfolio or independent performance sample. No future detection or management inferred; strict teacher identity remains unresolved.",
+  "frozen_order_scope": "INDEPENDENT_CANDIDATES_HYPOTHETICAL_NOT_PORTFOLIO_OR_TEACHER_OUTCOME",
+  "forward_status": "SIMULATED_FROZEN_ORDERS",
+  "snapshot_as_of": "2026-07-17T18:46:00+00:00",
+  "forward_as_of": "2026-07-31T18:46:00+00:00",
+  "costs": {
+    "spread_ticks": "0",
+    "entry_slippage_ticks": "0",
+    "stop_slippage_ticks": "0",
+    "commission_ticks": "0",
+    "financing_ticks": "0"
+  },
+  "input_sha256": "afe3642cb447c5a48587582859ad2b9f6cab1c1292a42b85021bdc14a34066b3",
+  "plan_counts_by_timeframe": {
+    "H2": 15,
+    "H1": 19,
+    "H3": 2
+  },
+  "selected_same_direction_outcomes": {
+    "EXPIRED": 8,
+    "WIN": 15,
+    "LOSS": 2
+  },
+  "plans": [
+    {
+      "tf": "H2",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-16T03:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196339,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "engulf_av_retest",
+      "available_at": "2026-07-16T03:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196402,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_093e64ef58671a86db0b43b5",
+          "observation": {
+            "id": "isolated_teacher_candidate_093e64ef58671a86db0b43b5",
+            "setup_id": "setup_075b210e1d235d8a27a58c9b",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_3cc7a44146cd5f0ddf265b28",
+            "level_1200a4095ea97b024570a62a",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-16T04:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_c0bd4a0d63415b854b2bee68",
+          "observation": {
+            "id": "isolated_teacher_candidate_c0bd4a0d63415b854b2bee68",
+            "setup_id": "setup_0ff0e6464b74094bc67901e8",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-16T04:00:00+00:00",
+              "end": "2026-07-16T05:00:00+00:00",
+              "observed_at": "2026-07-16T05:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "349",
+            "net_r": "0.7825112107623318385650224215",
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_3cc7a44146cd5f0ddf265b28",
+            "oc_9717692cc06c97f69334f577",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "bar_aba38c1aa592ae30f8389122",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ],
+            [
+              "bar_aba38c1aa592ae30f8389122",
+              196227,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-16T06:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_e9bff8b41866163f134483c0",
+          "observation": {
+            "id": "isolated_teacher_candidate_e9bff8b41866163f134483c0",
+            "setup_id": "setup_0228d380950bb0f61c446f9a",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-16T09:00:00+00:00",
+              "end": "2026-07-16T10:00:00+00:00",
+              "observed_at": "2026-07-16T10:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "349",
+            "net_r": "0.7825112107623318385650224215",
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_3cc7a44146cd5f0ddf265b28",
+            "oc_9717692cc06c97f69334f577",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "bar_cc11c4124df307d3fab242e2",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ],
+            [
+              "bar_cc11c4124df307d3fab242e2",
+              196091,
+              "pattern_wick"
+            ],
+            [
+              "level_a733431c855735498b7d61ac",
+              196076,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_b72bf75390cdd7ef50e303b8",
+              196056,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T06:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195942,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_f46ddba0b5e653f8e8e7ee46",
+          "observation": {
+            "id": "isolated_teacher_candidate_f46ddba0b5e653f8e8e7ee46",
+            "setup_id": "setup_1e0da4948c86ede6096e0455",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195942",
+            "fill_window": {
+              "start": "2026-07-16T06:00:00+00:00",
+              "end": "2026-07-16T07:00:00+00:00",
+              "observed_at": "2026-07-16T07:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "268",
+            "net_r": "0.5085388994307400379506641366",
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_eacd8bc5c5e9dcd886a2c452",
+            "level_ffa70bdb9f9bf3b3b42cbeaf",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "structure_event_ab99b08da3fff56743ce8054",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ],
+            [
+              "bar_cc11c4124df307d3fab242e2",
+              196091,
+              "pattern_wick"
+            ],
+            [
+              "level_fa2247e6e636483bee1ff67d",
+              195969,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_5882df101a2fcd03b41b62fc",
+              195988,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-16T06:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196056,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_980d51b1593c8e2b5326ee83",
+          "observation": {
+            "id": "isolated_teacher_candidate_980d51b1593c8e2b5326ee83",
+            "setup_id": "setup_2ae894a1e06c66a0b35ae984",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196056",
+            "fill_window": {
+              "start": "2026-07-17T02:00:00+00:00",
+              "end": "2026-07-17T03:00:00+00:00",
+              "observed_at": "2026-07-17T03:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "382",
+            "net_r": "0.9249394673123486682808716707",
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_1fd0f9b78873c71c80413383",
+            "level_b72bf75390cdd7ef50e303b8",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "bar_679ef6a91ac9515c7137c3c4",
+            "bar_cc11c4124df307d3fab242e2",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ],
+            [
+              "bar_679ef6a91ac9515c7137c3c4",
+              196066,
+              "pattern_wick"
+            ],
+            [
+              "bar_cc11c4124df307d3fab242e2",
+              196091,
+              "pattern_wick"
+            ],
+            [
+              "level_a733431c855735498b7d61ac",
+              196076,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_b106adc71bbc0a0a03d3eb18",
+              196091,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T07:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195944,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 189,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 189
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_sweep_bos",
+      "available_at": "2026-07-16T07:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195944,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-16T07:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-16T10:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195969,
+      "stop_ticks": 196469,
+      "target_ticks": 195674,
+      "contexts": 21,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_b323fc01fbc8321a074de28f",
+          "observation": {
+            "id": "isolated_teacher_candidate_b323fc01fbc8321a074de28f",
+            "setup_id": "setup_0123a05af14e733b7cd394bc",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195969",
+            "fill_window": {
+              "start": "2026-07-16T22:00:00+00:00",
+              "end": "2026-07-16T23:00:00+00:00",
+              "observed_at": "2026-07-16T23:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "295",
+            "net_r": "0.59",
+            "censor_reason": null,
+            "initial_stop_ticks": 196469,
+            "initial_target_ticks": 195674,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_33b2eba700436234e8212550",
+            "level_60706b356c7874ecd390d490",
+            "bar_1c33dbbe2f44da297b573b9d",
+            "level_3c5be69d8d893f0a5399443e",
+            "structure_event_e10b151502fc6dd7db7d012e",
+            "entry_irl_4c9cb66c6c814f2f3dfd6c31",
+            "entry_irl_cfb227dec2739baf4ad0d118",
+            "entry_first_take_3d165900b7dbd473e6cfb873",
+            "entry_first_take_1e390c4a59cc1bcd81ab449f",
+            "bar_7b1aec2e942fc1c56d4107f9",
+            "bar_8dc82834cb8346c6e5b03735",
+            "bar_2f0facb6421392c5ed62fa1a"
+          ],
+          "protected_objects": [
+            [
+              "bar_2f0facb6421392c5ed62fa1a",
+              196461,
+              "pattern_wick"
+            ],
+            [
+              "bar_1c33dbbe2f44da297b573b9d",
+              196464,
+              "pattern_wick"
+            ],
+            [
+              "bar_7b1aec2e942fc1c56d4107f9",
+              196019,
+              "pattern_wick"
+            ],
+            [
+              "bar_8dc82834cb8346c6e5b03735",
+              196028,
+              "pattern_wick"
+            ],
+            [
+              "level_9ab7f8aa505f3b6dc8072f20",
+              196006,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_5882df101a2fcd03b41b62fc",
+              195988,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "oc_9717692cc06c97f69334f577",
+              196023,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195824,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 210,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 210
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "engulf_av_retest",
+      "available_at": "2026-07-16T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195969,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-16T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195969,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195793,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 105,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 105
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T14:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195788,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 105,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 105
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-16T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195788,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 210,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 210
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "engulf_av_retest",
+      "available_at": "2026-07-16T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195819,
+      "stop_ticks": 196469,
+      "target_ticks": null,
+      "contexts": 21,
+      "selected_orders": [],
+      "context_status_counts": {
+        "UNRESOLVED": 21
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-16T23:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196061,
+      "target_ticks": 195512,
+      "contexts": 22,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_1f78fff3f4b9bd792aa9b8c7",
+          "observation": {
+            "id": "isolated_teacher_candidate_1f78fff3f4b9bd792aa9b8c7",
+            "setup_id": "setup_08e163cff79a86df8d051ffc",
+            "status": "CLOSED",
+            "outcome": "LOSS",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-17T02:00:00+00:00",
+              "end": "2026-07-17T03:00:00+00:00",
+              "observed_at": "2026-07-17T03:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "-38",
+            "net_r": "-1",
+            "censor_reason": null,
+            "initial_stop_ticks": 196061,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_754da2e48be4a4ff3f844536",
+            "oc_9717692cc06c97f69334f577",
+            "bar_a23b0f9774691e196f7dc94d",
+            "level_fb071204ee81897f0e226cd5",
+            "structure_event_2ec12f7e5f04e1a355ec0a88",
+            "turn_pool_085cdb84633b095ace503a1c",
+            "entry_irl_61e9b64d980b97e2b161c67e",
+            "entry_irl_c584595e5aa73228ed166cb5",
+            "entry_first_take_60acba8e0b734ab9dd120278",
+            "entry_first_take_86d0bf1cea13387a4beec776",
+            "entry_first_take_88bfb23209e8fc1fe4f04c73"
+          ],
+          "protected_objects": [
+            [
+              "bar_a23b0f9774691e196f7dc94d",
+              196038,
+              "pattern_wick"
+            ],
+            [
+              "level_b72bf75390cdd7ef50e303b8",
+              196056,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_bb5045f623627921de972eba",
+              196038,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 22
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T01:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195819,
+      "stop_ticks": 196043,
+      "target_ticks": 195512,
+      "contexts": 22,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_7c3840a1c672bdfa4625ae2d",
+          "observation": {
+            "id": "isolated_teacher_candidate_7c3840a1c672bdfa4625ae2d",
+            "setup_id": "setup_07ba165538ac6c4f5a85df00",
+            "status": "CLOSED",
+            "outcome": "LOSS",
+            "fill_ticks": "195819",
+            "fill_window": {
+              "start": "2026-07-17T01:00:00+00:00",
+              "end": "2026-07-17T02:00:00+00:00",
+              "observed_at": "2026-07-17T02:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "-224",
+            "net_r": "-1",
+            "censor_reason": null,
+            "initial_stop_ticks": 196043,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_3cc7a44146cd5f0ddf265b28",
+            "oc_157f2e2546ec81003248056b",
+            "bar_aef828c6e98799b1615fbbc6",
+            "level_085cdb84633b095ace503a1c",
+            "structure_event_2ec12f7e5f04e1a355ec0a88",
+            "turn_pool_085cdb84633b095ace503a1c",
+            "entry_irl_61e9b64d980b97e2b161c67e",
+            "entry_irl_c584595e5aa73228ed166cb5",
+            "entry_first_take_60acba8e0b734ab9dd120278",
+            "entry_first_take_86d0bf1cea13387a4beec776",
+            "entry_first_take_88bfb23209e8fc1fe4f04c73",
+            "structure_event_01c43fbb7ac921b289b465d1",
+            "bar_a23b0f9774691e196f7dc94d",
+            "bar_c81e84eacf30be275b1af55f"
+          ],
+          "protected_objects": [
+            [
+              "bar_a23b0f9774691e196f7dc94d",
+              196038,
+              "pattern_wick"
+            ],
+            [
+              "bar_c81e84eacf30be275b1af55f",
+              195951,
+              "pattern_wick"
+            ],
+            [
+              "bar_aef828c6e98799b1615fbbc6",
+              195942,
+              "pattern_wick"
+            ],
+            [
+              "level_e6d9c6a107fa353649b29e08",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_f8946877eb1d7b7f44195183",
+              195830,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_d04480729c0c899bef2e8d55",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 22
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-17T10:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196255,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_d0be73582a31f6874690b56e",
+          "observation": {
+            "id": "isolated_teacher_candidate_d0be73582a31f6874690b56e",
+            "setup_id": "setup_0c29861923f01d465d548480",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_45dd087576242d53002a704d",
+            "level_305d38691c4c5d7528aa706d",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "bar_c76be81cd394012a9e26f5be",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba"
+          ],
+          "protected_objects": [
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "level_143575f474e2dcfaf3436e2c",
+              196273,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-17T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196255,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_772d8aa6c70f00597599e0ce",
+          "observation": {
+            "id": "isolated_teacher_candidate_772d8aa6c70f00597599e0ce",
+            "setup_id": "setup_076de998dc05ca0a1a585489",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_3cc7a44146cd5f0ddf265b28",
+            "level_ba18542e5061d39a5875b7b2",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "bar_fd7ee9b385c7ccb043cd45ee",
+            "bar_38166d90b70da8fb3c2fff86"
+          ],
+          "protected_objects": [
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-17T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_34931d60c28cff9bb37db1f4",
+          "observation": {
+            "id": "isolated_teacher_candidate_34931d60c28cff9bb37db1f4",
+            "setup_id": "setup_0b0d25b03c9b882b6c7ba516",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-17T11:00:00+00:00",
+              "end": "2026-07-17T12:00:00+00:00",
+              "observed_at": "2026-07-17T12:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "511",
+            "net_r": "1.443502824858757062146892655",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_caec8b21e462a029b56215e5",
+            "oc_71a52c827aa9e88f04eaceec",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "bar_38166d90b70da8fb3c2fff86",
+            "bar_fd7ee9b385c7ccb043cd45ee"
+          ],
+          "protected_objects": [
+            [
+              "bar_38166d90b70da8fb3c2fff86",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_fd7ee9b385c7ccb043cd45ee",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195920,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_e63644df76ac8e65e45d2d11",
+          "observation": {
+            "id": "isolated_teacher_candidate_e63644df76ac8e65e45d2d11",
+            "setup_id": "setup_0054030d22c5b2944654bc70",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195920",
+            "fill_window": {
+              "start": "2026-07-17T11:00:00+00:00",
+              "end": "2026-07-17T12:00:00+00:00",
+              "observed_at": "2026-07-17T12:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "408",
+            "net_r": "0.8927789934354485776805251641",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_ae2a65d97fe069004c3f7075",
+            "level_31b267d52770ca46dcddd6b6",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "structure_event_909cd6fa65720e954f04f67f",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_3c9694d565baa17bcc7a506f",
+              196192,
+              "pattern_wick"
+            ],
+            [
+              "level_ffa70bdb9f9bf3b3b42cbeaf",
+              195942,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_36c99c69916a65162712bbed",
+              195922,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-17T11:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_f91be1cf31b300ff3d0ac964",
+          "observation": {
+            "id": "isolated_teacher_candidate_f91be1cf31b300ff3d0ac964",
+            "setup_id": "setup_12af7495e6e36e8dd995f55c",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-17T11:00:00+00:00",
+              "end": "2026-07-17T12:00:00+00:00",
+              "observed_at": "2026-07-17T12:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "511",
+            "net_r": "1.443502824858757062146892655",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_15ae0758a6e4d85746c58103",
+            "oc_9717692cc06c97f69334f577",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "bar_3c9694d565baa17bcc7a506f",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_3c9694d565baa17bcc7a506f",
+              196192,
+              "pattern_wick"
+            ],
+            [
+              "level_b72bf75390cdd7ef50e303b8",
+              196056,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_a6d61f41793651d92099a423",
+              196036,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H3",
+      "model": "confirmation_standing_extreme",
+      "available_at": "2026-07-17T12:00:00+00:00",
+      "timeframe_relation": "TEACHER_TIMEFRAME",
+      "entry_ticks": 196255,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_6fc05adacf8a2bc475aa76bb",
+          "observation": {
+            "id": "isolated_teacher_candidate_6fc05adacf8a2bc475aa76bb",
+            "setup_id": "setup_0fff0697e6cf35d5128b5a13",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_90ac8678326a05fe2c4608e0",
+            "level_b45666cb9ae1e60c8053b0e3",
+            "bar_f97e9f6a10e67a0673e70312",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_c7112b66505e746ba7ec208f",
+            "entry_first_take_a7af60f6e3ffde847f2af026",
+            "bar_d791d8493bc28db565ab3459"
+          ],
+          "protected_objects": [
+            [
+              "bar_f97e9f6a10e67a0673e70312",
+              196372,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-17T14:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_0a4eb153f9d7e00d7cebb0d0",
+          "observation": {
+            "id": "isolated_teacher_candidate_0a4eb153f9d7e00d7cebb0d0",
+            "setup_id": "setup_00ed2e0118bc3cf7d708981e",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-17T14:00:00+00:00",
+              "end": "2026-07-17T15:00:00+00:00",
+              "observed_at": "2026-07-17T15:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "511",
+            "net_r": "1.443502824858757062146892655",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_90ac8678326a05fe2c4608e0",
+            "oc_9717692cc06c97f69334f577",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "bar_ef1a7957482122e52e41c163",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_ef1a7957482122e52e41c163",
+              196152,
+              "pattern_wick"
+            ],
+            [
+              "level_b72bf75390cdd7ef50e303b8",
+              196056,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_a6d61f41793651d92099a423",
+              196036,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "engulf_av_retest",
+      "available_at": "2026-07-17T14:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196136,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_72f27dda6731175c9ad60216",
+          "observation": {
+            "id": "isolated_teacher_candidate_72f27dda6731175c9ad60216",
+            "setup_id": "setup_0121cffe7588d957bdac3d4d",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_33b2eba700436234e8212550",
+            "level_97a9cab7a0414e3ec4b31307",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "bar_ef1a7957482122e52e41c163",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_1d4482ee86d0870f7d1c8007",
+              196153,
+              "pattern_wick"
+            ],
+            [
+              "bar_ef1a7957482122e52e41c163",
+              196152,
+              "pattern_wick"
+            ],
+            [
+              "oc_cbfabf36e5a523de2ea97111",
+              196177,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_fa754946e2026b06c0e53e05",
+              196153,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_d0a18df6d399432005c943d1",
+              196152,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "entry_irl_9edb0a71d857a93c86d71ef4",
+              196153,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "entry_irl_2935dce0da8f2bb9e3ec7927",
+              196153,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "oc_break_retest",
+      "available_at": "2026-07-17T14:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_56f6ace455067324fbe4cef1",
+          "observation": {
+            "id": "isolated_teacher_candidate_56f6ace455067324fbe4cef1",
+            "setup_id": "setup_0144b181755690923f21135f",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "196023",
+            "fill_window": {
+              "start": "2026-07-17T14:00:00+00:00",
+              "end": "2026-07-17T15:00:00+00:00",
+              "observed_at": "2026-07-17T15:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "511",
+            "net_r": "1.443502824858757062146892655",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_bacd0a21386196c291288317",
+            "oc_9717692cc06c97f69334f577",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "bar_ef1a7957482122e52e41c163",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_1d4482ee86d0870f7d1c8007",
+              196153,
+              "pattern_wick"
+            ],
+            [
+              "bar_ef1a7957482122e52e41c163",
+              196152,
+              "pattern_wick"
+            ],
+            [
+              "level_b72bf75390cdd7ef50e303b8",
+              196056,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_a6d61f41793651d92099a423",
+              196036,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "oc_break_retest",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_ac674217b7a9c78ebd00a13b",
+          "observation": {
+            "id": "isolated_teacher_candidate_ac674217b7a9c78ebd00a13b",
+            "setup_id": "setup_044de3fd2697a5c707e82d41",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_df8c85e79195d420e9be9ff0",
+            "oc_71a52c827aa9e88f04eaceec",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "bar_dcb949722691bd199b7960a6",
+            "bar_38166d90b70da8fb3c2fff86",
+            "bar_fd7ee9b385c7ccb043cd45ee"
+          ],
+          "protected_objects": [
+            [
+              "bar_38166d90b70da8fb3c2fff86",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_fd7ee9b385c7ccb043cd45ee",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_5bdbafdff9565e8000955098",
+              196153,
+              "pattern_wick"
+            ],
+            [
+              "bar_dcb949722691bd199b7960a6",
+              196152,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_engulfed_oc",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196023,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_35bc36604355ddacbc016207",
+          "observation": {
+            "id": "isolated_teacher_candidate_35bc36604355ddacbc016207",
+            "setup_id": "setup_074ef7bb1334f85dcbc8d561",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_8e9155cde13ee4f1d6374855",
+            "oc_71a52c827aa9e88f04eaceec",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "bar_dcb949722691bd199b7960a6",
+            "bar_38166d90b70da8fb3c2fff86",
+            "bar_fd7ee9b385c7ccb043cd45ee"
+          ],
+          "protected_objects": [
+            [
+              "bar_38166d90b70da8fb3c2fff86",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_fd7ee9b385c7ccb043cd45ee",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_dcb949722691bd199b7960a6",
+              196152,
+              "pattern_wick"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195795,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_c8dbd7e4b0eeb04ad190b50a",
+          "observation": {
+            "id": "isolated_teacher_candidate_c8dbd7e4b0eeb04ad190b50a",
+            "setup_id": "setup_08c078accbdc7dc16eca3c52",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195795",
+            "fill_window": {
+              "start": "2026-07-17T15:00:00+00:00",
+              "end": "2026-07-17T16:00:00+00:00",
+              "observed_at": "2026-07-17T16:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "283",
+            "net_r": "0.4862542955326460481099656357",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_df8c85e79195d420e9be9ff0",
+            "level_55702c866bc2cb397b4febba",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "structure_event_059100f17059b314ab056ac7",
+            "bar_38166d90b70da8fb3c2fff86",
+            "bar_fd7ee9b385c7ccb043cd45ee"
+          ],
+          "protected_objects": [
+            [
+              "bar_38166d90b70da8fb3c2fff86",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_fd7ee9b385c7ccb043cd45ee",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_dcb949722691bd199b7960a6",
+              196152,
+              "pattern_wick"
+            ],
+            [
+              "level_416d4cc63facbeba14a76d75",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_52c5f05fa2f4f47c868d399f",
+              195819,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H2",
+      "model": "engulf_av_retest",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 196136,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_b2ece8d202202fa295c20ab2",
+          "observation": {
+            "id": "isolated_teacher_candidate_b2ece8d202202fa295c20ab2",
+            "setup_id": "setup_0b71ea1653be9e645a751ec7",
+            "status": "MISSED",
+            "outcome": "EXPIRED",
+            "fill_ticks": null,
+            "fill_window": null,
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "0",
+            "net_r": null,
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_f36038fc013fe9a6f77f66b0",
+            "level_e8f3deed0f1630bd5b50d35e",
+            "bar_52dd53ab8a976dd4c2971919",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_16f55277ccebd30b8e5c8168",
+            "entry_first_take_1a55b42132cfec10a9f2dd34",
+            "bar_dcb949722691bd199b7960a6",
+            "bar_38166d90b70da8fb3c2fff86",
+            "bar_fd7ee9b385c7ccb043cd45ee"
+          ],
+          "protected_objects": [
+            [
+              "bar_fd7ee9b385c7ccb043cd45ee",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_52dd53ab8a976dd4c2971919",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_5bdbafdff9565e8000955098",
+              196153,
+              "pattern_wick"
+            ],
+            [
+              "bar_dcb949722691bd199b7960a6",
+              196152,
+              "pattern_wick"
+            ],
+            [
+              "oc_b87b1c86070bf618ea76a032",
+              196177,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_c83cf959d8c8cd09d5e910f2",
+              196153,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "bar_pool_553e0c787a60f5dd7407bbc8",
+              196152,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_sweep_bos",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195793,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 52,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_61289375c073bccdb429a923",
+          "observation": {
+            "id": "isolated_teacher_candidate_61289375c073bccdb429a923",
+            "setup_id": "setup_0655e9d5a7498292c7496d7b",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195793",
+            "fill_window": {
+              "start": "2026-07-17T15:00:00+00:00",
+              "end": "2026-07-17T16:00:00+00:00",
+              "observed_at": "2026-07-17T16:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "281",
+            "net_r": "0.4811643835616438356164383562",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_eacd8bc5c5e9dcd886a2c452",
+            "level_c6fdcf7a24856fcb2e88318a",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "structure_event_1fb04d7dea7826552cbe4528",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_145e28613de00579cec64341",
+              196044,
+              "pattern_wick"
+            ],
+            [
+              "level_e6d9c6a107fa353649b29e08",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "oc_157f2e2546ec81003248056b",
+              195819,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_f8946877eb1d7b7f44195183",
+              195830,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_d04480729c0c899bef2e8d55",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_bdf074200280084c7870fad6",
+              195795,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 52
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195793,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_2942cadb34380644d76d65b4",
+          "observation": {
+            "id": "isolated_teacher_candidate_2942cadb34380644d76d65b4",
+            "setup_id": "setup_06c4747f9bfe35f393c0a2f7",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195793",
+            "fill_window": {
+              "start": "2026-07-17T15:00:00+00:00",
+              "end": "2026-07-17T16:00:00+00:00",
+              "observed_at": "2026-07-17T16:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "281",
+            "net_r": "0.4811643835616438356164383562",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_20b0ea5921ba400d1dbdf612",
+            "level_c6fdcf7a24856fcb2e88318a",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "structure_event_b90afead4b71f827df85c3a2",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_145e28613de00579cec64341",
+              196044,
+              "pattern_wick"
+            ],
+            [
+              "level_e6d9c6a107fa353649b29e08",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "oc_157f2e2546ec81003248056b",
+              195819,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_f8946877eb1d7b7f44195183",
+              195830,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_d04480729c0c899bef2e8d55",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_bdf074200280084c7870fad6",
+              195795,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H3",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T15:00:00+00:00",
+      "timeframe_relation": "TEACHER_TIMEFRAME",
+      "entry_ticks": 195824,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 26,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_27dc7d0c91013c21d466d492",
+          "observation": {
+            "id": "isolated_teacher_candidate_27dc7d0c91013c21d466d492",
+            "setup_id": "setup_09963b8732ea12c152704d71",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195824",
+            "fill_window": {
+              "start": "2026-07-17T15:00:00+00:00",
+              "end": "2026-07-17T16:00:00+00:00",
+              "observed_at": "2026-07-17T16:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "312",
+            "net_r": "0.5641952983725135623869801085",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_74d1a98d56cf6caec430c1e9",
+            "level_8c8590fadd1d511c281ec139",
+            "bar_f97e9f6a10e67a0673e70312",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_c7112b66505e746ba7ec208f",
+            "entry_first_take_a7af60f6e3ffde847f2af026",
+            "structure_event_ec2673c67778a9b3a6e3af75",
+            "bar_d791d8493bc28db565ab3459"
+          ],
+          "protected_objects": [
+            [
+              "bar_d791d8493bc28db565ab3459",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_f97e9f6a10e67a0673e70312",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_30a0099672edfb1b4b45d1b8",
+              196153,
+              "pattern_wick"
+            ],
+            [
+              "level_27b19ee927a1b9cd892902c6",
+              195873,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_32722e5505da64e141427608",
+              195880,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 26
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    },
+    {
+      "tf": "H1",
+      "model": "confirmation_bo",
+      "available_at": "2026-07-17T16:00:00+00:00",
+      "timeframe_relation": "ALTERNATIVE_TIMEFRAME",
+      "entry_ticks": 195782,
+      "stop_ticks": 196377,
+      "target_ticks": 195512,
+      "contexts": 52,
+      "selected_orders": [
+        {
+          "order_id": "isolated_teacher_candidate_4f48955f09492e521a97d419",
+          "observation": {
+            "id": "isolated_teacher_candidate_4f48955f09492e521a97d419",
+            "setup_id": "setup_006354d4c9a9e13f376c21a5",
+            "status": "CLOSED",
+            "outcome": "WIN",
+            "fill_ticks": "195782",
+            "fill_window": {
+              "start": "2026-07-17T20:00:00+00:00",
+              "end": "2026-07-17T21:00:00+00:00",
+              "observed_at": "2026-07-17T21:00:00+00:00"
+            },
+            "remaining_quantity": "0",
+            "realized_ticks_quantity": "270",
+            "net_r": "0.4537815126050420168067226891",
+            "censor_reason": null,
+            "initial_stop_ticks": 196377,
+            "initial_target_ticks": 195512,
+            "costs": {
+              "spread_ticks": "0",
+              "entry_slippage_ticks": "0",
+              "stop_slippage_ticks": "0",
+              "commission_ticks": "0",
+              "financing_ticks": "0"
+            },
+            "management": []
+          },
+          "evidence_ids": [
+            "story_bacd0a21386196c291288317",
+            "level_758a960209da486d67fe1181",
+            "bar_b26b93b763e38e76741fd3be",
+            "level_2fced346b765fa441fc8c5da",
+            "structure_event_b7dfd5a0ad7ccd336586337c",
+            "later_kl_irl_a6504c691d5a4715f1692004",
+            "later_kl_irl_71cfad0bd4d4155e99c01e8d",
+            "entry_first_take_69f7ebbb627051784a488f39",
+            "entry_first_take_ba3cc292dfbacaa2fd3374e9",
+            "structure_event_358aa5b2d24e148507808ac2",
+            "bar_430ed1edb7781a4321c539b4",
+            "bar_884f06124f4ee1b590ad6467",
+            "bar_2e2014596adc639acce8a2ba",
+            "bar_c76be81cd394012a9e26f5be"
+          ],
+          "protected_objects": [
+            [
+              "bar_430ed1edb7781a4321c539b4",
+              196073,
+              "pattern_wick"
+            ],
+            [
+              "bar_884f06124f4ee1b590ad6467",
+              196076,
+              "pattern_wick"
+            ],
+            [
+              "bar_2e2014596adc639acce8a2ba",
+              196046,
+              "pattern_wick"
+            ],
+            [
+              "bar_c76be81cd394012a9e26f5be",
+              196255,
+              "pattern_wick"
+            ],
+            [
+              "bar_b26b93b763e38e76741fd3be",
+              196372,
+              "pattern_wick"
+            ],
+            [
+              "bar_63f7594ed8413cf150add4bf",
+              195868,
+              "pattern_wick"
+            ],
+            [
+              "level_c6fdcf7a24856fcb2e88318a",
+              195793,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_e6d9c6a107fa353649b29e08",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_2fe5bf9f562f43b4ed69107b",
+              195788,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "oc_157f2e2546ec81003248056b",
+              195819,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_f8946877eb1d7b7f44195183",
+              195830,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_d04480729c0c899bef2e8d55",
+              195824,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ],
+            [
+              "level_bdf074200280084c7870fad6",
+              195795,
+              "nearby_structure_or_liquidity_OUR_CHOICE"
+            ]
+          ]
+        }
+      ],
+      "context_status_counts": {
+        "ELIGIBLE": 52
+      },
+      "stop_protection_shortfalls": [],
+      "protection_evidence_present": true
+    }
+  ],
+  "excluded_context_counts": {
+    "DUPLICATE_CONTEXT": 639,
+    "INELIGIBLE": 945
+  }
+}

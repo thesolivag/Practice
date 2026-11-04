@@ -1,0 +1,981 @@
+{
+  "case_id": "video-t3-usdcad-buy-open",
+  "execution_status": "DETECTION_ONLY_NOT_EXECUTED",
+  "teacher_acceptance": "NOT_ESTABLISHED",
+  "source": {
+    "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+    "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+    "pts_start": 1515,
+    "pts_end": 1735.3,
+    "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+    "frame_paths": [
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_028.jpg",
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_029.jpg"
+    ]
+  },
+  "summary": {
+    "stories": 5390,
+    "setups": 25310,
+    "orders": 0,
+    "outcomes": {}
+  },
+  "coverage": {
+    "base": {
+      "status": "INCOMPLETE",
+      "expected_slots": 6309,
+      "present_slots": 6258,
+      "missing_slots": 51,
+      "missing": [
+        "2025-12-24T22:00:00+00:00",
+        "2025-12-24T23:00:00+00:00",
+        "2025-12-25T00:00:00+00:00",
+        "2025-12-25T01:00:00+00:00",
+        "2025-12-25T02:00:00+00:00",
+        "2025-12-25T03:00:00+00:00",
+        "2025-12-25T04:00:00+00:00",
+        "2025-12-25T05:00:00+00:00",
+        "2025-12-25T06:00:00+00:00",
+        "2025-12-25T07:00:00+00:00",
+        "2025-12-25T08:00:00+00:00",
+        "2025-12-25T09:00:00+00:00",
+        "2025-12-25T10:00:00+00:00",
+        "2025-12-25T11:00:00+00:00",
+        "2025-12-25T12:00:00+00:00",
+        "2025-12-25T13:00:00+00:00",
+        "2025-12-25T14:00:00+00:00",
+        "2025-12-25T15:00:00+00:00",
+        "2025-12-25T16:00:00+00:00",
+        "2025-12-25T17:00:00+00:00",
+        "2025-12-25T18:00:00+00:00",
+        "2025-12-25T19:00:00+00:00",
+        "2025-12-25T20:00:00+00:00",
+        "2025-12-25T21:00:00+00:00",
+        "2025-12-25T22:00:00+00:00",
+        "2025-12-25T23:00:00+00:00",
+        "2025-12-26T00:00:00+00:00",
+        "2025-12-31T22:00:00+00:00",
+        "2025-12-31T23:00:00+00:00",
+        "2026-01-01T00:00:00+00:00",
+        "2026-01-01T01:00:00+00:00",
+        "2026-01-01T02:00:00+00:00",
+        "2026-01-01T03:00:00+00:00",
+        "2026-01-01T04:00:00+00:00",
+        "2026-01-01T05:00:00+00:00",
+        "2026-01-01T06:00:00+00:00",
+        "2026-01-01T07:00:00+00:00",
+        "2026-01-01T08:00:00+00:00",
+        "2026-01-01T09:00:00+00:00",
+        "2026-01-01T10:00:00+00:00",
+        "2026-01-01T11:00:00+00:00",
+        "2026-01-01T12:00:00+00:00",
+        "2026-01-01T13:00:00+00:00",
+        "2026-01-01T14:00:00+00:00",
+        "2026-01-01T15:00:00+00:00",
+        "2026-01-01T16:00:00+00:00",
+        "2026-01-01T17:00:00+00:00",
+        "2026-01-01T18:00:00+00:00",
+        "2026-01-01T19:00:00+00:00",
+        "2026-01-01T20:00:00+00:00",
+        "2026-01-01T21:00:00+00:00"
+      ]
+    },
+    "timeframes": {
+      "W": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-06-08T21:00:00+00:00",
+            "end": "2025-06-13T21:00:00+00:00",
+            "missing_slots": 51,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-21T22:00:00+00:00",
+            "end": "2025-12-26T22:00:00+00:00",
+            "missing_slots": 27,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-28T22:00:00+00:00",
+            "end": "2026-01-02T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 50,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "D": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-06-10T21:00:00+00:00",
+            "end": "2025-06-11T21:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T22:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 24,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 259,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H4": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-06-10T21:00:00+00:00",
+            "end": "2025-06-11T01:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T02:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T02:00:00+00:00",
+            "end": "2025-12-25T06:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T06:00:00+00:00",
+            "end": "2025-12-25T10:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T10:00:00+00:00",
+            "end": "2025-12-25T14:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T14:00:00+00:00",
+            "end": "2025-12-25T18:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T18:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T02:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T02:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T02:00:00+00:00",
+            "end": "2026-01-01T06:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T06:00:00+00:00",
+            "end": "2026-01-01T10:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T10:00:00+00:00",
+            "end": "2026-01-01T14:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T14:00:00+00:00",
+            "end": "2026-01-01T18:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T18:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 4,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 1564,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H2": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-06-10T23:00:00+00:00",
+            "end": "2025-06-11T01:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T00:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T00:00:00+00:00",
+            "end": "2025-12-25T02:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T02:00:00+00:00",
+            "end": "2025-12-25T04:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T04:00:00+00:00",
+            "end": "2025-12-25T06:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T06:00:00+00:00",
+            "end": "2025-12-25T08:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T08:00:00+00:00",
+            "end": "2025-12-25T10:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T10:00:00+00:00",
+            "end": "2025-12-25T12:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T12:00:00+00:00",
+            "end": "2025-12-25T14:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T14:00:00+00:00",
+            "end": "2025-12-25T16:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T16:00:00+00:00",
+            "end": "2025-12-25T18:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T18:00:00+00:00",
+            "end": "2025-12-25T20:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T20:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T00:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-26T00:00:00+00:00",
+            "end": "2025-12-26T02:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T00:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T00:00:00+00:00",
+            "end": "2026-01-01T02:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T02:00:00+00:00",
+            "end": "2026-01-01T04:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T04:00:00+00:00",
+            "end": "2026-01-01T06:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T06:00:00+00:00",
+            "end": "2026-01-01T08:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T08:00:00+00:00",
+            "end": "2026-01-01T10:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T10:00:00+00:00",
+            "end": "2026-01-01T12:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T12:00:00+00:00",
+            "end": "2026-01-01T14:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T14:00:00+00:00",
+            "end": "2026-01-01T16:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T16:00:00+00:00",
+            "end": "2026-01-01T18:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T18:00:00+00:00",
+            "end": "2026-01-01T20:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T20:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 2,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 3128,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H3": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-25T01:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T01:00:00+00:00",
+            "end": "2025-12-25T04:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T04:00:00+00:00",
+            "end": "2025-12-25T07:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T07:00:00+00:00",
+            "end": "2025-12-25T10:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T10:00:00+00:00",
+            "end": "2025-12-25T13:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T13:00:00+00:00",
+            "end": "2025-12-25T16:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T16:00:00+00:00",
+            "end": "2025-12-25T19:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T19:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-26T01:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2026-01-01T01:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T01:00:00+00:00",
+            "end": "2026-01-01T04:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T04:00:00+00:00",
+            "end": "2026-01-01T07:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T07:00:00+00:00",
+            "end": "2026-01-01T10:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T10:00:00+00:00",
+            "end": "2026-01-01T13:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T13:00:00+00:00",
+            "end": "2026-01-01T16:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T16:00:00+00:00",
+            "end": "2026-01-01T19:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T19:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 3,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 2086,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H1": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2025-12-24T22:00:00+00:00",
+            "end": "2025-12-24T23:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-24T23:00:00+00:00",
+            "end": "2025-12-25T00:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T00:00:00+00:00",
+            "end": "2025-12-25T01:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T01:00:00+00:00",
+            "end": "2025-12-25T02:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T02:00:00+00:00",
+            "end": "2025-12-25T03:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T03:00:00+00:00",
+            "end": "2025-12-25T04:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T04:00:00+00:00",
+            "end": "2025-12-25T05:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T05:00:00+00:00",
+            "end": "2025-12-25T06:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T06:00:00+00:00",
+            "end": "2025-12-25T07:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T07:00:00+00:00",
+            "end": "2025-12-25T08:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T08:00:00+00:00",
+            "end": "2025-12-25T09:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T09:00:00+00:00",
+            "end": "2025-12-25T10:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T10:00:00+00:00",
+            "end": "2025-12-25T11:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T11:00:00+00:00",
+            "end": "2025-12-25T12:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T12:00:00+00:00",
+            "end": "2025-12-25T13:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T13:00:00+00:00",
+            "end": "2025-12-25T14:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T14:00:00+00:00",
+            "end": "2025-12-25T15:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T15:00:00+00:00",
+            "end": "2025-12-25T16:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T16:00:00+00:00",
+            "end": "2025-12-25T17:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T17:00:00+00:00",
+            "end": "2025-12-25T18:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T18:00:00+00:00",
+            "end": "2025-12-25T19:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T19:00:00+00:00",
+            "end": "2025-12-25T20:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T20:00:00+00:00",
+            "end": "2025-12-25T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T21:00:00+00:00",
+            "end": "2025-12-25T22:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T22:00:00+00:00",
+            "end": "2025-12-25T23:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-25T23:00:00+00:00",
+            "end": "2025-12-26T00:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-26T00:00:00+00:00",
+            "end": "2025-12-26T01:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T22:00:00+00:00",
+            "end": "2025-12-31T23:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2025-12-31T23:00:00+00:00",
+            "end": "2026-01-01T00:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T00:00:00+00:00",
+            "end": "2026-01-01T01:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T01:00:00+00:00",
+            "end": "2026-01-01T02:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T02:00:00+00:00",
+            "end": "2026-01-01T03:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T03:00:00+00:00",
+            "end": "2026-01-01T04:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T04:00:00+00:00",
+            "end": "2026-01-01T05:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T05:00:00+00:00",
+            "end": "2026-01-01T06:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T06:00:00+00:00",
+            "end": "2026-01-01T07:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T07:00:00+00:00",
+            "end": "2026-01-01T08:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T08:00:00+00:00",
+            "end": "2026-01-01T09:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T09:00:00+00:00",
+            "end": "2026-01-01T10:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T10:00:00+00:00",
+            "end": "2026-01-01T11:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T11:00:00+00:00",
+            "end": "2026-01-01T12:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T12:00:00+00:00",
+            "end": "2026-01-01T13:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T13:00:00+00:00",
+            "end": "2026-01-01T14:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T14:00:00+00:00",
+            "end": "2026-01-01T15:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T15:00:00+00:00",
+            "end": "2026-01-01T16:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T16:00:00+00:00",
+            "end": "2026-01-01T17:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T17:00:00+00:00",
+            "end": "2026-01-01T18:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T18:00:00+00:00",
+            "end": "2026-01-01T19:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T19:00:00+00:00",
+            "end": "2026-01-01T20:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T20:00:00+00:00",
+            "end": "2026-01-01T21:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          },
+          {
+            "start": "2026-01-01T21:00:00+00:00",
+            "end": "2026-01-01T22:00:00+00:00",
+            "missing_slots": 1,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 6258,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      }
+    }
+  },
+  "target_profile": "context_h4_kl",
+  "target_planning_statuses": {
+    "ELIGIBLE": 12056,
+    "UNRESOLVED": 13254
+  },
+  "unresolved_setup_reasons": {
+    "context_entry_interval_unobserved": 2808,
+    "context_objective_not_known": 13254,
+    "target_unresolved": 13254,
+    "context_opposing_h4_kl_unresolved": 12552,
+    "context_objective_unresolved": 12552,
+    "context_objective_unpublished": 12552
+  },
+  "standing_source_side_candidates": 1362,
+  "standing_timeframes": [
+    "H1",
+    "H2",
+    "H3"
+  ],
+  "h2_source_side_candidates": 6458,
+  "h2_source_side_models": [
+    "confirmation_bo",
+    "confirmation_engulfed_oc",
+    "confirmation_standing_extreme",
+    "confirmation_sweep_bos",
+    "engulf_av_retest",
+    "oc_break_retest"
+  ],
+  "selection_rejections": {},
+  "limitations": [
+    "Source-visible exploratory window is not a teacher fill window.",
+    "Full frozen history still requires coverage checks; bounded history cannot establish full higher-timeframe context.",
+    "IC and FOREXcom chart alignment is unverified.",
+    "A detected pattern/order is not automatically the source trade.",
+    "No source numeric tolerance or expected outcome is fitted."
+  ]
+}

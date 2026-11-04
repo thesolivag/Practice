@@ -1,0 +1,105 @@
+name: Bishop current IC Markets bias
+on:
+  workflow_dispatch:
+    inputs:
+      bias_reference_profile:
+        description: Required external-break model or source-comparison diagnostic
+        type: choice
+        options: [source_lineage, last_pre_touch]
+        default: last_pre_touch
+      preview_only:
+        description: Collect and chart bias without persistence or notification delivery
+        type: boolean
+        default: false
+  # Register this branch-only workflow; pushing the file does not collect data.
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-live-bias.yml']
+permissions:
+  contents: read
+concurrency:
+  group: bishop-current-bias
+  cancel-in-progress: false
+jobs:
+  scan:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pair: [GBPUSD, EURNZD]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt matplotlib
+      - uses: actions/cache@v4
+        with:
+          path: .bishop-current-cache/${{ matrix.pair }}
+          key: bishop-current-h1-v1-${{ matrix.pair }}-${{ github.run_id }}
+          restore-keys: bishop-current-h1-v1-${{ matrix.pair }}-
+      - name: Read closed IC Markets candles without refreshing shared tokens
+        env:
+          PAIR: ${{ matrix.pair }}
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: |
+          python -m bishop.current_data --pair "$PAIR" \
+            --cache ".bishop-current-cache/$PAIR" \
+            --out "reports/current_bias/$PAIR/acquisition.json"
+      - name: Confirm rejection-to-external-break bias and optionally persist to Bishop database
+        env:
+          PAIR: ${{ matrix.pair }}
+          BISHOP_DATABASE_URL: ${{ secrets.BISHOP_DATABASE_URL }}
+          BISHOP_DATABASE_PASSWORD: ${{ secrets.BISHOP_DATABASE_PASSWORD }}
+          BISHOP_DATABASE_CA: ${{ secrets.BISHOP_DATABASE_CA }}
+          BISHOP_TELEGRAM_DELIVERY_ENABLED: ${{ vars.BISHOP_TELEGRAM_DELIVERY_ENABLED }}
+          BIAS_PREVIEW_ONLY: ${{ inputs.preview_only }}
+          BIAS_REFERENCE_PROFILE: ${{ inputs.bias_reference_profile }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from bishop.scan_bias import main
+          pair=os.environ['PAIR']
+          acquisition=json.loads(Path(f'reports/current_bias/{pair}/acquisition.json').read_text())
+          args=['--input',acquisition['path'],'--manifest',acquisition['manifest'],
+                '--as-of',acquisition['as_of'],'--out',f'reports/current_bias/{pair}',
+                '--bias-reference-profile',os.environ.get('BIAS_REFERENCE_PROFILE') or 'last_pre_touch']
+          if os.environ.get('BISHOP_DATABASE_URL') and os.environ.get('BIAS_PREVIEW_ONLY') != 'true':
+              args.append('--persist')
+          main(args)
+          PY
+      - name: Send new Bishop paper notifications only when explicitly configured
+        if: inputs.preview_only != true && inputs.bias_reference_profile != 'source_lineage' && vars.BISHOP_TELEGRAM_DELIVERY_ENABLED == 'true'
+        env:
+          BISHOP_DATABASE_URL: ${{ secrets.BISHOP_DATABASE_URL }}
+          BISHOP_DATABASE_PASSWORD: ${{ secrets.BISHOP_DATABASE_PASSWORD }}
+          BISHOP_DATABASE_CA: ${{ secrets.BISHOP_DATABASE_CA }}
+          BISHOP_TELEGRAM_BOT_TOKEN: ${{ secrets.BISHOP_TELEGRAM_BOT_TOKEN }}
+          BISHOP_TELEGRAM_CHAT_ID: ${{ secrets.BISHOP_TELEGRAM_CHAT_ID }}
+          BISHOP_TELEGRAM_DELIVERY_ENABLED: 'true'
+        run: python -m bishop.telegram_delivery
+      - name: Render the selected timeframe readings on actual IC candles
+        env:
+          PAIR: ${{ matrix.pair }}
+        run: python -m reports.render_bias_chart --acquisition "reports/current_bias/$PAIR/acquisition.json" --engine "reports/current_bias/$PAIR/engine.json" --out "reports/current_bias/$PAIR/charts"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-current-bias-${{ matrix.pair }}
+          path: |
+            reports/current_bias/
+            .bishop-current-cache/${{ matrix.pair }}/
+          retention-days: 7
+          include-hidden-files: true

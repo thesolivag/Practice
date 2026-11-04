@@ -1,0 +1,53 @@
+         122192698 function calls (115636292 primitive calls) in 58.396 seconds
+
+   Ordered by: cumulative time
+   List reduced from 446 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.032    0.032   60.000   60.000 /home/runner/work/practicing/practicing/bishop/v2/engine.py:53(run)
+        6    6.322    1.054   36.781    6.130 /home/runner/work/practicing/practicing/bishop/v2/structure.py:101(analyze)
+   417335    1.518    0.000   21.375    0.000 /home/runner/work/practicing/practicing/bishop/v2/structure.py:133(emit)
+        1    0.001    0.001   18.033   18.033 /home/runner/work/practicing/practicing/bishop/v2/stories.py:350(find_stories)
+        1    0.501    0.501   17.431   17.431 /home/runner/work/practicing/practicing/bishop/v2/stories.py:148(_reaction_candidates)
+   594091    0.879    0.000   16.533    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:41(stable_id)
+5072779/594097    4.462    0.000   11.688    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:27(jsonable)
+    39757    0.244    0.000   11.422    0.000 {built-in method builtins.sorted}
+    47318   10.849    0.000   10.857    0.000 /home/runner/work/practicing/practicing/bishop/v2/stories.py:167(<genexpr>)
+ 38043082    5.009    0.000    7.244    0.000 {built-in method builtins.isinstance}
+    77191    0.251    0.000    5.610    0.000 /home/runner/work/practicing/practicing/bishop/v2/structure.py:153(snapshot)
+   434702    0.714    0.000    5.063    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:171(__post_init__)
+   545616    0.946    0.000    5.043    0.000 /home/runner/work/practicing/practicing/bishop/v2/stories.py:122(_role)
+  2488865    2.462    0.000    4.233    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:19(utc)
+   434702    0.404    0.000    4.016    0.000 <string>:2(__init__)
+2522916/482960    1.840    0.000    3.836    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:46(_freeze)
+   434702    0.871    0.000    3.612    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:73(__post_init__)
+   594091    0.638    0.000    3.377    0.000 /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/json/__init__.py:183(dumps)
+        6    0.123    0.020    3.093    0.515 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:120(aggregate)
+   594091    0.526    0.000    2.601    0.000 /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/json/encoder.py:183(encode)
+   565751    0.248    0.000    2.471    0.000 /home/runner/work/practicing/practicing/bishop/v2/stories.py:103(_role_qualification)
+  4854657    1.525    0.000    2.355    0.000 /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/dataclasses.py:1301(is_dataclass)
+  7371287    1.111    0.000    2.235    0.000 <frozen abc>:117(__instancecheck__)
+   565751    0.623    0.000    2.160    0.000 /home/runner/work/practicing/practicing/bishop/v2/stories.py:56(qualification)
+   594091    1.832    0.000    1.832    0.000 /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/json/encoder.py:205(iterencode)
+    75460    0.053    0.000    1.523    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:110(__call__)
+    13467    0.566    0.000    1.448    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:16(bounds)
+  1038634    1.106    0.000    1.414    0.000 /home/runner/work/practicing/practicing/bishop/v2/stories.py:50(latest)
+   544968    0.303    0.000    1.249    0.000 /home/runner/work/practicing/practicing/bishop/v2/structure.py:70(role_at)
+  9555923    1.242    0.000    1.242    0.000 {method 'get' of 'dict' objects}
+    26680    0.075    0.000    1.175    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:132(__post_init__)
+  7371287    1.124    0.000    1.124    0.000 {built-in method _abc._abc_instancecheck}
+    83455    0.348    0.000    1.081    0.000 /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/dataclasses.py:1540(replace)
+711156/673608    0.358    0.000    0.959    0.000 {built-in method builtins.any}
+  2526777    0.812    0.000    0.812    0.000 {method 'utcoffset' of 'datetime.datetime' objects}
+    26934    0.718    0.000    0.811    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:31(convert)
+   164698    0.047    0.000    0.790    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:59(<lambda>)
+   170957    0.301    0.000    0.768    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:37(is_open)
+   115297    0.079    0.000    0.727    0.000 /home/runner/work/practicing/practicing/bishop/v2/aggregation.py:88(expected_slots)
+   482960    0.221    0.000    0.686    0.000 /home/runner/work/practicing/practicing/bishop/v2/types.py:56(_ticks)
+        1    0.050    0.050    0.666    0.666 /home/runner/work/practicing/practicing/bishop/v2/feed.py:12(load_feed)
+        2    0.000    0.000    0.593    0.297 /home/runner/work/practicing/practicing/bishop/v2/stories.py:98(_indexed_structures)
+        6    0.056    0.009    0.593    0.099 /home/runner/work/practicing/practicing/bishop/v2/stories.py:68(__init__)
+  2697734    0.562    0.000    0.562    0.000 {method 'astimezone' of 'datetime.datetime' objects}
+        6    0.039    0.007    0.556    0.093 /home/runner/work/practicing/practicing/bishop/v2/continuity.py:15(invalidate_levels)
+
+

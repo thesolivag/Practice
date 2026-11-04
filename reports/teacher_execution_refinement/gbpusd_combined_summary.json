@@ -1,0 +1,21 @@
+{
+  "case_id": "pdf-p27-gbpusd-sell-1",
+  "strict_teacher_status": "UNRESOLVED",
+  "scope": "OVERLAPPING_INDEPENDENT_RESEARCH_ALTERNATIVES_NOT_PORTFOLIO_OR_TEACHER_OUTCOMES",
+  "refinement_source_run": 40237350401,
+  "m1_source_run": 40237497126,
+  "best_comparable_resolution": "M5_FOR_ORIGINALLY_CENSORED_ORDERS",
+  "outcome_counts_by_timeframe": {
+    "H1": {
+      "LOSS": 4,
+      "CENSORED": 4,
+      "WIN": 8
+    },
+    "H2": {
+      "WIN": 4
+    }
+  },
+  "remaining_uncertainty": "4 H1 orders: M5 sequence ambiguous; M1 incomplete and one sequence still ambiguous",
+  "detection_rerun": false,
+  "source_prices_or_stops_changed": false
+}

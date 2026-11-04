@@ -1,0 +1,1004 @@
+{
+  "scope": "FROZEN_QUOTE_AUDIT_NOT_PORTFOLIO_REPLAY_OR_TEACHER_ACCEPTANCE",
+  "cases": [
+    {
+      "order": {
+        "id": "order_3e50be2f794151f706aeaf20",
+        "setup_id": "setup_0012287a4b5915d955ec3a67",
+        "instrument": "USDCAD",
+        "tf": "H1",
+        "model": "confirmation_bo",
+        "side": "SELL",
+        "kind": "LIMIT",
+        "clock": {
+          "occurred_from": "2026-06-05T07:00:00+00:00",
+          "occurred_to": "2026-06-05T07:00:00+00:00",
+          "available_at": "2026-06-05T07:00:00+00:00",
+          "precision": "BAR"
+        },
+        "entry_ticks": 139039,
+        "stop_ticks": 139127,
+        "target_ticks": 139026,
+        "quantity": "1",
+        "expires_at": "2026-06-06T07:00:00+00:00",
+        "details": {
+          "story_id": "story_5e2c1f769c55210ab622e497",
+          "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+          "economic_signal_id": "economic_signal_ee7b8fa7bc456df326d7a034",
+          "context_policy": "first_causal_context_canonical"
+        }
+      },
+      "minute": "2026-06-05T13:43:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 82,
+      "ask_rows": 77,
+      "expected_m1": {
+        "open": 139035,
+        "high": 139044,
+        "low": 139022,
+        "close": 139038
+      },
+      "observed_tick_ohlc": {
+        "open": 139035,
+        "high": 139044,
+        "low": 139022,
+        "close": 139038
+      },
+      "boundary_tie": false,
+      "comparable": true,
+      "constant_zero_spread_sequence": {
+        "status": "FILLED_WITHOUT_EXIT_IN_MINUTE",
+        "entry_at_ms": 1780667001256
+      }
+    },
+    {
+      "order": {
+        "id": "order_8d39b81aeff6de85cb31675b",
+        "setup_id": "setup_08a9d9eb7c9f1812684009a0",
+        "instrument": "USDCAD",
+        "tf": "H1",
+        "model": "confirmation_engulfed_oc",
+        "side": "SELL",
+        "kind": "LIMIT",
+        "clock": {
+          "occurred_from": "2026-06-05T08:00:00+00:00",
+          "occurred_to": "2026-06-05T08:00:00+00:00",
+          "available_at": "2026-06-05T08:00:00+00:00",
+          "precision": "BAR"
+        },
+        "entry_ticks": 138894,
+        "stop_ticks": 139127,
+        "target_ticks": 138892,
+        "quantity": "1",
+        "expires_at": "2026-06-06T08:00:00+00:00",
+        "details": {
+          "story_id": "story_3f2ba5429e38fa8845418b8e",
+          "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+          "economic_signal_id": "economic_signal_a0133b8ca151b0e1b87b60d6",
+          "context_policy": "first_causal_context_canonical"
+        }
+      },
+      "minute": "2026-06-05T08:48:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 26,
+      "ask_rows": 25,
+      "expected_m1": {
+        "open": 138892,
+        "high": 138900,
+        "low": 138892,
+        "close": 138898
+      },
+      "observed_tick_ohlc": {
+        "open": 138892,
+        "high": 138900,
+        "low": 138892,
+        "close": 138898
+      },
+      "boundary_tie": false,
+      "comparable": true,
+      "constant_zero_spread_sequence": {
+        "status": "FILLED_WITHOUT_EXIT_IN_MINUTE",
+        "entry_at_ms": 1780649286796
+      }
+    },
+    {
+      "order": {
+        "id": "order_c14c3280d867fd44d6882542",
+        "setup_id": "setup_0297ebaabe63dd97dc45870c",
+        "instrument": "USDCAD",
+        "tf": "H1",
+        "model": "confirmation_engulfed_oc",
+        "side": "SELL",
+        "kind": "LIMIT",
+        "clock": {
+          "occurred_from": "2026-06-05T08:00:00+00:00",
+          "occurred_to": "2026-06-05T08:00:00+00:00",
+          "available_at": "2026-06-05T08:00:00+00:00",
+          "precision": "BAR"
+        },
+        "entry_ticks": 138918,
+        "stop_ticks": 139127,
+        "target_ticks": 138917,
+        "quantity": "1",
+        "expires_at": "2026-06-06T08:00:00+00:00",
+        "details": {
+          "story_id": "story_34e6b831352fc8a93273385a",
+          "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+          "economic_signal_id": "economic_signal_cb0b9b78ec7300a197b8748f",
+          "context_policy": "first_causal_context_canonical"
+        }
+      },
+      "minute": "2026-06-05T12:27:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 48,
+      "ask_rows": 48,
+      "expected_m1": {
+        "open": 138898,
+        "high": 138926,
+        "low": 138891,
+        "close": 138926
+      },
+      "observed_tick_ohlc": {
+        "open": 138898,
+        "high": 138926,
+        "low": 138891,
+        "close": 138926
+      },
+      "boundary_tie": false,
+      "comparable": true,
+      "constant_zero_spread_sequence": {
+        "status": "TARGET_AFTER_ENTRY",
+        "entry_at_ms": 1780662466243,
+        "exit_at_ms": 1780662466609
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "minute": "2026-06-05T20:57:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-05T20:58:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-05T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:00:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:02:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:03:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:04:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:06:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:07:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:08:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:09:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:10:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:11:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:12:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:13:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:14:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:18:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:19:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:27:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-07T21:53:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:00:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:02:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:03:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:04:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:05:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:06:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:09:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:10:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:11:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:12:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:14:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:15:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:16:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:17:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:18:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:19:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-08T21:24:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T20:43:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:00:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:02:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:04:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:07:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:09:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:10:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:12:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:14:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:15:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:16:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:17:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:19:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:21:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:22:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:23:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:24:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:26:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:27:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:42:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:51:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:52:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-09T21:55:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:00:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:03:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:04:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:05:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:06:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:07:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:08:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:09:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:11:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:12:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:13:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:14:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:16:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:18:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:19:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:28:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:56:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-10T21:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:00:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:02:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:03:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:04:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:08:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:14:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:44:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-11T21:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-12T20:57:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-12T20:58:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    },
+    {
+      "minute": "2026-06-12T20:59:00+00:00",
+      "bid_complete": true,
+      "ask_complete": true,
+      "bid_rows": 0,
+      "ask_rows": 0,
+      "status": "NO_BID_QUOTES_RETURNED",
+      "historical_market_closed_inferred": false
+    }
+  ],
+  "actual_variable_spread_simulated": false,
+  "limitations": [
+    "Zero-spread sequence is a diagnostic, not an actual broker fill.",
+    "No returned quotes do not establish historical closure or authorize filled-in bars.",
+    "Current broker schedule is not automatically a historical June calendar."
+  ]
+}

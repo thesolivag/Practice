@@ -1,0 +1,225 @@
+{
+  "broker_symbol": "USDCAD",
+  "calendar_id": "fx_ny_v1",
+  "anchor_id": "ny17_wall_v2",
+  "calendar_version": "fx_ny_v1_declared_hypothesis",
+  "asset_class": "FX",
+  "symbol_mapping_status": "EXACT_BROKER_NAME_ALTERNATE_SOURCE_FEED",
+  "catalogue_source": "origin/claude-kevin-king:data/broker_symbols.json",
+  "catalogue_commit": "a4adf5206577b174590aeb70f85581a617fe3c1c",
+  "catalogue_updated_at": "2026-10-22T08:13:42.528075+00:00",
+  "replay_calendar_status": "DECLARED_FX_HYPOTHESIS",
+  "symbol": "USDCAD",
+  "tick_size": "0.00001",
+  "distance_unit": "0.0001",
+  "price_basis": "BID",
+  "venue": "ICMARKETS",
+  "provider": "IC Markets cTrader Open API",
+  "base_tf": "M1",
+  "source_id": "source_919a3776ecac1a363911bf23",
+  "sha256": "a06c8524e0e69fd2643554e621808c8f0a6194525284dfbd99aad9e8980a2b1b",
+  "retrieved_at": "2026-10-28T11:59:44.559647+00:00",
+  "historical_availability_assumption": "bar close; actual historical receipt timestamps unavailable",
+  "requested_start": "2026-06-05T00:00:00+00:00",
+  "requested_end": "2026-06-13T00:00:00+00:00",
+  "first_bar": "2026-06-05T00:00:00+00:00",
+  "last_bar": "2026-06-12T20:56:00+00:00",
+  "rows": 8367,
+  "symbol_metadata": {
+    "symbol_id": 8,
+    "name": "USDCAD",
+    "digits": 5,
+    "pip_position": 4,
+    "lot_size": 10000000,
+    "min_volume": 100000,
+    "max_volume": 10000000000,
+    "step_volume": 100000,
+    "candidates": [
+      8
+    ]
+  },
+  "request_count": 16,
+  "chunks": [
+    {
+      "requested_start": "2026-06-05T00:00:00+00:00",
+      "requested_end": "2026-06-05T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-05T00:00:00+00:00",
+      "last_bar": "2026-06-05T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-05T12:00:00+00:00",
+      "requested_end": "2026-06-06T00:00:00+00:00",
+      "returned_rows": 537,
+      "retained_rows": 537,
+      "first_bar": "2026-06-05T12:00:00+00:00",
+      "last_bar": "2026-06-05T20:56:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-06T00:00:00+00:00",
+      "requested_end": "2026-06-06T12:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-06T12:00:00+00:00",
+      "requested_end": "2026-06-07T00:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-07T00:00:00+00:00",
+      "requested_end": "2026-06-07T12:00:00+00:00",
+      "returned_rows": 0,
+      "retained_rows": 0,
+      "first_bar": null,
+      "last_bar": null,
+      "empty": true,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-07T12:00:00+00:00",
+      "requested_end": "2026-06-08T00:00:00+00:00",
+      "returned_rows": 164,
+      "retained_rows": 163,
+      "first_bar": "2026-06-07T21:01:00+00:00",
+      "last_bar": "2026-06-07T23:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-08T00:00:00+00:00",
+      "requested_end": "2026-06-08T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-08T00:00:00+00:00",
+      "last_bar": "2026-06-08T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-08T12:00:00+00:00",
+      "requested_end": "2026-06-09T00:00:00+00:00",
+      "returned_rows": 703,
+      "retained_rows": 702,
+      "first_bar": "2026-06-08T12:00:00+00:00",
+      "last_bar": "2026-06-08T23:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-09T00:00:00+00:00",
+      "requested_end": "2026-06-09T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-09T00:00:00+00:00",
+      "last_bar": "2026-06-09T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-09T12:00:00+00:00",
+      "requested_end": "2026-06-10T00:00:00+00:00",
+      "returned_rows": 697,
+      "retained_rows": 696,
+      "first_bar": "2026-06-09T12:00:00+00:00",
+      "last_bar": "2026-06-09T23:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-10T00:00:00+00:00",
+      "requested_end": "2026-06-10T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-10T00:00:00+00:00",
+      "last_bar": "2026-06-10T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-10T12:00:00+00:00",
+      "requested_end": "2026-06-11T00:00:00+00:00",
+      "returned_rows": 702,
+      "retained_rows": 701,
+      "first_bar": "2026-06-10T12:00:00+00:00",
+      "last_bar": "2026-06-10T23:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-11T00:00:00+00:00",
+      "requested_end": "2026-06-11T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-11T00:00:00+00:00",
+      "last_bar": "2026-06-11T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-11T12:00:00+00:00",
+      "requested_end": "2026-06-12T00:00:00+00:00",
+      "returned_rows": 712,
+      "retained_rows": 711,
+      "first_bar": "2026-06-11T12:00:00+00:00",
+      "last_bar": "2026-06-11T23:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-12T00:00:00+00:00",
+      "requested_end": "2026-06-12T12:00:00+00:00",
+      "returned_rows": 721,
+      "retained_rows": 720,
+      "first_bar": "2026-06-12T00:00:00+00:00",
+      "last_bar": "2026-06-12T11:59:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    },
+    {
+      "requested_start": "2026-06-12T12:00:00+00:00",
+      "requested_end": "2026-06-13T00:00:00+00:00",
+      "returned_rows": 537,
+      "retained_rows": 537,
+      "first_bar": "2026-06-12T12:00:00+00:00",
+      "last_bar": "2026-06-12T20:56:00+00:00",
+      "empty": false,
+      "completeness": "UNVALIDATED_NO_PAGINATION_FLAG"
+    }
+  ],
+  "empty_chunks": 3,
+  "zero_volume_rows": 0,
+  "observed_outside_fx_weekend_hours": 0,
+  "calendar_observation_note": "FX weekend diagnostic only; not an assumed calendar for non-FX; observed bars retained",
+  "raw_collection_status": "RAW_COLLECTED_UNVALIDATED",
+  "case_ids": [
+    "video-t3-usdcad-buy-open"
+  ],
+  "collection_job": {
+    "id": "execution_m1_d850134abd75da6381676020",
+    "pair": "USDCAD",
+    "base_tf": "M1",
+    "start": "2026-06-05T00:00:00Z",
+    "end": "2026-06-13T00:00:00Z",
+    "case_ids": [
+      "video-t3-usdcad-buy-open"
+    ],
+    "purpose": "EXECUTION_ONLY_ALL_PORTFOLIO_ORDERS_NO_OUTCOME_SELECTION"
+  },
+  "coverage_status": "NOT_CALENDAR_VALIDATED",
+  "source_equivalence": "ALTERNATE_FEED; teacher feed/alignment may differ"
+}

@@ -1,0 +1,144 @@
+name: Bishop firsthand trade replay batch
+on:
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-primary-replay-batch.yml']
+  workflow_dispatch:
+    inputs:
+      cases:
+        description: JSON case IDs; select a subset only for explicit retries
+        type: string
+        default: '["video-t2-eurgbp-sell","video-t3-gbpcad-buy","video-t3-audchf-buy-loss","video-t3-nzdchf-buy-loss","video-t3-usdjpy-buy-manual-exit","video-t3-gbpusd-sell-mixed-accounts","video-t3-usdchf-buy","video-t3-usdcad-buy-open"]'
+      input_run:
+        description: Frozen missing-primary collection run
+        type: string
+        default: '40782235154'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-primary-trade-batch
+  cancel-in-progress: false
+jobs:
+  replay:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        case: ${{ fromJSON(inputs.cases) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Resolve one declared primary case
+        id: case
+        env:
+          PRIMARY_CASE: ${{ matrix.case }}
+        run: |
+          python - <<'PYCASE'
+          import json,os
+          from pathlib import Path
+          cases=json.loads(Path('tests/bishop_video_breakdown_cases.json').read_text())['cases']
+          selected=[c for c in cases if c['id']==os.environ['PRIMARY_CASE'] and c['participation'] in ('PERSONAL_TRADE_NARRATED','PERSONAL_MULTI_ACCOUNT_TRADE')]
+          if len(selected)!=1: raise SystemExit('One declared personal trade required')
+          pair=selected[0]['instrument']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write(f"pair={pair}\nexternal_input={'true' if pair in ('AUDCHF','NZDCHF','USDJPY') else 'false'}\n")
+          PYCASE
+      - uses: actions/download-artifact@v4
+        if: steps.case.outputs.external_input == 'true'
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.input_run }}
+          name: bishop-primary-input-${{ steps.case.outputs.pair }}
+          path: data/primary_missing_inputs/${{ steps.case.outputs.pair }}
+      - name: Replay all personal trades including losses without outcome selection
+        env:
+          PRIMARY_CASE: ${{ matrix.case }}
+          PAIR: ${{ steps.case.outputs.pair }}
+          EXTERNAL_INPUT: ${{ steps.case.outputs.external_input }}
+        run: |
+          python - <<'PY'
+          import os
+          from reports.replay_primary_video_case import main
+          args=['--case',os.environ['PRIMARY_CASE'],'--full-context','--detection-only']
+          if os.environ.get('EXTERNAL_INPUT') == 'true':
+              args += ['--input-status',f"data/primary_missing_inputs/{os.environ['PAIR']}/status.json"]
+          raise SystemExit(main(args))
+          PY
+      - name: Compare independently observed drawings without fitting tolerances
+        env:
+          PRIMARY_CASE: ${{ matrix.case }}
+        run: |
+          python - <<'PYCOMPARE'
+          import json,os
+          from pathlib import Path
+          from reports.compare_firsthand_source import main
+          source=Path('reports/implementation_review/primary_missing_cases_source/source_observations.json')
+          case=os.environ['PRIMARY_CASE']
+          if source.exists() and any(c['case_id']==case for c in json.loads(source.read_text())['cases']):
+              main([f'reports/primary_video_replay/{case}.json.gz','--observations',str(source),
+                    '--out','reports/primary_video_replay/source_comparison.json'])
+          PYCOMPARE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-firsthand-${{ matrix.case }}
+          path: reports/primary_video_replay/
+          if-no-files-found: error
+          retention-days: 30
+  collect:
+    needs: replay
+    if: always() && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bishop-firsthand-*
+          path: /tmp/firsthand-batch
+      - name: Preserve all personal trade outcomes and incomplete cases
+        env:
+          REQUESTED_CASES: ${{ inputs.cases }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          source=json.loads(Path('tests/bishop_video_breakdown_cases.json').read_text())
+          personal=[c for c in source['cases'] if c['participation'] in ('PERSONAL_TRADE_NARRATED','PERSONAL_MULTI_ACCOUNT_TRADE')]
+          requested=json.loads(os.environ['REQUESTED_CASES'])
+          if not requested or len(set(requested))!=len(requested) or set(requested)-{c['id'] for c in personal}: raise SystemExit('Invalid requested case denominator')
+          selected=[c for c in personal if c['id'] in requested]
+          summaries={}
+          for path in Path('/tmp/firsthand-batch').rglob('summary.json'):
+              row=json.loads(path.read_text())
+              if row['case_id'] in summaries: raise SystemExit('Duplicate case result')
+              summaries[row['case_id']]=row
+          rows=[dict(case_id=c['id'],mentor_outcome=c['outcome'],
+                     expected_qualitative=c['expected_qualitative'],
+                     replay=summaries.get(c['id']),
+                     status=('COMPUTED_DIAGNOSTIC' if summaries[c['id']].get('execution_status') in ('DETECTION_ONLY_NOT_EXECUTED','COMPUTED_DIAGNOSTIC') else summaries[c['id']].get('execution_status','UNKNOWN')) if c['id'] in summaries else 'MISSING_RESULT') for c in selected]
+          result=dict(scope='FIRSTHAND_PERSONAL_TRADE_DIAGNOSTIC_NOT_ACCEPTANCE',
+                      source_commit=os.environ['GITHUB_SHA'],primary_personal_corpus=len(personal),requested_ids=requested,requested=len(selected),
+                      collected=len(summaries),cases=rows,
+                      limitations=['Detected setup variants are not counts of teacher trades.',
+                                   'H1 inputs cannot prove sub-H1 confirmation; separate mixed-feed replay is required.',
+                                   'Narrated losses and manual exits remain in the denominator.'])
+          out=Path('reports/firsthand_batch');out.mkdir(parents=True,exist_ok=True)
+          (out/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write(f"Firsthand personal trades: {len(summaries)}/{len(selected)} results. No automatic teacher-match award.\n")
+          if any(r['status']!='COMPUTED_DIAGNOSTIC' for r in rows): raise SystemExit('Incomplete firsthand replay; aborted reports are not completed diagnostics')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-firsthand-summary
+          path: reports/firsthand_batch/
+          retention-days: 30

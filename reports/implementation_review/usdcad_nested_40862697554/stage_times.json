@@ -1,0 +1,42 @@
+[
+  {
+    "stage": "analyze",
+    "seconds": 0.0176,
+    "completed": true
+  },
+  {
+    "stage": "analyze",
+    "seconds": 0.1319,
+    "completed": true
+  },
+  {
+    "stage": "analyze",
+    "seconds": 1.3512,
+    "completed": true
+  },
+  {
+    "stage": "analyze",
+    "seconds": 15.4783,
+    "completed": true
+  },
+  {
+    "stage": "analyze",
+    "seconds": 4.5683,
+    "completed": true
+  },
+  {
+    "stage": "analyze",
+    "seconds": 0.0698,
+    "completed": true
+  },
+  {
+    "stage": "find_stories",
+    "seconds": 9.2634,
+    "completed": true
+  },
+  {
+    "stage": "detect_setups",
+    "seconds": 563.6743,
+    "completed": false
+  }
+]

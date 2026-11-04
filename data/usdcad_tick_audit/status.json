@@ -1,0 +1,366 @@
+{
+  "status": "RAW_QUOTE_AUDIT_COLLECTED",
+  "records": [
+    {
+      "path": "data/usdcad_tick_audit/ticks_1a0abf79c69a558977dcc8c9.json.gz",
+      "quote": "BID",
+      "from_ms": 1780649160000,
+      "to_exclusive_ms": 1780649460000,
+      "complete": true,
+      "rows": 157,
+      "sha256": "de147f28eac7c4bb560cb6848708688d470c534d0c3ca26c6d0b775f63f56373"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_d5b266be97de707b30a32e9c.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780649160000,
+      "to_exclusive_ms": 1780649460000,
+      "complete": true,
+      "rows": 102,
+      "sha256": "3b3511c7cfe234ca1c8180099e098514bef67814a76a12debee8f8a6d4a6c413"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_c0aea2d341005fdced6a51a1.json.gz",
+      "quote": "BID",
+      "from_ms": 1780662300000,
+      "to_exclusive_ms": 1780662600000,
+      "complete": true,
+      "rows": 243,
+      "sha256": "bed3dd9cbbb04b298afeb9556cfdadb41bbe3a4460e048ff2619431eed6f1670"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_d66c68daf5cd57ed0a57ee6d.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780662300000,
+      "to_exclusive_ms": 1780662600000,
+      "complete": true,
+      "rows": 241,
+      "sha256": "b07bf71ae6429a535da5031b0072bba87114422c97e8fec78f1692a336801514"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_818e780fe54f8cf1c22efc7b.json.gz",
+      "quote": "BID",
+      "from_ms": 1780666860000,
+      "to_exclusive_ms": 1780667160000,
+      "complete": true,
+      "rows": 414,
+      "sha256": "a83a8dc307fc42c0df2a78efd4b5caf75fcfd660a0a92e7318da2db019831242"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_bfbb97fed3012172fc9e6a37.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780666860000,
+      "to_exclusive_ms": 1780667160000,
+      "complete": true,
+      "rows": 354,
+      "sha256": "6685cb2e45ec47511b157850d25d6c995c316d622b00f79ba86f8b27f9c0d51a"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_537ca3beccb86b345456db47.json.gz",
+      "quote": "BID",
+      "from_ms": 1780692900000,
+      "to_exclusive_ms": 1780693320000,
+      "complete": true,
+      "rows": 145,
+      "sha256": "a94453dbd1b5cc96875e86789916bd7776b219f7c87fe6baa66b0424ed836335"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_a554bc086e7ebe3966a8615b.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780692900000,
+      "to_exclusive_ms": 1780693320000,
+      "complete": true,
+      "rows": 148,
+      "sha256": "9b050d13ffacb5e07f4c1c127d07afb2828d5b54fa0065598723f853c8f9f67e"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_2dc20726c3376840d8e9ea18.json.gz",
+      "quote": "BID",
+      "from_ms": 1780865880000,
+      "to_exclusive_ms": 1780867320000,
+      "complete": true,
+      "rows": 25,
+      "sha256": "b2a402e484da9d123d7f9d5442299d340c51d99abca9c87101131b1efc2558d5"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_5bf5e73949f1bb3565bda65c.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780865880000,
+      "to_exclusive_ms": 1780867320000,
+      "complete": true,
+      "rows": 29,
+      "sha256": "b3a87aac4351fc95c0b2b81b393d8e1389dc069a36d3e446f27abc2b1691cd80"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_4a0bbd6b8bee6b042f91ea55.json.gz",
+      "quote": "BID",
+      "from_ms": 1780867500000,
+      "to_exclusive_ms": 1780867800000,
+      "complete": true,
+      "rows": 28,
+      "sha256": "df7e99a4e67be4efbf5b2a27170335f38fca4d8ea8d788fd7a17976bdb512d37"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_6321dab6cb1d265b05fcdec1.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780867500000,
+      "to_exclusive_ms": 1780867800000,
+      "complete": true,
+      "rows": 31,
+      "sha256": "1e0dc6a3e32600f133721870f687b698fe2db1ab321f4e934a3785ef5de73a17"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_4abc4e9ffa2855163a02609a.json.gz",
+      "quote": "BID",
+      "from_ms": 1780869060000,
+      "to_exclusive_ms": 1780869360000,
+      "complete": true,
+      "rows": 16,
+      "sha256": "29daef19f1e12c91b0c4e9eb34adfff3fa4486f0cf61aebf7ba0b264442082bf"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_2af68dcef6f578ad0be3d12c.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780869060000,
+      "to_exclusive_ms": 1780869360000,
+      "complete": true,
+      "rows": 12,
+      "sha256": "5e830f80c7ab26da51c59c0f119ab4e013db51d1a2491775b746cd74983d2d82"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_d116d362b9ca643925f50ae4.json.gz",
+      "quote": "BID",
+      "from_ms": 1780952220000,
+      "to_exclusive_ms": 1780954020000,
+      "complete": true,
+      "rows": 63,
+      "sha256": "646f84ed4265bdebbe1b1483b7bd47c99e75623cc8b6fd656d6364b404770a4f"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_24c63fbaf31f77916cb7b8cb.json.gz",
+      "quote": "ASK",
+      "from_ms": 1780952220000,
+      "to_exclusive_ms": 1780954020000,
+      "complete": true,
+      "rows": 124,
+      "sha256": "70b71423ffd4273c00ac5224c2354e94696326fe1836ccbe336823cd1fa3f123"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_22e08a1fc4897ab5ac3a8746.json.gz",
+      "quote": "BID",
+      "from_ms": 1781037660000,
+      "to_exclusive_ms": 1781037960000,
+      "complete": true,
+      "rows": 24,
+      "sha256": "4e976ebe14b8d9306205baa21ed718da09825e4ef819d5695e7cc871e950944a"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_fe34ad4c2ecdfb0278198781.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781037660000,
+      "to_exclusive_ms": 1781037960000,
+      "complete": true,
+      "rows": 27,
+      "sha256": "33aa0a64b71f980e85d61cca42d42492c07dea04e89cb1e24f0f710427951c21"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_7694b198d0e9249f685c8229.json.gz",
+      "quote": "BID",
+      "from_ms": 1781038620000,
+      "to_exclusive_ms": 1781040600000,
+      "complete": true,
+      "rows": 112,
+      "sha256": "45a14818cae355bb5fb66a033b3de1b4ceb95a2f79b8e95bed45245dc2fd64d8"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_2e4c7a258b8399c0977c5baa.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781038620000,
+      "to_exclusive_ms": 1781040600000,
+      "complete": true,
+      "rows": 120,
+      "sha256": "808c3f7f7d70dcdb1ecce7ef78da1ab6e5b2ac7b2969e839221440c2a8b20f0c"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_1ee149adef73be411b90c2c4.json.gz",
+      "quote": "BID",
+      "from_ms": 1781041200000,
+      "to_exclusive_ms": 1781041500000,
+      "complete": true,
+      "rows": 27,
+      "sha256": "fd3e86906c9c1e63d3341ff9e405617f0750d3b16b8a75a98abee6dbad6f4fd6"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_6c30244031fe1150a1fb9b1f.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781041200000,
+      "to_exclusive_ms": 1781041500000,
+      "complete": true,
+      "rows": 18,
+      "sha256": "31fc8750d3991218e9b829f2dd637a174d18372db529cb42d8e94309f740f64b"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_d8602aa8006fa01c0fbf0f79.json.gz",
+      "quote": "BID",
+      "from_ms": 1781041740000,
+      "to_exclusive_ms": 1781042280000,
+      "complete": true,
+      "rows": 59,
+      "sha256": "8e9dd7449b517156fb4b652f27dda8ff1d70d92b08d0de9bd97ec95957e0d80f"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_4bcfcd3828ee75a6d8aba8ed.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781041740000,
+      "to_exclusive_ms": 1781042280000,
+      "complete": true,
+      "rows": 48,
+      "sha256": "c64d853850bbb271f66a0e74782e402bf05bc22a1094f18bf8d2798358873e7b"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_fb1502ba79e4acac0b81914d.json.gz",
+      "quote": "BID",
+      "from_ms": 1781125020000,
+      "to_exclusive_ms": 1781126520000,
+      "complete": true,
+      "rows": 58,
+      "sha256": "3a00df434b409c0157a11d72d8f4b86bce98cc58150d4464009f8d593ed1fdfc"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_2bc00600b141c27d8e1ade47.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781125020000,
+      "to_exclusive_ms": 1781126520000,
+      "complete": true,
+      "rows": 71,
+      "sha256": "53cfb7ee3419a2c6c80f1c9b075f9712a8f8c90fa5ab2b678d1c577104f5fe3f"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_325a6fe71c1c72c5233cb97a.json.gz",
+      "quote": "BID",
+      "from_ms": 1781126760000,
+      "to_exclusive_ms": 1781127060000,
+      "complete": true,
+      "rows": 25,
+      "sha256": "64d1cd4d447f71cd2c06fa792d6da8b34b7f9af569c5c7bb4d1913c13fc99020"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_c7ec25f0c39aacc1dfc08be9.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781126760000,
+      "to_exclusive_ms": 1781127060000,
+      "complete": true,
+      "rows": 22,
+      "sha256": "33eed058b692dd5c774bafb59e154d72d71338056dcd63bf2391c6fc7d616a9d"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_50ca2c5353f73cf1342f340a.json.gz",
+      "quote": "BID",
+      "from_ms": 1781128440000,
+      "to_exclusive_ms": 1781128920000,
+      "complete": true,
+      "rows": 54,
+      "sha256": "3bd5211dd11542d7c5877e226f1ea67723a13908859dd764a1542353cf8b93c9"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_15552904e3aec85d616ce39e.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781128440000,
+      "to_exclusive_ms": 1781128920000,
+      "complete": true,
+      "rows": 64,
+      "sha256": "227d6b6292a37c7afff9eab9f539ff4d4136257e2767aba0400e92c5f263caca"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_018348d2390e8892535f9594.json.gz",
+      "quote": "BID",
+      "from_ms": 1781211420000,
+      "to_exclusive_ms": 1781212260000,
+      "complete": true,
+      "rows": 78,
+      "sha256": "a258283009a638d2f9763682cf97f13c5f324321ef2ff322ba155c58903f4041"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_fc067c19e36389315d059778.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781211420000,
+      "to_exclusive_ms": 1781212260000,
+      "complete": true,
+      "rows": 106,
+      "sha256": "b349b4da24610b928f3b4d837a620c6960b0700b1e28ce22c8ff04c2d0a1152b"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_4897603a4494018c5e3a4631.json.gz",
+      "quote": "BID",
+      "from_ms": 1781212320000,
+      "to_exclusive_ms": 1781212620000,
+      "complete": true,
+      "rows": 4,
+      "sha256": "3b65a5cbc1e1f6f3d07c8648196f8585024d8e9668044894f3bfeb0b4b3469c3"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_20b8df6a9483f8ccdc5bc0c9.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781212320000,
+      "to_exclusive_ms": 1781212620000,
+      "complete": true,
+      "rows": 20,
+      "sha256": "3377fb2763898413539f12043f9001764f3d52652664cc677ce047563114a82e"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_0adabbb2ed4a907e27b946e7.json.gz",
+      "quote": "BID",
+      "from_ms": 1781214120000,
+      "to_exclusive_ms": 1781214420000,
+      "complete": true,
+      "rows": 21,
+      "sha256": "ee4960338d10d48033d396ff2e45ae8dc1e08dd9d3c2c49a35ec165422a0d883"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_c6d5d1c0632621c3c9dd6e55.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781214120000,
+      "to_exclusive_ms": 1781214420000,
+      "complete": true,
+      "rows": 24,
+      "sha256": "6a9b4805e9ac3d87651106a9b38250dfb5577fdf73f739f85abdc620fc2489bc"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_209a8bff3776dc28d9dc57dd.json.gz",
+      "quote": "BID",
+      "from_ms": 1781215020000,
+      "to_exclusive_ms": 1781215320000,
+      "complete": true,
+      "rows": 83,
+      "sha256": "a3321039e17ea37bdf67705aeea01b008178864a87841faa16cb990e35eb459a"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_35b496cdafb3e20811c7010e.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781215020000,
+      "to_exclusive_ms": 1781215320000,
+      "complete": true,
+      "rows": 49,
+      "sha256": "28f021ca7e079a8615cc620c61f904b296b55a193765671e5991657bad8bf477"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_dcf7f4325a9cf7b8dcba6f52.json.gz",
+      "quote": "BID",
+      "from_ms": 1781297700000,
+      "to_exclusive_ms": 1781298120000,
+      "complete": true,
+      "rows": 24,
+      "sha256": "485612b8ef05ddd820de2d4391937a2238516ab02216cf4c71594450473ddd82"
+    },
+    {
+      "path": "data/usdcad_tick_audit/ticks_720c90882eeb586ddc5be535.json.gz",
+      "quote": "ASK",
+      "from_ms": 1781297700000,
+      "to_exclusive_ms": 1781298120000,
+      "complete": true,
+      "rows": 40,
+      "sha256": "de74801fd3c9fd9d2d12627ce2513190db27c34caae9bd93986a2f9ec56c1fbf"
+    }
+  ],
+  "requests": 40
+}

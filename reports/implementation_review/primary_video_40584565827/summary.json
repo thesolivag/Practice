@@ -1,0 +1,132 @@
+{
+  "case_id": "video-t3-gbpcad-buy",
+  "execution_status": "COMPUTED_DIAGNOSTIC",
+  "teacher_acceptance": "NOT_ESTABLISHED",
+  "source": {
+    "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+    "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+    "pts_start": 28.9,
+    "pts_end": 577.1,
+    "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+    "frame_paths": [
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_007.jpg",
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_008.jpg"
+    ]
+  },
+  "summary": {
+    "stories": 276,
+    "setups": 4412,
+    "orders": 27,
+    "outcomes": {
+      "CENSORED": 1,
+      "LOSS": 8,
+      "WIN": 12,
+      "EXPIRED": 4,
+      "OPEN": 2
+    }
+  },
+  "coverage": {
+    "base": {
+      "status": "COMPLETE",
+      "expected_slots": 8604,
+      "present_slots": 8604,
+      "missing_slots": 0,
+      "missing": []
+    },
+    "timeframes": {
+      "W": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-05-03T21:00:00+00:00",
+            "end": "2026-05-08T21:00:00+00:00",
+            "missing_slots": 36,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 5,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "D": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-05-03T21:00:00+00:00",
+            "end": "2026-05-04T21:00:00+00:00",
+            "missing_slots": 36,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 29,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H4": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-05-03T21:00:00+00:00",
+            "end": "2026-05-04T01:00:00+00:00",
+            "missing_slots": 36,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 179,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H2": {
+        "status": "PARTIAL",
+        "incomplete": [
+          {
+            "start": "2026-05-03T23:00:00+00:00",
+            "end": "2026-05-04T01:00:00+00:00",
+            "missing_slots": 12,
+            "crossing": false,
+            "forming": false
+          }
+        ],
+        "complete_bars": 358,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H3": {
+        "status": "COMPLETE",
+        "incomplete": [],
+        "complete_bars": 239,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      },
+      "H1": {
+        "status": "COMPLETE",
+        "incomplete": [],
+        "complete_bars": 717,
+        "calendar": "fx_ny_v1",
+        "anchor": "ny17_wall_v2"
+      }
+    }
+  },
+  "h2_source_side_candidates": 1548,
+  "h2_source_side_models": [
+    "confirmation_bo",
+    "confirmation_engulfed_oc",
+    "confirmation_standing_extreme",
+    "confirmation_sweep_bos",
+    "engulf_av_retest",
+    "oc_break_retest"
+  ],
+  "selection_rejections": {
+    "EXPOSURE_CAP": 1336
+  },
+  "limitations": [
+    "Source-visible exploratory window is not a teacher fill window.",
+    "Forty-day entry context cannot establish full Monthly history.",
+    "IC and FOREXcom chart alignment is unverified.",
+    "A detected pattern/order is not automatically the source trade.",
+    "No source numeric tolerance or expected outcome is fitted."
+  ]
+}

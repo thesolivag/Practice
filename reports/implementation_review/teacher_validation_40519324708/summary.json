@@ -1,0 +1,1189 @@
+{
+  "run_id": 40519324708,
+  "source_commit": "b1d38ce52d045e9fd9e300cba00aca26106bc7c4",
+  "fixture_sha256": "0f2bae1c49705431f0d3b6e926ec5d9dda80ccadabb2ee9dfa475542de75b8a4",
+  "fixture_count": 40,
+  "selected_count": 15,
+  "selection": "ALL_H4_H2_FIXTURES",
+  "scope": "ALTERNATE_FEED_DIAGNOSTIC_NOT_FULL_ACCEPTANCE",
+  "profiles": {
+    "bishop_confirmation": {
+      "collected": 15,
+      "status_counts": {
+        "COMPUTED_DIAGNOSTIC": 9,
+        "INPUT_GAP_DIAGNOSTIC": 6
+      },
+      "strict_counts": {
+        "UNRESOLVED": 15
+      },
+      "setup_models": {
+        "confirmation_bo": 6833,
+        "confirmation_standing_extreme": 1262,
+        "confirmation_engulfed_oc": 3475,
+        "engulf_av_retest": 1367,
+        "confirmation_sweep_bos": 860,
+        "oc_break_retest": 872
+      },
+      "order_models": {
+        "confirmation_bo": 58,
+        "confirmation_standing_extreme": 27,
+        "engulf_av_retest": 27,
+        "confirmation_engulfed_oc": 40,
+        "oc_break_retest": 10,
+        "confirmation_sweep_bos": 5
+      },
+      "selection_reasons": {
+        "EXPOSURE_CAP": 2614,
+        "AMBIGUOUS_EXECUTION_PLAN": 1563
+      },
+      "retired_direct_reasons": {},
+      "cases": [
+        {
+          "id": "pdf-p02-eurcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 490,
+          "summary": {
+            "stories": 230,
+            "setups": 2510,
+            "orders": 30,
+            "outcomes": {
+              "LOSS": 27,
+              "WIN": 2,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p02-eurcad-buy-1.json.gz",
+            "sha256": "8a400be1f7cb8a5436f1bba624f73cf443813d65357b388cb7c1483ce6225452",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_engulfed_oc": 984,
+                "oc_break_retest": 241,
+                "engulf_av_retest": 197,
+                "confirmation_bo": 812,
+                "confirmation_standing_extreme": 133,
+                "confirmation_sweep_bos": 143
+              },
+              "order_models": {
+                "engulf_av_retest": 4,
+                "confirmation_standing_extreme": 5,
+                "oc_break_retest": 2,
+                "confirmation_engulfed_oc": 16,
+                "confirmation_bo": 3
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 527,
+                "EXPOSURE_CAP": 549
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p03-eurjpy-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 77,
+          "summary": {
+            "stories": 243,
+            "setups": 315,
+            "orders": 3,
+            "outcomes": {
+              "WIN": 2,
+              "LOSS": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p03-eurjpy-buy-1.json.gz",
+            "sha256": "ebc812c0292ec5f9ce4735f8caf3c12be6418fda61c8e26688bfd4fd5ed9b337",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 192,
+                "confirmation_sweep_bos": 29,
+                "confirmation_engulfed_oc": 33,
+                "confirmation_standing_extreme": 47,
+                "engulf_av_retest": 14
+              },
+              "order_models": {
+                "confirmation_bo": 2,
+                "confirmation_engulfed_oc": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 16
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p08-eurgbp-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 347,
+          "summary": {
+            "stories": 169,
+            "setups": 1373,
+            "orders": 26,
+            "outcomes": {
+              "LOSS": 8,
+              "WIN": 14,
+              "EXPIRED": 1,
+              "CENSORED": 2,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p08-eurgbp-buy-1.json.gz",
+            "sha256": "3c0fa06406e48e3e549943e3fe02103a4276c52eb91dc31f921019537da23fc2",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_standing_extreme": 163,
+                "confirmation_bo": 803,
+                "confirmation_engulfed_oc": 202,
+                "oc_break_retest": 74,
+                "engulf_av_retest": 73,
+                "confirmation_sweep_bos": 58
+              },
+              "order_models": {
+                "confirmation_standing_extreme": 7,
+                "confirmation_bo": 10,
+                "confirmation_engulfed_oc": 6,
+                "oc_break_retest": 1,
+                "engulf_av_retest": 1,
+                "confirmation_sweep_bos": 1
+              },
+              "selection_reasons": {
+                "EXPOSURE_CAP": 333
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p10-usoil-buy-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 13,
+            "setups": 0,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p10-usoil-buy-1.json.gz",
+            "sha256": "d164335888e2ce8f761a1756a7076781cb84da704029cf564887e367309be548",
+            "diagnostics": {
+              "setup_models": {},
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p10-usoil-buy-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 13,
+            "setups": 0,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p10-usoil-buy-2.json.gz",
+            "sha256": "7f2fa0e606431fb0e646dee94532d37fff4424495b6b6b121b6c1356a8b6c988",
+            "diagnostics": {
+              "setup_models": {},
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p20-usoil-buy-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 9,
+            "setups": 0,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p20-usoil-buy-2.json.gz",
+            "sha256": "178bed8b287c1f1fc5dcee0b02b22bb675e9418d7f9e7add0c60e3eda0f9cdde",
+            "diagnostics": {
+              "setup_models": {},
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p20-xagusd-sell-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 68,
+            "setups": 104,
+            "orders": 11,
+            "outcomes": {
+              "WIN": 8,
+              "EXPIRED": 1,
+              "OPEN": 2
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p20-xagusd-sell-1.json.gz",
+            "sha256": "486c5dacd315fe99548d95989d968a58b931c1a5118ef0108c9795bac8b5caa9",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 62,
+                "confirmation_standing_extreme": 6,
+                "engulf_av_retest": 30,
+                "confirmation_sweep_bos": 6
+              },
+              "order_models": {
+                "confirmation_bo": 6,
+                "confirmation_standing_extreme": 1,
+                "engulf_av_retest": 4
+              },
+              "selection_reasons": {
+                "EXPOSURE_CAP": 12
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p22-xagusd-sell-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 25,
+          "summary": {
+            "stories": 67,
+            "setups": 68,
+            "orders": 10,
+            "outcomes": {
+              "OPEN": 10
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p22-xagusd-sell-1.json.gz",
+            "sha256": "ad5212dcac7f7fefaea25a9926042abc8cb41ee27f54b076548b2b1d776b3f76",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 44,
+                "confirmation_standing_extreme": 6,
+                "engulf_av_retest": 12,
+                "confirmation_sweep_bos": 6
+              },
+              "order_models": {
+                "confirmation_bo": 6,
+                "confirmation_standing_extreme": 1,
+                "engulf_av_retest": 3
+              },
+              "selection_reasons": {
+                "EXPOSURE_CAP": 12
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p22-xagusd-sell-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 4,
+          "summary": {
+            "stories": 70,
+            "setups": 22,
+            "orders": 9,
+            "outcomes": {
+              "EXPIRED": 3,
+              "OPEN": 6
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p22-xagusd-sell-2.json.gz",
+            "sha256": "88ed51ac1196e0722f439169d13af73d916311fff7f0cbe91e2f04fffa6477ae",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_standing_extreme": 7,
+                "confirmation_engulfed_oc": 2,
+                "confirmation_bo": 9,
+                "engulf_av_retest": 4
+              },
+              "order_models": {
+                "confirmation_standing_extreme": 2,
+                "confirmation_engulfed_oc": 1,
+                "confirmation_bo": 5,
+                "engulf_av_retest": 1
+              },
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p25-audusd-sell-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 58,
+          "summary": {
+            "stories": 206,
+            "setups": 926,
+            "orders": 5,
+            "outcomes": {
+              "OPEN": 5
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p25-audusd-sell-1.json.gz",
+            "sha256": "c9b62a4df3e4e11dd1b48fe3a1c9c9f6f7d2c187e00b394c017c7d53890965a5",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 175,
+                "engulf_av_retest": 116,
+                "confirmation_engulfed_oc": 424,
+                "oc_break_retest": 87,
+                "confirmation_standing_extreme": 124
+              },
+              "order_models": {
+                "confirmation_standing_extreme": 1,
+                "confirmation_engulfed_oc": 2,
+                "oc_break_retest": 1,
+                "engulf_av_retest": 1
+              },
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p33-gbpcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 212,
+            "setups": 163,
+            "orders": 10,
+            "outcomes": {
+              "LOSS": 5,
+              "CENSORED": 1,
+              "OPEN": 4
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p33-gbpcad-buy-1.json.gz",
+            "sha256": "6ecb19b7950c35a8741543232932be36cb1d7876e875fe32207fc42c27cb7dd5",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_standing_extreme": 51,
+                "confirmation_bo": 61,
+                "engulf_av_retest": 31,
+                "confirmation_engulfed_oc": 20
+              },
+              "order_models": {
+                "confirmation_bo": 3,
+                "engulf_av_retest": 2,
+                "confirmation_engulfed_oc": 2,
+                "confirmation_standing_extreme": 3
+              },
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p40-audcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 173,
+          "summary": {
+            "stories": 204,
+            "setups": 1155,
+            "orders": 26,
+            "outcomes": {
+              "EXPIRED": 7,
+              "LOSS": 9,
+              "CENSORED": 1,
+              "OPEN": 9
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p40-audcad-buy-1.json.gz",
+            "sha256": "17f7261d8f8351abadfa3400d8511e61d2a3b681bc36557b13e4459b74eb3143",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 412,
+                "engulf_av_retest": 138,
+                "confirmation_sweep_bos": 49,
+                "confirmation_engulfed_oc": 358,
+                "oc_break_retest": 85,
+                "confirmation_standing_extreme": 113
+              },
+              "order_models": {
+                "confirmation_engulfed_oc": 10,
+                "oc_break_retest": 6,
+                "confirmation_bo": 6,
+                "engulf_av_retest": 3,
+                "confirmation_sweep_bos": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 543,
+                "EXPOSURE_CAP": 96
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p47-gbpcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 559,
+          "summary": {
+            "stories": 380,
+            "setups": 2043,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p47-gbpcad-buy-1.json.gz",
+            "sha256": "52d7d642643f11f4285d98a67ee31c81dc57dd70477bd1209fea81efc9a8d282",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_engulfed_oc": 868,
+                "oc_break_retest": 201,
+                "engulf_av_retest": 170,
+                "confirmation_bo": 673,
+                "confirmation_standing_extreme": 86,
+                "confirmation_sweep_bos": 45
+              },
+              "order_models": {},
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 477
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p54-eurgbp-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 93,
+          "summary": {
+            "stories": 303,
+            "setups": 1376,
+            "orders": 13,
+            "outcomes": {
+              "LOSS": 6,
+              "CANCELLED": 1,
+              "WIN": 6
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/pdf-p54-eurgbp-buy-1.json.gz",
+            "sha256": "09fcf9ff593d47b5fc115a0bac6401bf40384a22b8d5bd73800dcf25b966c25c",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_bo": 539,
+                "confirmation_standing_extreme": 212,
+                "confirmation_engulfed_oc": 290,
+                "engulf_av_retest": 150,
+                "confirmation_sweep_bos": 100,
+                "oc_break_retest": 85
+              },
+              "order_models": {
+                "confirmation_bo": 7,
+                "confirmation_standing_extreme": 2,
+                "engulf_av_retest": 3,
+                "confirmation_engulfed_oc": 1
+              },
+              "selection_reasons": {
+                "EXPOSURE_CAP": 117
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "video-entries5-native-t1410-eurusd",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1684,
+          "summary": {
+            "stories": 326,
+            "setups": 4614,
+            "orders": 24,
+            "outcomes": {
+              "CENSORED": 3,
+              "LOSS": 1,
+              "WIN": 14,
+              "EXPIRED": 1,
+              "OPEN": 5
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/bishop_confirmation/video-entries5-native-t1410-eurusd.json.gz",
+            "sha256": "41145116ec11e28299cc20e02e73bc00ce71a1e2ca2e31bad3d2241049d27007",
+            "diagnostics": {
+              "setup_models": {
+                "confirmation_standing_extreme": 314,
+                "engulf_av_retest": 432,
+                "confirmation_bo": 3051,
+                "confirmation_sweep_bos": 424,
+                "confirmation_engulfed_oc": 294,
+                "oc_break_retest": 99
+              },
+              "order_models": {
+                "confirmation_standing_extreme": 5,
+                "engulf_av_retest": 5,
+                "confirmation_bo": 10,
+                "confirmation_sweep_bos": 3,
+                "confirmation_engulfed_oc": 1
+              },
+              "selection_reasons": {
+                "EXPOSURE_CAP": 1495
+              },
+              "retired_direct_reasons": {}
+            }
+          }
+        }
+      ]
+    },
+    "owner_aggressive": {
+      "collected": 15,
+      "status_counts": {
+        "COMPUTED_DIAGNOSTIC": 9,
+        "INPUT_GAP_DIAGNOSTIC": 6
+      },
+      "strict_counts": {
+        "UNRESOLVED": 15
+      },
+      "setup_models": {
+        "aggressive_kl_imbalance": 55249,
+        "direct_h4": 8609,
+        "direct_h2": 24745
+      },
+      "order_models": {
+        "aggressive_kl_imbalance": 310,
+        "direct_h4": 14,
+        "direct_h2": 20
+      },
+      "selection_reasons": {
+        "AMBIGUOUS_EXECUTION_PLAN": 21560,
+        "EXPOSURE_CAP": 15200,
+        "AMBIGUOUS_LEVEL_SELECTION": 2958
+      },
+      "retired_direct_reasons": {
+        "direct_level_role_lost": 142450,
+        "direct_replaced_by_fresh_break": 106556,
+        "direct_scope_broken": 18674,
+        "direct_liquidity_already_taken": 337
+      },
+      "cases": [
+        {
+          "id": "pdf-p02-eurcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 2969,
+          "summary": {
+            "stories": 230,
+            "setups": 7863,
+            "orders": 18,
+            "outcomes": {
+              "LOSS": 5,
+              "CENSORED": 10,
+              "CANCELLED": 3
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p02-eurcad-buy-1.json.gz",
+            "sha256": "c0c53fa4a021dfc68d1836b7bb8e7f06b9e222f93cec57e3de4ed729c057e0a2",
+            "diagnostics": {
+              "setup_models": {
+                "direct_h4": 987,
+                "direct_h2": 2555,
+                "aggressive_kl_imbalance": 4321
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 15,
+                "direct_h4": 3
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 2145,
+                "EXPOSURE_CAP": 796,
+                "AMBIGUOUS_LEVEL_SELECTION": 116
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 14530,
+                "direct_liquidity_already_taken": 4,
+                "direct_replaced_by_fresh_break": 15249,
+                "direct_scope_broken": 1029
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p03-eurjpy-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1858,
+          "summary": {
+            "stories": 243,
+            "setups": 5850,
+            "orders": 18,
+            "outcomes": {
+              "CENSORED": 10,
+              "EXPIRED": 4,
+              "LOSS": 3,
+              "WIN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p03-eurjpy-buy-1.json.gz",
+            "sha256": "10151e5ff68a0e5fcd9b09e9817bd0384916ccf0ce7d48400871ad4025f24d11",
+            "diagnostics": {
+              "setup_models": {
+                "direct_h4": 634,
+                "aggressive_kl_imbalance": 4453,
+                "direct_h2": 763
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 17,
+                "direct_h2": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_LEVEL_SELECTION": 94,
+                "EXPOSURE_CAP": 1525,
+                "AMBIGUOUS_EXECUTION_PLAN": 207
+              },
+              "retired_direct_reasons": {
+                "direct_replaced_by_fresh_break": 4487,
+                "direct_level_role_lost": 7854,
+                "direct_scope_broken": 849,
+                "direct_liquidity_already_taken": 37
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p08-eurgbp-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1189,
+          "summary": {
+            "stories": 169,
+            "setups": 4237,
+            "orders": 45,
+            "outcomes": {
+              "LOSS": 6,
+              "CENSORED": 3,
+              "CANCELLED": 26,
+              "WIN": 3,
+              "OPEN": 7
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p08-eurgbp-buy-1.json.gz",
+            "sha256": "95f7b56dd4010caf6f7949becc137547716bf22491fa27c9f6e5c292f6132484",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 2689,
+                "direct_h2": 1271,
+                "direct_h4": 277
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 40,
+                "direct_h2": 5
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_LEVEL_SELECTION": 351,
+                "EXPOSURE_CAP": 699,
+                "AMBIGUOUS_EXECUTION_PLAN": 958
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 15558,
+                "direct_scope_broken": 1716,
+                "direct_replaced_by_fresh_break": 17534,
+                "direct_liquidity_already_taken": 12
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p10-usoil-buy-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 13,
+            "setups": 0,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p10-usoil-buy-1.json.gz",
+            "sha256": "d543a50e68960ba99940a333add5f778160d574c75bfbcb3001e8fbdf820f253",
+            "diagnostics": {
+              "setup_models": {},
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p10-usoil-buy-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 13,
+            "setups": 0,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p10-usoil-buy-2.json.gz",
+            "sha256": "bc1c199ab736e8dda523eaca14f71619d6728ab0ca22078fba5271c8a7cd2a03",
+            "diagnostics": {
+              "setup_models": {},
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p20-usoil-buy-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 0,
+          "summary": {
+            "stories": 9,
+            "setups": 2,
+            "orders": 0,
+            "outcomes": {}
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p20-usoil-buy-2.json.gz",
+            "sha256": "ab03b3ba061f9b311e713916b1108b6471d6cee0a63f6871813702e768dee3ac",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 2
+              },
+              "order_models": {},
+              "selection_reasons": {},
+              "retired_direct_reasons": {}
+            }
+          }
+        },
+        {
+          "id": "pdf-p20-xagusd-sell-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 84,
+          "summary": {
+            "stories": 68,
+            "setups": 417,
+            "orders": 17,
+            "outcomes": {
+              "CANCELLED": 3,
+              "LOSS": 8,
+              "EXPIRED": 3,
+              "CENSORED": 2,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p20-xagusd-sell-1.json.gz",
+            "sha256": "118114c5bf25724a79d5ac32f26a1331889643658baad16b42a9bbfa490280f9",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 184,
+                "direct_h2": 161,
+                "direct_h4": 72
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 15,
+                "direct_h4": 2
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 160,
+                "EXPOSURE_CAP": 12
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 339,
+                "direct_replaced_by_fresh_break": 140,
+                "direct_scope_broken": 8,
+                "direct_liquidity_already_taken": 1
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p22-xagusd-sell-1",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 116,
+          "summary": {
+            "stories": 67,
+            "setups": 235,
+            "orders": 14,
+            "outcomes": {
+              "CANCELLED": 3,
+              "LOSS": 1,
+              "EXPIRED": 2,
+              "CENSORED": 2,
+              "OPEN": 6
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p22-xagusd-sell-1.json.gz",
+            "sha256": "7c4fdf9245b838fd9a8854a32356fc5ee5c0666868b839f8dc14f8e3bb5e2128",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 100,
+                "direct_h2": 99,
+                "direct_h4": 36
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 13,
+                "direct_h4": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 98,
+                "EXPOSURE_CAP": 12
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 135,
+                "direct_replaced_by_fresh_break": 70,
+                "direct_scope_broken": 2,
+                "direct_liquidity_already_taken": 1
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p22-xagusd-sell-2",
+          "status": "INPUT_GAP_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 54,
+          "summary": {
+            "stories": 70,
+            "setups": 233,
+            "orders": 24,
+            "outcomes": {
+              "EXPIRED": 9,
+              "CANCELLED": 10,
+              "LOSS": 3,
+              "OPEN": 2
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p22-xagusd-sell-2.json.gz",
+            "sha256": "a6d94ea5dfbf15ae62a14b05987a72f72f9f256f4360c8d20ed752e87793a535",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 132,
+                "direct_h2": 64,
+                "direct_h4": 37
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 19,
+                "direct_h2": 4,
+                "direct_h4": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 73,
+                "AMBIGUOUS_LEVEL_SELECTION": 4
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 75,
+                "direct_replaced_by_fresh_break": 56,
+                "direct_liquidity_already_taken": 1
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p25-audusd-sell-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 3509,
+          "summary": {
+            "stories": 206,
+            "setups": 10000,
+            "orders": 47,
+            "outcomes": {
+              "CANCELLED": 30,
+              "LOSS": 7,
+              "OPEN": 8,
+              "CENSORED": 2
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p25-audusd-sell-1.json.gz",
+            "sha256": "1adcd585e83ed6c45cd1163ac77e653c2b0e78f04a2a3cdc37635b318c62c79d",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 3660,
+                "direct_h4": 1061,
+                "direct_h2": 5279
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 42,
+                "direct_h4": 2,
+                "direct_h2": 3
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_LEVEL_SELECTION": 220,
+                "EXPOSURE_CAP": 1790,
+                "AMBIGUOUS_EXECUTION_PLAN": 4436
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 20862,
+                "direct_replaced_by_fresh_break": 12997,
+                "direct_scope_broken": 1727,
+                "direct_liquidity_already_taken": 17
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p33-gbpcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1659,
+          "summary": {
+            "stories": 212,
+            "setups": 4883,
+            "orders": 17,
+            "outcomes": {
+              "CANCELLED": 5,
+              "CENSORED": 9,
+              "LOSS": 2,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p33-gbpcad-buy-1.json.gz",
+            "sha256": "4046387c86928c991121e41b5edb7ace82978933d4594e2ef310195f539f7e71",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 3610,
+                "direct_h2": 1169,
+                "direct_h4": 104
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 13,
+                "direct_h4": 1,
+                "direct_h2": 3
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 1092,
+                "AMBIGUOUS_LEVEL_SELECTION": 116,
+                "EXPOSURE_CAP": 370
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 10831,
+                "direct_scope_broken": 1326,
+                "direct_replaced_by_fresh_break": 10869,
+                "direct_liquidity_already_taken": 3
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p40-audcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1668,
+          "summary": {
+            "stories": 204,
+            "setups": 6517,
+            "orders": 30,
+            "outcomes": {
+              "EXPIRED": 4,
+              "LOSS": 5,
+              "CANCELLED": 11,
+              "CENSORED": 1,
+              "OPEN": 9
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p40-audcad-buy-1.json.gz",
+            "sha256": "f7bda8fc921d949f1c8d6af2aee4c196d2e86751b6859bc52e0ac55c5e4f2b29",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 4567,
+                "direct_h2": 1315,
+                "direct_h4": 635
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 29,
+                "direct_h4": 1
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 2505,
+                "AMBIGUOUS_LEVEL_SELECTION": 164,
+                "EXPOSURE_CAP": 710
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 18649,
+                "direct_replaced_by_fresh_break": 6850,
+                "direct_scope_broken": 3801,
+                "direct_liquidity_already_taken": 9
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p47-gbpcad-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1658,
+          "summary": {
+            "stories": 380,
+            "setups": 15698,
+            "orders": 57,
+            "outcomes": {
+              "CANCELLED": 42,
+              "CENSORED": 9,
+              "WIN": 5,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p47-gbpcad-buy-1.json.gz",
+            "sha256": "28c80e8959a97d381816507c35f3b4be2635753e015fbc7933bcf20215a103ff",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 13625,
+                "direct_h2": 1848,
+                "direct_h4": 225
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 57
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 2249,
+                "EXPOSURE_CAP": 2986,
+                "AMBIGUOUS_LEVEL_SELECTION": 396
+              },
+              "retired_direct_reasons": {
+                "direct_replaced_by_fresh_break": 6341,
+                "direct_level_role_lost": 11095,
+                "direct_scope_broken": 1839,
+                "direct_liquidity_already_taken": 66
+              }
+            }
+          }
+        },
+        {
+          "id": "pdf-p54-eurgbp-buy-1",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 1159,
+          "summary": {
+            "stories": 303,
+            "setups": 10570,
+            "orders": 25,
+            "outcomes": {
+              "WIN": 2,
+              "EXPIRED": 11,
+              "CENSORED": 9,
+              "LOSS": 2,
+              "CANCELLED": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/pdf-p54-eurgbp-buy-1.json.gz",
+            "sha256": "fc05d6f840f90514d8074ddd91b8e8d5c987ded7ad67885f5e17ce376652c4c5",
+            "diagnostics": {
+              "setup_models": {
+                "direct_h4": 2189,
+                "aggressive_kl_imbalance": 6205,
+                "direct_h2": 2176
+              },
+              "order_models": {
+                "direct_h4": 2,
+                "aggressive_kl_imbalance": 23
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_LEVEL_SELECTION": 637,
+                "EXPOSURE_CAP": 1538,
+                "AMBIGUOUS_EXECUTION_PLAN": 1342
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 31428,
+                "direct_replaced_by_fresh_break": 20677,
+                "direct_scope_broken": 5225,
+                "direct_liquidity_already_taken": 49
+              }
+            }
+          }
+        },
+        {
+          "id": "video-entries5-native-t1410-eurusd",
+          "status": "COMPUTED_DIAGNOSTIC",
+          "strict_status": "UNRESOLVED",
+          "groups": 10591,
+          "summary": {
+            "stories": 326,
+            "setups": 22098,
+            "orders": 32,
+            "outcomes": {
+              "CENSORED": 9,
+              "LOSS": 1,
+              "WIN": 2,
+              "EXPIRED": 9,
+              "CANCELLED": 10,
+              "OPEN": 1
+            }
+          },
+          "evidence": {
+            "file": "reports/implementation_review/teacher_validation_40519324708/owner_aggressive/video-entries5-native-t1410-eurusd.json.gz",
+            "sha256": "ba4497bfcc41c813acda9bf8271967e19988100eeefaddec902bbf86803c685a",
+            "diagnostics": {
+              "setup_models": {
+                "aggressive_kl_imbalance": 11701,
+                "direct_h4": 2352,
+                "direct_h2": 8045
+              },
+              "order_models": {
+                "aggressive_kl_imbalance": 27,
+                "direct_h4": 1,
+                "direct_h2": 4
+              },
+              "selection_reasons": {
+                "AMBIGUOUS_EXECUTION_PLAN": 6295,
+                "EXPOSURE_CAP": 4762,
+                "AMBIGUOUS_LEVEL_SELECTION": 860
+              },
+              "retired_direct_reasons": {
+                "direct_level_role_lost": 11094,
+                "direct_replaced_by_fresh_break": 11286,
+                "direct_scope_broken": 1152,
+                "direct_liquidity_already_taken": 137
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

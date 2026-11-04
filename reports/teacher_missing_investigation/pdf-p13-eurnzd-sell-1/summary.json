@@ -1,0 +1,92 @@
+[
+  {
+    "case_id": "pdf-p13-eurnzd-sell-1",
+    "cutoff": "previous_exploratory_cutoff",
+    "as_of": "2026-07-18T00:00:00+00:00",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "afe3642cb447c5a48587582859ad2b9f6cab1c1292a42b85021bdc14a34066b3",
+    "summary": {
+      "stories": 165,
+      "setups": 1135,
+      "orders": 7,
+      "outcomes": {
+        "WIN": 5,
+        "OPEN": 1,
+        "LOSS": 1
+      }
+    },
+    "same_side_source_tf_groups": 0,
+    "story_sides": {
+      "SELL": 71,
+      "BUY": 94
+    },
+    "setup_routes": {
+      "confirmation_engulfed_oc:H1:SELL": 63,
+      "confirmation_bo:H1:SELL": 253,
+      "confirmation_standing_extreme:H1:SELL": 42,
+      "confirmation_bo:H2:SELL": 672,
+      "confirmation_sweep_bos:H2:SELL": 21,
+      "confirmation_engulfed_oc:H2:SELL": 21,
+      "confirmation_standing_extreme:H2:SELL": 21,
+      "engulf_av_retest:H2:SELL": 42
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 47,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 130,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 4,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 2845,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 165,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  },
+  {
+    "case_id": "pdf-p13-eurnzd-sell-1",
+    "cutoff": "printed_source_snapshot",
+    "as_of": "2026-07-17T18:46:00Z",
+    "source_snapshot_not_fill_clock": true,
+    "input_sha256": "afe3642cb447c5a48587582859ad2b9f6cab1c1292a42b85021bdc14a34066b3",
+    "summary": {
+      "stories": 165,
+      "setups": 1135,
+      "orders": 7,
+      "outcomes": {
+        "WIN": 5,
+        "OPEN": 1,
+        "LOSS": 1
+      }
+    },
+    "same_side_source_tf_groups": 0,
+    "story_sides": {
+      "SELL": 71,
+      "BUY": 94
+    },
+    "setup_routes": {
+      "confirmation_engulfed_oc:H1:SELL": 63,
+      "confirmation_bo:H1:SELL": 253,
+      "confirmation_standing_extreme:H1:SELL": 42,
+      "confirmation_bo:H2:SELL": 672,
+      "confirmation_sweep_bos:H2:SELL": 21,
+      "confirmation_engulfed_oc:H2:SELL": 21,
+      "confirmation_standing_extreme:H2:SELL": 21,
+      "engulf_av_retest:H2:SELL": 42
+    },
+    "support_counts": {
+      "candle_sweep_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 47,
+      "kl_structural:WAIT_CONFIRMATION:no fresh related structural break with known ordering/reference": 128,
+      "engulf_started_previous_story_exception:UNSUPPORTED:source exception does not establish executable scope/geometry": 1,
+      "experience_based_no_daily_structure:UNSUPPORTED:discretionary source route lacks positive mechanical Daily evidence": 1,
+      "protected_story_origin:UNKNOWN:DEFINED scoped lineage required; no reaction wick substitution": 1,
+      "entries:SUPPORTED:": 4,
+      "optional_nested_confirmation:SUPPORTED:declared_H1_break_reaction_standing_then_lower_engulf_chain_OUR_CHOICE": 1,
+      "pdf_p8_standing_extreme:UNRESOLVED:high_swept_low_standing_LONG_reference_pair_unresolved": 1,
+      "entry_reaction_episode:RETIRED:reaction_H4_level_role_lost": 2845,
+      "entry_reaction_episode:RETIRED:reaction_replaced_by_fresh_H4_break": 165,
+      "entry_liquidity_forms:SUPPORTED:": 1
+    }
+  }
+]

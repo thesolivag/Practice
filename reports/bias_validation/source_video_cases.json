@@ -1,0 +1,139 @@
+{
+  "qualification": "Two non-PDF frozen examples inspected in native frames and canonical transcript context. Explicit daily bullish direction is recorded independently of the BUY tools. Assessment/fill UTC clocks remain unresolved. Frozen fixtures and engine unchanged.",
+  "transcript_sha256": "32acb1e54cad11d7fcde6a56928adf9498eb92a5b780ecc681fdae85be7c4040",
+  "examples": [
+    {
+      "side": "BUY",
+      "bias_tf": "D",
+      "assessment_time": null,
+      "snapshot_time": null,
+      "snapshot_time_source": null,
+      "label_review": "FRAME_AND_CANONICAL_TRANSCRIPT_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "case_id": "video-entries5-native-t1065-xauusd",
+      "pair": "XAUUSD",
+      "trade_side": "BUY",
+      "reason": "Daily bullish breakout following weekly rejection; teacher says the bias checklist was complete.",
+      "setup_context": "Weekly V-shaped key-level rejection; daily bullish breakout; daily key-level rejection; H4 upside breakout / sweep and break; lower-timeframe engulfing entry.",
+      "entry_tf": "H3",
+      "entry_confirmation": "Engulfing",
+      "source_feed": "SAXO",
+      "evidence": {
+        "path": "knowledge-base/study/examples/entries5-native-t1065.png",
+        "source_video_slug": "bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case",
+        "source_pts_seconds": 1065
+      },
+      "transcript_evidence": [
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 859.9,
+          "end_seconds": 888.0,
+          "quote": "personally ... I wasn't very bullish ... structurally, we were ... bearish",
+          "note": "Teacher distinguishes prior structural bearishness/personal hesitation from the subsequently described bullish daily checklist."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 918.6,
+          "end_seconds": 942.0,
+          "quote": "we had a daily bullish breakouts, which means our checklist on bias was complete, technically, weekly rejection, daily breakouts ... eventually came back into this key level for a buy"
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 942.0,
+          "end_seconds": 967.9,
+          "quote": "we now have a daily reject daily ... when you have a daily rejection, you're waiting for a four hours breakout ... breakout to the upside ... sweep and break"
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1019.4,
+          "end_seconds": 1057.8,
+          "quote": "when we had this rejection now ... looking for our confirmation entries on the lower timeframes ... Price engulfed at 2 a.m. ... a very good confirmation entry and engulfing"
+        }
+      ],
+      "limitations": [
+        "The teacher first describes structural bearishness and personal reluctance; the BUY label here is the explicit subsequent daily bias sequence, not a claim that every higher timeframe was bullish.",
+        "Native PTS1065 shows the selected H3 chart and a manipulated position tool, not an independently verified actual fill.",
+        "The drawing anchor Wed 05 Aug 26 02:00 and spoken 2 a.m. do not independently establish a UTC setup-availability or fill clock.",
+        "Bottom-right display time has no complete calendar date; no snapshot UTC timestamp is invented.",
+        "Teacher subsequently changes target and stop while demonstrating; this record does not claim engine agreement or a completed executed trade."
+      ],
+      "source_frame_sha256": "007dc6ed1607c618807e0a2cc11ae7c4b11cdb50d06570be6f0ccce50daab220"
+    },
+    {
+      "side": "BUY",
+      "bias_tf": "D",
+      "assessment_time": null,
+      "snapshot_time": null,
+      "snapshot_time_source": null,
+      "label_review": "FRAME_AND_CANONICAL_TRANSCRIPT_READ",
+      "replay_status": "SOURCE_CLOCK_PENDING",
+      "case_id": "video-entries5-native-t1410-eurusd",
+      "pair": "EURUSD",
+      "trade_side": "BUY",
+      "reason": "Teacher explicitly says EURUSD daily was bullish, with breakout(s) to the upside.",
+      "setup_context": "Daily bullish breakout; H4 upside breakout; external-liquidity target; H4 single-candle liquidity sweep and rejection; lower-timeframe upside breakout with liquidity.",
+      "entry_tf": "H2",
+      "entry_confirmation": "Breakout with liquidity",
+      "source_feed": "FOREXCOM",
+      "evidence": {
+        "path": "knowledge-base/study/examples/entries5-native-t1410.png",
+        "source_video_slug": "bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case",
+        "source_pts_seconds": 1410
+      },
+      "transcript_evidence": [
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1275.0,
+          "end_seconds": 1305.0,
+          "quote": "something interesting on EU ... I want to be sure where I got this entry from ... It was on a lower timeframe ... there was an engulfing somewhere",
+          "note": "Initial recollection is uncertain and is not substituted for the later narrated breakout and visible H2 template."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1324.3,
+          "end_seconds": 1331.1,
+          "quote": "So on the daily on EU as well, we were bullish by three cents breakouts to the upside.",
+          "note": "ASR phrase 'three cents' is uncertain; the explicit daily/bullish/upside words establish direction without resolving that phrase."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1336.9,
+          "end_seconds": 1384.5,
+          "quote": "moving to the four hours ... our target, our external liquidity ... upside ... single ... liquidity to be swept ... rejected ... looking for ... confirmation entries ... a breakout to the upside ... this breakout also had liquidity",
+          "note": "Several intervening ASR words are unclear; no extra pattern rule is inferred from them."
+        },
+        {
+          "path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-5-approach-to-direct-and-confirmation-entries-case/transcript.txt",
+          "start_seconds": 1403.0,
+          "end_seconds": 1418.2,
+          "quote": "personally, I would have done something like this ... this is how I would have placed mine",
+          "note": "Hypothetical position-tool example; repeated ASR \"five hour\" is an R-multiple discussion, not an H5 confirmation timeframe."
+        }
+      ],
+      "limitations": [
+        "The native frame at PTS1410 shows the selected H2 chart; timeframe is read from the visible selector rather than uncertain spoken recollection.",
+        "The daily bullish bias is explicit in the canonical transcript, although the native H2 frame itself does not print a daily bias label.",
+        "Drawing/cursor time labels are not UTC setup-availability or fill timestamps.",
+        "Bottom-right display time has no complete calendar date; no snapshot UTC timestamp is invented.",
+        "The teacher says what he would have done and adjusts the position tool; no actual filled trade or engine agreement is established."
+      ],
+      "source_frame_sha256": "d70022d953705898eafc6a9291ea868f3593ffae18f94dd98cb1a23cc3a5270d"
+    }
+  ],
+  "pdf_page8_recheck": {
+    "evidence": {
+      "path": "knowledge-base/supplementary/source/bishops_trade_chart_examples.pdf",
+      "page": 8
+    },
+    "printed_entry_label": "H2 High swept, Low standing; V-shaped kl; 4thman's CE",
+    "printed_setup_labels": [
+      "H4 breakout with idm; H4RH4",
+      "H4 breakout"
+    ],
+    "observed_plan_direction": "BUY",
+    "explicit_directional_htf_bias_label": null,
+    "user_corrected_buy_definition": "Previous candle low swept; close back inside its range; previous high remains unswept.",
+    "status": "PRINTED_WORDING_DISCREPANCY_UNRESOLVED",
+    "note": "Original page was visually rechecked. Its printed high-swept/low-standing wording conflicts with the user's low-swept/high-standing buy definition. Preserve the original wording and corrected intended definition separately; this review does not change a detector or declare the chart label authoritative."
+  }
+}

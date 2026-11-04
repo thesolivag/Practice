@@ -1,0 +1,382 @@
+name: Bishop direct and confirmation teacher diagnostics
+on:
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-teacher-validation.yml']
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: All H4/H2 cases or targeted mismatch traces
+        type: choice
+        options: [all_h4_h2, findings, alignment, primary_video, nested_m30, weekly_context, execution_m1, tick_audit, target_audit]
+        default: all_h4_h2
+      video_case:
+        description: Firsthand video case for primary_video scope
+        type: choice
+        options: [video-t2-eurgbp-sell, video-t3-gbpcad-buy, video-t3-audchf-buy-loss, video-t3-nzdchf-buy-loss, video-t3-usdjpy-buy-manual-exit, video-t3-gbpusd-sell-mixed-accounts, video-t3-usdchf-buy, video-t3-usdcad-buy-open]
+        default: video-t3-gbpcad-buy
+      detection_only:
+        description: Primary-video detected plans only (no execution or performance)
+        type: boolean
+        default: false
+      target_profile:
+        description: Explicit target policy (context_objective has partial coverage)
+        type: choice
+        options: [nearest_erl, context_objective, context_h4_kl]
+        default: nearest_erl
+      full_context:
+        description: Use full frozen history for primary video replay
+        type: boolean
+        default: false
+      quote_evidence:
+        description: Use frozen tick ordering and published H1 no-touch bounds for execution_m1
+        type: boolean
+        default: false
+      profile_replay:
+        description: Run a 60-second diagnostic CPU profile
+        type: boolean
+        default: false
+      profile_entries:
+        description: Profile entry stage for 60 seconds after preprocessing
+        type: boolean
+        default: false
+      profile_stories:
+        description: Profile story analysis for 60 seconds after preprocessing
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-teacher-validation
+  cancel-in-progress: false
+jobs:
+  replay:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'all_h4_h2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        profile: [bishop_confirmation, owner_aggressive]
+        shard: [0, 1, 2, 3]
+    env:
+      SOURCE_PROFILE: ${{ matrix.profile }}
+      SHARD: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Replay all frozen H4 and H2 fixtures under both declared procedures
+        run: |
+          python - <<'PY'
+          import json, os
+          from reports.replay_collected_teacher_examples_v2 import execute
+          cases=json.load(open('tests/bishop_examples.json'))['examples']
+          eligible=[c['id'] for c in cases if c['tf'] in ('H4','H2')]
+          shard=int(os.environ['SHARD']); profile=os.environ['SOURCE_PROFILE']
+          ids=eligible[shard::4]
+          result=execute('tests/bishop_examples.json','data/teacher_icmarkets_runs',
+            f'reports/teacher_validation/{profile}/{shard}',case_ids=ids,
+            time_budget_seconds=180,clock_annotations='reports/teacher_clock_annotations.json',
+            forward_days=14,source_profile=profile)
+          print(json.dumps({'profile':profile,'requested':ids,'strict_counts':result['strict_counts']}))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-validation-${{ matrix.profile }}-${{ matrix.shard }}
+          path: reports/teacher_validation/
+          if-no-files-found: error
+          retention-days: 30
+  collect:
+    needs: replay
+    if: always() && github.event_name == 'workflow_dispatch' && inputs.scope == 'all_h4_h2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bishop-teacher-validation-*
+          path: /tmp/teacher-validation
+      - name: Preserve full denominator and report unresolved gates
+        run: |
+          python - <<'PY'
+          import collections, json, os
+          from pathlib import Path
+          fixtures=json.load(open('tests/bishop_examples.json'))['examples']
+          selected={c['id'] for c in fixtures if c['tf'] in ('H4','H2')}
+          results={p:{} for p in ('bishop_confirmation','owner_aggressive')}
+          indexes=list(Path('/tmp/teacher-validation').rglob('index.json'))
+          for path in indexes:
+              profile=path.parent.parent.name
+              if profile not in results: raise SystemExit('Unknown profile')
+              for row in json.loads(path.read_text())['results']:
+                  if row['status']=='NOT_REQUESTED': continue
+                  if row['id'] in results[profile]: raise SystemExit('Duplicate case')
+                  results[profile][row['id']]=row
+          output={'scope':'ALTERNATE_FEED_DIAGNOSTICS_NOT_TEACHER_ACCEPTANCE',
+              'fixture_count':len(fixtures),'selected_count':len(selected),
+              'selection':'ALL_H4_H2_FIXTURES_NO_OUTCOME_SELECTION',
+              'source_commit':os.environ['GITHUB_SHA'],'profiles':{}}
+          for profile,rows in results.items():
+              missing=sorted(selected-set(rows))
+              output['profiles'][profile]={'requested':len(selected),'collected':len(rows),
+                  'missing':missing,'status_counts':dict(collections.Counter(r['status'] for r in rows.values())),
+                  'strict_counts':dict(collections.Counter(r.get('strict_status','UNRESOLVED') for r in rows.values())),
+                  'results':list(rows.values())}
+          out=Path('reports/teacher_validation_summary');out.mkdir(parents=True,exist_ok=True)
+          (out/'summary.json').write_text(json.dumps(output,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('Frozen H4/H2 teacher diagnostics; strict source facts remain unresolved.\n\n')
+              for profile,part in output['profiles'].items():
+                  f.write(f"{profile}: {part['collected']}/{part['requested']} collected; execution {part['status_counts']}; strict {part['strict_counts']}\n\n")
+          if len(indexes)!=8 or any(p['missing'] for p in output['profiles'].values()):
+              raise SystemExit('Incomplete artifacts; preserved summary is not a complete run')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-validation-summary
+          path: reports/teacher_validation_summary/
+          retention-days: 30
+  trace:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'findings'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [pdf-p22-xagusd-sell-1, pdf-p47-gbpcad-buy-1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Trace source-bound confirmation and story target lineage
+        env:
+          CASE: ${{ matrix.case }}
+        run: |
+          python - <<'PY'
+          import os
+          from reports.replay_collected_teacher_examples_v2 import execute
+          case=os.environ['CASE']
+          execute('tests/bishop_examples.json','data/teacher_icmarkets_runs',
+            f'reports/teacher_trace/{case}',case_ids=(case,),time_budget_seconds=180,
+            clock_annotations='reports/teacher_clock_annotations.json',forward_days=0,
+            source_profile='bishop_confirmation')
+          PY
+      - name: Inspect silver closed candles in the source-visible formation window
+        if: matrix.case == 'pdf-p22-xagusd-sell-1'
+        run: |
+          python -m reports.trace_teacher_candles \
+            --report reports/teacher_trace/pdf-p22-xagusd-sell-1/pdf-p22-xagusd-sell-1.json.gz \
+            --since 2026-07-09T00:00:00Z \
+            --output reports/teacher_trace/pdf-p22-xagusd-sell-1/candles.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-teacher-trace-${{ matrix.case }}
+          path: reports/teacher_trace/
+          if-no-files-found: error
+          retention-days: 30
+  native-alignment:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'alignment'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: bishop-teacher-data
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Collect native candles with borrowed read-only credentials
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m reports.audit_native_candle_alignment --collect
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-native-candle-alignment
+          path: reports/native_candle_alignment/
+          if-no-files-found: error
+          retention-days: 30
+  primary-video:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'primary_video'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Replay firsthand video breakdown with frozen IC data
+        env:
+          PRIMARY_VIDEO_CASE: ${{ inputs.video_case || 'video-t3-gbpcad-buy' }}
+        run: python -m reports.replay_primary_video_case --case "$PRIMARY_VIDEO_CASE" ${{ inputs.detection_only == true && '--detection-only' || '' }} --target-profile "${{ inputs.target_profile || 'nearest_erl' }}" ${{ inputs.full_context == true && '--full-context' || '' }} ${{ inputs.profile_replay == true && '--profile' || '' }} ${{ inputs.profile_entries == true && '--profile-entries' || '' }} ${{ inputs.profile_stories == true && '--profile-stories' || '' }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-primary-video-replay
+          path: reports/primary_video_replay/
+          if-no-files-found: error
+          retention-days: 30
+
+  nested-m30:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'nested_m30'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt ijson
+      - name: Replay actual frozen M1 child candles with full independent H1 context
+        run: python -m reports.replay_primary_video_case --case video-t3-usdcad-buy-open --nested-m30 --full-context --detection-only --target-profile "${{ inputs.target_profile || 'nearest_erl' }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-usdcad-nested-m30
+          path: reports/primary_video_replay/
+          retention-days: 30
+          if-no-files-found: error
+
+  weekly-context:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'weekly_context'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Audit full frozen W-D history before held H1 confirmation
+        run: python -m reports.trace_usdcad_weekly_context
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-usdcad-weekly-context
+          path: reports/usdcad_weekly_context/
+          if-no-files-found: error
+          retention-days: 30
+
+  execution-m1:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'execution_m1'
+    concurrency:
+      group: bishop-teacher-data
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt ijson
+      - name: Collect execution-only IC Markets M1 candles without refreshing shared tokens
+        if: hashFiles('data/usdcad_execution_m1/status.json') == ''
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m reports.collect_usdcad_execution
+      - name: Replay unchanged H1 detection with validated M1 execution and unchanged cap
+        run: python -m reports.replay_primary_video_case --case video-t3-usdcad-buy-open --target-profile "${{ inputs.target_profile || 'nearest_erl' }}" --full-context --execution-status data/usdcad_execution_m1/status.json ${{ inputs.quote_evidence == true && '--quote-evidence data/usdcad_tick_audit' || '' }}
+      - name: Extract all source-clock fourth-man plans and selection decisions
+        run: python -m reports.inspect_usdcad_fourth_man reports/primary_video_replay/video-t3-usdcad-buy-open.json.gz reports/primary_video_replay/fourth_man_decision.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-usdcad-execution-m1
+          path: |
+            data/usdcad_execution_m1/
+            reports/primary_video_replay/
+          retention-days: 30
+          if-no-files-found: error
+
+  tick-audit:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'tick_audit'
+    concurrency:
+      group: bishop-teacher-data
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Collect bounded raw quotes and current schedule without refreshing shared tokens
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          CTRADER_TOKEN_TABLE: settings
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m reports.collect_usdcad_ticks
+      - name: Check quote comparability and sequence without changing portfolio state
+        run: python -m reports.analyze_usdcad_ticks
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-usdcad-tick-audit
+          path: data/usdcad_tick_audit/
+          retention-days: 30
+          if-no-files-found: error
+
+  target-audit:
+    if: github.event_name == 'workflow_dispatch' && inputs.scope == 'target_audit'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt ijson
+      - name: Read the completed frozen portfolio rather than rerunning strategy
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 40693590233
+          name: bishop-usdcad-execution-m1
+          path: /tmp/bishop-target-audit
+      - name: Audit every selected order and its sponsoring H4 scope
+        run: python -m reports.audit_usdcad_selection_targets /tmp/bishop-target-audit/reports/primary_video_replay/video-t3-usdcad-buy-open.json.gz reports/usdcad_target_scope/audit.json --context
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-usdcad-target-scope
+          path: reports/usdcad_target_scope/
+          retention-days: 30
+          if-no-files-found: error

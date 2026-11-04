@@ -1,0 +1,435 @@
+{
+  "actions_run": 40342942707,
+  "engine_commit": "913a4ed",
+  "projection_policy": "positive_opposite_retirement_v1",
+  "cases": [
+    {
+      "instrument": "GBPUSD",
+      "as_of": "2026-06-24T11:49:00+00:00",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "scope": "BIAS_ONLY",
+      "rows": [
+        {
+          "tf": "D",
+          "state": "DIRECTIONAL",
+          "side": "SELL",
+          "basis": "SAME_TIMEFRAME_STRUCTURE",
+          "structural_context": {
+            "tf": "D",
+            "state": "DIRECTIONAL",
+            "side": "SELL",
+            "available_at": "2026-06-23T21:00:00+00:00",
+            "recent_breaks": [
+              {
+                "id": "structure_event_51961223fb5a6900741c07dc",
+                "kind": "BREAKOUT",
+                "instrument": "GBPUSD",
+                "tf": "D",
+                "clock": {
+                  "occurred_from": "2026-06-23T21:00:00+00:00",
+                  "occurred_to": "2026-06-23T21:00:00+00:00",
+                  "available_at": "2026-06-23T21:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_8030f48a146e23599311c0fd",
+                "price_ticks": 132043,
+                "scope_id": null,
+                "bar_ids": [
+                  "bar_0920b60ead1090a314fd521b"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "reference_type": "TURN",
+                  "crossing_mode": "TRADED",
+                  "reference_formed_at": "2026-06-18T21:00:00+00:00",
+                  "reference_available_at": "2026-06-19T21:00:00+00:00",
+                  "scope_type": "LOCAL"
+                }
+              },
+              {
+                "id": "structure_event_8c93dcf6e5cdbc448a3906a5",
+                "kind": "EXTERNAL_BREAK",
+                "instrument": "GBPUSD",
+                "tf": "D",
+                "clock": {
+                  "occurred_from": "2026-06-23T21:00:00+00:00",
+                  "occurred_to": "2026-06-23T21:00:00+00:00",
+                  "available_at": "2026-06-23T21:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_8030f48a146e23599311c0fd",
+                "price_ticks": 132043,
+                "scope_id": "range_4ce4ad82ed7f4eae1b98f5c1",
+                "bar_ids": [
+                  "bar_0920b60ead1090a314fd521b"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "old_origin_id": "turn_49db39365f9ebb7900fdda42",
+                  "candidate_id": null,
+                  "reference_formed_at": "2026-06-18T21:00:00+00:00",
+                  "reference_available_at": "2026-06-19T21:00:00+00:00",
+                  "scope_type": "ROOT"
+                }
+              }
+            ],
+            "active_root_ranges": [
+              {
+                "id": "range_4ce4ad82ed7f4eae1b98f5c1",
+                "side": "SELL",
+                "status": "PROVISIONAL_BREAKOUT",
+                "protected_turn_id": "turn_49db39365f9ebb7900fdda42",
+                "origin_ticks": 135061,
+                "available_at": "2026-06-23T21:00:00+00:00"
+              }
+            ],
+            "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+          },
+          "active_by_scope": [
+            {
+              "side": "BUY",
+              "scope": "LOCAL",
+              "count": 1
+            },
+            {
+              "side": "SELL",
+              "scope": "LOCAL",
+              "count": 5
+            }
+          ],
+          "opposite_confirmed_events_while_still_displayed": 0,
+          "oldest_active": "2026-06-05T21:00:00+00:00",
+          "newest_active": "2026-06-22T21:00:00+00:00"
+        },
+        {
+          "tf": "H4",
+          "state": "DIRECTIONAL",
+          "side": "SELL",
+          "basis": "SAME_TIMEFRAME_STRUCTURE",
+          "structural_context": {
+            "tf": "H4",
+            "state": "DIRECTIONAL",
+            "side": "SELL",
+            "available_at": "2026-06-23T05:00:00+00:00",
+            "recent_breaks": [
+              {
+                "id": "structure_event_89780ef2b74c9c7e59f64d43",
+                "kind": "BOS",
+                "instrument": "GBPUSD",
+                "tf": "H4",
+                "clock": {
+                  "occurred_from": "2026-06-23T05:00:00+00:00",
+                  "occurred_to": "2026-06-23T05:00:00+00:00",
+                  "available_at": "2026-06-23T05:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_f6324b3f4dfc52900f09604e",
+                "price_ticks": 132445,
+                "scope_id": null,
+                "bar_ids": [
+                  "bar_f2159f659aff14708c47422e"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "reference_type": "TURN",
+                  "crossing_mode": "TRADED",
+                  "reference_formed_at": "2026-06-22T17:00:00+00:00",
+                  "reference_available_at": "2026-06-22T21:00:00+00:00",
+                  "scope_type": "LOCAL"
+                }
+              }
+            ],
+            "active_root_ranges": [
+              {
+                "id": "range_0bf62b796f4d4431a8d9a79f",
+                "side": "SELL",
+                "status": "DEFINED",
+                "protected_turn_id": "turn_ea8f4f91da39522491523d0f",
+                "origin_ticks": 134560,
+                "available_at": "2026-06-24T09:00:00+00:00"
+              }
+            ],
+            "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+          },
+          "active_by_scope": [
+            {
+              "side": "BUY",
+              "scope": "LOCAL",
+              "count": 1
+            },
+            {
+              "side": "SELL",
+              "scope": "CHILD",
+              "count": 9
+            },
+            {
+              "side": "SELL",
+              "scope": "LOCAL",
+              "count": 3
+            }
+          ],
+          "opposite_confirmed_events_while_still_displayed": 0,
+          "oldest_active": "2026-06-05T17:00:00+00:00",
+          "newest_active": "2026-06-24T11:00:00+00:00"
+        }
+      ],
+      "interpretation": "Multiple surviving structural hypotheses are not an established single current bias. Local versus parent-story ownership needs source-grounded review. No teacher matching claim.",
+      "source_clock": "PDF creation time only; verified setup assessment time remains unknown"
+    },
+    {
+      "instrument": "EURNZD",
+      "as_of": "2026-07-17T18:46:00+00:00",
+      "engine_status": "COMPUTED_UNVALIDATED",
+      "scope": "BIAS_ONLY",
+      "rows": [
+        {
+          "tf": "D",
+          "state": "DIRECTIONAL",
+          "side": "SELL",
+          "basis": "SAME_TIMEFRAME_STRUCTURE",
+          "structural_context": {
+            "tf": "D",
+            "state": "DIRECTIONAL",
+            "side": "SELL",
+            "available_at": "2026-07-09T21:00:00+00:00",
+            "recent_breaks": [
+              {
+                "id": "structure_event_3070b72c3f2ec52d3b632112",
+                "kind": "EXTERNAL_BREAK",
+                "instrument": "EURNZD",
+                "tf": "D",
+                "clock": {
+                  "occurred_from": "2026-07-09T21:00:00+00:00",
+                  "occurred_to": "2026-07-09T21:00:00+00:00",
+                  "available_at": "2026-07-09T21:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+                "price_ticks": 200254,
+                "scope_id": "range_0e10d1d734bfa88ab2995ed9",
+                "bar_ids": [
+                  "bar_1818b8476918920535dd1e14"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "old_origin_id": "turn_eacf764c91ab920309ed5515",
+                  "candidate_id": "turn_68cbf83bdfa4776b8a5a5597",
+                  "reference_formed_at": "2026-07-03T21:00:00+00:00",
+                  "reference_available_at": "2026-07-06T21:00:00+00:00",
+                  "scope_type": "ROOT"
+                }
+              },
+              {
+                "id": "structure_event_dd01bfd550075511d5f8802b",
+                "kind": "BOS",
+                "instrument": "EURNZD",
+                "tf": "D",
+                "clock": {
+                  "occurred_from": "2026-07-09T21:00:00+00:00",
+                  "occurred_to": "2026-07-09T21:00:00+00:00",
+                  "available_at": "2026-07-09T21:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_d3a14f5a954ac9da6564e3e7",
+                "price_ticks": 200254,
+                "scope_id": null,
+                "bar_ids": [
+                  "bar_1818b8476918920535dd1e14"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "reference_type": "TURN",
+                  "crossing_mode": "TRADED",
+                  "reference_formed_at": "2026-07-03T21:00:00+00:00",
+                  "reference_available_at": "2026-07-06T21:00:00+00:00",
+                  "scope_type": "LOCAL"
+                }
+              }
+            ],
+            "active_root_ranges": [
+              {
+                "id": "range_0e10d1d734bfa88ab2995ed9",
+                "side": "SELL",
+                "status": "PROVISIONAL_BREAKOUT",
+                "protected_turn_id": "turn_eacf764c91ab920309ed5515",
+                "origin_ticks": 202164,
+                "available_at": "2026-07-09T21:00:00+00:00"
+              }
+            ],
+            "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+          },
+          "active_by_scope": [
+            {
+              "side": "BUY",
+              "scope": "LOCAL",
+              "count": 1
+            },
+            {
+              "side": "SELL",
+              "scope": "LOCAL",
+              "count": 1
+            }
+          ],
+          "opposite_confirmed_events_while_still_displayed": 0,
+          "oldest_active": "2026-07-02T21:00:00+00:00",
+          "newest_active": "2026-07-08T01:00:00+00:00"
+        },
+        {
+          "tf": "H4",
+          "state": "DIRECTIONAL",
+          "side": "SELL",
+          "basis": "SAME_TIMEFRAME_STRUCTURE",
+          "structural_context": {
+            "tf": "H4",
+            "state": "DIRECTIONAL",
+            "side": "SELL",
+            "available_at": "2026-07-17T17:00:00+00:00",
+            "recent_breaks": [
+              {
+                "id": "structure_event_72a0f5d940432d3d59bf7dac",
+                "kind": "EXTERNAL_BREAK",
+                "instrument": "EURNZD",
+                "tf": "H4",
+                "clock": {
+                  "occurred_from": "2026-07-17T17:00:00+00:00",
+                  "occurred_to": "2026-07-17T17:00:00+00:00",
+                  "available_at": "2026-07-17T17:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_97908c0c43604c75873a9b85",
+                "price_ticks": 195795,
+                "scope_id": "range_3dfbaa1256b7fdbc69cb574d",
+                "bar_ids": [
+                  "bar_653cf43f7f703325f0768760"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "old_origin_id": "turn_b20ba89ba2fe6c2195a1d373",
+                  "candidate_id": "turn_d0098f1fb71d322728326031",
+                  "reference_formed_at": "2026-07-17T01:00:00+00:00",
+                  "reference_available_at": "2026-07-17T05:00:00+00:00",
+                  "scope_type": "ROOT"
+                }
+              },
+              {
+                "id": "structure_event_d4e7fcfda194def1a6014015",
+                "kind": "BOS",
+                "instrument": "EURNZD",
+                "tf": "H4",
+                "clock": {
+                  "occurred_from": "2026-07-17T17:00:00+00:00",
+                  "occurred_to": "2026-07-17T17:00:00+00:00",
+                  "available_at": "2026-07-17T17:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_97908c0c43604c75873a9b85",
+                "price_ticks": 195795,
+                "scope_id": null,
+                "bar_ids": [
+                  "bar_653cf43f7f703325f0768760"
+                ],
+                "evidence_ids": [],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "reference_type": "TURN",
+                  "crossing_mode": "TRADED",
+                  "reference_formed_at": "2026-07-17T01:00:00+00:00",
+                  "reference_available_at": "2026-07-17T05:00:00+00:00",
+                  "scope_type": "LOCAL"
+                }
+              },
+              {
+                "id": "structure_event_f693413d12654a6484436df1",
+                "kind": "SWEEP_BOS",
+                "instrument": "EURNZD",
+                "tf": "H4",
+                "clock": {
+                  "occurred_from": "2026-07-17T17:00:00+00:00",
+                  "occurred_to": "2026-07-17T17:00:00+00:00",
+                  "available_at": "2026-07-17T17:00:00+00:00",
+                  "precision": "EXACT"
+                },
+                "side": "SELL",
+                "reference_id": "turn_fe45fbad62cc251d3c3c4ebd",
+                "price_ticks": 195819,
+                "scope_id": null,
+                "bar_ids": [
+                  "bar_653cf43f7f703325f0768760"
+                ],
+                "evidence_ids": [
+                  "structure_event_88f7286f3b6a8664079fa167",
+                  "turn_d0098f1fb71d322728326031"
+                ],
+                "policy_id": "policy_5e7a56d72bb73887c5b6fc5d",
+                "evidence_status": "KNOWN",
+                "details": {
+                  "reference_type": "TURN",
+                  "sweep_event_id": "structure_event_88f7286f3b6a8664079fa167",
+                  "sweep_reference_id": "turn_08f7464a03c5b0b5162a5cc4",
+                  "sweep_leg_id": "sweep_leg_265fd6232d65a357fae3fdec",
+                  "parent_range_id": null,
+                  "reference_formed_at": "2026-07-16T13:00:00+00:00",
+                  "reference_available_at": "2026-07-16T17:00:00+00:00",
+                  "scope_type": "LOCAL"
+                }
+              }
+            ],
+            "active_root_ranges": [
+              {
+                "id": "range_3dfbaa1256b7fdbc69cb574d",
+                "side": "SELL",
+                "status": "DEFINED",
+                "protected_turn_id": "turn_b20ba89ba2fe6c2195a1d373",
+                "origin_ticks": 202218,
+                "available_at": "2026-07-17T17:00:00+00:00"
+              }
+            ],
+            "qualification": "Recent closed structural break on this timeframe; setup confirmation is separate."
+          },
+          "active_by_scope": [
+            {
+              "side": "BUY",
+              "scope": "LOCAL",
+              "count": 11
+            },
+            {
+              "side": "SELL",
+              "scope": "LOCAL",
+              "count": 12
+            },
+            {
+              "side": "SELL",
+              "scope": "ROOT",
+              "count": 1
+            }
+          ],
+          "opposite_confirmed_events_while_still_displayed": 0,
+          "oldest_active": "2026-06-15T13:00:00+00:00",
+          "newest_active": "2026-07-17T01:00:00+00:00"
+        }
+      ],
+      "interpretation": "Multiple surviving structural hypotheses are not an established single current bias. Local versus parent-story ownership needs source-grounded review. No teacher matching claim.",
+      "source_clock": "PDF creation time only; verified setup assessment time remains unknown"
+    }
+  ]
+}

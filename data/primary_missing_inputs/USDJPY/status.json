@@ -1,0 +1,7 @@
+{
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "path": "data/primary_missing_inputs/USDJPY/primary_h1_dc10ebd5b7ed5976a07282c4.csv.gz",
+  "manifest": "data/primary_missing_inputs/USDJPY/primary_h1_dc10ebd5b7ed5976a07282c4.csv.manifest.json",
+  "sha256": "6af51034ed2405536fadcd007e858bd404cd8bb3bc145ab0061b681be98ae6f3",
+  "rows": 7338
+}

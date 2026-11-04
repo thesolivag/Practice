@@ -1,0 +1,13 @@
+{
+  "run_id": 40738280130,
+  "engine_commit": "7e9f929",
+  "artifact_id": 12837034573,
+  "as_of": "2026-10-28T17:00:00+00:00",
+  "pair": "EURNZD",
+  "input_sha256": "96f2df376b0be283ec5da1d6a33ade3bbe9f23566f2f7c6cc6ce0a2a9492be82",
+  "artifact_sha256": "94514db6bc68a2118ae721fee7baa9b63790f725217bfae46ce33effb5420d7a",
+  "preview_only": true,
+  "orders_created": 0,
+  "persisted": false,
+  "telegram_delivery": false
+}

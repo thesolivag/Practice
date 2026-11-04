@@ -1,0 +1,93 @@
+name: Bishop application checks
+on:
+  workflow_dispatch:
+    inputs:
+      bias_inventory:
+        description: Probe reviewed bias labels using saved snapshot clocks (not setup acceptance)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: bishop-app-checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    if: inputs.bias_inventory != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Offline engine and application regression checks
+        run: python -m pytest -q --junitxml=bishop-checks.xml
+      - name: Validate source inventory
+        run: python -m reports.audit_teacher_bias_readiness
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-application-checks
+          path: |
+            bishop-checks.xml
+            reports/bias_validation/
+  saved-bias-scan:
+    if: inputs.bias_inventory != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - pair: EURNZD
+            source: collect_0a3ff8aa72c9638bbd097615
+            as_of: '2026-07-17T18:46:00Z'
+            history_start: '2026-06-12T00:00:00Z'
+          - pair: GBPUSD
+            source: collect_0401ebc6fede452bfc611a77
+            as_of: '2026-06-24T11:49:00Z'
+            history_start: '2026-05-20T00:00:00Z'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Reuse committed historical candles for a bias-only scan
+        env:
+          SOURCE: ${{ matrix.source }}
+          AS_OF: ${{ matrix.as_of }}
+          HISTORY_START: ${{ matrix.history_start }}
+          PAIR: ${{ matrix.pair }}
+        run: |
+          base="data/teacher_icmarkets_runs/40078316839/data/teacher_icmarkets/$SOURCE"
+          python -m bishop.scan_bias --input "$base.csv.gz" \
+            --manifest "$base.csv.manifest.json" --as-of "$AS_OF" \
+            --history-start "$HISTORY_START" --origin-tfs D H4 \
+            --out "reports/bias_validation/scans/$PAIR"
+      - name: Preserve bias evidence (snapshot clocks are not setup clocks)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bishop-bias-${{ matrix.pair }}
+          path: reports/bias_validation/scans/
+
+  source-bias-inventory:
+    if: inputs.bias_inventory == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Probe reviewed source directions on saved IC Markets candles
+        run: python -m reports.replay_bias_source_snapshots
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-source-bias-inventory
+          path: reports/bias_validation/snapshot_inventory.json

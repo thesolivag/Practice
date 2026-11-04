@@ -1,0 +1,41 @@
+[
+  {
+    "case_id": "pdf-p13-eurnzd-sell-1",
+    "selection_mode": "PROSPECTIVE_CAPPED",
+    "max_open_orders": 10,
+    "sell_rejections": [
+      {
+        "tf": "H1",
+        "reason": "EXPOSURE_CAP",
+        "contexts": 104
+      },
+      {
+        "tf": "H2",
+        "reason": "EXPOSURE_CAP",
+        "contexts": 104
+      },
+      {
+        "tf": "H3",
+        "reason": "EXPOSURE_CAP",
+        "contexts": 26
+      }
+    ]
+  },
+  {
+    "case_id": "pdf-p27-gbpusd-sell-1",
+    "selection_mode": "PROSPECTIVE_CAPPED",
+    "max_open_orders": 10,
+    "sell_rejections": [
+      {
+        "tf": "H1",
+        "reason": "EXPOSURE_CAP",
+        "contexts": 216
+      },
+      {
+        "tf": "H2",
+        "reason": "EXPOSURE_CAP",
+        "contexts": 54
+      }
+    ]
+  }
+]

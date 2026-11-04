@@ -1,0 +1,77 @@
+{
+  "schema_version": "teacher_acquisition_status_v1",
+  "status": "RAW_COLLECTED_UNVALIDATED",
+  "plan_sha256": "21a7ada181efd0f0e96dbac9a9c82e9b369a53fd1818ee649114262065790896",
+  "requested_jobs": 6,
+  "expected_jobs": 6,
+  "jobs": [
+    {
+      "id": "collect_b7a4392badad825ed9019366",
+      "pair": "JP225",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_b7a4392badad825ed9019366.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_b7a4392badad825ed9019366.csv.manifest.json",
+      "sha256": "59c6b4b4aa7f360febddab371ce3deb764a99cc7f21a324c233f358873e73cf8",
+      "rows": 49008
+    },
+    {
+      "id": "collect_aa13b3fd1897a841fdf7ade1",
+      "pair": "NAS100",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_aa13b3fd1897a841fdf7ade1.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_aa13b3fd1897a841fdf7ade1.csv.manifest.json",
+      "sha256": "6808b171a2e5c11bc55b276da2e15d5f81f309e24bafeeb8756cc1ac1788867b",
+      "rows": 52169
+    },
+    {
+      "id": "collect_cc04e991915f8bf4b651a0df",
+      "pair": "US30",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_cc04e991915f8bf4b651a0df.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_cc04e991915f8bf4b651a0df.csv.manifest.json",
+      "sha256": "ce3301d584d1b19c6a786616627ff5823c4a3634d62aeaac9453df6b8f5cecd3",
+      "rows": 64436
+    },
+    {
+      "id": "collect_dc9cd9c90e9fd2e4bac74a94",
+      "pair": "USOIL",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_dc9cd9c90e9fd2e4bac74a94.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_dc9cd9c90e9fd2e4bac74a94.csv.manifest.json",
+      "sha256": "62e3b12f5af0904524ece8b9e40804aa6fbe24ea06e10800112d9fb04abcd1ec",
+      "rows": 100662
+    },
+    {
+      "id": "collect_aee7c1ad78c1c2962aa37257",
+      "pair": "XAGUSD",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_aee7c1ad78c1c2962aa37257.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_aee7c1ad78c1c2962aa37257.csv.manifest.json",
+      "sha256": "2fca40ddc6ea7cc9353ae070aee7e1c5529c6587db402813d0e33c21c41299df",
+      "rows": 57321
+    },
+    {
+      "id": "collect_3d6fb995fe3fde5e7525f351",
+      "pair": "XAUUSD",
+      "base_tf": "M1",
+      "status": "RAW_COLLECTED_UNVALIDATED",
+      "reconnect_failures": [],
+      "path": "data/teacher_icmarkets_m1/collect_3d6fb995fe3fde5e7525f351.csv.gz",
+      "manifest": "data/teacher_icmarkets_m1/collect_3d6fb995fe3fde5e7525f351.csv.manifest.json",
+      "sha256": "5273d349d2adcd278445eb04f5cddb789f68613ab3a7cf24158472f80a26425e",
+      "rows": 81982
+    }
+  ],
+  "collected_jobs": 6,
+  "failed_jobs": 0
+}

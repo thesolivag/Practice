@@ -1,0 +1,100 @@
+{
+  "execution_status": "COMPUTED_CONTEXT_ONLY",
+  "weekly_context": {
+    "status": "KNOWN",
+    "side": "SELL",
+    "story_ids": [
+      "story_65d240895d2b0dd3ad7170dd"
+    ],
+    "available_at": "2026-01-19T22:00:00+00:00",
+    "policy": "latest_confirmed_weekly_ROOT_batch_v1_OUR_CHOICE"
+  },
+  "base_bars": 6253,
+  "gap_count": 2,
+  "story_counts": {
+    "W:ROOT": 8,
+    "W:LOCAL": 10,
+    "W:CHILD": 3
+  },
+  "coverage": {
+    "W": {
+      "status": "PARTIAL",
+      "incomplete": [
+        {
+          "start": "2025-06-08T21:00:00+00:00",
+          "end": "2025-06-13T21:00:00+00:00",
+          "missing_slots": 51,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-21T22:00:00+00:00",
+          "end": "2025-12-26T22:00:00+00:00",
+          "missing_slots": 27,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-28T22:00:00+00:00",
+          "end": "2026-01-02T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-06-07T21:00:00+00:00",
+          "end": "2026-06-12T21:00:00+00:00",
+          "missing_slots": 5,
+          "crossing": false,
+          "forming": true
+        }
+      ],
+      "complete_bars": 49,
+      "calendar": "fx_ny_v1",
+      "anchor": "ny17_wall_v2"
+    },
+    "D": {
+      "status": "PARTIAL",
+      "incomplete": [
+        {
+          "start": "2025-06-10T21:00:00+00:00",
+          "end": "2025-06-11T21:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-24T22:00:00+00:00",
+          "end": "2025-12-25T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-25T22:00:00+00:00",
+          "end": "2025-12-26T22:00:00+00:00",
+          "missing_slots": 3,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2025-12-31T22:00:00+00:00",
+          "end": "2026-01-01T22:00:00+00:00",
+          "missing_slots": 24,
+          "crossing": false,
+          "forming": false
+        },
+        {
+          "start": "2026-06-11T21:00:00+00:00",
+          "end": "2026-06-12T21:00:00+00:00",
+          "missing_slots": 5,
+          "crossing": false,
+          "forming": true
+        }
+      ],
+      "complete_bars": 258,
+      "calendar": "fx_ny_v1",
+      "anchor": "ny17_wall_v2"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "case_id": "video-t3-usdchf-buy",
+  "scope": "PRIMARY_MENTOR_VIDEO_ALTERNATE_FEED_DIAGNOSTIC",
+  "source": {
+    "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+    "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+    "pts_start": 1364.9,
+    "pts_end": 1508.5,
+    "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+    "frame_paths": [
+      "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_025.jpg"
+    ]
+  },
+  "source_case": {
+    "id": "video-t3-usdchf-buy",
+    "provenance": "PRIMARY_MENTOR_VIDEO",
+    "verification": "SOURCE_REVIEWED_NOT_ENGINE_ACCEPTED",
+    "unit": "NAMED_SOURCE_EPISODE_NOT_ORDER",
+    "instrument": "USDCHF",
+    "side": "BUY",
+    "source": {
+      "slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+      "sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+      "pts_start": 1364.9,
+      "pts_end": 1508.5,
+      "transcript_path": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+      "frame_paths": [
+        "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_025.jpg"
+      ]
+    },
+    "expected_qualitative": {
+      "bias_context": [
+        "W and D bullish",
+        "D KL reaction"
+      ],
+      "h4_sequence": [
+        "Initial H4 breakout/liquidity opportunity missed",
+        "Fresh H4 breakout/liquidity/rejection sponsors next entry"
+      ],
+      "entry_paths": [
+        {
+          "tf": "H2",
+          "model": "engulfing",
+          "participation": "PERSONAL_TRADE_NARRATED"
+        }
+      ],
+      "stop_notes": "Stop below local engulf/near structure; target external/previous high. Spoken roughly3.5\u20134R and F1485 box3.29 must not be forced equal."
+    },
+    "participation": "PERSONAL_TRADE_NARRATED",
+    "outcome": {
+      "classification": "TARGET_DELIVERY_NARRATED",
+      "evidence_basis": "NARRATION_AND_SAMPLED_SOURCE_FRAMES_NOT_SIMULATED",
+      "numeric_realized_r": null
+    },
+    "narration_locator": "1419.1\u20131425.2 first entry missed;1464.9\u20131472.5 H2 engulf, Thursday; later reversal at target.",
+    "unresolved": {
+      "setup_utc": null,
+      "fill_utc": null,
+      "initial_entry": null,
+      "initial_stop": null,
+      "initial_target": null,
+      "case_specific": "Separate first missed setup from fresh executed episode. Initial numeric SL/management not independently fixed.",
+      "common": [
+        "Exact setup/fill UTC clock and source-to-IC candle/anchor alignment not independently established.",
+        "Initial entry/stop/target numeric acceptance tolerances and broker execution costs are not established.",
+        "Narrated participation/outcome is firsthand evidence, not an audited broker fill/management ledger.",
+        "No engine replay acceptance has been awarded; no fixture expectations are generated from engine results."
+      ]
+    }
+  },
+  "source_clock_status": "VISIBLE_JUNE11_FORMATION_NOT_VERIFIED_SETUP_OR_FILL_CLOCK",
+  "as_of": "2026-06-13T00:00:00Z",
+  "history_start": "2026-05-04T00:00:00Z",
+  "scan_start": "2026-06-05T00:00:00Z",
+  "input_path": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.gz",
+  "manifest_path": "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.manifest.json",
+  "frozen_sha256": {
+    "tests/bishop_video_breakdown_cases.json": "70d45ad9e4ec4885b453b4122dd603f9d9a57e973995acdf3ae84879d7ca0e40",
+    "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.manifest.json": "0ce6374385f4810552f561516d27033baa5b672d8a12e99a94b413dc0564d505",
+    "data/teacher_icmarkets_runs/40098655754/data/teacher_icmarkets/collect_f96b706592fd20ebcac40e90.csv.gz": "08bcbde3bb134c43517a1391f66cbfaf566c4c66a39824259a5e20461a85c60d",
+    "/home/runner/work/practicing/practicing/reports/replay_primary_video_case.py": "8df9fefc9e3885d7bc7ca29aaeeb1210b95882271dca4358405955078ce616aa",
+    "knowledge-base/study/bishop_frame_manifest.json": "18f5be6ecc377e9a01abd911ba4cef4dbf0f7de422ee52a7834abc3a9d3c5b1f",
+    "knowledge-base/frames/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/sheets/sheet_025.jpg": "a338473415e6522ea860e245bef9e933ac980c1e74e28c393e2a71e501e77c43",
+    "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt": "9b0df7a6eef72b336d881066d80d1abb840ab8eafdcad3451cf53393cda01209",
+    "bishop/v2/__init__.py": "5d01aada68ed7c07d4d5642c41e3b93e685c52fbb4b752fdf9a21b6b67b1841e",
+    "bishop/v2/aggregation.py": "d313f92c346bc3cb7d6711b3d452d26120626ad2549c49ac00e241e59bf7c098",
+    "bishop/v2/backtest.py": "8bad0a578ef05fd572f340294ee54e1242c8d1ce0d373b5af783475a02990835",
+    "bishop/v2/continuity.py": "eda11292c9e2ac9a74f077cc2d45308e45947dd5f9fcdd587c2f8a14d08a7c99",
+    "bishop/v2/engine.py": "9ec342c3ac165c9e5616b17926da6d1c9d2ea09b2e92af1d046262b0e5fb401c",
+    "bishop/v2/entries.py": "94f3e74750f225372f58736634c6b7a1cc5a0a7694b7304be18aba10ccfab977",
+    "bishop/v2/feed.py": "0dccf8f8d3f7e9b8a716d282b50f7b71b495b5fe67c60ed861ae4537be8ed853",
+    "bishop/v2/impulse.py": "d234946e31522fe2b5d256c85079e15a44731c3e7ca055e10a44bea4e21cb0cd",
+    "bishop/v2/liquidity_forms.py": "9b7256ee52754cbc09d6b5332758c04f485af2e155aced97d6079fcc08e0a757",
+    "bishop/v2/risk.py": "0cd5e5c61285409ab973c62212e21eb856b40353523b32dbacd16fd0080906c8",
+    "bishop/v2/sessions.py": "887e34aa3c9cdf91328d1b284f674fa7c8e73ae6ec8bfed99efbfaaf240294c7",
+    "bishop/v2/simulation.py": "1f3a1839bbd92d81ab1585ab804dfac8c33ad63f15fabebe217d18b7cb3b4a9c",
+    "bishop/v2/stories.py": "3cde9b0478780d2e6424839b8c826fde513c4af984a01b378e18d2c456a3cf07",
+    "bishop/v2/structure.py": "d7d2fbdef352d426036b4301d379f49cb5283f6e387aa66b7166677e0ae23543",
+    "bishop/v2/types.py": "a617721bcb38567c2a14480a5428cec08840649384451f021b06f75e33af3f2e",
+    "bishop/v2/weekly_context.py": "9bcc46f168b18139bb0bf072ffe21a2b666717c90a215a6444977eac355f9b84"
+  },
+  "costs": "EXPLICIT_ZERO_COST",
+  "limitations": [
+    "Source-visible exploratory window is not a teacher fill window.",
+    "Forty-day entry context cannot establish full Monthly history.",
+    "IC and FOREXcom chart alignment is unverified.",
+    "A detected pattern/order is not automatically the source trade.",
+    "No source numeric tolerance or expected outcome is fitted."
+  ]
+}

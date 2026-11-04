@@ -1,0 +1,32 @@
+name: Bishop bounded backtest profile
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude-bishop-aggressive]
+    paths: ['.github/workflows/bishop-backtest-profile.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  profile:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Reuse saved candles
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 40393856297 --repo awujo/practicing --name bishop-current-bias-GBPUSD --dir market-input
+      - name: Profile one unchanged backtest with a three-minute budget
+        run: python -u -m reports.profile_bishop_backtest --inputs market-input --out reports/backtest_profile
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-backtest-profile
+          path: reports/backtest_profile/
+          retention-days: 14

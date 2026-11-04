@@ -1,0 +1,249 @@
+{
+  "run": 40583792823,
+  "source_pts": 1485,
+  "source_entry": 0.7986,
+  "source_stop": 0.79783,
+  "source_target": 0.80113,
+  "bot_setup": {
+    "id": "setup_03218dbc80d7f2b74e5dcb2a",
+    "instrument": "USDCHF",
+    "tf": "H2",
+    "model": "engulf_av_retest",
+    "side": "BUY",
+    "story_id": "story_8b09e481787ebe8cf4883ff4",
+    "clock": {
+      "occurred_from": "2026-06-11T07:00:00+00:00",
+      "occurred_to": "2026-06-11T07:00:00+00:00",
+      "available_at": "2026-06-11T07:00:00+00:00",
+      "precision": "BAR"
+    },
+    "entry_ticks": 79838,
+    "stop_ticks": 79803,
+    "target_ticks": 80063,
+    "risk_profile": "context_liquidity",
+    "order_type": "LIMIT",
+    "status": "ELIGIBLE",
+    "level_id": "level_6beba93428bdd138348693e0",
+    "liquidity_ids": [
+      "entry_irl_c30a42a3f51522bad02eda94"
+    ],
+    "evidence_ids": [
+      "story_8b09e481787ebe8cf4883ff4",
+      "level_6beba93428bdd138348693e0",
+      "bar_c4ae1cbdb5333a67472d12ff",
+      "level_135ae2d945605b91553b1861",
+      "structure_event_fc6aeddb768867136a0c80ff",
+      "entry_irl_c30a42a3f51522bad02eda94",
+      "entry_first_take_0efbf3b21afd3b24ffda7e42",
+      "bar_0b219a3c3cd483f0ec9720f6",
+      "bar_c9f86ddbec881ee04bc571f8",
+      "bar_c25320530c34f6f6547f09f9",
+      "bar_f8c034763cde5662f064a804",
+      "bar_4a02a7e4ddf4ac76969fb973",
+      "bar_04b234709c2a7b812916b96c"
+    ],
+    "expires_at": "2026-06-12T07:00:00+00:00",
+    "details": {
+      "protected_objects": [
+        [
+          "bar_b171f0effbdc5b4eb8b3f801",
+          79823,
+          "pattern_wick"
+        ],
+        [
+          "bar_0b219a3c3cd483f0ec9720f6",
+          79817,
+          "pattern_wick"
+        ],
+        [
+          "level_ddbce1a087e2c6f5745b3574",
+          79813,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_78b8c9282783ea1c43bcb19f",
+          79808,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "level_efe0acb355de42e9a38e44a3",
+          79830,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ],
+        [
+          "bar_pool_96b9a7b9d33009cf506930d8",
+          79817,
+          "nearby_structure_or_liquidity_OUR_CHOICE"
+        ]
+      ],
+      "protection_shortfall": [],
+      "story_destination_ticks": null,
+      "story_destination_ref_id": null,
+      "target_candidates": [
+        [
+          80063,
+          "turn_pool_15892e8a8fcb50b60aaae976",
+          "entry_tf_erl"
+        ]
+      ],
+      "selected_target_ticks": 80063,
+      "target_adjustments": [],
+      "risk_profile": "context_liquidity",
+      "target_profile": "nearest_erl",
+      "zone_bounds": null,
+      "zone_edge_experiment": false,
+      "zone_geometry_policy": null,
+      "numerical_conventions": "OUR_CHOICE",
+      "protection_scope_policy": "entry_episode_linked_v1",
+      "protection_evidence_ids": [
+        "bar_b171f0effbdc5b4eb8b3f801",
+        "bar_0b219a3c3cd483f0ec9720f6",
+        "level_6beba93428bdd138348693e0"
+      ],
+      "protection_range_ids": [],
+      "range_origin_protection_linked": false,
+      "excluded_objects": [
+        [
+          "range_0181cee43831387582c726cf",
+          "NO_ENTRY_EPISODE_PROTECTION_LINK",
+          "turn_pool_582edaf6e94c7b5191898b90"
+        ],
+        [
+          "bar_pool_2d9a4ae6a6a513c1ac4d41e6",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_ee402cc354c566755c233ffb"
+        ],
+        [
+          "turn_pool_ba69c6141046488e588ff7d5",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_27e8eb0d9d964f8dd34b8c34"
+        ],
+        [
+          "bar_pool_5aff25a8eb01a28480b80a4d",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_27e8eb0d9d964f8dd34b8c34"
+        ],
+        [
+          "bar_pool_f808f47f84a6cbd58553ce5c",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_d28f1a8f57d049d92c6ecd2a"
+        ],
+        [
+          "bar_pool_54541e028e7499abfdc5a4de",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_4a02a7e4ddf4ac76969fb973"
+        ],
+        [
+          "bar_pool_aa14d42ad6e5c25d3f550c89",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c4ae1cbdb5333a67472d12ff"
+        ],
+        [
+          "bar_pool_3bf128fab3a385fdde7a3be0",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_f8be1604513a91155cfc5742"
+        ],
+        [
+          "bar_pool_e90fd49520195567c584baf6",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_0b219a3c3cd483f0ec9720f6"
+        ],
+        [
+          "entry_irl_efdfd290ff7e810345f16b62",
+          "CONSUMED_OR_ORDERING_UNKNOWN",
+          "bar_c4ae1cbdb5333a67472d12ff"
+        ]
+      ],
+      "current_segment": "1",
+      "current_segment_start": "2026-05-04T01:00:00+00:00",
+      "near_ticks": "34.875",
+      "entry_range_id": "range_0181cee43831387582c726cf",
+      "entry_range_version": "range_version_22c4934101449de027e39579",
+      "unresolved_reasons": [],
+      "entry_weekly_relation": "UNKNOWN",
+      "entry_weekly_context": {
+        "status": "UNKNOWN",
+        "side": null,
+        "story_ids": [],
+        "available_at": null,
+        "policy": "latest_confirmed_weekly_ROOT_batch_v1_OUR_CHOICE"
+      },
+      "confirmation_protection_bar_ids": [
+        "bar_b171f0effbdc5b4eb8b3f801",
+        "bar_0b219a3c3cd483f0ec9720f6"
+      ],
+      "confirmation_protection_policy": "current_adjacent_engulf_pair_v1",
+      "protection_episode_bar_ids": [
+        "bar_c9f86ddbec881ee04bc571f8",
+        "bar_c25320530c34f6f6547f09f9",
+        "bar_f8c034763cde5662f064a804",
+        "bar_4a02a7e4ddf4ac76969fb973",
+        "bar_04b234709c2a7b812916b96c",
+        "bar_c4ae1cbdb5333a67472d12ff"
+      ],
+      "protection_episode_policy": "linked_first_take_through_reaction_v1_OUR_CHOICE",
+      "phase": "origin",
+      "source_profile": "bishop_confirmation",
+      "model_enabled": true,
+      "causal_selection": "first_eligible_then_higher_tf_same_batch_OUR_CHOICE",
+      "expected_sweep_is_not_fill_veto": true
+    }
+  },
+  "bot_order": {
+    "id": "order_a73ae1d586194eb3a34fed59",
+    "setup_id": "setup_03218dbc80d7f2b74e5dcb2a",
+    "instrument": "USDCHF",
+    "tf": "H2",
+    "model": "engulf_av_retest",
+    "side": "BUY",
+    "kind": "LIMIT",
+    "clock": {
+      "occurred_from": "2026-06-11T07:00:00+00:00",
+      "occurred_to": "2026-06-11T07:00:00+00:00",
+      "available_at": "2026-06-11T07:00:00+00:00",
+      "precision": "BAR"
+    },
+    "entry_ticks": 79838,
+    "stop_ticks": 79803,
+    "target_ticks": 80063,
+    "quantity": "1",
+    "expires_at": "2026-06-12T07:00:00+00:00",
+    "details": {
+      "story_id": "story_8b09e481787ebe8cf4883ff4",
+      "policy_id": "policy_656a5b5143dcffdb2c9fc92e",
+      "economic_signal_id": "economic_signal_640fcd0182e34c062d3657c4",
+      "context_policy": "first_causal_context_canonical"
+    }
+  },
+  "bot_observation": {
+    "id": "order_a73ae1d586194eb3a34fed59",
+    "setup_id": "setup_03218dbc80d7f2b74e5dcb2a",
+    "status": "CLOSED",
+    "outcome": "WIN",
+    "fill_ticks": "79838",
+    "fill_window": {
+      "start": "2026-06-11T07:00:00+00:00",
+      "end": "2026-06-11T08:00:00+00:00",
+      "observed_at": "2026-06-11T08:00:00+00:00"
+    },
+    "remaining_quantity": "0",
+    "realized_ticks_quantity": "225",
+    "net_r": "6.428571428571428571428571429",
+    "censor_reason": null,
+    "initial_stop_ticks": 79803,
+    "initial_target_ticks": 80063,
+    "costs": {
+      "spread_ticks": "0",
+      "entry_slippage_ticks": "0",
+      "stop_slippage_ticks": "0",
+      "commission_ticks": "0",
+      "financing_ticks": "0"
+    },
+    "management": []
+  },
+  "previous_bot_stop": 0.79647,
+  "stop_difference_pips": 2.0,
+  "correction": "Current reference/engulf pair replaces earlier context candles as pattern-risk evidence",
+  "protected_low_start": "2026-06-10T13:00:00+00:00",
+  "acceptance": "NOT_ESTABLISHED"
+}

@@ -1,0 +1,1384 @@
+{
+  "instrument": "GBPUSD",
+  "as_of": "2026-10-28T17:00:00+00:00",
+  "source": "ICMARKETS",
+  "input_sha256": "ac292e5ca922b177090fab89a0ce3c7ec8f9bfbbdb875a15063a16a4a50bdff9",
+  "engine_run_id": "run_327dcee87385c1be399666b0",
+  "historical_coverage": {
+    "status": "INCOMPLETE",
+    "expected_slots": 6864,
+    "present_slots": 6813,
+    "missing_slots": 51,
+    "missing": [
+      "2025-12-24T22:00:00+00:00",
+      "2025-12-24T23:00:00+00:00",
+      "2025-12-25T00:00:00+00:00",
+      "2025-12-25T01:00:00+00:00",
+      "2025-12-25T02:00:00+00:00",
+      "2025-12-25T03:00:00+00:00",
+      "2025-12-25T04:00:00+00:00",
+      "2025-12-25T05:00:00+00:00",
+      "2025-12-25T06:00:00+00:00",
+      "2025-12-25T07:00:00+00:00",
+      "2025-12-25T08:00:00+00:00",
+      "2025-12-25T09:00:00+00:00",
+      "2025-12-25T10:00:00+00:00",
+      "2025-12-25T11:00:00+00:00",
+      "2025-12-25T12:00:00+00:00",
+      "2025-12-25T13:00:00+00:00",
+      "2025-12-25T14:00:00+00:00",
+      "2025-12-25T15:00:00+00:00",
+      "2025-12-25T16:00:00+00:00",
+      "2025-12-25T17:00:00+00:00",
+      "2025-12-25T18:00:00+00:00",
+      "2025-12-25T19:00:00+00:00",
+      "2025-12-25T20:00:00+00:00",
+      "2025-12-25T21:00:00+00:00",
+      "2025-12-25T22:00:00+00:00",
+      "2025-12-25T23:00:00+00:00",
+      "2025-12-26T00:00:00+00:00",
+      "2025-12-31T22:00:00+00:00",
+      "2025-12-31T23:00:00+00:00",
+      "2026-01-01T00:00:00+00:00",
+      "2026-01-01T01:00:00+00:00",
+      "2026-01-01T02:00:00+00:00",
+      "2026-01-01T03:00:00+00:00",
+      "2026-01-01T04:00:00+00:00",
+      "2026-01-01T05:00:00+00:00",
+      "2026-01-01T06:00:00+00:00",
+      "2026-01-01T07:00:00+00:00",
+      "2026-01-01T08:00:00+00:00",
+      "2026-01-01T09:00:00+00:00",
+      "2026-01-01T10:00:00+00:00",
+      "2026-01-01T11:00:00+00:00",
+      "2026-01-01T12:00:00+00:00",
+      "2026-01-01T13:00:00+00:00",
+      "2026-01-01T14:00:00+00:00",
+      "2026-01-01T15:00:00+00:00",
+      "2026-01-01T16:00:00+00:00",
+      "2026-01-01T17:00:00+00:00",
+      "2026-01-01T18:00:00+00:00",
+      "2026-01-01T19:00:00+00:00",
+      "2026-01-01T20:00:00+00:00",
+      "2026-01-01T21:00:00+00:00"
+    ]
+  },
+  "timeframes": [
+    {
+      "tf": "W",
+      "state": "DIRECTIONAL",
+      "side": "SELL",
+      "reference_ticks": [
+        135148
+      ],
+      "range_origin_ticks": 136536,
+      "events": [
+        {
+          "id": "structure_event_3f93184b082b6013b8335a15",
+          "kind": "BOS",
+          "instrument": "GBPUSD",
+          "tf": "W",
+          "clock": {
+            "occurred_from": "2026-09-18T21:00:00+00:00",
+            "occurred_to": "2026-09-18T21:00:00+00:00",
+            "available_at": "2026-09-18T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_7cdc98500bef03630e4026d3",
+          "price_ticks": 135148,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_6c5d75a4a895bf14d6944482"
+          ],
+          "evidence_ids": [],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "crossing_mode": "TRADED",
+            "reference_formed_at": "2026-09-04T21:00:00+00:00",
+            "reference_available_at": "2026-09-11T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        }
+      ],
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-28T17:00:00+00:00",
+        "as_of": "2026-10-28T17:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_3f93184b082b6013b8335a15",
+            "bar_ids": [
+              "bar_6c5d75a4a895bf14d6944482"
+            ],
+            "reference_id": "turn_7cdc98500bef03630e4026d3",
+            "reference_bar_id": "bar_e83a2ec9aed7a47d59147235"
+          }
+        ],
+        "historical_missing_slots": 51
+      },
+      "bars": [
+        {
+          "id": "bar_4a17b629db49462d0627405e",
+          "start": "2026-04-26T21:00:00+00:00",
+          "open_ticks": 135012,
+          "high_ticks": 136578,
+          "low_ticks": 134540,
+          "close_ticks": 135736
+        },
+        {
+          "id": "bar_7c9862b4e4d51d1d86a5a175",
+          "start": "2026-05-03T21:00:00+00:00",
+          "open_ticks": 135850,
+          "high_ticks": 136434,
+          "low_ticks": 135124,
+          "close_ticks": 136301
+        },
+        {
+          "id": "bar_5cd478dfa4e5b32fe0e8d29e",
+          "start": "2026-05-10T21:00:00+00:00",
+          "open_ticks": 135561,
+          "high_ticks": 136530,
+          "low_ticks": 133151,
+          "close_ticks": 133220
+        },
+        {
+          "id": "bar_a801aa7e6b894885b8f0c0d2",
+          "start": "2026-05-17T21:00:00+00:00",
+          "open_ticks": 133170,
+          "high_ticks": 134632,
+          "low_ticks": 133024,
+          "close_ticks": 134311
+        },
+        {
+          "id": "bar_e3d5a0c2146fcd61080b82b1",
+          "start": "2026-05-24T21:00:00+00:00",
+          "open_ticks": 134520,
+          "high_ticks": 135091,
+          "low_ticks": 133675,
+          "close_ticks": 134539
+        },
+        {
+          "id": "bar_fdc3025de44c9896f420f9bc",
+          "start": "2026-05-31T21:00:00+00:00",
+          "open_ticks": 134501,
+          "high_ticks": 134829,
+          "low_ticks": 133303,
+          "close_ticks": 133337
+        },
+        {
+          "id": "bar_f440b51a2f202872fbba2a6b",
+          "start": "2026-06-07T21:00:00+00:00",
+          "open_ticks": 133245,
+          "high_ticks": 134332,
+          "low_ticks": 133059,
+          "close_ticks": 134031
+        },
+        {
+          "id": "bar_b38a9ac2644af37c554e7ced",
+          "start": "2026-06-14T21:00:00+00:00",
+          "open_ticks": 133995,
+          "high_ticks": 134611,
+          "low_ticks": 131631,
+          "close_ticks": 132245
+        },
+        {
+          "id": "bar_5889b9a9ed9718bf3be16f75",
+          "start": "2026-06-21T21:00:00+00:00",
+          "open_ticks": 131838,
+          "high_ticks": 132731,
+          "low_ticks": 131401,
+          "close_ticks": 131940
+        },
+        {
+          "id": "bar_edf58dd0e983bf28ef8ec39f",
+          "start": "2026-06-28T21:00:00+00:00",
+          "open_ticks": 131988,
+          "high_ticks": 133847,
+          "low_ticks": 131887,
+          "close_ticks": 133490
+        },
+        {
+          "id": "bar_c82dc8963b2cc9e41b6577ae",
+          "start": "2026-07-05T21:00:00+00:00",
+          "open_ticks": 133415,
+          "high_ticks": 134517,
+          "low_ticks": 133221,
+          "close_ticks": 133974
+        },
+        {
+          "id": "bar_89075fec0a887313a13280cc",
+          "start": "2026-07-12T21:00:00+00:00",
+          "open_ticks": 133850,
+          "high_ticks": 135580,
+          "low_ticks": 133422,
+          "close_ticks": 134545
+        },
+        {
+          "id": "bar_61efe4161e566e8e26c9451a",
+          "start": "2026-07-19T21:00:00+00:00",
+          "open_ticks": 134435,
+          "high_ticks": 134811,
+          "low_ticks": 132989,
+          "close_ticks": 133206
+        },
+        {
+          "id": "bar_3242629c6d6bcd22d989b3c2",
+          "start": "2026-07-26T21:00:00+00:00",
+          "open_ticks": 133225,
+          "high_ticks": 134943,
+          "low_ticks": 132735,
+          "close_ticks": 134818
+        },
+        {
+          "id": "bar_b5f5554ff4780c936adfecee",
+          "start": "2026-08-02T21:00:00+00:00",
+          "open_ticks": 134909,
+          "high_ticks": 135089,
+          "low_ticks": 134173,
+          "close_ticks": 134919
+        },
+        {
+          "id": "bar_a7ace451f81b3473b632baaa",
+          "start": "2026-08-09T21:00:00+00:00",
+          "open_ticks": 134908,
+          "high_ticks": 135616,
+          "low_ticks": 134744,
+          "close_ticks": 135323
+        },
+        {
+          "id": "bar_dc18020d47428729611832ca",
+          "start": "2026-08-16T21:00:00+00:00",
+          "open_ticks": 135352,
+          "high_ticks": 136756,
+          "low_ticks": 135196,
+          "close_ticks": 136422
+        },
+        {
+          "id": "bar_00834161092be5bae8809940",
+          "start": "2026-08-23T21:00:00+00:00",
+          "open_ticks": 136215,
+          "high_ticks": 136560,
+          "low_ticks": 135271,
+          "close_ticks": 135318
+        },
+        {
+          "id": "bar_e83a2ec9aed7a47d59147235",
+          "start": "2026-08-30T21:00:00+00:00",
+          "open_ticks": 135310,
+          "high_ticks": 135653,
+          "low_ticks": 134747,
+          "close_ticks": 135148
+        },
+        {
+          "id": "bar_ee95735ecaa0ea6d0358d359",
+          "start": "2026-09-06T21:00:00+00:00",
+          "open_ticks": 135102,
+          "high_ticks": 135680,
+          "low_ticks": 134819,
+          "close_ticks": 135257
+        },
+        {
+          "id": "bar_6c5d75a4a895bf14d6944482",
+          "start": "2026-09-13T21:00:00+00:00",
+          "open_ticks": 135175,
+          "high_ticks": 135285,
+          "low_ticks": 133356,
+          "close_ticks": 133929
+        },
+        {
+          "id": "bar_940fa908cba18bad605e92db",
+          "start": "2026-09-20T21:00:00+00:00",
+          "open_ticks": 133834,
+          "high_ticks": 134002,
+          "low_ticks": 132044,
+          "close_ticks": 132422
+        },
+        {
+          "id": "bar_82d273d847c1bc800fc36b7a",
+          "start": "2026-09-27T21:00:00+00:00",
+          "open_ticks": 132308,
+          "high_ticks": 133109,
+          "low_ticks": 131807,
+          "close_ticks": 132368
+        },
+        {
+          "id": "bar_b94f134d1c63139d245d7db3",
+          "start": "2026-10-04T21:00:00+00:00",
+          "open_ticks": 132293,
+          "high_ticks": 132854,
+          "low_ticks": 131845,
+          "close_ticks": 132315
+        },
+        {
+          "id": "bar_5eb60102c1c30ce43a77cf3f",
+          "start": "2026-10-11T21:00:00+00:00",
+          "open_ticks": 132245,
+          "high_ticks": 133718,
+          "low_ticks": 131368,
+          "close_ticks": 133264
+        },
+        {
+          "id": "bar_2c94b47d7bd19871a5251689",
+          "start": "2026-10-18T21:00:00+00:00",
+          "open_ticks": 133052,
+          "high_ticks": 134190,
+          "low_ticks": 132961,
+          "close_ticks": 133716
+        }
+      ]
+    },
+    {
+      "tf": "D",
+      "state": "DIRECTIONAL",
+      "side": "BUY",
+      "reference_ticks": [
+        133929
+      ],
+      "range_origin_ticks": null,
+      "events": [
+        {
+          "id": "structure_event_53a1dab41cbd2b0d39c44666",
+          "kind": "SWEEP_BOS",
+          "instrument": "GBPUSD",
+          "tf": "D",
+          "clock": {
+            "occurred_from": "2026-10-21T21:00:00+00:00",
+            "occurred_to": "2026-10-21T21:00:00+00:00",
+            "available_at": "2026-10-21T21:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "BUY",
+          "reference_id": "turn_5dab4c01ffbb18af4a0d3e7f",
+          "price_ticks": 133929,
+          "scope_id": null,
+          "bar_ids": [
+            "bar_7fc0145c69ad09827d2d40f9"
+          ],
+          "evidence_ids": [
+            "structure_event_eef53c8feeca2eadb8cc04ad",
+            "turn_c48a072998851962226fa438"
+          ],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_type": "TURN",
+            "sweep_event_id": "structure_event_eef53c8feeca2eadb8cc04ad",
+            "sweep_reference_id": "turn_886bfdc576a442cf51f69764",
+            "sweep_leg_id": "sweep_leg_b0b424a0e638889252544cbe",
+            "parent_range_id": null,
+            "reference_formed_at": "2026-09-18T21:00:00+00:00",
+            "reference_available_at": "2026-09-21T21:00:00+00:00",
+            "scope_type": "LOCAL"
+          }
+        }
+      ],
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-28T17:00:00+00:00",
+        "as_of": "2026-10-28T17:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_53a1dab41cbd2b0d39c44666",
+            "bar_ids": [
+              "bar_7fc0145c69ad09827d2d40f9"
+            ],
+            "reference_id": "turn_5dab4c01ffbb18af4a0d3e7f",
+            "reference_bar_id": "bar_bf33a9220e7239024b8be7a6"
+          }
+        ],
+        "historical_missing_slots": 51
+      },
+      "bars": [
+        {
+          "id": "bar_026f58a1de4c88f78a0750a1",
+          "start": "2026-08-11T21:00:00+00:00",
+          "open_ticks": 135039,
+          "high_ticks": 135443,
+          "low_ticks": 134878,
+          "close_ticks": 134950
+        },
+        {
+          "id": "bar_88211cf604d074ed33fe4f31",
+          "start": "2026-08-12T21:00:00+00:00",
+          "open_ticks": 134924,
+          "high_ticks": 135130,
+          "low_ticks": 134744,
+          "close_ticks": 134864
+        },
+        {
+          "id": "bar_c705291ddecd2798c3a8bc5e",
+          "start": "2026-08-13T21:00:00+00:00",
+          "open_ticks": 134827,
+          "high_ticks": 135616,
+          "low_ticks": 134799,
+          "close_ticks": 135323
+        },
+        {
+          "id": "bar_2bf8954ada47892e6c45a337",
+          "start": "2026-08-16T21:00:00+00:00",
+          "open_ticks": 135352,
+          "high_ticks": 135713,
+          "low_ticks": 135285,
+          "close_ticks": 135419
+        },
+        {
+          "id": "bar_7fe9a1484f1823ad2c0d06e1",
+          "start": "2026-08-17T21:00:00+00:00",
+          "open_ticks": 135432,
+          "high_ticks": 135541,
+          "low_ticks": 135196,
+          "close_ticks": 135314
+        },
+        {
+          "id": "bar_c723ad303993a18fb90a0886",
+          "start": "2026-08-18T21:00:00+00:00",
+          "open_ticks": 135313,
+          "high_ticks": 136303,
+          "low_ticks": 135235,
+          "close_ticks": 136056
+        },
+        {
+          "id": "bar_839f8964a0d7c49aaabc472e",
+          "start": "2026-08-19T21:00:00+00:00",
+          "open_ticks": 135992,
+          "high_ticks": 136594,
+          "low_ticks": 135947,
+          "close_ticks": 136302
+        },
+        {
+          "id": "bar_a917e1df895c0a56f2b8a08a",
+          "start": "2026-08-20T21:00:00+00:00",
+          "open_ticks": 136293,
+          "high_ticks": 136756,
+          "low_ticks": 136185,
+          "close_ticks": 136422
+        },
+        {
+          "id": "bar_a84d07f5bb527fa877c72718",
+          "start": "2026-08-23T21:00:00+00:00",
+          "open_ticks": 136215,
+          "high_ticks": 136560,
+          "low_ticks": 136211,
+          "close_ticks": 136302
+        },
+        {
+          "id": "bar_bdd3fd348447d248785da841",
+          "start": "2026-08-24T21:00:00+00:00",
+          "open_ticks": 136305,
+          "high_ticks": 136547,
+          "low_ticks": 136220,
+          "close_ticks": 136474
+        },
+        {
+          "id": "bar_156e198f110614968ab6edd6",
+          "start": "2026-08-25T21:00:00+00:00",
+          "open_ticks": 136432,
+          "high_ticks": 136502,
+          "low_ticks": 135834,
+          "close_ticks": 135966
+        },
+        {
+          "id": "bar_1f0e82de3542336257f4953a",
+          "start": "2026-08-26T21:00:00+00:00",
+          "open_ticks": 135869,
+          "high_ticks": 136026,
+          "low_ticks": 135708,
+          "close_ticks": 135926
+        },
+        {
+          "id": "bar_7d7762b3d480402c5943a4ba",
+          "start": "2026-08-27T21:00:00+00:00",
+          "open_ticks": 135877,
+          "high_ticks": 135990,
+          "low_ticks": 135271,
+          "close_ticks": 135318
+        },
+        {
+          "id": "bar_11e2e2369a638ad9289900db",
+          "start": "2026-08-30T21:00:00+00:00",
+          "open_ticks": 135310,
+          "high_ticks": 135653,
+          "low_ticks": 135279,
+          "close_ticks": 135482
+        },
+        {
+          "id": "bar_9f794c8bc028039e266a0473",
+          "start": "2026-08-31T21:00:00+00:00",
+          "open_ticks": 135485,
+          "high_ticks": 135594,
+          "low_ticks": 135061,
+          "close_ticks": 135156
+        },
+        {
+          "id": "bar_e4aa48f01d2cf382e691c8c7",
+          "start": "2026-09-01T21:00:00+00:00",
+          "open_ticks": 135123,
+          "high_ticks": 135189,
+          "low_ticks": 134747,
+          "close_ticks": 134835
+        },
+        {
+          "id": "bar_80af07179f6fbc2ff3c53086",
+          "start": "2026-09-02T21:00:00+00:00",
+          "open_ticks": 134845,
+          "high_ticks": 135481,
+          "low_ticks": 134784,
+          "close_ticks": 135237
+        },
+        {
+          "id": "bar_7c1c93b2e0268b0ceeca9ff2",
+          "start": "2026-09-03T21:00:00+00:00",
+          "open_ticks": 135213,
+          "high_ticks": 135492,
+          "low_ticks": 134840,
+          "close_ticks": 135148
+        },
+        {
+          "id": "bar_ec4009bdfa3c6f703a0bfdfe",
+          "start": "2026-09-06T21:00:00+00:00",
+          "open_ticks": 135102,
+          "high_ticks": 135477,
+          "low_ticks": 135054,
+          "close_ticks": 135402
+        },
+        {
+          "id": "bar_2bee066ffa153c2b4e5642a3",
+          "start": "2026-09-07T21:00:00+00:00",
+          "open_ticks": 135362,
+          "high_ticks": 135619,
+          "low_ticks": 135215,
+          "close_ticks": 135393
+        },
+        {
+          "id": "bar_270a133e7480832f075ff3e3",
+          "start": "2026-09-08T21:00:00+00:00",
+          "open_ticks": 135394,
+          "high_ticks": 135680,
+          "low_ticks": 135304,
+          "close_ticks": 135463
+        },
+        {
+          "id": "bar_8b8d9cd58d03b02d4beaa839",
+          "start": "2026-09-09T21:00:00+00:00",
+          "open_ticks": 135412,
+          "high_ticks": 135602,
+          "low_ticks": 134913,
+          "close_ticks": 135109
+        },
+        {
+          "id": "bar_4d89271c42397c4976abe377",
+          "start": "2026-09-10T21:00:00+00:00",
+          "open_ticks": 135098,
+          "high_ticks": 135348,
+          "low_ticks": 134819,
+          "close_ticks": 135257
+        },
+        {
+          "id": "bar_45cd57e38bcdd5646c618d83",
+          "start": "2026-09-13T21:00:00+00:00",
+          "open_ticks": 135175,
+          "high_ticks": 135285,
+          "low_ticks": 134640,
+          "close_ticks": 135001
+        },
+        {
+          "id": "bar_d2284a77418e88174d3520c8",
+          "start": "2026-09-14T21:00:00+00:00",
+          "open_ticks": 134990,
+          "high_ticks": 135048,
+          "low_ticks": 134642,
+          "close_ticks": 134760
+        },
+        {
+          "id": "bar_a881ce8faa43d1ecc8760728",
+          "start": "2026-09-15T21:00:00+00:00",
+          "open_ticks": 134731,
+          "high_ticks": 134949,
+          "low_ticks": 133723,
+          "close_ticks": 133795
+        },
+        {
+          "id": "bar_568c9446d0be93008ca9bb14",
+          "start": "2026-09-16T21:00:00+00:00",
+          "open_ticks": 133772,
+          "high_ticks": 134063,
+          "low_ticks": 133364,
+          "close_ticks": 133582
+        },
+        {
+          "id": "bar_bf33a9220e7239024b8be7a6",
+          "start": "2026-09-17T21:00:00+00:00",
+          "open_ticks": 133557,
+          "high_ticks": 133983,
+          "low_ticks": 133356,
+          "close_ticks": 133929
+        },
+        {
+          "id": "bar_a01a9c2284a2f7c17a92d4b9",
+          "start": "2026-09-20T21:00:00+00:00",
+          "open_ticks": 133834,
+          "high_ticks": 134002,
+          "low_ticks": 133652,
+          "close_ticks": 133676
+        },
+        {
+          "id": "bar_15f1ff175dfc11b78ab419d9",
+          "start": "2026-09-21T21:00:00+00:00",
+          "open_ticks": 133662,
+          "high_ticks": 133872,
+          "low_ticks": 133215,
+          "close_ticks": 133435
+        },
+        {
+          "id": "bar_f889296da02dd6699af8093e",
+          "start": "2026-09-22T21:00:00+00:00",
+          "open_ticks": 133386,
+          "high_ticks": 133457,
+          "low_ticks": 132235,
+          "close_ticks": 132397
+        },
+        {
+          "id": "bar_f624181473a9502d4881ad3e",
+          "start": "2026-09-23T21:00:00+00:00",
+          "open_ticks": 132379,
+          "high_ticks": 132559,
+          "low_ticks": 132044,
+          "close_ticks": 132181
+        },
+        {
+          "id": "bar_9ba33539bc472b7896b5c50a",
+          "start": "2026-09-24T21:00:00+00:00",
+          "open_ticks": 132176,
+          "high_ticks": 132636,
+          "low_ticks": 132084,
+          "close_ticks": 132422
+        },
+        {
+          "id": "bar_f82692ecfaf28bef3739b33c",
+          "start": "2026-09-27T21:00:00+00:00",
+          "open_ticks": 132308,
+          "high_ticks": 132801,
+          "low_ticks": 132200,
+          "close_ticks": 132543
+        },
+        {
+          "id": "bar_0c4c94085687931a330a9ca2",
+          "start": "2026-09-28T21:00:00+00:00",
+          "open_ticks": 132542,
+          "high_ticks": 132580,
+          "low_ticks": 132023,
+          "close_ticks": 132308
+        },
+        {
+          "id": "bar_c9394bf935524befed039143",
+          "start": "2026-09-29T21:00:00+00:00",
+          "open_ticks": 132272,
+          "high_ticks": 133109,
+          "low_ticks": 132228,
+          "close_ticks": 132631
+        },
+        {
+          "id": "bar_8d275d74c6207b005751b561",
+          "start": "2026-09-30T21:00:00+00:00",
+          "open_ticks": 132649,
+          "high_ticks": 132727,
+          "low_ticks": 131807,
+          "close_ticks": 131949
+        },
+        {
+          "id": "bar_7a1d0cf2237ea8dfdffdf2b6",
+          "start": "2026-10-01T21:00:00+00:00",
+          "open_ticks": 131991,
+          "high_ticks": 132559,
+          "low_ticks": 131815,
+          "close_ticks": 132368
+        },
+        {
+          "id": "bar_452076b412d117f42f560034",
+          "start": "2026-10-04T21:00:00+00:00",
+          "open_ticks": 132293,
+          "high_ticks": 132502,
+          "low_ticks": 131900,
+          "close_ticks": 132222
+        },
+        {
+          "id": "bar_30d03ef6e80a2436b79defd7",
+          "start": "2026-10-05T21:00:00+00:00",
+          "open_ticks": 132119,
+          "high_ticks": 132854,
+          "low_ticks": 132013,
+          "close_ticks": 132746
+        },
+        {
+          "id": "bar_1b3c83a6fa8bab7cfc4f5055",
+          "start": "2026-10-06T21:00:00+00:00",
+          "open_ticks": 132698,
+          "high_ticks": 132765,
+          "low_ticks": 131938,
+          "close_ticks": 132127
+        },
+        {
+          "id": "bar_93d0fa43a05d44e4a3b2e688",
+          "start": "2026-10-07T21:00:00+00:00",
+          "open_ticks": 132139,
+          "high_ticks": 132486,
+          "low_ticks": 131845,
+          "close_ticks": 132290
+        },
+        {
+          "id": "bar_1f0e8103a1741c876d5406ab",
+          "start": "2026-10-08T21:00:00+00:00",
+          "open_ticks": 132255,
+          "high_ticks": 132500,
+          "low_ticks": 132057,
+          "close_ticks": 132315
+        },
+        {
+          "id": "bar_5073bb68a440f549627e35c5",
+          "start": "2026-10-11T21:00:00+00:00",
+          "open_ticks": 132245,
+          "high_ticks": 132615,
+          "low_ticks": 132017,
+          "close_ticks": 132079
+        },
+        {
+          "id": "bar_1d6b0e47c53376ef1b1d51d0",
+          "start": "2026-10-12T21:00:00+00:00",
+          "open_ticks": 132050,
+          "high_ticks": 132593,
+          "low_ticks": 132028,
+          "close_ticks": 132545
+        },
+        {
+          "id": "bar_f2a45fafe74e6fe1b8277068",
+          "start": "2026-10-13T21:00:00+00:00",
+          "open_ticks": 132451,
+          "high_ticks": 132752,
+          "low_ticks": 131368,
+          "close_ticks": 131939
+        },
+        {
+          "id": "bar_881ea204a24bbb337280fc1c",
+          "start": "2026-10-14T21:00:00+00:00",
+          "open_ticks": 131845,
+          "high_ticks": 132781,
+          "low_ticks": 131796,
+          "close_ticks": 132760
+        },
+        {
+          "id": "bar_a8c86bc589896b3f6cd29b0a",
+          "start": "2026-10-15T21:00:00+00:00",
+          "open_ticks": 132667,
+          "high_ticks": 133718,
+          "low_ticks": 132632,
+          "close_ticks": 133264
+        },
+        {
+          "id": "bar_fefe75ca9e8fd99d04169e32",
+          "start": "2026-10-18T21:00:00+00:00",
+          "open_ticks": 133052,
+          "high_ticks": 133420,
+          "low_ticks": 132988,
+          "close_ticks": 133035
+        },
+        {
+          "id": "bar_d524a60d1223a02bfe04b0e3",
+          "start": "2026-10-19T21:00:00+00:00",
+          "open_ticks": 133045,
+          "high_ticks": 134092,
+          "low_ticks": 132961,
+          "close_ticks": 133794
+        },
+        {
+          "id": "bar_7fc0145c69ad09827d2d40f9",
+          "start": "2026-10-20T21:00:00+00:00",
+          "open_ticks": 133772,
+          "high_ticks": 134033,
+          "low_ticks": 133643,
+          "close_ticks": 133936
+        },
+        {
+          "id": "bar_728e86390f74c8c205a115ae",
+          "start": "2026-10-21T21:00:00+00:00",
+          "open_ticks": 133852,
+          "high_ticks": 134190,
+          "low_ticks": 133549,
+          "close_ticks": 133998
+        },
+        {
+          "id": "bar_666a475409599ca42c5b585d",
+          "start": "2026-10-22T21:00:00+00:00",
+          "open_ticks": 133858,
+          "high_ticks": 134076,
+          "low_ticks": 133610,
+          "close_ticks": 133716
+        },
+        {
+          "id": "bar_e905ef38c940e91bfdd16b8f",
+          "start": "2026-10-25T21:00:00+00:00",
+          "open_ticks": 133684,
+          "high_ticks": 133876,
+          "low_ticks": 133280,
+          "close_ticks": 133417
+        },
+        {
+          "id": "bar_2a91ed692b51aa12090745d9",
+          "start": "2026-10-26T21:00:00+00:00",
+          "open_ticks": 133409,
+          "high_ticks": 133491,
+          "low_ticks": 133029,
+          "close_ticks": 133056
+        }
+      ]
+    },
+    {
+      "tf": "H4",
+      "state": "DIRECTIONAL",
+      "side": "SELL",
+      "reference_ticks": [
+        133035
+      ],
+      "range_origin_ticks": 136646,
+      "events": [
+        {
+          "id": "structure_event_1d8c892341439b8cbe93ef44",
+          "kind": "BOS",
+          "instrument": "GBPUSD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-28T05:00:00+00:00",
+            "occurred_to": "2026-10-28T05:00:00+00:00",
+            "available_at": "2026-10-28T05:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_6033bce756a3801a3ed83ead",
+          "price_ticks": 133035,
+          "scope_id": "range_fb048f6fb750f5ed4c61cfe1",
+          "bar_ids": [
+            "bar_16a472241403e32059ca458d"
+          ],
+          "evidence_ids": [
+            "structure_event_75bd02e372f031e19d3dd2a5"
+          ],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_formed_at": "2026-10-19T21:00:00+00:00",
+            "reference_available_at": "2026-10-20T01:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        },
+        {
+          "id": "structure_event_48503b53b87f555e96f7490d",
+          "kind": "BOS",
+          "instrument": "GBPUSD",
+          "tf": "H4",
+          "clock": {
+            "occurred_from": "2026-10-28T05:00:00+00:00",
+            "occurred_to": "2026-10-28T05:00:00+00:00",
+            "available_at": "2026-10-28T05:00:00+00:00",
+            "precision": "EXACT"
+          },
+          "side": "SELL",
+          "reference_id": "turn_6033bce756a3801a3ed83ead",
+          "price_ticks": 133035,
+          "scope_id": "range_4f06eebcc6e7f3ebe4db3a9a",
+          "bar_ids": [
+            "bar_16a472241403e32059ca458d"
+          ],
+          "evidence_ids": [
+            "structure_event_c96be543adeed069748e8de0"
+          ],
+          "policy_id": "policy_0c3ff3a8812bd63387a1e95f",
+          "evidence_status": "KNOWN",
+          "details": {
+            "reference_formed_at": "2026-10-19T21:00:00+00:00",
+            "reference_available_at": "2026-10-20T01:00:00+00:00",
+            "scope_type": "CHILD"
+          }
+        }
+      ],
+      "current_segment": {
+        "ready": true,
+        "scope": "CURRENT_SEGMENT_ONLY",
+        "start": "2026-01-01T22:00:00+00:00",
+        "observed_end": "2026-10-28T17:00:00+00:00",
+        "as_of": "2026-10-28T17:00:00+00:00",
+        "reasons": [],
+        "checked_evidence": [
+          {
+            "event_id": "structure_event_1d8c892341439b8cbe93ef44",
+            "bar_ids": [
+              "bar_16a472241403e32059ca458d"
+            ],
+            "reference_id": "turn_6033bce756a3801a3ed83ead",
+            "reference_bar_id": "bar_5d0d7e2b200bf16d9dc4e178"
+          },
+          {
+            "event_id": "structure_event_48503b53b87f555e96f7490d",
+            "bar_ids": [
+              "bar_16a472241403e32059ca458d"
+            ],
+            "reference_id": "turn_6033bce756a3801a3ed83ead",
+            "reference_bar_id": "bar_5d0d7e2b200bf16d9dc4e178"
+          }
+        ],
+        "historical_missing_slots": 51
+      },
+      "bars": [
+        {
+          "id": "bar_dadbbb599eeaefcb380345ea",
+          "start": "2026-10-15T13:00:00+00:00",
+          "open_ticks": 132537,
+          "high_ticks": 132736,
+          "low_ticks": 132399,
+          "close_ticks": 132614
+        },
+        {
+          "id": "bar_768bfab7790da7c3912bd581",
+          "start": "2026-10-15T17:00:00+00:00",
+          "open_ticks": 132614,
+          "high_ticks": 132781,
+          "low_ticks": 132606,
+          "close_ticks": 132760
+        },
+        {
+          "id": "bar_4d9256cfd43846b42b079603",
+          "start": "2026-10-15T21:00:00+00:00",
+          "open_ticks": 132667,
+          "high_ticks": 132769,
+          "low_ticks": 132632,
+          "close_ticks": 132700
+        },
+        {
+          "id": "bar_0676c4a4dc701fb9e7bd9433",
+          "start": "2026-10-16T01:00:00+00:00",
+          "open_ticks": 132701,
+          "high_ticks": 133067,
+          "low_ticks": 132692,
+          "close_ticks": 133035
+        },
+        {
+          "id": "bar_4d3105fd128043cb05457f35",
+          "start": "2026-10-16T05:00:00+00:00",
+          "open_ticks": 133034,
+          "high_ticks": 133291,
+          "low_ticks": 132923,
+          "close_ticks": 133277
+        },
+        {
+          "id": "bar_4d367b2241c8be607fae009d",
+          "start": "2026-10-16T09:00:00+00:00",
+          "open_ticks": 133279,
+          "high_ticks": 133492,
+          "low_ticks": 133244,
+          "close_ticks": 133318
+        },
+        {
+          "id": "bar_710ec0c0c4a37c63476be019",
+          "start": "2026-10-16T13:00:00+00:00",
+          "open_ticks": 133319,
+          "high_ticks": 133718,
+          "low_ticks": 133116,
+          "close_ticks": 133166
+        },
+        {
+          "id": "bar_09e27e7f290933e8d37c17c0",
+          "start": "2026-10-16T17:00:00+00:00",
+          "open_ticks": 133167,
+          "high_ticks": 133319,
+          "low_ticks": 133103,
+          "close_ticks": 133264
+        },
+        {
+          "id": "bar_87d3c67d6bac95bf7fccdb3b",
+          "start": "2026-10-18T21:00:00+00:00",
+          "open_ticks": 133052,
+          "high_ticks": 133387,
+          "low_ticks": 133039,
+          "close_ticks": 133286
+        },
+        {
+          "id": "bar_6b3e0c48ee293cf258ce11d8",
+          "start": "2026-10-19T01:00:00+00:00",
+          "open_ticks": 133285,
+          "high_ticks": 133366,
+          "low_ticks": 133234,
+          "close_ticks": 133283
+        },
+        {
+          "id": "bar_922997aa528fff7d78a0cd45",
+          "start": "2026-10-19T05:00:00+00:00",
+          "open_ticks": 133284,
+          "high_ticks": 133366,
+          "low_ticks": 133073,
+          "close_ticks": 133281
+        },
+        {
+          "id": "bar_6b8f7a3da404571fa270ce9f",
+          "start": "2026-10-19T09:00:00+00:00",
+          "open_ticks": 133281,
+          "high_ticks": 133420,
+          "low_ticks": 133146,
+          "close_ticks": 133253
+        },
+        {
+          "id": "bar_ef85bd82b43d2aa9079474e7",
+          "start": "2026-10-19T13:00:00+00:00",
+          "open_ticks": 133253,
+          "high_ticks": 133322,
+          "low_ticks": 132988,
+          "close_ticks": 133039
+        },
+        {
+          "id": "bar_5d0d7e2b200bf16d9dc4e178",
+          "start": "2026-10-19T17:00:00+00:00",
+          "open_ticks": 133041,
+          "high_ticks": 133122,
+          "low_ticks": 132994,
+          "close_ticks": 133035
+        },
+        {
+          "id": "bar_e776c6ed0fdb45972e63fe76",
+          "start": "2026-10-19T21:00:00+00:00",
+          "open_ticks": 133045,
+          "high_ticks": 133176,
+          "low_ticks": 132961,
+          "close_ticks": 133124
+        },
+        {
+          "id": "bar_39decafdd9fa45e6f988f600",
+          "start": "2026-10-20T01:00:00+00:00",
+          "open_ticks": 133123,
+          "high_ticks": 133350,
+          "low_ticks": 133094,
+          "close_ticks": 133331
+        },
+        {
+          "id": "bar_522cb3e7fbde1b4e3d578878",
+          "start": "2026-10-20T05:00:00+00:00",
+          "open_ticks": 133332,
+          "high_ticks": 133587,
+          "low_ticks": 133248,
+          "close_ticks": 133483
+        },
+        {
+          "id": "bar_636a7de130ab4a0d27b4f2c9",
+          "start": "2026-10-20T09:00:00+00:00",
+          "open_ticks": 133482,
+          "high_ticks": 133780,
+          "low_ticks": 133363,
+          "close_ticks": 133693
+        },
+        {
+          "id": "bar_f57e8cd3b6c1f965749aa61a",
+          "start": "2026-10-20T13:00:00+00:00",
+          "open_ticks": 133694,
+          "high_ticks": 134092,
+          "low_ticks": 133653,
+          "close_ticks": 133709
+        },
+        {
+          "id": "bar_8bb21e5c1e5c574f7a5ff608",
+          "start": "2026-10-20T17:00:00+00:00",
+          "open_ticks": 133709,
+          "high_ticks": 133849,
+          "low_ticks": 133683,
+          "close_ticks": 133794
+        },
+        {
+          "id": "bar_ea6b3cec81dc1806391a27bb",
+          "start": "2026-10-20T21:00:00+00:00",
+          "open_ticks": 133772,
+          "high_ticks": 133809,
+          "low_ticks": 133680,
+          "close_ticks": 133751
+        },
+        {
+          "id": "bar_966ad28e923bde638f5221af",
+          "start": "2026-10-21T01:00:00+00:00",
+          "open_ticks": 133752,
+          "high_ticks": 133785,
+          "low_ticks": 133704,
+          "close_ticks": 133733
+        },
+        {
+          "id": "bar_0b03228d3f85f867fa012d6f",
+          "start": "2026-10-21T05:00:00+00:00",
+          "open_ticks": 133732,
+          "high_ticks": 134011,
+          "low_ticks": 133643,
+          "close_ticks": 133993
+        },
+        {
+          "id": "bar_cef2ec461614b2da3797d564",
+          "start": "2026-10-21T09:00:00+00:00",
+          "open_ticks": 133990,
+          "high_ticks": 134033,
+          "low_ticks": 133885,
+          "close_ticks": 133969
+        },
+        {
+          "id": "bar_af52c15462843282d87957d8",
+          "start": "2026-10-21T13:00:00+00:00",
+          "open_ticks": 133966,
+          "high_ticks": 134016,
+          "low_ticks": 133792,
+          "close_ticks": 133967
+        },
+        {
+          "id": "bar_1a7094eec99e538779c23d41",
+          "start": "2026-10-21T17:00:00+00:00",
+          "open_ticks": 133967,
+          "high_ticks": 134019,
+          "low_ticks": 133768,
+          "close_ticks": 133936
+        },
+        {
+          "id": "bar_a0c8b85f693548046815b9c9",
+          "start": "2026-10-21T21:00:00+00:00",
+          "open_ticks": 133852,
+          "high_ticks": 133985,
+          "low_ticks": 133823,
+          "close_ticks": 133949
+        },
+        {
+          "id": "bar_692f22ba491c506429cce907",
+          "start": "2026-10-22T01:00:00+00:00",
+          "open_ticks": 133949,
+          "high_ticks": 134084,
+          "low_ticks": 133830,
+          "close_ticks": 133978
+        },
+        {
+          "id": "bar_58dd89fba133d337d1524628",
+          "start": "2026-10-22T05:00:00+00:00",
+          "open_ticks": 133978,
+          "high_ticks": 134190,
+          "low_ticks": 133950,
+          "close_ticks": 134072
+        },
+        {
+          "id": "bar_97c2eb7a49e0b037f44bceee",
+          "start": "2026-10-22T09:00:00+00:00",
+          "open_ticks": 134071,
+          "high_ticks": 134121,
+          "low_ticks": 133618,
+          "close_ticks": 133733
+        },
+        {
+          "id": "bar_85840230e4a1ece250702add",
+          "start": "2026-10-22T13:00:00+00:00",
+          "open_ticks": 133732,
+          "high_ticks": 134020,
+          "low_ticks": 133549,
+          "close_ticks": 134006
+        },
+        {
+          "id": "bar_d7df9ba2409ee7198d9f59c1",
+          "start": "2026-10-22T17:00:00+00:00",
+          "open_ticks": 134006,
+          "high_ticks": 134070,
+          "low_ticks": 133931,
+          "close_ticks": 133998
+        },
+        {
+          "id": "bar_9e6304dd7d25309b2b613c38",
+          "start": "2026-10-22T21:00:00+00:00",
+          "open_ticks": 133858,
+          "high_ticks": 134076,
+          "low_ticks": 133852,
+          "close_ticks": 134025
+        },
+        {
+          "id": "bar_c5e65c3c438025a403c2a10e",
+          "start": "2026-10-23T01:00:00+00:00",
+          "open_ticks": 134027,
+          "high_ticks": 134056,
+          "low_ticks": 133884,
+          "close_ticks": 133886
+        },
+        {
+          "id": "bar_50a7c31825efcfd271d67289",
+          "start": "2026-10-23T05:00:00+00:00",
+          "open_ticks": 133886,
+          "high_ticks": 133945,
+          "low_ticks": 133707,
+          "close_ticks": 133761
+        },
+        {
+          "id": "bar_a337ed03a0a72b32e9362469",
+          "start": "2026-10-23T09:00:00+00:00",
+          "open_ticks": 133762,
+          "high_ticks": 133884,
+          "low_ticks": 133649,
+          "close_ticks": 133839
+        },
+        {
+          "id": "bar_94a202d3f26dcd6afbd0b71c",
+          "start": "2026-10-23T13:00:00+00:00",
+          "open_ticks": 133838,
+          "high_ticks": 133878,
+          "low_ticks": 133650,
+          "close_ticks": 133695
+        },
+        {
+          "id": "bar_3ec3ce6d9527d1160de95e0c",
+          "start": "2026-10-23T17:00:00+00:00",
+          "open_ticks": 133695,
+          "high_ticks": 133742,
+          "low_ticks": 133610,
+          "close_ticks": 133716
+        },
+        {
+          "id": "bar_5f465346897675b6f663e264",
+          "start": "2026-10-25T21:00:00+00:00",
+          "open_ticks": 133684,
+          "high_ticks": 133828,
+          "low_ticks": 133514,
+          "close_ticks": 133823
+        },
+        {
+          "id": "bar_1c99e45298f7effbba4efd23",
+          "start": "2026-10-26T01:00:00+00:00",
+          "open_ticks": 133824,
+          "high_ticks": 133876,
+          "low_ticks": 133775,
+          "close_ticks": 133794
+        },
+        {
+          "id": "bar_c4e0f2d72b62608caa140bc2",
+          "start": "2026-10-26T05:00:00+00:00",
+          "open_ticks": 133794,
+          "high_ticks": 133812,
+          "low_ticks": 133437,
+          "close_ticks": 133465
+        },
+        {
+          "id": "bar_b9d1f4aa4b89aaf462555ff4",
+          "start": "2026-10-26T09:00:00+00:00",
+          "open_ticks": 133465,
+          "high_ticks": 133578,
+          "low_ticks": 133422,
+          "close_ticks": 133549
+        },
+        {
+          "id": "bar_5df55a1149dcb15283b53389",
+          "start": "2026-10-26T13:00:00+00:00",
+          "open_ticks": 133548,
+          "high_ticks": 133558,
+          "low_ticks": 133280,
+          "close_ticks": 133469
+        },
+        {
+          "id": "bar_9923b9871fde932678b73f59",
+          "start": "2026-10-26T17:00:00+00:00",
+          "open_ticks": 133468,
+          "high_ticks": 133590,
+          "low_ticks": 133399,
+          "close_ticks": 133417
+        },
+        {
+          "id": "bar_8292a8451a76d3a5d82695b3",
+          "start": "2026-10-26T21:00:00+00:00",
+          "open_ticks": 133409,
+          "high_ticks": 133491,
+          "low_ticks": 133328,
+          "close_ticks": 133428
+        },
+        {
+          "id": "bar_377d2a648c325c6e554ebdd2",
+          "start": "2026-10-27T01:00:00+00:00",
+          "open_ticks": 133426,
+          "high_ticks": 133457,
+          "low_ticks": 133330,
+          "close_ticks": 133384
+        },
+        {
+          "id": "bar_2fb09fff1a1a8bbed7e54cf1",
+          "start": "2026-10-27T05:00:00+00:00",
+          "open_ticks": 133385,
+          "high_ticks": 133386,
+          "low_ticks": 133162,
+          "close_ticks": 133238
+        },
+        {
+          "id": "bar_35e9499aa0d4fae06ea6f279",
+          "start": "2026-10-27T09:00:00+00:00",
+          "open_ticks": 133237,
+          "high_ticks": 133344,
+          "low_ticks": 133072,
+          "close_ticks": 133318
+        },
+        {
+          "id": "bar_014a549df8fb4484a4e6a6b2",
+          "start": "2026-10-27T13:00:00+00:00",
+          "open_ticks": 133317,
+          "high_ticks": 133332,
+          "low_ticks": 133046,
+          "close_ticks": 133146
+        },
+        {
+          "id": "bar_c96d38ba3a61e0a7d5c9e3bb",
+          "start": "2026-10-27T17:00:00+00:00",
+          "open_ticks": 133144,
+          "high_ticks": 133198,
+          "low_ticks": 133029,
+          "close_ticks": 133056
+        },
+        {
+          "id": "bar_646c6a99e9c91a931ebb9be7",
+          "start": "2026-10-27T21:00:00+00:00",
+          "open_ticks": 133056,
+          "high_ticks": 133126,
+          "low_ticks": 133005,
+          "close_ticks": 133050
+        },
+        {
+          "id": "bar_16a472241403e32059ca458d",
+          "start": "2026-10-28T01:00:00+00:00",
+          "open_ticks": 133051,
+          "high_ticks": 133059,
+          "low_ticks": 132942,
+          "close_ticks": 132951
+        },
+        {
+          "id": "bar_2b5860fd77eb841f506133fd",
+          "start": "2026-10-28T05:00:00+00:00",
+          "open_ticks": 132950,
+          "high_ticks": 132963,
+          "low_ticks": 132725,
+          "close_ticks": 132911
+        },
+        {
+          "id": "bar_1d120cb7bc73c889977e4d37",
+          "start": "2026-10-28T09:00:00+00:00",
+          "open_ticks": 132916,
+          "high_ticks": 132965,
+          "low_ticks": 132745,
+          "close_ticks": 132884
+        },
+        {
+          "id": "bar_8f1b7d212310f4bb6b44f8b7",
+          "start": "2026-10-28T13:00:00+00:00",
+          "open_ticks": 132883,
+          "high_ticks": 133211,
+          "low_ticks": 132864,
+          "close_ticks": 133161
+        }
+      ]
+    }
+  ],
+  "liquidity_target": "NOT_SELECTED_BIAS_ONLY",
+  "teacher_acceptance": "NOT_ESTABLISHED"
+}

@@ -1,0 +1,291 @@
+{
+  "schema_version": "primary_missing_source_observations_v1",
+  "scope": "FOUR_ACTUAL_PRIMARY_VIDEO_EPISODES_PREVIOUSLY_OMITTED_FROM_FOUR_CASE_RUNNER",
+  "case_count": 4,
+  "denominator_policy": "Include both explicit losses and discretionary exit; illustrations are not independent new fills. All4 remain source-reviewed, no engine acceptance.",
+  "comparison_policy": "Print raw differences to every correctpair/side/TF candidate inside declared broadwindow. No winner selection, no inferred tolerance and no acceptance award.",
+  "cases": [
+    {
+      "case_id": "video-t3-audchf-buy-loss",
+      "instrument": "AUDCHF",
+      "side": "BUY",
+      "entry_tf": "H1",
+      "entry_model": "engulfing",
+      "source_observed_window": {
+        "start_utc": "2026-06-08T23:00:00Z",
+        "end_utc": "2026-06-09T23:00:00Z",
+        "end_exclusive": true,
+        "role": "Entire displayed local formation day2026-06-09UTC+1; NOT proven fill-day boundary.",
+        "acceptance_tolerance": null
+      },
+      "printed_tool_anchor": {
+        "local_datetime": "2026-06-09T07:00:00",
+        "display_timezone": "UTC+01:00",
+        "utc_conversion": "2026-06-09T06:00:00Z",
+        "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0670.jpg",
+        "role": "Box left handle/cursor date at formation candle; not proven fill."
+      },
+      "drawings": [
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0670.jpg",
+          "frame_sha256": "34e7ad68f00671e5adf4f5ae78b5c856cf00f0eea8d1b7579acabfbf5d1fcebf",
+          "source_pts_seconds": 670,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 0.56205,
+          "stop": 0.56169,
+          "target": 0.56339,
+          "role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "printed_risk_pips": 3.6,
+          "printed_rr": 3.72
+        },
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0675.jpg",
+          "frame_sha256": "bcfc3676e9d524f2087ae16fd638b39d7d412dd9ed3d73724b35f50983624ca9",
+          "source_pts_seconds": 675,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 0.56205,
+          "stop": 0.56169,
+          "target": 0.56378,
+          "role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable"
+        }
+      ],
+      "confirmation_geometry": {
+        "source_transcript": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "passages": [
+          "577.9-617.7: W bullish; daily never gives bearish breakout despite previous weekly high sweep; D buy-KL rejection.",
+          "623.7-655.3: H4 upward breakout/liquidity; H1 engulfing used.",
+          "629.0-647.5: declines external-breakout restriction as his own rule.",
+          "655.3-677.3: own H1 entry explicitly lost; keeps loss in denominator."
+        ],
+        "observed": "H1 bullish displacement after local down-candle/turn, return to body-level near0.56205, then sell-through. H4 reference liquidity/KL must be bound independently to IC bars."
+      },
+      "stop_identity": "Below local H1 confirmation/retest structure shown by tool0.56169; not a universal fixed10-pip stop.",
+      "target_identity": "Upper pre-entry highs/liquidity illustrated; exact original intended high not uniquely named. Target changed between670/675, so neither selected solely to fit replay.",
+      "source_outcome": "LOSS_EXPLICIT; realized numericR not independently known",
+      "limitations": [
+        "Source is FOREXCOM TradingView; IC Markets prices/candle boundaries are a different feed. No source-to-IC equivalence asserted.",
+        "Tool anchor is a drawing/formation locator, not proven order creation, broker fill or actual exit time.",
+        "Numbers are source-observed drawing states, not frozen expectations or evidence of executed fills.",
+        "No numerical tolerance inferred, no engine output used to choose a drawing, no acceptance PASS awarded.",
+        "Exact H1 engulfing bar IDs/fill not yet aligned to IC feed.",
+        "Do not add rejected external-breakout filter to erase this loss."
+      ],
+      "source_slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+      "source_video_sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_OBSERVATIONS_NOT_ENGINE_ACCEPTED"
+    },
+    {
+      "case_id": "video-t3-nzdchf-buy-loss",
+      "instrument": "NZDCHF",
+      "side": "BUY",
+      "entry_tf": "H2",
+      "entry_model": "breakout_with_liquidity",
+      "source_observed_window": {
+        "start_utc": "2026-06-09T23:00:00Z",
+        "end_utc": "2026-06-10T23:00:00Z",
+        "end_exclusive": true,
+        "role": "Entire displayed local formation day2026-06-10UTC+1; NOT proven exact fill.",
+        "acceptance_tolerance": null
+      },
+      "printed_tool_anchor": {
+        "local_datetime": "2026-06-10T02:00:00",
+        "display_timezone": "UTC+01:00",
+        "utc_conversion": "2026-06-10T01:00:00Z",
+        "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0880.jpg",
+        "role": "Left position-tool anchor at source H2 candle; formation locator not broker fill."
+      },
+      "drawings": [
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0865.jpg",
+          "frame_sha256": "ba67d0722480d980e93b3b304f25e8e4883b3d4982f5e7d458bca2a70f2b7b17",
+          "source_pts_seconds": 865,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 0.46442,
+          "stop": 0.46328,
+          "target": 0.46556,
+          "role": "EARLIER_RECONSTRUCTION_BEFORE_SPOKEN_STOP_CORRECTION; not final stop"
+        },
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_0880.jpg",
+          "frame_sha256": "744f770a83f2a6d1b72114a13a7ffb37729c25523839f452f881c45e42a326b1",
+          "source_pts_seconds": 880,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 0.46442,
+          "stop": 0.46385,
+          "target": null,
+          "role": "CORRECTED_LOCAL_KL_STOP_RECONSTRUCTION; target offscreen, do not infer it fromRR",
+          "printed_risk_pips": 5.7,
+          "printed_rr": 5.44
+        }
+      ],
+      "confirmation_geometry": {
+        "source_transcript": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "passages": [
+          "687.8-734.1: bullish W/D context; says fresh D breakout would have been preferable.",
+          "734.1-776.1: first H4 rejection/sweep lacked entry; later H4 breakout and KL reaction.",
+          "792.2-821.0: checks journal and corrects uncertain H1/engulfing memory toH2.",
+          "827.8-855.9: first rejection no clean confirmation; later H4 KL reaction produces H2 breakout+liquidity.",
+          "856.6-888.0: instantaneous loss; corrects stop to just below KL."
+        ],
+        "observed": "Frame840 H4 marks later KL reaction; frame855 H2 marks upward break/short horizontal key-level; frame880 plan retests0.46442 then immediately sells through corrected stop. H1 engulfing recollection must not substitute for journal-corrected H2 path."
+      },
+      "stop_identity": "Narrator corrects lower stop to just below the nearby relevant KL; corrected picture0.46385, not initial wider0.46328.",
+      "target_identity": "Narrates longer buy to nearby upper point or external liquidity; earlier tool0.46556 and later offscreen extension are different illustrations. Final original target unresolved; no RR-derived hidden number.",
+      "source_outcome": "IMMEDIATE_STOP_LOSS_EXPLICIT; later recovery is not replacement outcome",
+      "limitations": [
+        "Source is FOREXCOM TradingView; IC Markets prices/candle boundaries are a different feed. No source-to-IC equivalence asserted.",
+        "Tool anchor is a drawing/formation locator, not proven order creation, broker fill or actual exit time.",
+        "Numbers are source-observed drawing states, not frozen expectations or evidence of executed fills.",
+        "No numerical tolerance inferred, no engine output used to choose a drawing, no acceptance PASS awarded.",
+        "Do not use initial misrememberedH1 or future freshD breakout to repair losing episode.",
+        "Corrected target not fully visible; comparison should leave target difference null for final state."
+      ],
+      "source_slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+      "source_video_sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_OBSERVATIONS_NOT_ENGINE_ACCEPTED"
+    },
+    {
+      "case_id": "video-t3-usdjpy-buy-manual-exit",
+      "instrument": "USDJPY",
+      "side": "BUY",
+      "entry_tf": "H3",
+      "entry_model": "breakout_retest",
+      "source_observed_window": {
+        "start_utc": "2026-06-09T23:00:00Z",
+        "end_utc": "2026-06-10T23:00:00Z",
+        "end_exclusive": true,
+        "role": "Entire displayed local formation day2026-06-10UTC+1; prior H1 missed alternative kept separate.",
+        "acceptance_tolerance": null
+      },
+      "printed_tool_anchor": {
+        "local_datetime": "2026-06-10T13:00:00",
+        "display_timezone": "UTC+01:00",
+        "utc_conversion": "2026-06-10T12:00:00Z",
+        "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_1065.jpg",
+        "role": "H3 drawing start/formation candle, not proven fill."
+      },
+      "drawings": [
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_1065.jpg",
+          "frame_sha256": "0a744c335972673f4ddafa59fa62d26bc8f003f0a104df36fbf9bdab6504f4c3",
+          "source_pts_seconds": 1065,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 160.391,
+          "stop": 160.322,
+          "target": null,
+          "role": "EARLY_RECONSTRUCTED_STOP_DRAG_STATE; target outside viewport",
+          "printed_risk_pips": 6.9,
+          "printed_rr": 3.55
+        },
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_1080.jpg",
+          "frame_sha256": "1f9b69c2bff94db400602d084f5bb865a5a3a677935a2f4692e95268a6f449b9",
+          "source_pts_seconds": 1080,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 160.391,
+          "stop": 160.323,
+          "target": 160.725,
+          "role": "ORIGINAL_WEEKLY_HIGH_TARGET_ILLUSTRATION; not actual realized exit"
+        },
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t3_1095.jpg",
+          "frame_sha256": "f42579ae938b7a2ae4f80d5f725aa4edc0a9ae9fd37db99b4eca97dc9d4fb362",
+          "source_pts_seconds": 1095,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 160.391,
+          "stop": 160.323,
+          "target": 160.598,
+          "role": "LATER_HYPOTHETICAL_3R_TARGET_DEMONSTRATION; not original target or actual exit",
+          "printed_risk_pips": 6.8,
+          "printed_rr": 3.03
+        }
+      ],
+      "confirmation_geometry": {
+        "source_transcript": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb/transcript.txt",
+        "passages": [
+          "903.8-986.4: W/D bullish; H4 breakout/liquidity and KL reaction; weekly high is target.",
+          "992.3-1028.2: initial H1 engulfing passed and H1 breakout missed.",
+          "1028.7-1058.5: choseH3 breakout instead of engulfing; stop should cover engulfing structure.",
+          "1058.5-1071.0: downside spike misses stop by1-2pips.",
+          "1072.0-1110.9: stalling motivates manual exit around2R; hypothetical3R delivery distinct."
+        ],
+        "observed": "SourceH3 up-break after H4 reaction; lower body-level retest near160.391, logical protection below earlier engulf/reaction structure. Subsequent consolidation then crash are visible, but no automatic stalling threshold is stated."
+      },
+      "stop_identity": "Below/covering engulfing structure despite selecting breakout entry; picture settles160.323 after earlier160.322 cursor/drag.",
+      "target_identity": "Original weekly high horizontal line160.725 shown1080s.1095s shrinks target to160.598 solely to illustrate roughly3R. Actual discretionary exit around2R has no exact printed broker exit.",
+      "source_outcome": "MANUAL_PROFIT_EXIT_AROUND_2R_NARRATED; not SL and not full weekly-target hit",
+      "limitations": [
+        "Source is FOREXCOM TradingView; IC Markets prices/candle boundaries are a different feed. No source-to-IC equivalence asserted.",
+        "Tool anchor is a drawing/formation locator, not proven order creation, broker fill or actual exit time.",
+        "Numbers are source-observed drawing states, not frozen expectations or evidence of executed fills.",
+        "No numerical tolerance inferred, no engine output used to choose a drawing, no acceptance PASS awarded.",
+        "No mechanical stalling rule or exact actual exit time/price supplied.",
+        "Do not score subsequent crash as his loss or later hypothetical3R box as his original target."
+      ],
+      "source_slug": "bishop-defi-bishop-study-20-minute-series-part-3-trades-breakdown-bias-to-entry-case-study-gb",
+      "source_video_sha256": "ee73e7118df31d1f30524a204ffe5393bbfc05b87197f935fe01bd4687d45004",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_OBSERVATIONS_NOT_ENGINE_ACCEPTED"
+    },
+    {
+      "case_id": "video-t2-eurgbp-sell",
+      "instrument": "EURGBP",
+      "side": "SELL",
+      "entry_tf": "H1",
+      "entry_model": "engulfing",
+      "source_observed_window": {
+        "start_utc": "2026-05-28T23:00:00Z",
+        "end_utc": "2026-06-01T23:00:00Z",
+        "end_exclusive": true,
+        "role": "Source episode spans FridayMay29 H1 formation/limit retained into MondayJune1 H2 supporting continuation. Broad search window, not a specific fill claim.",
+        "acceptance_tolerance": null
+      },
+      "printed_tool_anchor": {
+        "local_datetime": null,
+        "display_timezone": "UTC+01:00",
+        "utc_conversion": null,
+        "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t2_1350.jpg",
+        "role": "Later H2 view shows MondayJun1 context and cursor04:00; selected level endpoint12:00 is NOT safely identifiable as originalH1 order anchor. Do not equate it to fill."
+      },
+      "drawings": [
+        {
+          "frame_path": "reports/implementation_review/primary_missing_cases_source/frames/t2_1350.jpg",
+          "frame_sha256": "5ca9b75fc4b8e07629256e6744de073b69a7daeb7c9462c0e14fa828bfe10843",
+          "source_pts_seconds": 1350,
+          "extraction": "native source ffmpeg accurate-seek; source0 video convention; no engine-generated picture",
+          "entry": 0.8658,
+          "stop": 0.86614,
+          "target": 0.86382,
+          "role": "RETAINED_H1_LIMIT_PLAN_ILLUSTRATED_ON_LATER_H2_SUPPORT_VIEW; not automaticH2 secondtrade",
+          "displayed_tf": "H2"
+        }
+      ],
+      "confirmation_geometry": {
+        "source_transcript": "knowledge-base/videos/bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n/transcript.txt",
+        "passages": [
+          "1227.6-1295.3: Friday context; W/D bearish; daily KL rejects/closes below; H4 downside breakout.",
+          "1296.4-1329.3: H4 liquidity/rejection followed H1 engulfing; leaves existing limit.",
+          "1329.3-1355.7: later H2 bearishBOS/liquidity supports retaining same limit; target marked KL."
+        ],
+        "observed": "Native1320 H1 view shows bearish engulfing/body-level retracement setup near0.8658 after H4 rejection.1350H2 view demonstrates later bearish break/liquidity and retained position tool; do not backdate H2 support into H1 origin."
+      },
+      "stop_identity": "Above local bearish confirmation/key-level structure; later illustrative stop0.86614, exact original brokerSL not proven.",
+      "target_identity": "Marked lower KL/liquidity at0.86382 in later H2 illustration, distinct from creation of a newH2 order.",
+      "source_outcome": "CLEAN_TRADE_NARRATED; account realization unverified",
+      "limitations": [
+        "Source is FOREXCOM TradingView; IC Markets prices/candle boundaries are a different feed. No source-to-IC equivalence asserted.",
+        "Tool anchor is a drawing/formation locator, not proven order creation, broker fill or actual exit time.",
+        "Numbers are source-observed drawing states, not frozen expectations or evidence of executed fills.",
+        "No numerical tolerance inferred, no engine output used to choose a drawing, no acceptance PASS awarded.",
+        "Original H1 formation timestamp and whether Friday/firstMonday revisit filled remain unresolved; broad window explicitly includes both.",
+        "LaterH2 evidence cannot retrospectively qualify earlierH1 order; keep existing-limit lifecycle separate."
+      ],
+      "source_slug": "bishop-defi-bishop-study-20-minute-series-part-2-trades-breakdown-case-study-usdchf-gbpjpy-n",
+      "source_video_sha256": "07f4b078dfb94c1cc637f03a1db9592cf890c86e60273780256a1c23712fca0b",
+      "provenance": "PRIMARY_MENTOR_VIDEO",
+      "verification": "SOURCE_OBSERVATIONS_NOT_ENGINE_ACCEPTED"
+    }
+  ]
+}

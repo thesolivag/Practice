@@ -1,0 +1,50 @@
+{
+  "branch": "claude-bishop-aggressive",
+  "scope": "CURRENT_STRUCTURAL_BIAS_PAPER_ONLY",
+  "regression_checks": {
+    "run_id": 40396402296,
+    "commit": "629086d",
+    "passed": 410,
+    "skipped": 5,
+    "real_mysql_tests": 3,
+    "conclusion": "success"
+  },
+  "source_review": {
+    "total_examples": 40,
+    "explicit_bias_labels": 27,
+    "snapshot_direction_agreements": 14,
+    "source_bias_pending": 13,
+    "input_pending": 8,
+    "snapshot_clock_pending": 5,
+    "teacher_setup_clock_acceptance": "UNRESOLVED",
+    "run_id": 40393851319
+  },
+  "current_data": {
+    "run_id": 40393856297,
+    "commit": "6a85f5b",
+    "pairs": [
+      "GBPUSD",
+      "EURNZD"
+    ],
+    "snapshot_as_of": "2026-10-26T20:00:00Z",
+    "verified_cache_reuse": true,
+    "raw_warmup_days": 400,
+    "historical_missing_slots_per_pair": 51,
+    "qualified_current_segment_observations": true,
+    "orders_created": 0,
+    "database_persisted": false
+  },
+  "activation": {
+    "aiven_application_connection_verified": false,
+    "render_deployment_verified": false,
+    "telegram_delivery_activated": false,
+    "external_cron_activated": false,
+    "required": "Owner-created Bishop Aiven/Telegram/Render configuration; see bishop/OPERATIONS.md"
+  },
+  "ui": {
+    "archived_results_desktop_and_mobile_verified": true,
+    "original_source_images_verified": true,
+    "hosted": false,
+    "preview": "reports/bias_validation/previews/current-bias-mobile.png"
+  }
+}

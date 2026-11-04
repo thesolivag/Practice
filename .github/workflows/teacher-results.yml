@@ -1,0 +1,56 @@
+name: Collect Bishop teacher replay results
+on:
+  workflow_run:
+    workflows: [Bishop frozen teacher-example replay]
+    types: [completed]
+    branches: [claude-bishop-aggressive]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Completed replay run ID
+        required: true
+permissions:
+  actions: read
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPLAY_RUN: ${{ inputs.run_id || github.event.workflow_run.id }}
+    steps:
+      - name: Collect and summarize saved results
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          mkdir -p results
+          gh run view "$REPLAY_RUN" --repo "$REPO" --json status,conclusion,headSha > results/source_run.json
+          python - <<'PY'
+          import json
+          r=json.load(open('results/source_run.json'))
+          if r['status'] != 'completed': raise SystemExit('Replay has not completed')
+          PY
+          gh run download "$REPLAY_RUN" --repo "$REPO" --pattern 'bishop-teacher-replay-*' --dir results/artifacts
+          python - <<'PY'
+          import json, pathlib, collections, os
+          root=pathlib.Path('results'); rows={}; indexes=list(root.glob('artifacts/**/index.json'))
+          for path in indexes:
+              for row in json.loads(path.read_text())['results']:
+                  if row['status']=='NOT_REQUESTED': continue
+                  if row['id'] in rows: raise SystemExit('Duplicate case: '+row['id'])
+                  rows[row['id']]=row
+          counts=dict(collections.Counter(r['status'] for r in rows.values()))
+          strict=dict(collections.Counter(r.get('strict_status','UNRESOLVED') for r in rows.values()))
+          summary=dict(source_run=json.load(open(root/'source_run.json')),shards=len(indexes),case_count=len(rows),complete=len(indexes)==8 and len(rows)==40,status_counts=counts,strict_counts=strict,results=list(rows.values()))
+          (root/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+          text='Bishop replay results\n\nCases collected: '+str(len(rows))+'/40\n\nExecution status: '+json.dumps(counts)+'\n\nTeacher acceptance: '+json.dumps(strict)+'\n\nSuccessful workflow execution does not establish teacher-example matches.\n'
+          (root/'summary.md').write_text(text)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f: f.write(text)
+          if not summary['complete']: raise SystemExit('Incomplete result set; inspect preserved artifacts')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bishop-processed-results-${{ env.REPLAY_RUN }}
+          path: results/
+          retention-days: 90
