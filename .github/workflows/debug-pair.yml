@@ -1,0 +1,43 @@
+name: SLK debug pair
+# Exports one pair's H1 candles (IC Markets cTrader, Dukascopy if cTrader fails) to data/debug/ and explains its
+# current bias story (slk/debug_pair.py), so a bias alert can be checked offline.
+on:
+  workflow_dispatch:
+    inputs:
+      pair: {description: "Symbol, e.g. XAUUSD", default: "XAUUSD"}
+      days: {description: "Days of history", default: "1500"}
+permissions:
+  contents: write
+concurrency: {group: slk-debug-pair, cancel-in-progress: false}
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IN_PAIR: ${{ inputs.pair }}
+      IN_DAYS: ${{ inputs.days }}
+      SLK_STORE: data/dbgstore
+      CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+      CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+      CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+      CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
+      CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+      CTRADER_ENV: demo
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DATABASE_CA: ${{ secrets.DATABASE_CA }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements-dev.txt
+      - name: Export and explain
+        # cTrader first; on failure the error (with the client's diagnostics) is a ::warning:: and the Dukascopy
+        # fallback (what live then uses) is exported. data/debug/<PAIR>_explain.txt = point B / first touch / target.
+        run: python -m slk.debug_pair --pair "$IN_PAIR" --days "$IN_DAYS" --out data/debug
+      - name: Commit
+        run: |
+          git config user.name "slk-debug"; git config user.email "actions@github.com"
+          git add -f data/debug/*.csv.gz data/debug/*_explain.txt
+          git commit -m "debug export ${IN_PAIR}" || exit 0
+          git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }}

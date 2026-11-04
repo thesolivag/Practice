@@ -1,0 +1,43 @@
+name: Multiuser isolation checks
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude-kevin-king]
+    paths: ['slk/runtime_config.py', 'ctrader/client.py', 'tests/test_runtime_config.py', 'slk/jobs.py', 'slk/alert_data.py', 'slk/user_alerts.py', 'slk/replay_cache.py', 'ctrader/tokens.py', 'extension/**', 'tests/test_workspace_routes.py', 'tests/ui/**', 'tests/test_workspace_mysql.py', 'tests/test_alert_data.py', 'tests/test_browser_auth.py', 'tests/test_user_alerts.py', 'tests/test_confirmation_models.py', 'tests/test_alert_quotes.py', 'tests/test_alert_modes.py', 'tests/test_replay_loader.py', 'tests/test_replay_history.py', 'tests/test_price_replay.py', 'tests/test_journal_replay.py', 'tests/test_token_concurrency.py', 'slk/deriv.py', 'slk/candles.py', 'slk/store.py', 'tests/test_deriv.py', 'slk/news.py', 'tests/test_news.py', 'slk/tenancy.py', 'slk/db.py', 'slk/live.py', 'webapp/**', 'db/schema.sql', 'tests/test_multiuser_mysql.py', 'tests/test_tenancy.py', '.github/workflows/multiuser-check.yml']
+permissions:
+  contents: read
+jobs:
+  isolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: local-test-only
+          MYSQL_DATABASE: slk_test
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -plocal-test-only"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      SLK_TEST_MYSQL: mysql://root:local-test-only@127.0.0.1:3306/slk_test?ssl-mode=DISABLED
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pytest pandas pymysql fastapi httpx requests websocket-client 'protobuf>=3.20'
+      - run: python -m pytest -q tests/test_runtime_config.py tests/test_workspace_routes.py tests/test_workspace_mysql.py tests/test_alert_data.py tests/test_jobs.py tests/test_browser_auth.py tests/test_user_alerts.py tests/test_confirmation_models.py tests/test_alert_modes.py tests/test_alert_quotes.py tests/test_replay_loader.py tests/test_replay_history.py tests/test_price_replay.py tests/test_journal_replay.py tests/test_token_concurrency.py tests/test_deriv.py tests/test_news.py tests/test_multiuser_mysql.py tests/test_tenancy.py tests/test_webapp.py tests/test_settings.py tests/test_live.py tests/test_continuation.py
+
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm, cache-dependency-path: tests/ui/package-lock.json}
+      - run: npm ci --prefix tests/ui --ignore-scripts
+      - name: Browser and extension controls
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: npm test --prefix tests/ui
