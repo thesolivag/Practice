@@ -33,6 +33,9 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+- 2026-11-04: Added owned personal-alert pause/resume controls to the web app. Pausing preserves expiry, resume resets confirmation cursors and sampled-price baseline to skip the paused interval, paused watches count against limits and can cancel/expire. Triggered/in-flight delivery is not discarded. Web alert default and entering Confirmation now select one day; existing saved durations/history unchanged. Source/code review of Bishop entries saved in reports/implementation_review/bishop_entry_webapp_review.md; Bishop already has a separate H4-liquidity/reaction/confirmation/retest engine, not ported into Kevin. No universal 24-hour reaction rule established. Validation: 115 targeted tests passed, 4 optional MySQL tests skipped; mobile browser pause/resume/default-expiry checks and both full browser/extension flows passed.
+
+
 - 2026-11-04: Added root Dockerfile and .dockerignore for existing Render Docker service; render.yaml now uses Docker. Root Directory must be empty, Dockerfile ./Dockerfile, build context ., command unset. Includes webapp/shared slk/cTrader/schema/catalogue/extension. Built image and verified /healthz, /version, / at custom PORT=10001 with no production credentials; database/broker/live deployment not tested.
 
 - 2026-11-04: User clarified OC engulfing is exactly three consecutive candles: first two establish the boundary, third closes strictly beyond it; older boundaries no longer qualify. Shared detector also updates optional lower-timeframe confirmation. No whole-body engulfing requirement. BUY/SELL regression and closed-candle pipeline tests updated. Validation: 134 passed, 4 optional tests skipped.

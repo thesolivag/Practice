@@ -34,4 +34,17 @@ def router(require_user):
         except Exception:raise HTTPException(503,'Alert storage unavailable') from None
         if result is None:raise HTTPException(404,'Alert not found')
         return {'ok':True,'id':alert_id}
+    def change_paused(alert_id, user, paused):
+        try:
+            with user_alerts.Repository(db) as repo:result=repo.set_paused(user['id'],alert_id,paused)
+        except ValueError as exc:raise HTTPException(409,str(exc)) from None
+        except Exception:raise HTTPException(503,'Alert storage unavailable') from None
+        if result is None:raise HTTPException(404,'Alert not found')
+        return {'ok':True,'id':alert_id}
+    @routes.post('/api/alerts/{alert_id}/pause')
+    def pause_alert(alert_id:int,user=Depends(require_user)):
+        return change_paused(alert_id,user,True)
+    @routes.post('/api/alerts/{alert_id}/resume')
+    def resume_alert(alert_id:int,user=Depends(require_user)):
+        return change_paused(alert_id,user,False)
     return routes

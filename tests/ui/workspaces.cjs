@@ -53,6 +53,7 @@ const root=path.resolve(__dirname,'../../webapp/static');
   if(u.pathname==='/api/settings/schema')return reply(schemas);
   if(u.pathname==='/api/settings'){if(body)settings=body;return reply(settings);}
   if(u.pathname==='/api/alerts/schema'){alertSchemaRequests++;await alertSchemaGate;return reply(conditions);}
+  if(/^\/api\/alerts\/1\/(pause|resume)$/.test(u.pathname)){watch.status=u.pathname.endsWith('/pause')?'PAUSED':'ACTIVE';return reply({ok:true,id:1});}
   if(u.pathname==='/api/alerts'){
    if(body){await new Promise(resolve=>setTimeout(resolve,300));watchBodies.push(body);watch={id:1,...body,status:'ACTIVE',expires_at:1900000000,event_time:anchor,error:watchBodies.length===3?'Provider temporarily unavailable':null};return reply(watch);}
    return reply(watch?[watch]:[]);
@@ -95,14 +96,22 @@ const root=path.resolve(__dirname,'../../webapp/static');
  assert.equal(watchBodies.length,1);assert.equal(watchBodies[0].kind,'price');assert.equal(watchBodies[0].timeframe,'H2');assert.equal(watchBodies[0].level,123.45);
  for(const key of ['models','timeframes','scope','repeat','engulfing'])assert.equal(watchBodies[0][key],undefined);
  assert.equal(await page.locator('#watch-list img').count(),0);
+ const originalExpiry=watch.expires_at;
+ await page.getByRole('button',{name:'Pause',exact:true}).click();
+ await page.getByRole('button',{name:'Resume',exact:true}).waitFor();assert.equal(watch.status,'PAUSED');
+ assert.equal(watch.expires_at,originalExpiry);
+ await page.getByRole('button',{name:'Resume',exact:true}).click();
+ await page.getByRole('button',{name:'Pause',exact:true}).waitFor();assert.equal(watch.status,'ACTIVE');
+ await page.locator('#watch-expiry').selectOption('168');
  await page.locator('#watch-kind').selectOption('confirmation');assert.equal(await page.locator('#watch-price-controls').isVisible(),false);assert.equal(await page.locator('#watch-level-row').isVisible(),false);
+ assert.equal(await page.locator('#watch-expiry').inputValue(),'24');
  await page.locator('#watch-any-model').uncheck();await page.locator('#watch-any-model').check();
  for(const tf of ['M5','M15','M30','H2','H3'])await page.locator(`#watch-timeframes input[value=${tf}]`).check();
  await page.locator('#watch-timeframes input[value=H4]').click();
  assert.equal(await page.locator('#watch-timeframes input:checked').count(),6);assert.equal(await page.locator('#watch-timeframes input[value=H4]').isChecked(),false);
  for(const tf of ['M5','M15','M30','H3'])await page.locator(`#watch-timeframes input[value=${tf}]`).uncheck();
  await page.locator('#watch-repeat').selectOption('each');await page.locator('#watch-form button').click();
- await page.getByText('Confirmation alert saved.',{exact:false}).waitFor();assert.deepEqual(watchBodies[1].models,['breakout','engulfing','fourth_man']);assert.deepEqual(watchBodies[1].timeframes,['H1','H2']);
+ await page.getByText('Confirmation alert saved.',{exact:false}).waitFor();assert.equal(watchBodies[1].expires_hours,24);assert.deepEqual(watchBodies[1].models,['breakout','engulfing','fourth_man']);assert.deepEqual(watchBodies[1].timeframes,['H1','H2']);
  assert.equal(watchBodies[1].scope,'anywhere');assert.equal(watchBodies[1].repeat,'each');for(const key of ['level','condition','timeframe'])assert.equal(watchBodies[1][key],undefined);
  await page.locator('#watch-scope').selectOption('level');assert.equal(await page.locator('#watch-level').getAttribute('required'),'');
  await page.locator('#watch-form button').click();assert.equal(watchBodies.length,2); // scoped confirmation cannot save without a level

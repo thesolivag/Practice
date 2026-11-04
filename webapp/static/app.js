@@ -454,7 +454,8 @@
       <p>${esc(r.note || "")}</p><p class="muted">Expires ${esc(dt(new Date(r.expires_at * 1000).toISOString()))}${r.event_time ? ` · Most recent event ${esc(dt(new Date(r.event_time * 1000).toISOString()))}` : ""}</p>
       ${r.error ? `<p class="bad">${esc(r.error)}</p>` : ""}
       <div class="action-row">${r.event_time ? `<button type="button" data-replay-watch="${Number(r.id)}">Replay event</button>` : ""}
-      ${["ACTIVE", "TRIGGERED"].includes(r.status) ? `<button type="button" data-cancel-watch="${Number(r.id)}">Cancel watch</button>` : ""}</div></article>`).join("") : empty("No personal alerts yet");
+      ${["ACTIVE", "PAUSED"].includes(r.status) && Number(r.expires_at)*1000 > Date.now() ? `<button type="button" data-toggle-watch="${Number(r.id)}" data-watch-action="${r.status === "PAUSED" ? "resume" : "pause"}">${r.status === "PAUSED" ? "Resume" : "Pause"}</button>` : ""}
+      ${["ACTIVE", "TRIGGERED", "PAUSED"].includes(r.status) ? `<button type="button" data-cancel-watch="${Number(r.id)}">Cancel watch</button>` : ""}</div></article>`).join("") : empty("No personal alerts yet");
   }
   async function loadDevices() {
     const telegram = authMethod === "telegram";
@@ -747,7 +748,7 @@
     if (id === "#watch-scope" && $(id).value === "anywhere") $("#watch-level").value = "";
     watchDefinition();
   }));
-  $("#watch-kind").addEventListener("change", () => { $("#watch-level").value = ""; $("#watch-engulfing").checked = false; feedback("#watch-feedback", ""); watchDefinition(); });
+  $("#watch-kind").addEventListener("change", () => { if ($("#watch-kind").value === "confirmation") $("#watch-expiry").value = "24"; $("#watch-level").value = ""; $("#watch-engulfing").checked = false; feedback("#watch-feedback", ""); watchDefinition(); });
   $("#watch-pair").addEventListener("change", () => { $("#watch-level").value = ""; $("#watch-note").value = ""; feedback("#watch-feedback", "Market changed. Recheck the alert settings before saving."); });
   $("#watch-any-model").addEventListener("change", () => { $("#watch-models").querySelectorAll("input").forEach((input) => { input.checked = $("#watch-any-model").checked; }); watchDefinition(); });
   $("#watch-models").addEventListener("change", () => { const inputs = [...$("#watch-models").querySelectorAll("input")]; $("#watch-any-model").checked = inputs.length > 0 && inputs.every((input) => input.checked); watchDefinition(); });
@@ -786,6 +787,16 @@
         await openReplay({kind:source.kind,id:Number(source.id),timeframe:$("#replay-timeframe").value});
       } catch (e) { feedback(current === "replay" ? "#replay-feedback" : "#watch-feedback",e.message,true); }
       finally { replayButton.disabled = false; }
+      return;
+    }
+    const toggle = event.target.closest("[data-toggle-watch]");
+    if (toggle) {
+      toggle.disabled = true;
+      try {
+        await api(`/api/alerts/${Number(toggle.dataset.toggleWatch)}/${toggle.dataset.watchAction}`, {method:"POST"});
+        feedback("#watch-feedback", toggle.dataset.watchAction === "pause" ? "Alert paused. Its original expiry still applies." : "Alert resumed. Signals during the pause are skipped.");
+        await loadWatches();
+      } catch (e) { feedback("#watch-feedback", e.message, true); toggle.disabled = false; }
       return;
     }
     const button = event.target.closest("[data-cancel-watch]"); if (!button) return;

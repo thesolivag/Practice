@@ -205,6 +205,7 @@ class Repository:
         with self.conn.cursor() as c:
             return c.execute(sql, args)
     def list(self, uid):
+        self.execute("UPDATE manual_alerts SET status='EXPIRED',error=NULL WHERE user_id=%s AND status='PAUSED' AND expires_at<=%s", (int(uid),int(time.time())))
         return [public_watch(row) for row in self.query('SELECT * FROM manual_alerts WHERE user_id=%s ORDER BY id DESC LIMIT 200', (int(uid),))]
     def create(self, uid, data):
         uid = int(uid)
@@ -212,7 +213,7 @@ class Repository:
         try:
             self.execute('INSERT IGNORE INTO manual_alert_users (user_id) VALUES (%s)', (uid,))
             self.query('SELECT user_id FROM manual_alert_users WHERE user_id=%s FOR UPDATE', (uid,))
-            active = self.query("SELECT COUNT(*) AS n FROM manual_alerts WHERE user_id=%s AND (status='TRIGGERED' OR (status='ACTIVE' AND expires_at>%s))", (uid,data['created_at']))[0]['n']
+            active = self.query("SELECT COUNT(*) AS n FROM manual_alerts WHERE user_id=%s AND (status='TRIGGERED' OR (status IN ('ACTIVE','PAUSED') AND expires_at>%s))", (uid,data['created_at']))[0]['n']
             daily = self.query('SELECT COUNT(*) AS n FROM manual_alerts WHERE user_id=%s AND created_at>%s', (uid, data['created_at'] - 86400))[0]['n']
             if active >= MAX_ACTIVE: raise ValueError(f'Up to {MAX_ACTIVE} active alerts per account')
             if daily >= MAX_DAILY: raise ValueError('Daily alert-creation limit reached; try again tomorrow')
@@ -226,18 +227,48 @@ class Repository:
         return public_watch(self.query('SELECT * FROM manual_alerts WHERE id=%s AND user_id=%s', (alert_id, uid))[0])
     def cancel(self, uid, alert_id, now=None):
         stamp = int(time.time() if now is None else now)
-        won = self.execute("UPDATE manual_alerts SET status='CANCELLED',lease_token=NULL,lease_until=0 WHERE id=%s AND user_id=%s AND status IN ('ACTIVE','TRIGGERED') AND lease_until<=%s", (alert_id, int(uid), stamp))
+        won = self.execute("UPDATE manual_alerts SET status='CANCELLED',lease_token=NULL,lease_until=0 WHERE id=%s AND user_id=%s AND status IN ('ACTIVE','TRIGGERED','PAUSED') AND lease_until<=%s", (alert_id, int(uid), stamp))
         if won: return True
         rows = self.query('SELECT status,lease_until FROM manual_alerts WHERE id=%s AND user_id=%s', (alert_id, int(uid)))
         if not rows: return None
         if rows[0]['status'] in {'ACTIVE', 'TRIGGERED'}: raise ValueError('Delivery is in progress; refresh before cancelling')
         return True
+    def set_paused(self, uid, alert_id, paused, now=None):
+        """Keep expiry fixed; resume from now without replaying the paused interval."""
+        stamp = int(time.time() if now is None else now)
+        self.conn.begin()
+        try:
+            rows = self.query('SELECT * FROM manual_alerts WHERE id=%s AND user_id=%s FOR UPDATE', (alert_id, int(uid)))
+            if not rows:
+                self.conn.commit(); return None
+            row = rows[0]
+            target = 'PAUSED' if paused else 'ACTIVE'
+            source = 'ACTIVE' if paused else 'PAUSED'
+            if row['status'] not in (source, target):
+                raise ValueError('Only active alerts can pause and paused alerts can resume; refresh the list')
+            if int(row['expires_at']) <= stamp:
+                self.execute("UPDATE manual_alerts SET status='EXPIRED' WHERE id=%s AND user_id=%s", (alert_id, int(uid)))
+                self.conn.commit()
+                raise ValueError('This alert has expired; create a new alert')
+            if int(row.get('lease_until') or 0) > stamp:
+                raise ValueError('Delivery is in progress; refresh before pausing')
+            if row['status'] == source:
+                options = watch_options(row)
+                if not paused and not options['legacy']:
+                    options['cursors'] = {tf:stamp for tf in options['timeframes']}
+                self.execute("UPDATE manual_alerts SET status=%s,last_checked=GREATEST(last_checked,%s),options_json=%s,last_quote=NULL,quote_time=NULL,lease_token=NULL,lease_until=0,error=NULL WHERE id=%s AND user_id=%s",
+                             (target,stamp,_options_json(options) if row.get('options_json') else None,alert_id,int(uid)))
+            self.conn.commit()
+            return True
+        except Exception:
+            self.conn.rollback(); raise
     def pending(self, now):
         # Old interpreted definitions must not silently acquire different semantics.
         self.execute("UPDATE manual_alerts SET status='EXPIRED',error='Confirmation definition retired; recreate using Breakout, Engulfing or 4th man',lease_token=NULL,lease_until=0 WHERE `condition` IN ('pinbar_v1','cisd_v1') AND status IN ('ACTIVE','TRIGGERED') AND lease_until<=%s", (now,))
         # Quotes cannot reconstruct an unobserved historical crossing. Candle
         # conditions get one bounded day of final catch-up before terminal expiry.
         self.execute("UPDATE manual_alerts SET status='EXPIRED',error=CASE WHEN `condition`='crossing' THEN 'Expired before another fresh price sample' ELSE 'Expired outside retained candle catch-up window' END WHERE status='ACTIVE' AND ((`condition`='crossing' AND expires_at<%s) OR (`condition`<>'crossing' AND expires_at<%s))",(now,now-86400))
+        self.execute("UPDATE manual_alerts SET status='EXPIRED',error=NULL WHERE status='PAUSED' AND expires_at<=%s", (now,))
         # Retain tiny user records for30days, not an unbounded candle/research history.
         self.execute("DELETE FROM manual_alerts WHERE status IN ('FIRED','CANCELLED','EXPIRED') AND expires_at<%s", (now-30*86400,))
         return self.query("SELECT * FROM manual_alerts WHERE status IN ('ACTIVE','TRIGGERED') ORDER BY last_attempt,id LIMIT 200")
@@ -288,7 +319,7 @@ class Repository:
             if not rows or rows[0]['status']!='ACTIVE':self.conn.commit();return None
             current=rows[0]
             event=quote_event(current,price,quote_time,now)
-            if int(quote_time)>=int(current['created_at']) and int(quote_time)>int(current.get('quote_time') or 0):
+            if int(quote_time)>max(int(current['created_at']),int(current.get('last_checked') or 0),int(current.get('quote_time') or 0)):
                 self.execute("UPDATE manual_alerts SET last_quote=%s,quote_time=%s,error=NULL WHERE id=%s AND user_id=%s AND status='ACTIVE'",(price,int(quote_time),row['id'],row['user_id']))
             if event:
                 won=self._trigger_locked(current,event)
