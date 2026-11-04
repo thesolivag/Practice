@@ -62,10 +62,10 @@ def test_engulfing_wick_or_equal_close_not_confirmation(side,last):
 
 
 @pytest.mark.parametrize('side',['BUY','SELL'])
-def test_engulfing_can_invalidate_older_unbroken_oc_but_not_reuse_broken_one(side):
+def test_engulfing_rejects_delayed_break_of_older_oc_and_reused_boundary(side):
     rows=[(16,17,11,12),(12,13,8,9),(9,11,8,10),(10,11,8,10),(10,14,9,13)]
     if side=='SELL':rows=mirror(rows)
-    assert A.confirmation_detail(watch('engulfing',side),bars(rows),4,side)
+    assert A.confirmation_detail(watch('engulfing',side),bars(rows),4,side) is None
     rows=[(16,17,11,12),(12,13,8,9),(9,14,8,13),(13,14,8,10),(10,14,9,13)]
     if side=='SELL':rows=mirror(rows)
     assert A.confirmation_detail(watch('engulfing',side),bars(rows),4,side) is None

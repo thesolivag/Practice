@@ -33,6 +33,8 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+- 2026-11-04: User clarified OC engulfing is exactly three consecutive candles: first two establish the boundary, third closes strictly beyond it; older boundaries no longer qualify. Shared detector also updates optional lower-timeframe confirmation. No whole-body engulfing requirement. BUY/SELL regression and closed-candle pipeline tests updated. Validation: 134 passed, 4 optional tests skipped.
+
 - 2026-10-29 broker timing audit40826100971 passed: 141 native H4 opens across EURUSD/XAUUSD/XAGUSD (Oct19–29) all match existing DST-aware New York calendar; all use02/06/10/14/18/22WAT before US Nov1 transition. No observed metals-only07WAT shift on connected cTrader demo feed. Saved market-only JSON evidence; added metals/FX before-close and Nov2 DST regressions;44 focused tests passed. No live calendar change justified; user chart feed clarification pending.
 
 - 2026-10-29 investigating gold/silver H4 timing: current New York17:00 calendar is DST-aware but shared across IC instruments. Added manual read-only broker H4 timestamp audit for EURUSD/XAUUSD/XAGUSD using existing credential persistence/feed lock; outputs market timestamps only, no orders/account balances. Timing changes await broker evidence.
@@ -164,6 +166,8 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+- 2026-11-04: User clarified OC engulfing is exactly three consecutive candles: first two establish the boundary, third closes strictly beyond it; older boundaries no longer qualify. Shared detector also updates optional lower-timeframe confirmation. No whole-body engulfing requirement. BUY/SELL regression and closed-candle pipeline tests updated. Validation: 134 passed, 4 optional tests skipped.
 
 - 2026-10-29 broker timing audit40826100971 passed: 141 native H4 opens across EURUSD/XAUUSD/XAGUSD (Oct19–29) all match existing DST-aware New York calendar; all use02/06/10/14/18/22WAT before US Nov1 transition. No observed metals-only07WAT shift on connected cTrader demo feed. Saved market-only JSON evidence; added metals/FX before-close and Nov2 DST regressions;44 focused tests passed. No live calendar change justified; user chart feed clarification pending.
 

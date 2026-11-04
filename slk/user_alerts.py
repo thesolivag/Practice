@@ -26,7 +26,7 @@ CONDITIONS = [
     {'value': 'breakout', 'label': 'Breakout confirmation',
      'description': 'A completed candle breaks the latest confirmed close-line swing. At a level also requires a prior level reaction. Includes breakouts with a liquidity sweep; no separate sweep-and-break model. Local swings use one completed candle on each side; context is limited to eight bars.'},
     {'value': 'engulfing', 'label': 'Engulfing confirmation',
-     'description': 'A completed close invalidates an unbroken open-close boundary between two consecutive opposing candles in the last eight bars: BUY closes above the first bearish candle close; SELL is mirrored. This is not textbook body engulfing.'},
+     'description': 'Three consecutive candles: the first two form the open-close key level; the third closes strictly beyond it. BUY closes above the first bearish candle close; SELL is mirrored. Full-body engulfing is not required.'},
     {'value': 'fourth_man', 'label': '4th man confirmation',
      'description': 'BUY: sweep the previous candle low, leave its high standing and close strictly inside its range. SELL is mirrored. Candle colour is unrestricted. The completed pattern identifies a level for a later retest; it is not a retest alert.'},
 ]
@@ -129,7 +129,7 @@ def schema():
             'confirmation_timeframes':list(TIMEFRAMES), 'max_confirmation_timeframes':MAX_CONFIRMATION_TIMEFRAMES,
             'event_retention':{'days':EVENT_RETENTION_DAYS,'per_user':MAX_USER_EVENTS,'global':MAX_GLOBAL_EVENTS,'payload_bytes':MAX_EVENT_BYTES,'global_bytes':MAX_HISTORY_BYTES},
             'lower_timeframes': LOWER, 'max_expiry_hours': 168,
-            'engulfing_definition': 'A completed lower-timeframe candle invalidates the open-close boundary of two consecutive opposing candles within the confirming parent candle.',
+            'engulfing_definition': 'The third consecutive lower-timeframe candle closes beyond the open-close key level formed by the first two, within the confirming parent candle.',
             'timing': 'Completed broker candles only; price crossing uses fresh sampled quotes. One-minute external checks can be busy, deferred or delayed and can miss quote moves between samples. Minute-history catch-up is bounded to the available recent window; expired candle watches get at most 24 hours for a final check. Messages include actual event times. No historical signals before watch creation.'}
 
 
@@ -371,19 +371,15 @@ def oc_boundary(bars, index, side, tf):
     Do not demand coverage of both bodies or a close beyond the run's first open.
     """
     if index < 2: return None
-    current = bars[index]
-    lo = max(0,index-8)
-    for j in range(lo+1,index+1):
-        if not adjacent(bars[j-1],bars[j],tf): lo=j
+    first, second, current = bars[index-2:index+1]
+    if not adjacent(first, second, tf) or not adjacent(second, current, tf):
+        return None
     opposing = (lambda r: r['close'] < r['open']) if side == 'BUY' else (lambda r: r['close'] > r['open'])
-    for j in range(index-2,lo-1,-1):
-        first, second = bars[j], bars[j+1]
-        if not opposing(first) or not opposing(second): continue
-        boundary = float(first['close'])
-        beyond = (lambda r: r['close'] > boundary) if side == 'BUY' else (lambda r: r['close'] < boundary)
-        if beyond(current) and not any(beyond(bars[k]) for k in range(j+1,index)):
-            return boundary
-    return None
+    if not opposing(first) or not opposing(second):
+        return None
+    boundary = float(first['close'])
+    beyond = (lambda r: r['close'] > boundary) if side == 'BUY' else (lambda r: r['close'] < boundary)
+    return boundary if beyond(current) and not beyond(second) else None
 
 
 def confirmation_detail(watch, bars, index, side):
