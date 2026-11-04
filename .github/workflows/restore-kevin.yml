@@ -48,7 +48,7 @@ jobs:
           git('rm','-r','--ignore-unmatch','.')
           with tarfile.open(archive,'r:gz') as source:source.extractall('.',filter='data')
           # Validate the complete source tree before staging a transport commit.
-          git('add','-A')
+          git('add','--force','--all','.')
           if git('write-tree')!=manifest['tree']:raise RuntimeError('Restored source tree differs from the original snapshot')
           # GitHub Actions cannot introduce workflow files with its own token.
           # The owner-authorized connector restores these after this transfer.
