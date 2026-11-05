@@ -310,7 +310,7 @@ def test_dispatch_live_request():
         seen.update(url=req.full_url, body=json.loads(req.data), auth=req.headers["Authorization"])
         return R()
     assert webapp.dispatch_live("tok", opener) == 204
-    assert seen["url"].endswith("/repos/awujo/practicing/actions/workflows/live.yml/dispatches")
+    assert seen["url"].endswith(f"/repos/{webapp.GH_REPO}/actions/workflows/live.yml/dispatches")
     assert seen["body"] == {"ref": "claude-kevin-king", "inputs": {"tick": "1"}} and seen["auth"] == "Bearer tok"
 
 
@@ -426,3 +426,11 @@ def test_settings_batch_one_connection_atomic_and_scoped(monkeypatch,fail):
             with pytest.raises(RuntimeError):webapp.db.set_settings({'pairs':'DVR75','alert_tapped':'off'})
         else:webapp.db.set_settings({'pairs':'DVR75','alert_tapped':'off'})
     assert events==['connect','begin','write','rollback' if fail else 'commit','close']
+
+
+@pytest.mark.parametrize("code",[401,403,404,422,500])
+def test_dispatch_preserves_safe_upstream_status(code):
+    import urllib.error
+    def opener(req,timeout):
+        raise urllib.error.HTTPError(req.full_url,code,'test',{},None)
+    assert webapp.dispatch_live('test-token',opener)==code

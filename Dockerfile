@@ -8,6 +8,7 @@ RUN --mount=type=secret,id=proxy_ca \
     pip install --no-cache-dir -r /app/webapp/requirements.txt
 COPY webapp /app/webapp
 COPY slk /app/slk
+COPY bishop /app/bishop
 COPY ctrader /app/ctrader
 COPY db /app/db
 COPY data /app/data

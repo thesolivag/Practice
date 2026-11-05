@@ -646,7 +646,7 @@ def format_result_alert(event, e, fields):
     if event == "SL_AFTER_TP1":
         tail = f"{fmt_r(-1)} on the TP2 leg (TP1 {fmt_r(fields.get('result_r') or e.get('result_r') or 0)} kept)"
     model = MODEL_NAMES.get(e.get("model") or "continuation", e.get("model"))
-    return "\n".join([f"{RESULT_HEAD[event]} \u00b7 {instruments.label(e['pair'])} {e.get('tf') or ''} {e.get('side') or ''} \u00b7 {tail}",
+    return "\n".join([f"KK · PAPER | {RESULT_HEAD[event]} \u00b7 {instruments.label(e['pair'])} {e.get('tf') or ''} {e.get('side') or ''} \u00b7 {tail}",
                       f"{model} \u00b7 entry {fmt_price(e['pair'], e['entry'])} \u00b7 paper result (signal), not a broker trade"])
 
 
@@ -662,7 +662,7 @@ def format_entry_alert(event, e, auto_trade="off"):
     sp = e.get("stop_pips")
     if sp is None:
         sp = round(abs(e["entry"] - e["stop"]) / pip(p), 1)
-    lines = [f"{instruments.label(p)} | {e['tf']} | {e['side']} | {MODEL_NAMES.get(model, model)} | {head}",
+    lines = [f"KK · PAPER | {instruments.label(p)} | {e['tf']} | {e['side']} | {MODEL_NAMES.get(model, model)} | {head}",
              f"Entry {fp(e['entry'])}  Stop {fp(e['stop'])} ({sp} pips)",
              f"TP1 {fp(e['tp1'])}  TP2 {fp(e['tp2'])}"]
     if instruments.is_deriv(p):

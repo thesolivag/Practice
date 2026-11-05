@@ -250,3 +250,22 @@ CREATE TABLE IF NOT EXISTS replay_requests (
  UNIQUE KEY uq_replay_request(user_id,pair,lo,hi),
  KEY ix_replay_queue(status,created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Separate user-owned Bishop paper integration.
+
+CREATE TABLE IF NOT EXISTS bishop_app_entries (
+ user_id BIGINT NOT NULL, signal_id VARCHAR(64) NOT NULL, pair VARCHAR(16) NOT NULL,
+ status VARCHAR(24) NOT NULL, created_at BIGINT NOT NULL, updated_at BIGINT NOT NULL,
+ payload MEDIUMTEXT NOT NULL, PRIMARY KEY(user_id,signal_id),
+ KEY ix_bishop_user_time(user_id,created_at), KEY ix_bishop_pair(user_id,pair)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS bishop_app_state (
+ user_id BIGINT NOT NULL, pair VARCHAR(16) NOT NULL, activated_at BIGINT NOT NULL,
+ checked_at BIGINT NOT NULL DEFAULT 0, note VARCHAR(200) NOT NULL DEFAULT '',
+ PRIMARY KEY(user_id,pair)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS bishop_app_outbox (
+ user_id BIGINT NOT NULL, event_id VARCHAR(128) NOT NULL, payload TEXT NOT NULL,
+ sent_at BIGINT NULL, lease_until BIGINT NOT NULL DEFAULT 0, lease_token VARCHAR(32) NULL,
+ PRIMARY KEY(user_id,event_id), KEY ix_bishop_delivery(sent_at,lease_until)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

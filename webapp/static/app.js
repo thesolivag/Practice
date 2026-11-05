@@ -186,7 +186,7 @@
     const m = (k, n) => { const x = (s.by_model || {})[k] || {}; return `${n}: ${x.closed || 0} closed · ${x.wins || 0}W/${x.losses || 0}L · ${rr(x.total_r)}`; };
     $("#entries-summary").innerHTML = `
       <div class="card summary">
-        <div class="top"><span class="title">${esc(s.label || "Paper results (signals)")}</span><span class="tag">${esc(s.open || 0)} open</span></div>
+        <div class="top"><span class="title">KK · ${esc(s.label || "Paper results (signals)")}</span><span class="tag">${esc(s.open || 0)} open</span></div>
         <div class="stats">
           <div><b>${esc(s.closed)}</b><span>closed</span></div>
           <div><b class="good">${esc(s.wins)}</b><span>wins</span></div>
@@ -197,31 +197,47 @@
         <div class="muted">${esc(m("continuation", "Continuation"))}<br>${esc(m("qmr", "QMR"))}</div>
         <div class="muted">Bot signals tracked on closed H1 candles, not broker trades (those are under Orders). Win = TP1 reached, loss = stop before TP1${s.expired ? `, ${esc(s.expired)} expired` : ""}. R = exit at TP1; holding for TP2: ${esc(rr(s.total_r_tp2))} over ${esc(s.closed_tp2 || 0)} trades.</div>
       </div>`;
+    if (s.bishop) {
+      const b=s.bishop;
+      $("#entries-summary").innerHTML+=`<div class="card summary"><strong>Bishop · Paper results</strong><p>${esc(b.closed)} resolved · ${esc(b.wins)} wins / ${esc(b.losses)} losses · ${esc(rr(b.total_r))}</p><p>${esc(b.open)} open · ${esc(b.unknown)} Unknown</p><p class="muted">Target-exit results, separate from KK's TP1/TP2 results. ${esc(b.cost_note)}. ${esc(b.scope)}. Unknown outcomes are excluded from wins/losses.</p></div>`;
+    }
   }
 
+  let entriesGeneration=0;
   async function loadEntries() {
-    const q = new URLSearchParams({ status: $("#f-estatus").value });
+    const generation=++entriesGeneration;
+    const q = new URLSearchParams({ status: $("#f-estatus").value, strategy: $("#f-estrategy").value });
     const [rows, summary] = await Promise.all([api(`/api/entries?${q}`), api("/api/entries/summary").catch(() => null)]);
+    if (generation!==entriesGeneration)return;
+    const bishopStatus=await api('/api/bishop/status').catch(()=>null);
+    if (generation!==entriesGeneration)return;
+    if (bishopStatus) {
+      const markets=(bishopStatus.markets || []).filter(r=>r.pair);
+      $("#bishop-status").innerHTML=`<strong>Bishop · Paper</strong><p>${esc(bishopStatus.note || '')}</p><details><summary>${markets.length} markets registered · scan details</summary>${markets.length ? markets.map(r=>`<p>${esc(marketLabel(r.pair))}: ${esc(r.note || 'Waiting for the next scan')}</p>`).join('') : '<p>Activates on the next hourly scan when enabled in Settings → Entry rules.</p>'}</details>`;
+    } else $("#bishop-status").textContent='Bishop paper scan status is temporarily unavailable.';
     if (summary) renderSummary(summary); else $("#entries-summary").innerHTML = "";
     const canApprove = settings.auto_trade === "confirm" && settings.kill_switch !== "on";
     $("#entries-list").innerHTML = rows.length ? rows.map((r) => `
       <div class="card">
-        <div class="top"><span class="title">${esc(marketLabel(r.pair))} ${esc(r.tf || "")} <span class="${esc(r.side)}">${esc(r.side)}</span> ${esc(r.model === "qmr" ? "QMR" : "Continuation")}</span>
+        <div class="top"><span class="title"><span class="tag">${esc(r.strategy_label || "KK · Paper")}</span> ${esc(marketLabel(r.pair))} ${esc(r.tf || "")} <span class="${esc(r.side)}">${esc(r.side)}</span> ${esc(r.strategy === "bishop" ? r.model.replaceAll("_", " ") : r.model === "qmr" ? "QMR" : "Continuation")}</span>
           <span class="tag ${esc(OUTCOME[r.status] || "")}">${esc(r.status)}</span></div>
         <div class="grid">
           ${field("Entry", num(r.entry))}${field("Stop", num(r.stop))}
-          ${field("TP1", num(r.tp1))}${field("TP2", num(r.tp2))}
-          ${field("Bias #", r.bias_id)}${field("Created", dt(r.created_at))}${field("Alerted", dt(r.alerted_at))}
-          ${r.filled_at ? field("Filled", dt(r.filled_at)) : ""}
-          ${r.result_r !== null && r.result_r !== undefined ? `<div><span>R (TP1 exit)</span><b class="${rcls(r.result_r)}">${esc(rr(r.result_r))}</b></div>` : ""}
+          ${r.strategy === "bishop" ? field("Target",num(r.tp2)) : field("TP1",num(r.tp1))+field("TP2",num(r.tp2))}
+          ${r.strategy === "bishop" ? "" : field("Bias #",r.bias_id)}${field("Created",dt(r.created_at))}${r.strategy === "bishop" ? "" : field("Alerted",dt(r.alerted_at))}
+          ${r.filled_at ? field("Filled", dt(r.filled_at)) : ""}${r.strategy === "bishop" && r.evaluated_at ? field("Paper checked",dt(r.evaluated_at)) : ""}
+          ${r.result_r !== null && r.result_r !== undefined ? `<div><span>${r.strategy === "bishop" ? "Paper R (target exit)" : "R (TP1 exit)"}</span><b class="${rcls(r.result_r)}">${esc(rr(r.result_r))}</b></div>` : ""}
           ${r.result_r_tp2 !== null && r.result_r_tp2 !== undefined ? `<div><span>R (TP2 hold)</span><b class="${rcls(r.result_r_tp2)}">${esc(rr(r.result_r_tp2))}</b></div>` : ""}
           ${r.hit_price !== null && r.hit_price !== undefined ? field("Hit price", num(r.hit_price)) : ""}
           ${r.closed_at ? field("Closed", dt(r.closed_at)) : ""}
         </div>
+        ${r.strategy === "bishop" ? `<div class="muted">${esc(r.cost_note)} · ${esc(r.note)} · No broker execution</div>` : ""}
         ${OUTCOME[r.status] && r.filled_at ? `<div class="muted">Paper result (signal), not a broker trade</div>` : ""}
-        ${r.status === "PENDING" && canApprove ? `<button class="approve" data-id="${esc(r.id)}">Confirm trade</button>` : ""}
+        ${r.strategy !== "bishop" && r.status === "PENDING" && canApprove ? `<button class="approve" data-id="${esc(r.id)}">Confirm trade</button>` : ""}
       </div>`).join("") : empty("No entries");
   }
+
+  $("#f-estrategy").addEventListener("change", () => loadEntries().catch(e => msg(e.message,true)));
 
   async function approve(id, btn) {
     const ok = await new Promise((resolve) =>

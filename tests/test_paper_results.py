@@ -165,11 +165,11 @@ def test_cancel_entries_when_story_ended():
 def test_result_alert_text():
     e = buy(tf="H4")
     assert live.format_result_alert("TP1", e, {"result_r": 1.6}).splitlines()[0] == \
-        "✅ TP1 hit · EURUSD H4 BUY · +1.6R"
+        "KK · PAPER | ✅ TP1 hit · EURUSD H4 BUY · +1.6R"
     assert live.format_result_alert("TP2", e, {"result_r": 1.6, "result_r_tp2": 3.0}).splitlines()[0] == \
-        "✅ TP2 hit · EURUSD H4 BUY · +3R"
+        "KK · PAPER | ✅ TP2 hit · EURUSD H4 BUY · +3R"
     m = live.format_result_alert("SL", e, {"result_r": -1.0})
-    assert m.splitlines()[0] == "❌ Stop hit · EURUSD H4 BUY · -1R" and "not a broker trade" in m
+    assert m.splitlines()[0] == "KK · PAPER | ❌ Stop hit · EURUSD H4 BUY · -1R" and "not a broker trade" in m
     assert "Stop hit after TP1" in live.format_result_alert("SL_AFTER_TP1", e, {"result_r": 1.6, "result_r_tp2": -1})
 
 
@@ -220,7 +220,7 @@ def test_main_tracks_and_alerts_once(monkeypatch, tmp_path):
     assert live.main([]) == 0 and runs[1]["ok"]
     assert ents[5]["status"] == "TP1_HIT" and ents[5]["result_r"] == 1.6
     hits = [t for t in sent if "TP1 hit" in t]
-    assert len(hits) == 1 and hits[0].startswith("✅ TP1 hit · EURUSD H1 BUY · +1.6R")
+    assert len(hits) == 1 and hits[0].startswith("KK · PAPER | ✅ TP1 hit · EURUSD H1 BUY · +1.6R")
     assert live.main([]) == 0 and len([t for t in sent if "TP1 hit" in t]) == 1
 
 
@@ -307,9 +307,10 @@ def test_api_entries_summary(monkeypatch):
         assert s["by_model"]["continuation"]["closed"] == 3 and s["by_model"]["qmr"]["closed"] == 2
         assert s["by_model"]["qmr"]["wins"] == 1 and s["by_model"]["qmr"]["total_r"] == 1.0
         c.get("/api/entries?status=closed", headers=hdr(make_init_data()))
-        assert "status IN" in calls[-1][0] and calls[-1][1][:4] == ["TP1_HIT", "TP2_HIT", "SL_HIT", "EXPIRED"]
+        assert any("status IN" in sql and args[:4] == ["TP1_HIT", "TP2_HIT", "SL_HIT", "EXPIRED"] for sql,args in calls)
+        assert [call for call in calls if "FROM entries" in call[0]][-1][1][:4] == ["TP1_HIT", "TP2_HIT", "SL_HIT", "EXPIRED"]
         c.get("/api/entries?status=sl_hit", headers=hdr(make_init_data()))
-        assert calls[-1][1][0] == "SL_HIT"
+        assert [call for call in calls if "FROM entries" in call[0]][-1][1][0] == "SL_HIT"
     assert webapp.entries_summary_of([])["win_pct"] is None
 
 

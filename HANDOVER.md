@@ -37,6 +37,10 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 - 2026-11-05: Render dispatch migration repair: accept GH_REPO or legacy GITHUB_REPO, default to thesolivag/Practice; preserve explicit overrides. Report safe upstream HTTP status and actionable configuration guidance, never response bodies/tokens. Isolated dispatch tests: success plus 401/403/404/422/500 passed; syntax valid. Live token configuration remains unverified.
 
+
+- 2026-11-04: User authorized Bishop integration alongside KK, with clear source banners and paper trading. Added separate bishop_confirmation runner, explicit per-user Bishop tables/outbox, source labels/strategy filter/separate paper statistics and scan status in web Entries. New-entry setting; selected-only primary cTrader FX/continuous Deriv, H4/H3/H2/H1, activation prevents old-signal flood. Full source engine with bounded35day detection context,180day frozen-order execution,15s child/six-minute fair runner budget; no new universal24h rule, no direct/aggressive/nested mode or broker execution. Unknown stays unresolved, original geometry/source/costs/fill evidence preserved; explicit pending cancellations, per-user leased delivery. Both canonical/fallback schemas and Docker include integration. Read BISHOP_INTEGRATION.md and bishop/PROVENANCE.md. Independent source/integration review and bounded benchmark completed; Validation:232 targeted tests including disposable MySQL passed; all three browser/extension suites passed, mobile screenshot inspected. Docker image built, packaged Bishop CLI and /healthz + /version checked without production credentials. Remote Nov5 dispatch repair and external minute-two timer changes preserved before publishing. Deployment evidence follows below.
+
+
 - 2026-11-04: Added owned personal-alert pause/resume controls to the web app. Pausing preserves expiry, resume resets confirmation cursors and sampled-price baseline to skip the paused interval, paused watches count against limits and can cancel/expire. Triggered/in-flight delivery is not discarded. Web alert default and entering Confirmation now select one day; existing saved durations/history unchanged. Source/code review of Bishop entries saved in reports/implementation_review/bishop_entry_webapp_review.md; Bishop already has a separate H4-liquidity/reaction/confirmation/retest engine, not ported into Kevin. No universal 24-hour reaction rule established. Validation: 115 targeted tests passed, 4 optional MySQL tests skipped; mobile browser pause/resume/default-expiry checks and both full browser/extension flows passed.
 
 
@@ -176,9 +180,13 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Log
 
+- 2026-11-05: Integrated existing Bishop confirmation engine as a separate paper strategy alongside KK per owner request; source banners, independent results/filter, explicit user-owned storage/outbox, selected-only bounded runner, source/calendar limits and no Bishop broker approval. Independent review and232 targeted tests passed; browser suites and Docker smoke passed. See BISHOP_INTEGRATION.md. Preserved concurrent remote dispatch/timer repairs; no GitHub schedule restored.
+
+
 - 2026-11-05: Removed live.yml GitHub :07 schedule on main and Kevin per user request. External cron-job.org should call Render /cron/tick at 2 * * * *. Manual workflow_dispatch retained. External timer settings and historical DB rows cannot be verified from this session. Render currently has only a ten-minute in-memory dispatch cooldown, not durable hourly deduplication. GitHub runner queue latency remains possible.
 
 - 2026-11-05: Render dispatch migration repair: accept GH_REPO or legacy GITHUB_REPO, default to thesolivag/Practice; preserve explicit overrides. Report safe upstream HTTP status and actionable configuration guidance, never response bodies/tokens. Isolated dispatch tests: success plus 401/403/404/422/500 passed; syntax valid. Live token configuration remains unverified.
+
 
 - 2026-11-04: Added root Dockerfile and .dockerignore for existing Render Docker service; render.yaml now uses Docker. Root Directory must be empty, Dockerfile ./Dockerfile, build context ., command unset. Includes webapp/shared slk/cTrader/schema/catalogue/extension. Built image and verified /healthz, /version, / at custom PORT=10001 with no production credentials; database/broker/live deployment not tested.
 

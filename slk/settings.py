@@ -25,6 +25,7 @@ def _s(name, type_, default, group, help_, **kw):
 # type: bool ("on"/"off"), int, float, choice (one of choices), multi (subset of choices, CSV),
 # pairs (CSV of symbols, `choices` = suggestions), ladder ("D=H4,H2;W=D,H4;M=W,D"), tz (IANA time zone name)
 SCHEMA = [
+    _s("bishop_paper_entries", "bool", "on", "Entry rules", "New Bishop confirmation entries alongside KK, paper only. Existing paper entries keep tracking while their market remains selected. Uses selected markets, H4/H3/H2/H1, primary cTrader FX/continuous Deriv data; other calendars and subhour entries are unavailable. Bounded 35-day context, 180-day execution history. Zero-cost paper estimates at setup close; hourly delivery may be later."),
     _s("news_enabled", "bool", "on", "Alerts", "Economic calendar Telegram alerts. News tab remains available when off."),
     _s("news_currencies", "multi", "USD,EUR,GBP", "Alerts", "Currencies for calendar view and news alerts.", choices=["USD","EUR","GBP","JPY","AUD","NZD","CAD","CHF","CNY","ALL"]),
     _s("news_impact", "multi", "high", "Alerts", "Event impact levels to display and notify.", choices=["high","medium","low","holiday"]),

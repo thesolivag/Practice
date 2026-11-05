@@ -143,7 +143,7 @@ def version():
     manifest = Path(__file__).resolve().parents[1] / "extension" / "manifest.json"
     extension_version = json.loads(manifest.read_text())["version"] if manifest.is_file() else None
     return {"commit": os.environ.get("RENDER_GIT_COMMIT", "unknown"),
-            "extension_version": extension_version, "settings_validation": "flip-age-bounds-v1", "multiuser": True, "news": True, "deriv": True, "browser_login": True, "personal_alerts": True, "journal_replay": True, "alert_timer": "direct-one-minute", "alert_modes": ["price", "confirmation"], "replay_modes": ["alert", "price"]}
+            "bishop_paper": True, "bishop_entry_timeframes": ["H4","H3","H2","H1"], "extension_version": extension_version, "settings_validation": "flip-age-bounds-v1", "multiuser": True, "news": True, "deriv": True, "browser_login": True, "personal_alerts": True, "journal_replay": True, "alert_timer": "direct-one-minute", "alert_modes": ["price", "confirmation"], "replay_modes": ["alert", "price"]}
 
 
 @app.get("/")
@@ -243,6 +243,7 @@ def eligible_biases(rows, vals):
 
 def send_private_digest(chat_id, text):
     import urllib.request
+    import urllib.error
     req = urllib.request.Request(
         "https://api.telegram.org/bot" + os.environ["TELEGRAM_BOT_TOKEN"] + "/sendMessage",
         data=json.dumps({"chat_id": chat_id, "text": text}).encode(),
@@ -362,11 +363,33 @@ def entries_summary_of(rows):
 def entries_summary(user=Depends(require_user)):
     # SELECT * (not the result columns by name): works before the live job's db.migrate() added them
     rows = _db(db.query, "SELECT * FROM entries WHERE status IN (%s, %s, %s, %s, %s)", ["TRIGGERED", *PAPER_CLOSED])
-    return entries_summary_of(rows)
+    result=entries_summary_of(rows)
+    bishop_rows=_bishop_rows(user['id'])
+    resolved=[r for r in bishop_rows if r['status'] in ('WIN','LOSS','BREAK_EVEN') and r.get('result_r') is not None]
+    result['bishop']={'closed':len(resolved),'wins':sum(r['status']=='WIN' for r in resolved),
+        'losses':sum(r['status']=='LOSS' for r in resolved),'total_r':round(sum(r['result_r'] for r in resolved),2),
+        'open':sum(r['status'] in ('PENDING','TRIGGERED') for r in bishop_rows),
+        'unknown':sum(r['status']=='UNKNOWN' for r in bishop_rows),'cost_note':'Zero-cost paper estimates',
+        'scope':'Most recent 500 Bishop signals; resolved records retained for 30 days'}
+    return result
+
+
+def _bishop_rows(uid):
+    from slk.bishop_paper import public_entry
+    rows=_db(db.query,'SELECT payload FROM bishop_app_entries WHERE user_id=%s ORDER BY created_at DESC LIMIT 500',(int(uid),))
+    return [public_entry(json.loads(r['payload'])) for r in rows if isinstance(r.get('payload'),str)]
+
+
+@app.get('/api/bishop/status')
+def bishop_status(user=Depends(require_user)):
+    rows=_db(db.query,'SELECT pair,activated_at,checked_at,note FROM bishop_app_state WHERE user_id=%s ORDER BY pair',(int(user['id']),))
+    return {'strategy':'Bishop','paper_only':True,'markets':rows,'entry_timeframes':['H4','H3','H2','H1'],
+        'note':'Bishop confirmation profile with bounded 35-day context (older monthly/weekly context may be unavailable). Primary cTrader FX/continuous Deriv only; H1/H2/H3/H4. Starts with new setups after activation. Zero-cost paper estimates assume submission at setup close; hourly delivery may be later. Ambiguous outcomes stay Unknown.'}
 
 
 @app.get("/api/entries")
-def entries(status: str = "", limit: int = 100, user=Depends(require_user)):
+def entries(status: str = "", limit: int = 100, strategy: str = "", user=Depends(require_user)):
+    if strategy not in ("", "kk", "bishop"):raise HTTPException(422,"Unknown entry strategy")
     sql = "SELECT * FROM entries"
     args = []
     if status.lower() == "closed":
@@ -376,7 +399,13 @@ def entries(status: str = "", limit: int = 100, user=Depends(require_user)):
         sql += " WHERE status = %s"
         args.append(status.upper())
     sql += " ORDER BY created_at DESC LIMIT %s"
-    return _db(db.query, sql, args + [_clamp(limit)])
+    kk=[] if strategy=='bishop' else _db(db.query, sql, args + [_clamp(limit)])
+    for row in kk:row.update(strategy='kk',strategy_label='KK · Paper',paper_only=True)
+    bishop=[] if strategy=='kk' else _bishop_rows(user['id'])
+    if status.lower()=='closed':bishop=[r for r in bishop if r['status'] in ('WIN','LOSS','BREAK_EVEN','EXPIRED','CANCELLED','REPLACED')]
+    elif status:bishop=[r for r in bishop if r['status']==status.upper()]
+    def sort_key(row):return str(row.get('created_at') or '')[:19].replace('T',' ')
+    return sorted([*kk,*bishop],key=sort_key,reverse=True)[:_clamp(limit)]
 
 
 @app.get("/api/orders")
