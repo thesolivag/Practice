@@ -176,3 +176,10 @@ body.chart-open { overflow: hidden; }
   .chart-tool-content { position: fixed; top: 44px; max-height: calc(100dvh - 90px); }
   #replay-chart-stage { min-height: 100px; }
 }
+
+#replay-chart-stage.drawing-active { touch-action: none; cursor: crosshair; }
+#chart-help { flex: 0 0 auto; margin: 4px 8px; color: var(--text); min-height: 18px; }
+#replay-panel #chart-tool { min-height: 44px; max-width: 100%; }
+
+#replay-panel #replay-reset { width: auto; font-size: 12px; }
+#replay-reset::after { content: none; }

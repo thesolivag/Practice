@@ -632,7 +632,14 @@
     const event=replayState.event;if(event&&event.time<=(replayState.clock??replayState.anchor)){const ex=x(event.time);if(Number.isFinite(ex)){ctx.strokeStyle=ctx.fillStyle='#367bda';ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(ex,0);ctx.lineTo(ex,h);ctx.stroke();ctx.fillText('Alert',ex+5,16);ctx.setLineDash([]);}}
     for(const [index,drawing] of chartDrawings.entries()) {
       ctx.save(); ctx.lineWidth=index===chartSelected?3:1; ctx.strokeStyle=ctx.fillStyle=index===chartSelected?'#ca8400':'#568ee8';
-      if(drawing.kind==='trend') {ctx.beginPath();ctx.moveTo(x(drawing.time),y(drawing.price));ctx.lineTo(x(drawing.time2),y(drawing.price2));ctx.stroke();}
+      if(drawing.kind==='vertical'){ctx.beginPath();ctx.moveTo(x(drawing.time),0);ctx.lineTo(x(drawing.time),h);ctx.stroke();}
+      else if(drawing.kind==='fib'){
+        const left=Math.min(x(drawing.time),x(drawing.time2)),right=Math.max(x(drawing.time),x(drawing.time2)),hi=Math.max(drawing.price,drawing.price2),lo=Math.min(drawing.price,drawing.price2),mid=(hi+lo)/2;
+        ctx.fillStyle='#de565620';ctx.fillRect(left,y(hi),right-left,y(mid)-y(hi));ctx.fillStyle='#20a06b20';ctx.fillRect(left,y(mid),right-left,y(lo)-y(mid));
+        ctx.fillStyle='#de5656';ctx.fillText('Premium',left+4,y(hi)+14);ctx.fillStyle='#20a06b';ctx.fillText('Discount',left+4,y(lo)-4);
+        for(const level of [0,.236,.382,.5,.618,.705,.786,1]){const price=drawing.price+(drawing.price2-drawing.price)*level;ctx.strokeStyle=ctx.fillStyle=level===.5?'#ca8400':'#568ee8';ctx.beginPath();ctx.moveTo(left,y(price));ctx.lineTo(right,y(price));ctx.stroke();ctx.fillText(`${level===.5?'50% equilibrium':(level*100).toFixed(1)+'%'} · ${price.toFixed(5)}`,left+4,y(price)-4);}
+      }
+      else if(drawing.kind==='trend') {ctx.beginPath();ctx.moveTo(x(drawing.time),y(drawing.price));ctx.lineTo(x(drawing.time2),y(drawing.price2));ctx.stroke();}
       else if(drawing.kind==='rectangle') {const left=Math.min(x(drawing.time),x(drawing.time2)),top=Math.min(y(drawing.price),y(drawing.price2)),width=Math.abs(x(drawing.time2)-x(drawing.time)),height=Math.abs(y(drawing.price2)-y(drawing.price));ctx.strokeRect(left,top,width,height);ctx.fillStyle='#568ee822';ctx.fillRect(left,top,width,height);}
       else if(drawing.kind==='text') {ctx.fillText(drawing.text,x(drawing.time),y(drawing.price));if(index===chartSelected)ctx.strokeRect(x(drawing.time)-3,y(drawing.price)-17,ctx.measureText(drawing.text).width+6,22);}
       else {
@@ -881,14 +888,14 @@
   $('#replay-expand').addEventListener('click',()=>chartFull(true));
   $('#chart-timeframe').addEventListener('change',()=>{ $('#replay-timeframe').value=$('#chart-timeframe').value; $('#replay-timeframe').dispatchEvent(new Event('change')); });
   $('#replay-speed').addEventListener('change',()=>{if(replayTimer){stopReplay();$('#replay-play').click();}});
-  const drawingNames = {line:'Horizontal line',trend:'Trend line',rectangle:'Rectangle',text:'Text',long:'Long risk/reward',short:'Short risk/reward'};
+  const drawingNames = {vertical:'Vertical line',fib:'Fibonacci / premium–discount',line:'Horizontal line',trend:'Trend line',rectangle:'Rectangle',text:'Text',long:'Long risk/reward',short:'Short risk/reward'};
   function saveDrawingHistory() {chartRedo=[];chartHistory.push(JSON.stringify(chartDrawings));if(chartHistory.length>50)chartHistory.shift();}
   function syncDrawingEditor() {
     const select=$('#drawing-select');select.replaceChildren(new Option('None',''),...chartDrawings.map((d,i)=>new Option(`${i+1}. ${drawingNames[d.kind]}${d.kind==='text'?' · '+d.text:''}`,String(i))));
     const d=chartDrawings[chartSelected];select.value=d?String(chartSelected):'';
     $('#drawing-edit').hidden=!d;$('#drawing-move').disabled=$('#drawing-delete').disabled=!d;
     if(!d)return;
-    const two=['trend','rectangle'].includes(d.kind),risk=['long','short'].includes(d.kind),timed=two||d.kind==='text';
+    const two=['trend','rectangle','fib'].includes(d.kind),risk=['long','short'].includes(d.kind),timed=two||d.kind==='text'||d.kind==='vertical';
     $('#drawing-price').value=d.price??d.entry;$('#drawing-second').value=d.price2??d.stop??'';
     $('#drawing-second-label').hidden=!(two||risk);$('#drawing-second').required=two||risk;
     $('#drawing-time-label').hidden=!timed;$('#drawing-time').required=timed;$('#drawing-time').value=timed?localReplayInput(new Date(d.time*1000)):'';
@@ -896,16 +903,17 @@
     $('#drawing-ratio-label').hidden=!risk;$('#drawing-ratio').required=risk;$('#drawing-ratio').value=d.ratio??2;
     if(d.kind==='text')$('#drawing-text').value=d.text;
   }
-  function addedDrawing(d) {saveDrawingHistory();chartDrawings.push(d);chartSelected=chartDrawings.length-1;chartPending=null;syncDrawingEditor();redrawChart();}
+  function addedDrawing(d) {saveDrawingHistory();chartDrawings.push(d);chartSelected=chartDrawings.length-1;chartPending=null;$('#chart-tool').value='cursor';replayViewport?.interactions(true);$('#replay-chart-stage').classList.remove('drawing-active');syncDrawingEditor();redrawChart();$('#chart-help').textContent=drawingNames[d.kind]+' added. Drag its handles to adjust, or open Drawing tools to edit/delete.';}
   function drawingPoint(event) {const c=$('#replay-canvas'),b=c.getBoundingClientRect();return {px:(event.clientX-b.left)*c.width/b.width,py:(event.clientY-b.top)*c.height/b.height};}
   function hitDrawing(px,py) {
     const {x,y,w,padding}=chartTransform;
     for(let i=chartDrawings.length-1;i>=0;i--){const d=chartDrawings[i];
+      if(d.kind==='vertical'&&Math.abs(px-x(d.time))<14)return i;
       if(d.kind==='line'&&Math.abs(py-y(d.price))<14)return i;
       if(['long','short'].includes(d.kind)&&[d.entry,d.stop,d.target].some(p=>Math.abs(py-y(p))<14))return i;
       if(d.kind==='text'&&px>=x(d.time)-10&&px<=x(d.time)+$('#replay-canvas').getContext('2d').measureText(d.text).width+10&&Math.abs(py-y(d.price))<22)return i;
-      if(['trend','rectangle'].includes(d.kind)){const ax=x(d.time),ay=y(d.price),bx=x(d.time2),by=y(d.price2);
-        if(d.kind==='rectangle'&&px>=Math.min(ax,bx)-10&&px<=Math.max(ax,bx)+10&&py>=Math.min(ay,by)-10&&py<=Math.max(ay,by)+10)return i;
+      if(['trend','rectangle','fib'].includes(d.kind)){const ax=x(d.time),ay=y(d.price),bx=x(d.time2),by=y(d.price2);
+        if(['rectangle','fib'].includes(d.kind)&&px>=Math.min(ax,bx)-10&&px<=Math.max(ax,bx)+10&&py>=Math.min(ay,by)-10&&py<=Math.max(ay,by)+10)return i;
         const t=Math.max(0,Math.min(1,((px-ax)*(bx-ax)+(py-ay)*(by-ay))/((bx-ax)**2+(by-ay)**2||1)));
         if(d.kind==='trend'&&Math.hypot(px-ax-t*(bx-ax),py-ay-t*(by-ay))<14)return i;
       }
@@ -914,15 +922,16 @@
   function drawingHandles(d){
     if(!chartTransform)return [];const {x,y,w}=chartTransform;
     if(['long','short'].includes(d.kind))return ['entry','stop','target'].map(field=>({x:x(d.time),y:y(d[field]),field}));
+    if(d.kind==='vertical')return [{x:x(d.time),y:chartTransform.h/2,field:'price',time:'time'}];
     if(d.kind==='line')return [{x:w/2,y:y(d.price),field:'price'}];
     const handles=[{x:x(d.time),y:y(d.price),field:'price',time:'time'}];
-    if(['trend','rectangle'].includes(d.kind))handles.push({x:x(d.time2),y:y(d.price2),field:'price2',time:'time2'});
+    if(['trend','rectangle','fib'].includes(d.kind))handles.push({x:x(d.time2),y:y(d.price2),field:'price2',time:'time2'});
     if(d.kind==='rectangle')handles.push({x:x(d.time2),y:y(d.price),field:'price',time:'time2'},{x:x(d.time),y:y(d.price2),field:'price2',time:'time'});
     return handles;
   }
   let drawingDrag=null,drawingDragged=false;
   $('#replay-chart-stage').addEventListener('pointerdown',event=>{
-    drawingDragged=false;if(!chartTransform||$('#chart-tool').value!=='cursor'||selectReplayStart)return;
+    drawingDragged=false;if(!chartTransform||$('#chart-tool').value!=='cursor'||selectReplayStart||chartMoving)return;
     const {px,py}=drawingPoint(event);if(px<0||py<0||px>chartTransform.w||py>chartTransform.h)return;
     const selected=chartDrawings[chartSelected];const handle=selected&&drawingHandles(selected).find(h=>Math.hypot(h.x-px,h.y-py)<15);
     const index=handle?chartSelected:hitDrawing(px,py);if(index<0)return;
@@ -959,14 +968,14 @@
       if(!Number.isFinite(p)||p<=0)throw Error('Enter a positive price.');
       if(['long','short'].includes(d.kind)){const ratio=Number($('#drawing-ratio').value);if(!Number.isFinite(p2)||p2<=0||!Number.isFinite(ratio)||ratio<.1||ratio>100||(d.kind==='long'?p2>=p:p2<=p))throw Error('Check entry, stop direction and reward/risk ratio.');Object.assign(d,{entry:p,stop:p2,ratio,target:p+(d.kind==='long'?1:-1)*Math.abs(p-p2)*ratio});if(d.target<=0)throw Error('Target must be positive.');}
       else {d.price=p;if(d.kind!=='line')d.time=replayInstant($('#drawing-time').value).getTime()/1000;
-        if(['trend','rectangle'].includes(d.kind)){if(!Number.isFinite(p2)||p2<=0)throw Error('Enter a positive second price.');d.price2=p2;d.time2=replayInstant($('#drawing-end').value).getTime()/1000;}
+        if(['trend','rectangle','fib'].includes(d.kind)){if(!Number.isFinite(p2)||p2<=0)throw Error('Enter a positive second price.');d.price2=p2;d.time2=replayInstant($('#drawing-end').value).getTime()/1000;}
         if(d.kind==='text'){d.text=$('#drawing-text').value.trim().slice(0,200);if(!d.text)throw Error('Enter note text.');}
       }
       saveDrawingHistory();chartDrawings[chartSelected]=d;chartMoving=false;chartPending=null;syncDrawingEditor();redrawChart();$('#chart-help').textContent='Drawing updated.';
     }catch(e){$('#chart-help').textContent=e.message;}
   });
-  $('#chart-tool').addEventListener('change',()=>{stopReplay();replayViewport?.interactions($('#chart-tool').value==='cursor');chartPending=null;chartMoving=false;const kind=$('#chart-tool').value;if(kind==='text')$('#chart-editor').open=true;else if(kind!=='cursor')$('#chart-tools-panel').open=false;$('#chart-help').textContent={line:'Tap the chart at the desired price.',cursor:'Tap a drawing to select it, or use the drawings list.',trend:'Tap the first point, then the second point.',rectangle:'Tap one corner, then the opposite corner.',text:'Enter note text in Drawings and editing, then tap the chart.'}[kind]||'Tap entry, then stop. Target uses your reward/risk ratio.';});
-  $('#replay-chart-stage').addEventListener('click',event=>{
+  $('#chart-tool').addEventListener('change',()=>{stopReplay();replayViewport?.interactions($('#chart-tool').value==='cursor');chartPending=null;chartMoving=false;const kind=$('#chart-tool').value;$('#replay-chart-stage').classList.toggle('drawing-active',kind!=='cursor');if(kind==='text')$('#chart-editor').open=true;else if(kind!=='cursor')$('#chart-tools-panel').open=false;$('#chart-help').textContent={vertical:'Tap the candle/time for the vertical line.',fib:'Tap the swing start, then its end. Upper half is premium; lower half is discount.',line:'Tap the chart at the desired price.',cursor:'Tap a drawing to select it, or use the drawings list.',trend:'Tap the first point, then the second point.',rectangle:'Tap one corner, then the opposite corner.',text:'Enter note text in Drawings and editing, then tap the chart.'}[kind]||'Tap entry, then stop. Target uses your reward/risk ratio.';});
+  function placeReplayDrawing(event){
     if(drawingDragged){drawingDragged=false;return;}if(selectReplayStart)return;
     if(!chartTransform||!replayState)return;
     const {px,py}=drawingPoint(event),price=chartTransform.price(py),time=chartTransform.time(px),kind=$('#chart-tool').value;
@@ -982,14 +991,32 @@
     if(kind==='cursor'){chartSelected=hitDrawing(px,py);syncDrawingEditor();redrawChart();$('#chart-help').textContent=chartSelected>=0?'Drawing selected. Use Drawings and editing to move, edit or delete it.':'No drawing selected.';return;}
     if(chartDrawings.length>=50){$('#chart-help').textContent='Drawing limit reached. Undo or clear a drawing.';return;}
     if(kind==='line'){addedDrawing({kind,price});return;}
+    if(kind==='vertical'){addedDrawing({kind,price,time});return;}
     if(kind==='text'){const text=$('#drawing-text').value.trim().slice(0,200);if(!text){$('#chart-help').textContent='Enter note text first.';return;}addedDrawing({kind,price,time,text});return;}
-    if(chartPending===null){chartPending={price,time};paintReplayDrawings();$('#chart-help').textContent=['trend','rectangle'].includes(kind)?'Now tap the second point.':'Now tap the stop price.';return;}
-    if(['trend','rectangle'].includes(kind)){addedDrawing({kind,price:chartPending.price,time:chartPending.time,price2:price,time2:time});$('#chart-help').textContent='Drawing added.';return;}
+    if(chartPending===null){chartPending={price,time};paintReplayDrawings();$('#chart-help').textContent=['trend','rectangle','fib'].includes(kind)?'Now tap the second point.':'Now tap the stop price.';return;}
+    if(['trend','rectangle','fib'].includes(kind)){addedDrawing({kind,price:chartPending.price,time:chartPending.time,price2:price,time2:time});$('#chart-help').textContent='Drawing added.';return;}
     const entry=chartPending.price,ratio=Number($('#chart-ratio').value),risk=Math.abs(entry-price);
     if(!risk||ratio<.1||ratio>100||!Number.isFinite(ratio)||(kind==='long'?price>=entry:price<=entry)){$('#chart-help').textContent='Choose a valid ratio and a stop below a long entry or above a short entry.';return;}
     const target=entry+(kind==='long'?1:-1)*risk*ratio;if(target<=0){$('#chart-help').textContent='Target must be positive. Choose a smaller ratio.';return;}
-    addedDrawing({kind,entry,stop:price,target,ratio,time:chartPending.time,time2:chartTransform.time(Math.min(chartTransform.w,chartTransform.x(chartPending.time)+120))});$('#chart-help').textContent='Risk/reward drawing added. Tap a new entry to draw another.';
-  });
+    addedDrawing({kind,entry,stop:price,target,ratio,time:chartPending.time,time2:chartTransform.time(Math.min(chartTransform.w,chartTransform.x(chartPending.time)+120))});$('#chart-help').textContent='Risk/reward added. Drag entry, stop or target handles to adjust.';
+  }
+  // Capture drawing taps before the chart library consumes touch/click events.
+  let placementStart=null,suppressPlacementClick=false;
+  const placementStage=$('#replay-chart-stage');
+  placementStage.addEventListener('pointerdown',event=>{
+    if($('#chart-tool').value==='cursor'&&!chartMoving)return;
+    if(!event.isPrimary||event.button>0)return;
+    placementStart={x:event.clientX,y:event.clientY,id:event.pointerId};
+    event.preventDefault();event.stopImmediatePropagation();placementStage.setPointerCapture(event.pointerId);
+  },true);
+  placementStage.addEventListener('pointerup',event=>{
+    if(!placementStart||placementStart.id!==event.pointerId)return;
+    const start=placementStart;placementStart=null;event.preventDefault();event.stopImmediatePropagation();
+    suppressPlacementClick=true;setTimeout(()=>{suppressPlacementClick=false;},0);
+    if(Math.hypot(event.clientX-start.x,event.clientY-start.y)<15)placeReplayDrawing(event);
+  },true);
+  placementStage.addEventListener('pointercancel',()=>{placementStart=null;},true);
+  placementStage.addEventListener('click',event=>{if(suppressPlacementClick)return;if($('#chart-tool').value==='cursor'&&!chartMoving)placeReplayDrawing(event);});
   $('#chart-undo').addEventListener('click',()=>{chartPending=null;chartMoving=false;if(chartHistory.length){chartRedo.push(JSON.stringify(chartDrawings));chartDrawings=JSON.parse(chartHistory.pop());}chartSelected=-1;syncDrawingEditor();redrawChart();});
   $('#chart-clear').addEventListener('click',()=>{if(chartDrawings.length)saveDrawingHistory();chartPending=null;chartMoving=false;chartDrawings=[];chartSelected=-1;syncDrawingEditor();redrawChart();});
   $('#chart-in').addEventListener('click',()=>replayViewport?.zoom(1/1.5));
