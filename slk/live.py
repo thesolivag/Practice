@@ -969,6 +969,9 @@ def format_alert(event, r, tz=DISPLAY_TZ, detail="short"):
 
     # PLAN
     pl = ["\U0001f3af PLAN"]
+    if nd is False:
+        pl.append(f"• Lower probability: the {C} breakout occurred before the {O} rejection candle closed. "
+                  "This timing alone does not block entries; normal entry requirements still apply.")
     over = event in ("INVALIDATED", "ENDED_FLIP", "LINE_END")
     if r.get("no_trade") and r.get("no_trade_reason") == ERL_TAKEN:
         first = r.get("_initial_target")
@@ -1083,6 +1086,7 @@ def build_cfg(stored=None, overrides=None):
     cfg = {**DEFAULT, **S.story_cfg(vals), "use_monthly": "M" in vals["stories"],
            "erl_taken_no_trade": vals["erl_taken_no_trade"], "close_at_target": vals["close_at_target"],
            **(overrides or {})}
+    cfg["next_day_rule"] = "flag"  # Live timing is a warning, never an entry veto.
     ecfg = {**ENTRY_DEFAULT, **S.entry_cfg(vals)}
     return cfg, ecfg, vals
 

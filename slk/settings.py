@@ -111,12 +111,11 @@ SCHEMA = [
        "liquidity@1444-1500 'we always put our take profit at the external range'). nearest = before 2026-10-15: "
        "the nearest opposite key level or swing, often a few pips past the breakout.",
        choices=["leg", "nearest"]),
-    _s("next_day_rule", "choice", "require", "Bias rules",
-       "Next Day Rule: the lower-TF breakout should come AFTER the rejection candle (e.g. the D tap candle) has "
-       "closed (story-line-pt3@1358-1401 'go to four hours after the close of this day'; qns-pt2@1946-1962). "
-       "flag = keep every story and mark it (alert shows Next Day Rule or same-day breakout); require = drop "
-       "stories whose breakout is inside the rejection candle. Same for M->W, W->D, D->H4.",
-       choices=["flag", "require"]),
+    _s("next_day_rule", "choice", "flag", "Bias rules",
+       "Same-day breakouts are retained with a lower-probability warning when the lower-timeframe breakout "
+       "occurs before the rejection candle closes. This timing alone does not block entries; all other "
+       "confirmation and entry rules still apply. Legacy require settings are treated as flag.",
+       choices=["flag"]),
     _s("entry_tfs", "ladder", "D=H4,H2;W=D,H4;M=W,D", "Entry rules",
        "Entry timeframes per story, tried in this order (lower than the story TF). D story: H4, H2 only (entry-2@668-713 no entry below 2H; entry3@2011-2016 \"90% of my entries are from four hours or two hours\"). Add H1 only to experiment."),
     _s("continuation_entries", "bool", "on", "Entry rules",
@@ -225,6 +224,8 @@ def clean(name, value):
     s = BY_NAME.get(name)
     if s is None:
         raise ValueError(f"unknown setting '{name}'")
+    if name == "next_day_rule" and str(value).strip().lower() == "require":
+        return "flag"  # Compatibility with saved settings from before the warning-only rule.
     t = s["type"]
     try:
         if t == "bool":

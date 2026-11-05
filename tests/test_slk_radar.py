@@ -167,13 +167,13 @@ def test_early_breakout_alert_once_never_confirmed():
 # ------------------------------------------------------------------ settings
 def test_new_settings():
     v = SET.load({})
-    assert v["next_day_rule"] == "require" and v["display_tz"] == "Africa/Lagos" and v["trend_mode"] == "leg"
+    assert v["next_day_rule"] == "flag" and v["display_tz"] == "Africa/Lagos" and v["trend_mode"] == "leg"
     assert SET.story_cfg(v)["trend_mode"] == S.DEFAULT["trend_mode"] == "leg"
     assert v["early_breakout_alert"] is False and v["entry_alignment"] == "d_h4"
-    assert SET.story_cfg(v)["next_day_rule"] == S.DEFAULT["next_day_rule"]
+    assert SET.story_cfg(v)["next_day_rule"] == "flag"
     from slk import entry
     assert SET.entry_cfg(v)["alignment"] == entry.DEFAULT["alignment"] == "d_h4"
-    assert SET.clean("next_day_rule", "REQUIRE") == "require" and SET.clean("display_tz", " UTC ") == "UTC"
+    assert SET.clean("next_day_rule", "REQUIRE") == "flag" and SET.clean("display_tz", " UTC ") == "UTC"
     for k, bad in (("next_day_rule", "maybe"), ("display_tz", "Mars/Base"), ("display_tz", "../x"),
                    ("entry_alignment", "w")):
         with pytest.raises(ValueError):

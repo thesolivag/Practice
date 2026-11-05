@@ -266,7 +266,7 @@ def test_terms_webhook_owner_only(client, monkeypatch):
 
 def test_new_settings_in_schema(client):
     s = {x["name"]: x for x in client.get("/api/settings/schema", headers=hdr(make_init_data())).json()["settings"]}
-    assert s["next_day_rule"]["choices"] == ["flag", "require"] and s["next_day_rule"]["default"] == "require"
+    assert s["next_day_rule"]["choices"] == ["flag"] and s["next_day_rule"]["default"] == "flag"
     assert s["trend_mode"]["choices"] == ["leg", "protected"] and s["trend_mode"]["default"] == "leg"
     assert s["display_tz"]["type"] == "tz" and s["display_tz"]["default"] == "Africa/Lagos"
     assert s["early_breakout_alert"]["default"] == "off"
