@@ -33,6 +33,18 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+### Confirmed web bias → Bishop H4 entry gate
+User clarified Bishop entries must follow confirmed biases already displayed in
+the web app. Added per-user latest-row, preference, direction and causal H4
+sponsor checks before selection; freezes bias provenance and displays Bias ID.
+Legacy pending orders cancel prospectively, filled geometry/history retained.
+Fresh activation watermark prevents historical new-entry backfill. Local focused
+checks and browser suite cover gate behavior; CI validates database isolation.
+Saved Bishop branch stop logic is already vendored; engulf correction present,
+archived breakout earlier-low issue unresolved. Do not claim SL or tiny-target
+problems fixed by this alignment-only change.
+
+
 ### Bishop target hierarchy correction (2026-11-05)
 - Local ERL/H4 exit KL qualification now verifies exact published turn/wick evidence, explicit continuation ownership, and preserves ambiguous ownership as unresolved. Larger story objective is shown separately in app/messages. No risk-cap relaxation or invented wick/fixed-R fallback.
 - Forward-only revision watermark prevents historical new alerts; frozen existing paper orders preserved.
@@ -187,6 +199,17 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+### Confirmed web bias → Bishop H4 entry gate
+User clarified Bishop entries must follow confirmed biases already displayed in
+the web app. Added per-user latest-row, preference, direction and causal H4
+sponsor checks before selection; freezes bias provenance and displays Bias ID.
+Legacy pending orders cancel prospectively, filled geometry/history retained.
+Fresh activation watermark prevents historical new-entry backfill. Local focused
+checks and browser suite cover gate behavior; CI validates database isolation.
+Saved Bishop branch stop logic is already vendored; engulf correction present,
+archived breakout earlier-low issue unresolved. Do not claim SL or tiny-target
+problems fixed by this alignment-only change.
 
 - 2026-11-05: CI exposed two stale settings assertions after the prior KK same-day warning change. Tests now explicitly expect the live flag override while preserving the research engine default. Bishop/database tests passed (445 passed; only these two assertions failed); browser suite passed.
 

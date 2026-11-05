@@ -31,6 +31,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  assert.equal(await page.locator('#entries-list .approve').count(),0);
  assert((await page.locator('#entries-list').textContent()).includes('Ambiguous H1 candle'));
  assert((await page.locator('#entries-list').textContent()).includes('Trade target'));
+ assert((await page.locator('#entries-list').textContent()).includes('Legacy: web bias alignment not verified'));
  assert(!(await page.locator('#entries-list').textContent()).includes('TP1'));
  assert((await page.locator('#entries-list').textContent()).includes('Target context'));
  assert((await page.locator('#entries-list').textContent()).includes('Larger story objective'));

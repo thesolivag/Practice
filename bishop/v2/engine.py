@@ -182,7 +182,7 @@ def _confirmed_bias_result(feed, inst, clock, lower, policy, costs, story_result
 
 def run(feed_or_path, manifest=None, *, as_of, history_start=None,
         scan_start=None, policy=None, costs=None, max_open_orders=10,
-        include_diagnostics=False, management_actions=(), bias_only=False, execution_feed=None, refinement_directory=None, detection_only=False, confirmed_story_bias_only=False, detection_feed=None, compact_story_diagnostics=False):
+        include_diagnostics=False, management_actions=(), bias_only=False, execution_feed=None, refinement_directory=None, detection_only=False, confirmed_story_bias_only=False, detection_feed=None, compact_story_diagnostics=False, entry_gate=None):
     """Compute a frozen local run; never fetch data, dispatch, or trade.
 
     Costs must be supplied explicitly, including an explicit zero-cost hypothesis.
@@ -346,8 +346,19 @@ def run(feed_or_path, manifest=None, *, as_of, history_start=None,
     economic_signals={}
     aliases=[]
     alternatives=policy.source_profile in ('source_all','all_routes')
-    ambiguous={} if alternatives else _ambiguous_execution_groups(candidates,stories)
-    for setup in candidates:
+    # Integration gates run before ambiguity, deduplication and exposure accounting.
+    # Rejected unrelated candidates must not consume a qualifying setup's capacity.
+    if entry_gate is not None:
+        accepted=[]
+        for setup in candidates:
+            reason=entry_gate(setup,structures)
+            if reason: rejected.append({'setup_id':setup.id,'reason':reason})
+            else: accepted.append(setup)
+        selection_candidates=tuple(accepted)
+    else:
+        selection_candidates=candidates
+    ambiguous={} if alternatives else _ambiguous_execution_groups(selection_candidates,stories)
+    for setup in selection_candidates:
         if setup.status!='ELIGIBLE': continue
         story=stories[setup.story_id]
         if _owner_context_blocked(setup,story):

@@ -318,3 +318,21 @@ def test_economic_aliases_do_not_consume_slots_and_later_confirmation_is_distinc
         assert not result['actions']  # Alias invalidation does not invent an OR-context cancellation rule.
     else:
         assert result['selection']['mode']=='INDEPENDENT_ALTERNATIVES'
+
+
+def test_entry_gate_precedes_exposure_and_preserves_rejected_evidence(monkeypatch):
+    from types import SimpleNamespace
+    import bishop.v2.engine as engine
+    from bishop.v2.types import Setup
+    from bishop.v2.simulation import Costs
+    inst=Instrument('X','1','1',calendar_id='24x7_utc_v1',anchor_id='utc_epoch_v1')
+    bars=tuple(Bar('X','M1',T+timedelta(minutes=i),T+timedelta(minutes=i+1),10,11,9,10) for i in range(3))
+    stories=(SimpleNamespace(id='story',details={}),)
+    setups=tuple(Setup(id=ident,instrument='X',tf='M1',model='confirmation_bo',side='BUY',story_id='story',clock=Clock(at,at,at),entry_ticks=8,stop_ticks=5,target_ticks=12,risk_profile='context_liquidity',level_id='level') for ident,at in [('unrelated',T),('aligned',T+timedelta(minutes=1))])
+    monkeypatch.setattr(engine,'find_stories',lambda *a:SimpleNamespace(stories=stories,events=(),support=()))
+    monkeypatch.setattr(engine,'detect_setups',lambda *a,**k:SimpleNamespace(setups=setups,events=(),support=()))
+    monkeypatch.setattr(engine,'jsonable',lambda x:x)
+    r=engine.run({'instrument':inst,'bars':bars},as_of=bars[-1].end,costs=Costs(),policy=StrategyPolicy(entry_tfs=('M1',),origin_tfs=('D',)),max_open_orders=1,entry_gate=lambda s,st:'WEB_BIAS_MISSING' if s.id=='unrelated' else None)
+    assert [o.setup_id for o in r['orders']]==['aligned']
+    assert len(r['setups'])==2
+    assert {'setup_id':'unrelated','reason':'WEB_BIAS_MISSING'} in r['selection']['rejected']

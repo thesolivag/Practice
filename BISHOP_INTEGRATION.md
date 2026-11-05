@@ -93,3 +93,27 @@ time, preventing retroactive alerts from corrected historical plans. Existing
 frozen paper orders retain their original geometry and execution tracking.
 Teacher-example agreement remains incomplete; see
 `reports/teacher_validation/2026-11-05-target-fix/REPORT.md`.
+
+## Confirmed web-bias gate
+
+New Bishop orders require a current, watched, trade-eligible CONFIRMED bias from
+the same user's existing web-app bias table. The latest row per market/timeframe
+is authoritative; an ended row never revives an older confirmed row. Watched
+confirmed biases must agree with the entry direction. A linked H4 break must be
+known after the web bias confirmation and before the entry. The Bishop detector
+continues to validate its liquidity/reaction/confirmation sequence. The gate runs
+before ambiguity/deduplication/exposure selection.
+
+Each new order freezes the web bias ID, timeframe, side, confirmation clock and
+H4 sponsor evidence. Entries and messages display alignment. Historical rows
+without this evidence are explicitly marked Legacy; their outcomes are not
+rewritten. Still-pending legacy orders, or linked orders whose web parent is no
+longer eligible, receive a cancellation at the observation time. Filled orders
+retain their original geometry and continue tracking. A fresh revision watermark
+prevents backfilling newly eligible historical signals.
+
+Stop review: the saved Bishop branch and integrated entries.py use the same
+confirmation protection logic. The saved engulfing correction is present. The
+archived breakout review explicitly leaves the earlier-take-low issue unresolved;
+it does not certify every breakout stop. No speculative stop/RR adjustment is
+included in this alignment change.

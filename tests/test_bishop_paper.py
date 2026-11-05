@@ -69,7 +69,9 @@ def test_source_change_rejected_and_missing_setup_never_cancels(monkeypatch):
     monkeypatch.setattr(engine,'run',lambda *a,**kw:empty_result())
     f=feed([(100100,100110,100090,100100)])
     monkeypatch.setattr(B,'feed_from_store',lambda *a:f)
-    result=B.compute({'pair':'EURUSD','now':(T+timedelta(hours=1)).isoformat(),'since':T.isoformat(),'existing':[saved()]})
+    parent={'id':7,'side':'BUY'}
+    linked={**saved(),'web_bias':{'bias':parent}}
+    result=B.compute({'pair':'EURUSD','now':(T+timedelta(hours=1)).isoformat(),'since':T.isoformat(),'existing':[linked],'confirmed_biases':[parent]})
     assert result['entries'][0]['observation']['outcome']=='OPEN'
     f['instrument']=Instrument(**{**saved()['instrument'],'source_id':'other'})
     with pytest.raises(ValueError,match='metadata changed'):B.compute({'pair':'EURUSD','now':(T+timedelta(hours=1)).isoformat(),'since':T.isoformat(),'existing':[saved()]})
@@ -164,7 +166,7 @@ def test_scan_activation_selected_only_disabled_tracking_and_weekend(monkeypatch
     monkeypatch.setattr(db,'get_settings',lambda:values)
     monkeypatch.setattr(db,'get_setting',lambda *a:'999')
     monkeypatch.setattr(db,'set_setting',lambda *a:None)
-    monkeypatch.setattr(db,'query',lambda sql,args=None:[{'user_id':111}] if 'app_users' in sql else [{'pair':p} for p in active])
+    monkeypatch.setattr(db,'query',lambda sql,args=None:[{'user_id':111}] if 'app_users' in sql else [] if 'FROM bias ' in sql else [{'pair':p} for p in active])
     monkeypatch.setattr(db,'execute',lambda *a:updates.append(a))
     class Repo:
         def __init__(self,db):pass
@@ -204,3 +206,13 @@ def test_public_trade_target_and_larger_objective_stay_separate():
     assert view['target_sources']==[{'timeframe':'H4','kind':'KL'}]
     text=B.message(row)
     assert 'H4 key level' in text and 'Larger story objective (W): 1.01' in text
+
+
+def test_legacy_pending_is_cancelled_without_rewriting_filled_trade(monkeypatch):
+    from bishop.v2 import engine
+    monkeypatch.setattr(engine,'run',lambda *a,**kw:empty_result())
+    monkeypatch.setattr(B,'feed_from_store',lambda *a:feed([(100100,100110,100090,100100)]*3))
+    row=B.compute({'pair':'EURUSD','now':(T+timedelta(hours=3)).isoformat(),'since':T.isoformat(),'existing':[saved()],'confirmed_biases':[]})['entries'][0]
+    assert row['observation']['outcome']=='CANCELLED'
+    assert row['order']==saved()['order']
+    assert B.public_entry(row)['bias_alignment'].startswith('Legacy:')

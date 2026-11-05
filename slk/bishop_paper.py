@@ -88,6 +88,47 @@ def history_hash(bars,order,until):
         for b in bars if b.start>=order.available_at and b.available_at<=until]).encode()).hexdigest()
 
 
+
+def confirmed_web_biases(rows, vals, now):
+    """Latest watched web bias per timeframe; ended rows cannot revive older ones."""
+    def clock(value):
+        if isinstance(value,datetime):
+            return value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)
+        parsed=datetime.fromisoformat(str(value).replace('Z','+00:00'))
+        return parsed.replace(tzinfo=UTC) if parsed.tzinfo is None else parsed.astimezone(UTC)
+    seen=set();out=[]
+    for row in rows:
+        key=(row['pair'],row['story'])
+        if key in seen:continue
+        seen.add(key)
+        if (row['status']!='CONFIRMED' or row.get('no_trade') or not row.get('confirm_time')
+            or row['story'] not in vals['stories'] or row['pair'] in vals['avoid_pairs']):continue
+        at=clock(row['confirm_time'])
+        if at>now:continue
+        out.append({'id':row['id'],'pair':row['pair'],'timeframe':row['story'],
+                    'side':row['side'],'confirmed_at':at.isoformat(),
+                    'target':str(row['target']) if row.get('target') is not None else None})
+    return out
+
+
+def web_bias_gate(biases, proofs):
+    """Require an actual H4 sponsor after the visible web bias was confirmed."""
+    from bishop.v2.types import utc,jsonable
+    def gate(setup, structures):
+        matching=[b for b in biases if b['pair']==setup.instrument and utc(b['confirmed_at'])<=setup.available_at]
+        if not matching:return 'WEB_BIAS_MISSING_OR_NOT_YET_CONFIRMED'
+        if any(b['side']!=setup.side for b in matching):return 'WEB_BIAS_DIRECTION_CONFLICT'
+        h4=structures.get('H4')
+        sponsors=[e for e in (h4.events if h4 else ()) if e.id in setup.evidence_ids
+            and e.kind in ('BREAKOUT','BOS','SWEEP_BOS','EXTERNAL_BREAK')
+            and e.side==setup.side and e.evidence_status=='KNOWN' and e.available_at<=setup.available_at]
+        links=[(b,e) for b in matching for e in sponsors if utc(b['confirmed_at'])<=e.available_at]
+        if not links:return 'WEB_BIAS_REQUIRES_SUBSEQUENT_H4_SEQUENCE'
+        b,e=max(links,key=lambda be:(utc(be[0]['confirmed_at']),str(be[0]['id']),be[1].id))
+        proofs[setup.id]={'bias':b,'h4_sponsor':jsonable(e),'policy':'confirmed_web_bias_then_h4_v1'}
+        return None
+    return gate
+
 def compute(payload):
     """Pure engine + frozen-order replay. Used only in a time-bounded child."""
     from bishop.v2.engine import run
@@ -97,14 +138,16 @@ def compute(payload):
     policy=StrategyPolicy(source_profile='bishop_confirmation',entry_tfs=ENTRY_TFS)
     costs=Costs()  # explicit zero-cost hypothesis, shown on every paper result
     detection={**feed,'bars':tuple(b for b in feed['bars'] if b.start>=utc(payload['now'])-timedelta(days=35))}
-    result=run(detection,as_of=payload['now'],scan_start=payload['since'],policy=policy,costs=costs,compact_story_diagnostics=True)
+    proofs={}
+    result=run(detection,as_of=payload['now'],scan_start=payload['since'],policy=policy,costs=costs,compact_story_diagnostics=True,
+               entry_gate=web_bias_gate(payload.get('confirmed_biases',[]),proofs))
     setups={s['id']:s for s in result['setups']}
     observations={o['id']:o for o in result['observations']}
     events=result['execution_events']
     incoming={o['id']:dict(order=o,setup=setups[o['setup_id']],observation=observations[o['id']],
                   actions=[a for a in result['actions'] if a['order_id']==o['id']],
                   instrument=result['instrument'],costs=result['costs'],calendar=feed['manifest']['calendar'],
-                  policy_id=policy.id,source_status=result['status'],target_revision=TARGET_REVISION) for o in result['orders']}
+                  policy_id=policy.id,source_status=result['status'],target_revision=TARGET_REVISION,web_bias=proofs[o['setup_id']]) for o in result['orders'] if o['setup_id'] in proofs}
     # Geometry and policy for already published entries are immutable. A rolling
     # context losing a setup is not a cancellation and must not replace its plan.
     if not payload.get('new_entries',True):incoming={}
@@ -120,6 +163,11 @@ def compute(payload):
             saved={**saved,'observation':{**saved['observation'],'outcome':'CENSORED','net_r':None,'censor_reason':'Previously observed broker candles changed; original paper evidence retained'}}
         else:
             actions={encode(a):a for a in saved.get('actions',[])}
+            parent=saved.get('web_bias',{}).get('bias')
+            if not parent or not any(b['id']==parent['id'] and b['side']==parent['side'] for b in payload.get('confirmed_biases',[])):
+                a=dict(order_id=order.id,kind='CANCEL',available_at=payload['now'],reason='WEB_BIAS_NO_LONGER_ELIGIBLE')
+                actions[encode(a)]=a
+
             for event in result['story_events']:
                 if (event['reference_id']==order.details.get('story_id') and utc(event['clock']['available_at'])>=order.available_at
                     and (event['kind'] in ('STORY_INVALIDATED','STORY_DESTINATION_REACHED','STORY_CANCELLED','STORY_FLIPPED') or event.get('details',{}).get('pending_action')=='CANCEL_DEPENDENT')):
@@ -137,7 +185,7 @@ def compute(payload):
         ident=row['order']['id'];own=[e for e in events if e['reference_id']==ident]
         row['filled_at']=next((e['clock']['available_at'] for e in own if e['kind']=='ORDER_FILLED'),row.get('filled_at'))
         row['closed_at']=next((e['clock']['available_at'] for e in reversed(own) if e['kind'].startswith('POSITION_') and row['observation']['outcome'] in TERMINAL),row.get('closed_at'))
-    return {'entries':list(incoming.values()),'note':result['status']+'; 35-day context; H1/H2/H3/H4 only; zero-cost paper'}
+    return {'entries':list(incoming.values()),'note':result['status']+('; confirmed web bias gate' if payload.get('confirmed_biases') else '; no eligible confirmed web bias: new entries blocked')+'; 35-day context; H1/H2/H3/H4 only; zero-cost paper'}
 
 
 def display_status(row):
@@ -162,7 +210,7 @@ def public_entry(row):
                 stop=price(order['stop_ticks']),tp1=None,tp2=price(order['target_ticks']),status=display_status(row),
                 result_r=float(obs['net_r']) if obs.get('net_r') is not None else None,result_r_tp2=None,
                 created_at=order['clock']['available_at'],filled_at=row.get('filled_at'),closed_at=row.get('closed_at'),
-                bias_id=None,paper_only=True,cost_note='Zero-cost paper estimate',
+                bias_id=row.get('web_bias',{}).get('bias',{}).get('id'),bias_alignment='Confirmed web bias → H4' if row.get('web_bias') else 'Legacy: web bias alignment not verified',paper_only=True,cost_note='Zero-cost paper estimate',
                 note=row.get('tracking_suspended') or obs.get('censor_reason') or 'Bishop confirmation profile · H4/H3/H2/H1',
                 evaluated_at=row.get('evaluated_at'),policy_id=row['policy_id'],source=row['instrument']['source_id'])
 
@@ -172,6 +220,7 @@ def message(row):
     lines=[f"Bishop · PAPER | {e['pair']} | {e['tf']} | {e['side']} | {e['model']} | {e['status']}",
            f"Entry {e['entry']}  Stop {e['stop']}  Target {e['tp2']}",
            f"Setup {e['created_at']}"]
+    lines.append(e['bias_alignment']+(f" · Bias #{e['bias_id']}" if e['bias_id'] is not None else ''))
     if e['target_sources']:lines.append('Trade target: '+', '.join(p['timeframe']+' '+('key level' if p['kind']=='KL' else 'external liquidity') for p in e['target_sources']))
     if e['story_target'] is not None:lines.append(f"Larger story objective ({e['story_target_timeframe']}): {e['story_target']}")
     if e['result_r'] is not None:lines.append(f"Paper result {e['result_r']:+.2f}R")
@@ -255,10 +304,10 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
         if time.monotonic()+timeout+2>=deadline:break
         with tenancy.scope(uid):
             stored=db.get_settings();vals=settings.load(stored)
-            revision_since=int(stored.get('bishop_target_v2_since') or stamp)
-            if not stored.get('bishop_target_v2_since') or not vals['bishop_paper_entries']:
+            revision_since=int(stored.get('bishop_web_bias_v1_since') or stamp)
+            if not stored.get('bishop_web_bias_v1_since') or not vals['bishop_paper_entries']:
                 revision_since=stamp
-                db.set_setting('bishop_target_v2_since',str(stamp))
+                db.set_setting('bishop_web_bias_v1_since',str(stamp))
         pairs=vals['pairs'] or (settings.PAIRS if uid==tenancy.owner_id() else tenancy.STARTER['pairs'].split(','))
         preference_selected=set(pairs)
         if weekend_paused(clock) and os.environ.get('GITHUB_EVENT_NAME')=='schedule':
@@ -285,7 +334,10 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
             if time.monotonic()+timeout+2>=deadline:deferred+=1;continue
             existing=repo.rows(uid,pair,active=True)
             since=max(int(states[pair]['activated_at']),revision_since,stamp-7*86400)
-            payload={'pair':pair,'now':iso(stamp),'since':iso(since),'existing':existing,'new_entries':vals['bishop_paper_entries']}
+            with tenancy.scope(uid):
+                bias_rows=db.query('SELECT * FROM bias WHERE pair=%s ORDER BY COALESCE(confirm_time,tap_time) DESC, id DESC',(pair,))
+            biases=confirmed_web_biases(bias_rows,vals,clock)
+            payload={'confirmed_biases':biases,'pair':pair,'now':iso(stamp),'since':iso(since),'existing':existing,'new_entries':vals['bishop_paper_entries']}
             try:
                 if worker:result=worker(payload)
                 else:

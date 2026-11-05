@@ -25,3 +25,7 @@ Integration changes to vendored source:
   Close-line crossing does not alone mark wick liquidity consumed.
 - `v2/risk.py`: target policy label updated for local ERL/H4 exit hierarchy.
   Existing nearest-qualified selection and risk/exposure limits are preserved.
+
+- `v2/engine.py`: optional entry_gate, evaluated before order selection. The
+  app supplies its per-user confirmed web-bias/H4 lineage gate; offline callers
+  retain existing behavior when no gate is supplied.
