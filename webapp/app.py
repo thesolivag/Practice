@@ -511,7 +511,7 @@ async def telegram_webhook(request: Request):
 # GitHub's own "hourly" schedule fired only every 4-5 hours (Oct 2026). An outside timer (cron-job.org, free) calls
 # /cron/tick every hour with the CRON_SECRET; this server then starts the live workflow through the GitHub API with
 # GH_DISPATCH_TOKEN (fine-grained token: this one repo, Actions read/write only). Both live on Render only.
-GH_REPO = os.environ.get("GH_REPO", "awujo/practicing")
+GH_REPO = (os.environ.get("GH_REPO") or os.environ.get("GITHUB_REPO") or "thesolivag/Practice").strip()
 GH_WORKFLOW = os.environ.get("GH_WORKFLOW", "live.yml")
 GH_REF = os.environ.get("GH_REF", "claude-kevin-king")
 TICK_MIN_GAP = 10 * 60  # seconds: repeated ticks inside this window start nothing
@@ -522,13 +522,18 @@ def dispatch_live(token, opener=None):
     """POST workflow_dispatch for the live workflow (inputs tick=1 = obey FX hours like a scheduled run). Returns
     the HTTP status (204 = started)."""
     import urllib.request
+    import urllib.error
     req = urllib.request.Request(
         f"https://api.github.com/repos/{GH_REPO}/actions/workflows/{GH_WORKFLOW}/dispatches",
         data=json.dumps({"ref": GH_REF, "inputs": {"tick": "1"}}).encode(), method="POST",
         headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
                  "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "slk-miniapp"})
-    with (opener or urllib.request.urlopen)(req, timeout=20) as r:
-        return r.status
+    try:
+        with (opener or urllib.request.urlopen)(req, timeout=20) as r:
+            return r.status
+    except urllib.error.HTTPError as exc:
+        # Expose only the numeric status, never headers, token or response body.
+        return exc.code
 
 
 @app.api_route("/cron/tick", methods=["GET", "POST"])
@@ -548,7 +553,7 @@ def cron_tick(request: Request):
         log.warning("tick dispatch failed: %s", type(e).__name__)
         raise HTTPException(status_code=502, detail=f"GitHub dispatch failed ({type(e).__name__})")
     if status != 204:
-        raise HTTPException(status_code=502, detail=f"GitHub answered {status}")
+        raise HTTPException(status_code=502, detail=f"GitHub dispatch HTTP {status}: " + {401: "token invalid or expired; replace GH_DISPATCH_TOKEN", 403: "access denied; check token Actions read/write permission and repository access", 404: "repository or workflow inaccessible; check GH_REPO and token repository selection", 422: "check GH_REF and workflow_dispatch inputs"}.get(status, "GitHub rejected the dispatch request"))
     _last_tick["t"] = now
     return {"ok": True, "started": True}
 
