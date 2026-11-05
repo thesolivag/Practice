@@ -1,0 +1,20 @@
+[
+  {
+    "path": "video-t3-audchf-buy-loss.engine.json.gz",
+    "sha256": "a1f629d60408fec65df4bd61e35c6a46cebd6f025d72eb36ce3569fc000115c8",
+    "bytes": 1779744,
+    "publication": "LOCAL_RAW_ARTIFACT; regenerate with supplied script and frozen source data"
+  },
+  {
+    "path": "video-t3-nzdchf-buy-loss.engine.json.gz",
+    "sha256": "3574d1f00867be7b083a5a86c4faefca9cfd44ef1976764e2e453a465c7f66c3",
+    "bytes": 703862,
+    "publication": "LOCAL_RAW_ARTIFACT; regenerate with supplied script and frozen source data"
+  },
+  {
+    "path": "video-t3-usdjpy-buy-manual-exit.engine.json.gz",
+    "sha256": "d37c7d9b152b31b8cd8cdf23aa2c883bd64d8d8f4bbc15d68289c44a2cb45297",
+    "bytes": 902192,
+    "publication": "LOCAL_RAW_ARTIFACT; regenerate with supplied script and frozen source data"
+  }
+]

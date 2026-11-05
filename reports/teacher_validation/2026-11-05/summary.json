@@ -1,0 +1,34 @@
+{
+  "scope": "THREE_CASE_DEPLOYED_CONFIGURATION_PILOT",
+  "inventory_episodes": 17,
+  "source_cases": 3,
+  "completed_replays": 3,
+  "teacher_acceptance_rate": null,
+  "reason": "No exact teacher-acceptance denominator is established.",
+  "cases": [
+    {
+      "case_id": "video-t3-audchf-buy-loss",
+      "execution_status": "COMPLETED_DIAGNOSTIC",
+      "seconds": 6.4,
+      "same_side_tf_window_candidate_count": 40,
+      "selected_same_side_tf_window_orders": 0,
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-nzdchf-buy-loss",
+      "execution_status": "COMPLETED_DIAGNOSTIC",
+      "seconds": 3.29,
+      "same_side_tf_window_candidate_count": 0,
+      "selected_same_side_tf_window_orders": 0,
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-usdjpy-buy-manual-exit",
+      "execution_status": "COMPLETED_DIAGNOSTIC",
+      "seconds": 4.501,
+      "same_side_tf_window_candidate_count": 342,
+      "selected_same_side_tf_window_orders": 0,
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    }
+  ]
+}

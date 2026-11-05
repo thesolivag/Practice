@@ -1,0 +1,214 @@
+{
+  "inventory_episode_count": 17,
+  "personal_participation_episode_count": 8,
+  "pilot_replayed_episodes": 3,
+  "teacher_acceptance_percentage": null,
+  "cases": [
+    {
+      "case_id": "video-t2-usdchf-missed-sell",
+      "instrument": "USDCHF",
+      "side": "SELL",
+      "source_participation": "PERSONALLY_MISSED",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "H1"
+      ],
+      "readiness": "NEEDS_DISTINCT_MISSED_CONDITIONAL_OR_NEGATIVE_CASE_CONTRACT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-usdchf-buy-sequence",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source_participation": "MIXED_ACTUAL_AND_CONDITIONAL_WORDING",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "H1",
+        "H1"
+      ],
+      "readiness": "NEEDS_DISTINCT_MISSED_CONDITIONAL_OR_NEGATIVE_CASE_CONTRACT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-usdchf-buy-outlook",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source_participation": "FORWARD_OUTLOOK",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [],
+      "readiness": "NEEDS_DISTINCT_MISSED_CONDITIONAL_OR_NEGATIVE_CASE_CONTRACT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-gbpjpy-buy",
+      "instrument": "GBPJPY",
+      "side": "BUY",
+      "source_participation": "PERSONAL_FILL_NOT_ESTABLISHED",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "H1"
+      ],
+      "readiness": "NEEDS_DISTINCT_MISSED_CONDITIONAL_OR_NEGATIVE_CASE_CONTRACT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-usoil-abandoned",
+      "instrument": "USOIL",
+      "side": "SELL",
+      "source_participation": "ABANDONED_EXAMPLE",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [],
+      "readiness": "MARKET_CALENDAR_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-us30-buy-outlook",
+      "instrument": "US30",
+      "side": "BUY",
+      "source_participation": "NO_PERSONAL_ENTRY_OPPORTUNITY",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [],
+      "readiness": "MARKET_CALENDAR_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-ger40-passed-sell",
+      "instrument": "GER40",
+      "side": "SELL",
+      "source_participation": "PERSONALLY_PASSED",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "H2"
+      ],
+      "readiness": "MARKET_CALENDAR_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-nas100-missed-sell",
+      "instrument": "NAS100",
+      "side": "SELL",
+      "source_participation": "PERSONALLY_MISSED",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "M45",
+        "M30"
+      ],
+      "readiness": "MARKET_CALENDAR_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-jp225-missed-sell",
+      "instrument": "JP225",
+      "side": "SELL",
+      "source_participation": "PERSONALLY_MISSED",
+      "narrated_personal_participation": false,
+      "source_entry_timeframes": [
+        "H1",
+        "M30"
+      ],
+      "readiness": "MARKET_CALENDAR_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t2-eurgbp-sell",
+      "instrument": "EURGBP",
+      "side": "SELL",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H1",
+        "H2"
+      ],
+      "readiness": "NOT_REPLAYED_IN_THIS_PILOT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-gbpcad-buy",
+      "instrument": "GBPCAD",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H2",
+        "H1"
+      ],
+      "readiness": "NOT_REPLAYED_IN_THIS_PILOT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-audchf-buy-loss",
+      "instrument": "AUDCHF",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H1"
+      ],
+      "readiness": "PILOT_REPLAYED_NO_TEACHER_ACCEPTANCE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-nzdchf-buy-loss",
+      "instrument": "NZDCHF",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H2"
+      ],
+      "readiness": "PILOT_REPLAYED_NO_TEACHER_ACCEPTANCE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-usdjpy-buy-manual-exit",
+      "instrument": "USDJPY",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H1",
+        "H3"
+      ],
+      "readiness": "PILOT_REPLAYED_NO_TEACHER_ACCEPTANCE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-gbpusd-sell-mixed-accounts",
+      "instrument": "GBPUSD",
+      "side": "SELL",
+      "source_participation": "PERSONAL_MULTI_ACCOUNT_TRADE",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H2"
+      ],
+      "readiness": "NOT_REPLAYED_IN_THIS_PILOT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-usdchf-buy",
+      "instrument": "USDCHF",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H2"
+      ],
+      "readiness": "NOT_REPLAYED_IN_THIS_PILOT",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    },
+    {
+      "case_id": "video-t3-usdcad-buy-open",
+      "instrument": "USDCAD",
+      "side": "BUY",
+      "source_participation": "PERSONAL_TRADE_NARRATED",
+      "narrated_personal_participation": true,
+      "source_entry_timeframes": [
+        "H2",
+        "H1",
+        "M30"
+      ],
+      "readiness": "FINAL_M30_NESTED_PATH_OUTSIDE_DEPLOYED_PROFILE",
+      "teacher_acceptance": "NOT_ESTABLISHED"
+    }
+  ]
+}

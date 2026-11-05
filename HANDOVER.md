@@ -33,6 +33,9 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+- 2026-11-05: User approved bounded teacher-example validation pilot. Replayed frozen AUDCHF/NZDCHF/USDJPY cases with deployed35day bishop_confirmation profile; all3 diagnostics completed,0 eligible orders in source windows. AUDCHF40 H1 BUY plans andUSDJPY342 H3 BUY plans all target_unresolved/qualified_first_external_objective_unresolved; NZDCHF0 matching H2 BUY plans. No teacher acceptance awarded; FOREXCOM-to-IC candle alignment and exact source clocks remain unresolved. Independent source/blocker review completed; AUDCHF loss preserved. One fixed-history causal-prefix check matched1754 setup records exactly. See reports/teacher_validation/2026-11-05/REPORT.md. Validation report only; live strategy/settings unchanged.
+
+
 - 2026-11-05: Removed live.yml GitHub :07 schedule on main and Kevin per user request. External cron-job.org should call Render /cron/tick at 2 * * * *. Manual workflow_dispatch retained. External timer settings and historical DB rows cannot be verified from this session. Render currently has only a ten-minute in-memory dispatch cooldown, not durable hourly deduplication. GitHub runner queue latency remains possible.
 
 - 2026-11-05: Render dispatch migration repair: accept GH_REPO or legacy GITHUB_REPO, default to thesolivag/Practice; preserve explicit overrides. Report safe upstream HTTP status and actionable configuration guidance, never response bodies/tokens. Isolated dispatch tests: success plus 401/403/404/422/500 passed; syntax valid. Live token configuration remains unverified.
@@ -179,6 +182,9 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+- 2026-11-05: User approved bounded teacher-example validation pilot. Replayed frozen AUDCHF/NZDCHF/USDJPY cases with deployed35day bishop_confirmation profile; all3 diagnostics completed,0 eligible orders in source windows. AUDCHF40 H1 BUY plans andUSDJPY342 H3 BUY plans all target_unresolved/qualified_first_external_objective_unresolved; NZDCHF0 matching H2 BUY plans. No teacher acceptance awarded; FOREXCOM-to-IC candle alignment and exact source clocks remain unresolved. Independent source/blocker review completed; AUDCHF loss preserved. One fixed-history causal-prefix check matched1754 setup records exactly. See reports/teacher_validation/2026-11-05/REPORT.md. Validation report only; live strategy/settings unchanged.
+
 
 - 2026-11-05: Integrated existing Bishop confirmation engine as a separate paper strategy alongside KK per owner request; source banners, independent results/filter, explicit user-owned storage/outbox, selected-only bounded runner, source/calendar limits and no Bishop broker approval. Independent review and232 targeted tests passed; browser suites and Docker smoke passed. See BISHOP_INTEGRATION.md. Preserved concurrent remote dispatch/timer repairs; no GitHub schedule restored.
 

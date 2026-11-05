@@ -1,0 +1,2556 @@
+{
+  "case_id": "video-t3-audchf-buy-loss",
+  "pair": "AUDCHF",
+  "side": "BUY",
+  "entry_tf": "H1",
+  "source_window": [
+    "2026-06-08T23:00:00+00:00",
+    "2026-06-09T23:00:00+00:00"
+  ],
+  "as_of": "2026-06-10T23:00:00+00:00",
+  "history_start": "2026-05-06T23:00:00+00:00",
+  "scan_start": "2026-06-03T23:00:00+00:00",
+  "policy_id": "policy_9c4fdfb592c155f6844f9523",
+  "profile": "bishop_confirmation",
+  "entry_timeframes": [
+    "H4",
+    "H3",
+    "H2",
+    "H1"
+  ],
+  "compact_story_diagnostics": true,
+  "costs": "EXPLICIT_ZERO_COST",
+  "time_budget_seconds": 30,
+  "input_sha256": "d4c15322113cccf3c4b8731ce6506d61580296bba7c5f6f6b9a797b8bbeadbff",
+  "manifest_sha256": "af14737bd6505a9f2359f5c705797366976f9013e2f91703c409fa62adadaab9",
+  "source_expectations_sha256": "093909479bc53d643e0a3407eee1f0e7251a80a896b9e3ca6902ac4b4593b8cd",
+  "engine_sha256": {
+    "bishop/v2/__init__.py": "5d01aada68ed7c07d4d5642c41e3b93e685c52fbb4b752fdf9a21b6b67b1841e",
+    "bishop/v2/aggregation.py": "d313f92c346bc3cb7d6711b3d452d26120626ad2549c49ac00e241e59bf7c098",
+    "bishop/v2/backtest.py": "8bad0a578ef05fd572f340294ee54e1242c8d1ce0d373b5af783475a02990835",
+    "bishop/v2/continuity.py": "eda11292c9e2ac9a74f077cc2d45308e45947dd5f9fcdd587c2f8a14d08a7c99",
+    "bishop/v2/detection_feed.py": "73190fdaca7c8665f217208bca4c7b5c03f1617b10c4430904c8940cf66a8f47",
+    "bishop/v2/engine.py": "d4c935c2b15471cacd6deed1235ebd449f17ebf6764cfbb25a1db002e71c5784",
+    "bishop/v2/entries.py": "4bf069802c487928198c519154200b008a72229d815bcd82d26b70f8604c0029",
+    "bishop/v2/execution_feed.py": "220d1a3fd5daa1f300381e31c192869e75780af950dd5629c54246338e04eee4",
+    "bishop/v2/feed.py": "0dccf8f8d3f7e9b8a716d282b50f7b71b495b5fe67c60ed861ae4537be8ed853",
+    "bishop/v2/impulse.py": "d234946e31522fe2b5d256c85079e15a44731c3e7ca055e10a44bea4e21cb0cd",
+    "bishop/v2/liquidity_forms.py": "9b7256ee52754cbc09d6b5332758c04f485af2e155aced97d6079fcc08e0a757",
+    "bishop/v2/objectives.py": "709f3ab4bf26aa36178ae170dad94e78f65685058a48bbce4972035da3b7f9b1",
+    "bishop/v2/refinement_evidence.py": "1d38c0c85c913134309e99113faf5e911c95d91ae5903b6a6108d5d0b3bc4cbb",
+    "bishop/v2/risk.py": "4afff952aa4763118ec73a93444a597d22935ddec1dc29022fbdfbf52bedac99",
+    "bishop/v2/sessions.py": "887e34aa3c9cdf91328d1b284f674fa7c8e73ae6ec8bfed99efbfaaf240294c7",
+    "bishop/v2/simulation.py": "78c748e435e09e78b421a78b490ab26747db248381450f67de5d4df2164b6601",
+    "bishop/v2/stories.py": "4527f927e4a9b792d927bdb9276f057ee50934c37845d7470e2ec3d38ca04442",
+    "bishop/v2/structure.py": "d7d2fbdef352d426036b4301d379f49cb5283f6e387aa66b7166677e0ae23543",
+    "bishop/v2/target_context.py": "73a82dbf4302ee4f1eca70fbb612225701d314b22f042a800385a4ea743cf708",
+    "bishop/v2/types.py": "435a552c1f6dbcc63f70ccdd608440628f4710fd9a7162a0e37a969524affd6d",
+    "bishop/v2/weekly_context.py": "9bcc46f168b18139bb0bf072ffe21a2b666717c90a215a6444977eac355f9b84"
+  },
+  "source_feed": "FOREXCOM TradingView",
+  "replay_feed": "IC Markets cTrader",
+  "acceptance_policy": "NO_AUTOMATIC_ACCEPTANCE; raw alternate-feed diagnostic; no tolerance fitting",
+  "execution_status": "COMPLETED_DIAGNOSTIC",
+  "seconds": 6.4,
+  "engine_status": "PARTIAL_UNVALIDATED",
+  "engine_summary": {
+    "stories": 179,
+    "setups": 2058,
+    "orders": 0,
+    "outcomes": {}
+  },
+  "same_side_tf_window_candidate_count": 40,
+  "candidate_models": {
+    "confirmation_bo": 2,
+    "confirmation_engulfed_oc": 22,
+    "confirmation_sweep_bos": 4,
+    "oc_break_retest": 8,
+    "engulf_av_retest": 4
+  },
+  "candidate_statuses": {
+    "UNRESOLVED": 40
+  },
+  "selected_same_side_tf_window_orders": 0,
+  "source_window_story_events": {
+    "BIAS_REFERENCE_FROZEN": 44,
+    "BIAS_WAIT_EXTERNAL_BREAK": 44
+  },
+  "teacher_acceptance": "NOT_ESTABLISHED",
+  "numeric_tolerance": null,
+  "blocking_facts": [
+    "Source-feed/candle alignment is unverified.",
+    "Source drawing anchors are not proven setup/fill clocks.",
+    "No unique primary-source event IDs or independently established numeric acceptance tolerances."
+  ],
+  "coverage": {
+    "M": {
+      "status": "PARTIAL",
+      "complete_bars": 0,
+      "missing_slots": null
+    },
+    "W": {
+      "status": "PARTIAL",
+      "complete_bars": 4,
+      "missing_slots": null
+    },
+    "D": {
+      "status": "PARTIAL",
+      "complete_bars": 24,
+      "missing_slots": null
+    },
+    "H4": {
+      "status": "PARTIAL",
+      "complete_bars": 149,
+      "missing_slots": null
+    },
+    "H2": {
+      "status": "COMPLETE",
+      "complete_bars": 300,
+      "missing_slots": null
+    },
+    "H3": {
+      "status": "PARTIAL",
+      "complete_bars": 199,
+      "missing_slots": null
+    },
+    "H1": {
+      "status": "COMPLETE",
+      "complete_bars": 600,
+      "missing_slots": null
+    }
+  },
+  "base_coverage": {
+    "status": "COMPLETE",
+    "expected_slots": 600,
+    "present_slots": 600,
+    "missing_slots": 0
+  },
+  "unresolved_reason_counts": {
+    "qualified_first_external_objective_unresolved": 40,
+    "target_unresolved": 40
+  },
+  "candidates": [
+    {
+      "id": "setup_1618716d604229483f5cd617",
+      "model": "confirmation_bo",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T01:00:00+00:00",
+      "prices": {
+        "entry": 0.5620200000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -0.3,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -0.3,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_f40dbb53960f0243e8457f3f",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_1e10a8df7fcbcb032f02df1e",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T01:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_68602d93c2932f7c8cfda8aa",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T01:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_8d1df1d5a0872a578a03e38b",
+      "model": "confirmation_bo",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T01:00:00+00:00",
+      "prices": {
+        "entry": 0.5620200000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -0.3,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -0.3,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_f40dbb53960f0243e8457f3f",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_0116fb7b99a114dd28c71601",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5624100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 3.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 3.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_14cc059808755d1d54071aaa",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5624800000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.3,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.3,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_22ff6b84ace0cba7a6b4832c",
+      "model": "confirmation_sweep_bos",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5625100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_08ea08eddb3cb6eeca36cec2",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_32c2ce3a68f76f0f688ae202",
+          "reference_id": "turn_pool_245deaef66424dbe00bb0974",
+          "kind": "ERL",
+          "price_ticks": 56022,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_52096a77bdba645b8bf4917f",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_75a7518edab31c614161a519",
+          "reference_id": "turn_pool_080a51ac8a25ff66c4851875",
+          "kind": "ERL",
+          "price_ticks": 56276,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "endpoint_not_confirmed",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown"
+          ],
+          "scope_relation": "EXACT_SEED"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_e8bf764e2c5a0e6d9c5ff8fe",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_ea7bc88792c7a3df05a672ed",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_f5ff3bd9efdbab07fd188339",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_23331c5fd186af6f310083fe",
+      "model": "confirmation_sweep_bos",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5625100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_08ea08eddb3cb6eeca36cec2",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_19aceba3de4922e674c96317",
+          "reference_id": "turn_pool_080a51ac8a25ff66c4851875",
+          "kind": "ERL",
+          "price_ticks": 56276,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "endpoint_not_confirmed",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown"
+          ],
+          "scope_relation": "EXACT_SEED"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_32c2ce3a68f76f0f688ae202",
+          "reference_id": "turn_pool_245deaef66424dbe00bb0974",
+          "kind": "ERL",
+          "price_ticks": 56022,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_52096a77bdba645b8bf4917f",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_e8bf764e2c5a0e6d9c5ff8fe",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_ea7bc88792c7a3df05a672ed",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_f5ff3bd9efdbab07fd188339",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_c137ab0854e026d618eeb2c6",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5624100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 3.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 3.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_c9abf5976038e069e80bb8a1",
+      "model": "confirmation_sweep_bos",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5625100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_08ea08eddb3cb6eeca36cec2",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_19aceba3de4922e674c96317",
+          "reference_id": "turn_pool_080a51ac8a25ff66c4851875",
+          "kind": "ERL",
+          "price_ticks": 56276,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "endpoint_not_confirmed",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown"
+          ],
+          "scope_relation": "EXACT_SEED"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_32c2ce3a68f76f0f688ae202",
+          "reference_id": "turn_pool_245deaef66424dbe00bb0974",
+          "kind": "ERL",
+          "price_ticks": 56022,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_52096a77bdba645b8bf4917f",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_e8bf764e2c5a0e6d9c5ff8fe",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_ea7bc88792c7a3df05a672ed",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_8c5bd5618561e259c72a5ab6",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_f5ff3bd9efdbab07fd188339",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_dc603835c968842d1c22f00f",
+      "model": "confirmation_sweep_bos",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5625100000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.6,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_08ea08eddb3cb6eeca36cec2",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_32c2ce3a68f76f0f688ae202",
+          "reference_id": "turn_pool_245deaef66424dbe00bb0974",
+          "kind": "ERL",
+          "price_ticks": 56022,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_52096a77bdba645b8bf4917f",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_75a7518edab31c614161a519",
+          "reference_id": "turn_pool_080a51ac8a25ff66c4851875",
+          "kind": "ERL",
+          "price_ticks": 56276,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "endpoint_not_confirmed",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown"
+          ],
+          "scope_relation": "EXACT_SEED"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_e8bf764e2c5a0e6d9c5ff8fe",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_ea7bc88792c7a3df05a672ed",
+          "reference_id": "turn_pool_2b2d815b3de412c5afdae084",
+          "kind": "ERL",
+          "price_ticks": 55691,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "range_direction_mismatch",
+            "external_endpoint_kind_mismatch",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_objective_not_ahead"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        },
+        {
+          "sponsor_id": "structure_event_264484c7469966570e22d66c",
+          "tf": "H1",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "scope_id": "range_f5ff3bd9efdbab07fd188339",
+          "reference_id": "turn_pool_e1be7360111990467bc86f95",
+          "kind": "ERL",
+          "price_ticks": 56868,
+          "status": "UNRESOLVED",
+          "reasons": [
+            "range_not_defined",
+            "endpoint_pool_price_mismatch",
+            "context_objective_not_known",
+            "context_objective_consumed_or_ordering_unknown",
+            "context_range_origin_broken"
+          ],
+          "scope_relation": "EXPLICIT_ANCESTOR"
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_de92da0042ec5b44b0f3b4da",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T02:00:00+00:00",
+      "prices": {
+        "entry": 0.5624800000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 4.3,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 4.3,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_7ab7f8658de56aa499d6933e",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T05:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_bbcfccb0231cb712b44ea0f5",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T05:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_b6d76d3eefbd6d3507f34121",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T07:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_ea28c9332b360eb73fb609f1",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T07:00:00+00:00",
+      "prices": {
+        "entry": 0.5620700000000001,
+        "stop": 0.5612400000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": 0.2,
+            "stop": -4.5,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_02c75444697159a0f11eda21",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56157,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_0e4e8cec63ea78cf10fe574d",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56159,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_23d0fce4a9f7e5f97e02fb4b",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56172,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_3632aa6764f4c9b6d5181652",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56172,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_36bdce60707ff7f95580c643",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56184,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_36c67caaade261c46f041804",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56184,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_61ac588d0dd7e2ff6f8e25ac",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56172,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_780e7d88c0ac45d316474b19",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56157,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_814034b9c77dc9cb9ac5fa96",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56172,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -3.3,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_88b8e91f8adf1f5bad579d26",
+      "model": "engulf_av_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56145,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -6.0,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -6.0,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_98111daec130d6e8e48c4364",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56159,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_aa0b729884e3b98cc02df9db",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56157,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_b547b04c1ab16d33f81dbd7e",
+      "model": "engulf_av_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56145,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -6.0,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -6.0,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_c3f66063ef87e69c0bed22d3",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56184,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_cc7a887ab8c739d1eb2f5d38",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56184,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -2.1,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_ed952d8f1a141c853eac7bf1",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56157,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.8,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_f46711106a2b333036bfe0ac",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56159,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_ff0589508fab38b7ea132857",
+      "model": "oc_break_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T11:00:00+00:00",
+      "prices": {
+        "entry": 0.56159,
+        "stop": 0.5612100000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -4.6,
+            "stop": -4.8,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_15026dad2355925779645b66",
+      "model": "engulf_av_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T18:00:00+00:00",
+      "prices": {
+        "entry": 0.5600900000000001,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -19.6,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -19.6,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_8c833be98d0cfce7a352ccde",
+      "model": "engulf_av_retest",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T18:00:00+00:00",
+      "prices": {
+        "entry": 0.5600900000000001,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -19.6,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -19.6,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_1a0aa3b5aa526a09dba954a4",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T19:00:00+00:00",
+      "prices": {
+        "entry": 0.56083,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -12.2,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -12.2,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_769c4a3b63aca7754c5a16f5",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T19:00:00+00:00",
+      "prices": {
+        "entry": 0.56083,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -12.2,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -12.2,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_899b938ae479cb5efb45b99e",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T19:00:00+00:00",
+      "prices": {
+        "entry": 0.5610400000000001,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -10.1,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -10.1,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    },
+    {
+      "id": "setup_9e80a70e8b6ac36c8fecd983",
+      "model": "confirmation_engulfed_oc",
+      "status": "UNRESOLVED",
+      "available_at": "2026-06-09T19:00:00+00:00",
+      "prices": {
+        "entry": 0.5610400000000001,
+        "stop": 0.5596800000000001,
+        "target": null
+      },
+      "raw_differences_to_every_source_drawing": [
+        {
+          "source_pts_seconds": 670,
+          "source_role": "INTERMEDIATE_RECONSTRUCTED_POSITION_TOOL_BEFORE_TARGET_ADJUSTMENT",
+          "difference_units": {
+            "entry": -10.1,
+            "stop": -20.1,
+            "target": null
+          }
+        },
+        {
+          "source_pts_seconds": 675,
+          "source_role": "LATER_RECONSTRUCTED_POSITION_TOOL_TARGET_ADJUSTED; entry/stop remain stable",
+          "difference_units": {
+            "entry": -10.1,
+            "stop": -20.1,
+            "target": null
+          }
+        }
+      ],
+      "unresolved_reasons": [
+        "qualified_first_external_objective_unresolved",
+        "target_unresolved"
+      ],
+      "target_qualification": [
+        {
+          "sponsor_id": "structure_event_41b8b6a7c5be700df5666c63",
+          "tf": "H4",
+          "policy": "actual_setup_sponsor_scope_endpoint_v1",
+          "status": "UNRESOLVED",
+          "reasons": [
+            "no_explicit_sponsor_scope_or_seed_link"
+          ]
+        }
+      ],
+      "selected_order_id": null
+    }
+  ]
+}

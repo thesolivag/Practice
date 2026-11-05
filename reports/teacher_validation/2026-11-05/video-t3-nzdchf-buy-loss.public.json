@@ -1,0 +1,124 @@
+{
+  "case_id": "video-t3-nzdchf-buy-loss",
+  "pair": "NZDCHF",
+  "side": "BUY",
+  "entry_tf": "H2",
+  "source_window": [
+    "2026-06-09T23:00:00+00:00",
+    "2026-06-10T23:00:00+00:00"
+  ],
+  "as_of": "2026-06-11T23:00:00+00:00",
+  "history_start": "2026-05-07T23:00:00+00:00",
+  "scan_start": "2026-06-04T23:00:00+00:00",
+  "policy_id": "policy_9c4fdfb592c155f6844f9523",
+  "profile": "bishop_confirmation",
+  "entry_timeframes": [
+    "H4",
+    "H3",
+    "H2",
+    "H1"
+  ],
+  "compact_story_diagnostics": true,
+  "costs": "EXPLICIT_ZERO_COST",
+  "time_budget_seconds": 30,
+  "input_sha256": "296014912f5e0b7334f2f5e208b351e7d0fbe2920b7512ce9c0828116151fae7",
+  "manifest_sha256": "20e8f3acd19bccb613567fa57159dd8d7fc8f2500907f5e5c2b7c689e9469149",
+  "source_expectations_sha256": "093909479bc53d643e0a3407eee1f0e7251a80a896b9e3ca6902ac4b4593b8cd",
+  "engine_sha256": {
+    "bishop/v2/__init__.py": "5d01aada68ed7c07d4d5642c41e3b93e685c52fbb4b752fdf9a21b6b67b1841e",
+    "bishop/v2/aggregation.py": "d313f92c346bc3cb7d6711b3d452d26120626ad2549c49ac00e241e59bf7c098",
+    "bishop/v2/backtest.py": "8bad0a578ef05fd572f340294ee54e1242c8d1ce0d373b5af783475a02990835",
+    "bishop/v2/continuity.py": "eda11292c9e2ac9a74f077cc2d45308e45947dd5f9fcdd587c2f8a14d08a7c99",
+    "bishop/v2/detection_feed.py": "73190fdaca7c8665f217208bca4c7b5c03f1617b10c4430904c8940cf66a8f47",
+    "bishop/v2/engine.py": "d4c935c2b15471cacd6deed1235ebd449f17ebf6764cfbb25a1db002e71c5784",
+    "bishop/v2/entries.py": "4bf069802c487928198c519154200b008a72229d815bcd82d26b70f8604c0029",
+    "bishop/v2/execution_feed.py": "220d1a3fd5daa1f300381e31c192869e75780af950dd5629c54246338e04eee4",
+    "bishop/v2/feed.py": "0dccf8f8d3f7e9b8a716d282b50f7b71b495b5fe67c60ed861ae4537be8ed853",
+    "bishop/v2/impulse.py": "d234946e31522fe2b5d256c85079e15a44731c3e7ca055e10a44bea4e21cb0cd",
+    "bishop/v2/liquidity_forms.py": "9b7256ee52754cbc09d6b5332758c04f485af2e155aced97d6079fcc08e0a757",
+    "bishop/v2/objectives.py": "709f3ab4bf26aa36178ae170dad94e78f65685058a48bbce4972035da3b7f9b1",
+    "bishop/v2/refinement_evidence.py": "1d38c0c85c913134309e99113faf5e911c95d91ae5903b6a6108d5d0b3bc4cbb",
+    "bishop/v2/risk.py": "4afff952aa4763118ec73a93444a597d22935ddec1dc29022fbdfbf52bedac99",
+    "bishop/v2/sessions.py": "887e34aa3c9cdf91328d1b284f674fa7c8e73ae6ec8bfed99efbfaaf240294c7",
+    "bishop/v2/simulation.py": "78c748e435e09e78b421a78b490ab26747db248381450f67de5d4df2164b6601",
+    "bishop/v2/stories.py": "4527f927e4a9b792d927bdb9276f057ee50934c37845d7470e2ec3d38ca04442",
+    "bishop/v2/structure.py": "d7d2fbdef352d426036b4301d379f49cb5283f6e387aa66b7166677e0ae23543",
+    "bishop/v2/target_context.py": "73a82dbf4302ee4f1eca70fbb612225701d314b22f042a800385a4ea743cf708",
+    "bishop/v2/types.py": "435a552c1f6dbcc63f70ccdd608440628f4710fd9a7162a0e37a969524affd6d",
+    "bishop/v2/weekly_context.py": "9bcc46f168b18139bb0bf072ffe21a2b666717c90a215a6444977eac355f9b84"
+  },
+  "source_feed": "FOREXCOM TradingView",
+  "replay_feed": "IC Markets cTrader",
+  "acceptance_policy": "NO_AUTOMATIC_ACCEPTANCE; raw alternate-feed diagnostic; no tolerance fitting",
+  "execution_status": "COMPLETED_DIAGNOSTIC",
+  "seconds": 3.29,
+  "engine_status": "PARTIAL_UNVALIDATED",
+  "engine_summary": {
+    "stories": 155,
+    "setups": 1209,
+    "orders": 0,
+    "outcomes": {}
+  },
+  "same_side_tf_window_candidate_count": 0,
+  "candidate_models": {},
+  "candidate_statuses": {},
+  "selected_same_side_tf_window_orders": 0,
+  "source_window_story_events": {
+    "BIAS_REFERENCE_FROZEN": 50,
+    "REACTION_CONFIRMATION_LINK": 29,
+    "STORY_DESTINATION_REACHED": 29,
+    "BIAS_WAIT_EXTERNAL_BREAK": 26
+  },
+  "teacher_acceptance": "NOT_ESTABLISHED",
+  "numeric_tolerance": null,
+  "blocking_facts": [
+    "Source-feed/candle alignment is unverified.",
+    "Source drawing anchors are not proven setup/fill clocks.",
+    "No unique primary-source event IDs or independently established numeric acceptance tolerances."
+  ],
+  "coverage": {
+    "M": {
+      "status": "PARTIAL",
+      "complete_bars": 0,
+      "missing_slots": null
+    },
+    "W": {
+      "status": "PARTIAL",
+      "complete_bars": 4,
+      "missing_slots": null
+    },
+    "D": {
+      "status": "PARTIAL",
+      "complete_bars": 24,
+      "missing_slots": null
+    },
+    "H4": {
+      "status": "PARTIAL",
+      "complete_bars": 149,
+      "missing_slots": null
+    },
+    "H2": {
+      "status": "COMPLETE",
+      "complete_bars": 300,
+      "missing_slots": null
+    },
+    "H3": {
+      "status": "PARTIAL",
+      "complete_bars": 199,
+      "missing_slots": null
+    },
+    "H1": {
+      "status": "COMPLETE",
+      "complete_bars": 600,
+      "missing_slots": null
+    }
+  },
+  "base_coverage": {
+    "status": "COMPLETE",
+    "expected_slots": 600,
+    "present_slots": 600,
+    "missing_slots": 0
+  },
+  "unresolved_reason_counts": {},
+  "candidates": []
+}
