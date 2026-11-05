@@ -200,6 +200,8 @@ problems fixed by this alignment-only change.
 
 ## Log
 
+- Owner-authorized read-only USDCAD audit completed through encrypted Actions output. Production evidence confirms breakout/nonadjacent OC routes can inherit a long reaction episode as stop protection; adjacent engulfing records have their own pair. No private trade data or credentials published. Temporary audit workflow/key/script removed after successful read. Alignment deployment a870f068 and database/browser CI verified; SL and target correction remain outstanding.
+
 ### Confirmed web bias → Bishop H4 entry gate
 User clarified Bishop entries must follow confirmed biases already displayed in
 the web app. Added per-user latest-row, preference, direction and causal H4
