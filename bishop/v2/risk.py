@@ -206,7 +206,7 @@ def plan(side, entry, at, tf, bars, levels, liquidity, story, instrument: Instru
     if policy.target_profile=='nearest_erl':
         from .types import jsonable
         details['target_plan']={
-            'policy':'FIRST_SIGNIFICANT_QUALIFIED_OBJECTIVE_V1',
+            'policy':'LOCAL_ERL_OR_CONTEXT_H4_KL_V2',
             'story_destination':{'tf':getattr(story,'origin_tf',None),'price_ticks':story.destination_ticks,'reference_id':story.destination_ref_id},
             'qualified_objectives':jsonable(tuple(trade_objectives)),
             'qualification_diagnostics':jsonable(tuple(trade_objective_diagnostics)),

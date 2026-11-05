@@ -15,6 +15,7 @@ from pathlib import Path
 
 UTC=timezone.utc
 ENTRY_TFS=('H4','H3','H2','H1')
+TARGET_REVISION='local_erl_or_h4_kl_v2'
 TERMINAL={'WIN','LOSS','BREAK_EVEN','EXPIRED','CANCELLED','REPLACED'}
 SCHEMA='''
 CREATE TABLE IF NOT EXISTS bishop_app_entries (
@@ -103,7 +104,7 @@ def compute(payload):
     incoming={o['id']:dict(order=o,setup=setups[o['setup_id']],observation=observations[o['id']],
                   actions=[a for a in result['actions'] if a['order_id']==o['id']],
                   instrument=result['instrument'],costs=result['costs'],calendar=feed['manifest']['calendar'],
-                  policy_id=policy.id,source_status=result['status']) for o in result['orders']}
+                  policy_id=policy.id,source_status=result['status'],target_revision=TARGET_REVISION) for o in result['orders']}
     # Geometry and policy for already published entries are immutable. A rolling
     # context losing a setup is not a cancellation and must not replace its plan.
     if not payload.get('new_entries',True):incoming={}
@@ -150,7 +151,13 @@ def display_status(row):
 def public_entry(row):
     order=row['order'];obs=row['observation'];tick=Decimal(row['instrument']['tick_size'])
     price=lambda v:float(Decimal(v)*tick) if v is not None else None
-    return dict(id='bishop:'+order['id'],strategy='bishop',strategy_label='Bishop · Paper',pair=order['instrument'],
+    target_plan=row.get('setup',{}).get('details',{}).get('target_plan',{})
+    proofs=target_plan.get('selected_objective_proofs',[])
+    target_sources=sorted({(p.get('tf'),p.get('objective_kind')) for p in proofs if p.get('tf') and p.get('objective_kind')})
+    destination=target_plan.get('story_destination',{})
+    return dict(target_sources=[{'timeframe':tf,'kind':kind} for tf,kind in target_sources],
+                story_target=price(destination.get('price_ticks')),story_target_timeframe=destination.get('tf'),
+                id='bishop:'+order['id'],strategy='bishop',strategy_label='Bishop · Paper',pair=order['instrument'],
                 tf=order['tf'],side=order['side'],model=order['model'],entry=price(order['entry_ticks']),
                 stop=price(order['stop_ticks']),tp1=None,tp2=price(order['target_ticks']),status=display_status(row),
                 result_r=float(obs['net_r']) if obs.get('net_r') is not None else None,result_r_tp2=None,
@@ -165,6 +172,8 @@ def message(row):
     lines=[f"Bishop · PAPER | {e['pair']} | {e['tf']} | {e['side']} | {e['model']} | {e['status']}",
            f"Entry {e['entry']}  Stop {e['stop']}  Target {e['tp2']}",
            f"Setup {e['created_at']}"]
+    if e['target_sources']:lines.append('Trade target: '+', '.join(p['timeframe']+' '+('key level' if p['kind']=='KL' else 'external liquidity') for p in e['target_sources']))
+    if e['story_target'] is not None:lines.append(f"Larger story objective ({e['story_target_timeframe']}): {e['story_target']}")
     if e['result_r'] is not None:lines.append(f"Paper result {e['result_r']:+.2f}R")
     lines.append(e['note'])
     lines.append('Zero-cost paper estimate · no broker order')
@@ -200,7 +209,7 @@ class Repository:
                     cur.execute('SELECT payload,status,updated_at FROM bishop_app_entries WHERE user_id=%s AND signal_id=%s FOR UPDATE',(int(uid),ident))
                     found=cur.fetchone()
                     if found:
-                        if int(found['updated_at'])>stamp:continue
+                        if int(found['updated_at'])>stamp or found['status'] in TERMINAL:continue
                         old=json.loads(found['payload'])
                         if old['order']!=row['order'] or old['instrument']!=row['instrument'] or old['costs']!=row['costs']:
                             raise ValueError('Published Bishop geometry/source/costs cannot change')
@@ -244,7 +253,12 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
     done=errors=deferred=0
     for uid in users:
         if time.monotonic()+timeout+2>=deadline:break
-        with tenancy.scope(uid):vals=settings.load(db.get_settings())
+        with tenancy.scope(uid):
+            stored=db.get_settings();vals=settings.load(stored)
+            revision_since=int(stored.get('bishop_target_v2_since') or stamp)
+            if not stored.get('bishop_target_v2_since') or not vals['bishop_paper_entries']:
+                revision_since=stamp
+                db.set_setting('bishop_target_v2_since',str(stamp))
         pairs=vals['pairs'] or (settings.PAIRS if uid==tenancy.owner_id() else tenancy.STARTER['pairs'].split(','))
         preference_selected=set(pairs)
         if weekend_paused(clock) and os.environ.get('GITHUB_EVENT_NAME')=='schedule':
@@ -270,7 +284,7 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
             if pair not in states:continue  # activation never backfills old entries
             if time.monotonic()+timeout+2>=deadline:deferred+=1;continue
             existing=repo.rows(uid,pair,active=True)
-            since=max(int(states[pair]['activated_at']),stamp-7*86400)
+            since=max(int(states[pair]['activated_at']),revision_since,stamp-7*86400)
             payload={'pair':pair,'now':iso(stamp),'since':iso(since),'existing':existing,'new_entries':vals['bishop_paper_entries']}
             try:
                 if worker:result=worker(payload)

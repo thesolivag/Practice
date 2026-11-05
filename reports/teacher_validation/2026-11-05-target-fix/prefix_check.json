@@ -1,0 +1,35 @@
+{
+  "case_id": "video-t3-audchf-buy-loss",
+  "cutoff": "2026-06-09T23:00:00+00:00",
+  "fixed_history_start": "2026-05-06T23:00:00+00:00",
+  "scan_start": "2026-06-03T23:00:00+00:00",
+  "execution_status": "COMPLETED_DIAGNOSTIC",
+  "collections": {
+    "setups": {
+      "earlier_count": 1754,
+      "later_published_before_cutoff_count": 1754,
+      "identical": true,
+      "earlier_sha256": "16d9ed4868894845e1eb6ea77871cd677eefcdfec90f48476911bd4d829e7498",
+      "later_sha256": "16d9ed4868894845e1eb6ea77871cd677eefcdfec90f48476911bd4d829e7498"
+    },
+    "orders": {
+      "earlier_count": 17,
+      "later_published_before_cutoff_count": 17,
+      "identical": true,
+      "earlier_sha256": "6b64704567970c542d31ced15cdd550628272599f5b5a6d9328ad144ff12307d",
+      "later_sha256": "6b64704567970c542d31ced15cdd550628272599f5b5a6d9328ad144ff12307d"
+    },
+    "execution_events": {
+      "earlier_count": 51,
+      "later_published_before_cutoff_count": 51,
+      "identical": true,
+      "earlier_sha256": "f5062d82d956d5afa73b6a2c4c46e62e2014cb9e2a1dd8f954b32828d292e49e",
+      "later_sha256": "f5062d82d956d5afa73b6a2c4c46e62e2014cb9e2a1dd8f954b32828d292e49e"
+    }
+  },
+  "all_compared_collections_identical": true,
+  "limitations": [
+    "One fixed-history prefix only; this does not establish teacher agreement or eliminate every possible look-ahead bug."
+  ],
+  "seconds": 9.686
+}

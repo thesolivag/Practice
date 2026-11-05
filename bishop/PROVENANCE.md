@@ -1,6 +1,6 @@
 # Vendored Bishop paper engine
 
-Unmodified pure engine from `thesolivag/Practice`, branch
+Pure engine vendored from `thesolivag/Practice`, branch
 `claude-bishop-aggressive`, snapshot `6e1caa0417cedfa10b276867f3daec83a08b57f9`.
 Includes v2 Python modules, structural_context.py, bias_snapshot.py and package
 initializer. Credential, broker acquisition, order execution and hosted app
@@ -18,3 +18,10 @@ Integration changes to vendored source:
 - `v2/simulation.py`: MID-price synthetic quotes are accepted only when every
   declared execution cost is exactly zero. BID behavior is unchanged. This does
   not infer a Deriv bid/ask spread or assert executable broker performance.
+
+- `v2/structure.py`: explicit causal continuation range ownership metadata.
+- `v2/objectives.py`: exact turn/candle wick identity, validated continuation
+  lineage, and independent source-v16 H4 key-level first-exit qualification.
+  Close-line crossing does not alone mark wick liquidity consumed.
+- `v2/risk.py`: target policy label updated for local ERL/H4 exit hierarchy.
+  Existing nearest-qualified selection and risk/exposure limits are preserved.

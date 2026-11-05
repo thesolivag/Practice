@@ -5,7 +5,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  const page=await browser.newPage({viewport:{width:390,height:844}});
  const root=path.resolve(__dirname,'../../webapp/static');
  const entries=[{id:1,strategy:'kk',strategy_label:'KK · Paper',pair:'EURUSD',tf:'H4',side:'BUY',model:'continuation',entry:1.1,stop:1.09,tp1:1.12,tp2:1.14,status:'PENDING'},
- {id:'bishop:one',strategy:'bishop',strategy_label:'Bishop · Paper',pair:'EURUSD',tf:'H1',side:'BUY',model:'confirmation_bo',entry:1.1,stop:1.09,tp1:null,tp2:1.13,status:'PENDING',cost_note:'Zero-cost paper estimate',note:'Bishop confirmation profile · H4/H3/H2/H1'},
+ {id:'bishop:one',strategy:'bishop',strategy_label:'Bishop · Paper',pair:'EURUSD',tf:'H1',side:'BUY',model:'confirmation_bo',entry:1.1,stop:1.09,tp1:null,tp2:1.13,target_sources:[{timeframe:'H4',kind:'KL'}],story_target:1.2,story_target_timeframe:'W',status:'PENDING',cost_note:'Zero-cost paper estimate',note:'Bishop confirmation profile · H4/H3/H2/H1'},
  {id:'bishop:two',strategy:'bishop',strategy_label:'Bishop · Paper',pair:'GBPUSD',tf:'H2',side:'SELL',model:'confirmation_engulfed_oc',entry:1.3,stop:1.31,tp1:null,tp2:1.27,status:'UNKNOWN',cost_note:'Zero-cost paper estimate',note:'Ambiguous H1 candle'}];
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('**/*',async route=>{
@@ -30,8 +30,11 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  await page.waitForFunction(()=>document.querySelectorAll('#entries-list .card').length===2);
  assert.equal(await page.locator('#entries-list .approve').count(),0);
  assert((await page.locator('#entries-list').textContent()).includes('Ambiguous H1 candle'));
- assert((await page.locator('#entries-list').textContent()).includes('Target'));
+ assert((await page.locator('#entries-list').textContent()).includes('Trade target'));
  assert(!(await page.locator('#entries-list').textContent()).includes('TP1'));
+ assert((await page.locator('#entries-list').textContent()).includes('Target context'));
+ assert((await page.locator('#entries-list').textContent()).includes('Larger story objective'));
+ assert((await page.locator('#entries-list').textContent()).includes('1.2')); 
  await page.screenshot({path:'/tmp/bishop-entries.png',fullPage:true});
  assert.deepEqual(errors,[]);
  await browser.close();console.log('Bishop/KK source labels, filtering, separate paper summaries, Unknown and no Bishop approval passed');

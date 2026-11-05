@@ -141,6 +141,9 @@ def test_mysql_owned_immutable_entries_delivery_and_retention(monkeypatch):
         repo.persist(uid,'EURUSD',[closed],stamp+2)
         repo.persist(uid,'EURUSD',[row],stamp+3)
         assert repo.rows(uid)[0]['observation']['outcome']=='WIN'
+        changed_terminal=copy.deepcopy(closed);changed_terminal['order']['target_ticks']+=100
+        repo.persist(uid,'EURUSD',[changed_terminal],stamp+4)
+        assert repo.rows(uid)[0]['order']['target_ticks']==100200
     finally:
         for table in ('bishop_app_entries','bishop_app_state','bishop_app_outbox'):Adapter.execute('DELETE FROM '+table+' WHERE user_id=%s',(uid,))
 
@@ -190,3 +193,14 @@ def test_scan_activation_selected_only_disabled_tracking_and_weekend(monkeypatch
     active.append('USDJPY');updates.clear()
     B.scan(now=T+timedelta(hours=2),worker=worker)
     assert any('SUSPENDED' in str(args) for sql,args in updates)
+
+
+def test_public_trade_target_and_larger_objective_stay_separate():
+    row=saved()
+    row['setup']['details']={'target_plan':{'selected_objective_proofs':[{'tf':'H4','objective_kind':'KL'}],
+        'story_destination':{'tf':'W','price_ticks':101000}}}
+    view=B.public_entry(row)
+    assert view['tp2']==1.002 and view['story_target']==1.01
+    assert view['target_sources']==[{'timeframe':'H4','kind':'KL'}]
+    text=B.message(row)
+    assert 'H4 key level' in text and 'Larger story objective (W): 1.01' in text

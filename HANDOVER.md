@@ -33,6 +33,12 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+### Bishop target hierarchy correction (2026-11-05)
+- Local ERL/H4 exit KL qualification now verifies exact published turn/wick evidence, explicit continuation ownership, and preserves ambiguous ownership as unresolved. Larger story objective is shown separately in app/messages. No risk-cap relaxation or invented wick/fixed-R fallback.
+- Forward-only revision watermark prevents historical new alerts; frozen existing paper orders preserved.
+- Targeted engine/bridge and browser checks pass; frozen three-case pilot still does NOT establish teacher acceptance (AUD/NZD zero selected matches, USD two censored candidates). Prefix: 1,754 setups/17 orders/51 events identical. See reports/teacher_validation/2026-11-05-target-fix/REPORT.md.
+
+
 - 2026-11-05: Diagnosed run41945533672: candle cache miss; 2018 completeness gate prevented save; 37-market preparation took ~182s before user run record. Live workflow now saves successful incremental stores immediately after live scan under isolated live-candles-v1 keys, restoring these first and legacy candles-v3 second. Full-history research cache policy unchanged; next run must seed cache before warm-run speed can be measured.
 
 - 2026-11-05: Removed live.yml GitHub :07 schedule on main and Kevin per user request. External cron-job.org should call Render /cron/tick at 2 * * * *. Manual workflow_dispatch retained. External timer settings and historical DB rows cannot be verified from this session. Render currently has only a ten-minute in-memory dispatch cooldown, not durable hourly deduplication. GitHub runner queue latency remains possible.
@@ -181,6 +187,12 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+### Bishop target hierarchy correction (2026-11-05)
+- Local ERL/H4 exit KL qualification now verifies exact published turn/wick evidence, explicit continuation ownership, and preserves ambiguous ownership as unresolved. Larger story objective is shown separately in app/messages. No risk-cap relaxation or invented wick/fixed-R fallback.
+- Forward-only revision watermark prevents historical new alerts; frozen existing paper orders preserved.
+- Targeted engine/bridge and browser checks pass; frozen three-case pilot still does NOT establish teacher acceptance (AUD/NZD zero selected matches, USD two censored candidates). Prefix: 1,754 setups/17 orders/51 events identical. See reports/teacher_validation/2026-11-05-target-fix/REPORT.md.
+
 
 - 2026-11-05: Diagnosed run41945533672: candle cache miss; 2018 completeness gate prevented save; 37-market preparation took ~182s before user run record. Live workflow now saves successful incremental stores immediately after live scan under isolated live-candles-v1 keys, restoring these first and legacy candles-v3 second. Full-history research cache policy unchanged; next run must seed cache before warm-run speed can be measured.
 

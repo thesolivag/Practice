@@ -74,3 +74,22 @@ parity tests; signed API strategy-filter and approval-boundary tests; mobile
 browser labels/filter/results/no-Bishop-approval checks. The bounded deterministic
 35-day FX benchmark completed in 4.797 seconds; both 180-day variants exceeded a
 45-second guard, motivating the documented detection bound.
+
+## Target hierarchy correction (2026-11-05)
+
+The trade target is the nearest qualified setup-local external liquidity or
+source-supported H4 exit key level. A local external range can sit inside the
+larger storyline range. The larger story objective is displayed separately;
+automatic discretionary extensions or partial exits are not implemented.
+
+Range boundaries use close prices, whereas their named turn-leg liquidity uses
+wick prices. Qualification verifies the exact published turn and candle evidence
+instead of requiring these different prices to equal. Continuation ownership is
+recorded explicitly and ambiguous ownership remains unresolved. A close-line
+break alone does not consume an untouched wick target.
+
+The first scan after this revision starts new detections from its activation
+time, preventing retroactive alerts from corrected historical plans. Existing
+frozen paper orders retain their original geometry and execution tracking.
+Teacher-example agreement remains incomplete; see
+`reports/teacher_validation/2026-11-05-target-fix/REPORT.md`.

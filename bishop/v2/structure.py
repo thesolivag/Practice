@@ -98,6 +98,29 @@ def role_at(level: Level, events, as_of):
     return side
 
 
+def _continuation_owners(active, reference_turn_id, at):
+    """Freeze exact existing turn ownership, without inferring a new scope.
+
+    Close-line turn identity is structural evidence; price containment is not.
+    Multiple owners are retained so consumers can hold ambiguous associations.
+    """
+    owners = []
+    for row in active.values():
+        if row.status == "BROKEN" or row.available_at > at:
+            continue
+        roles = tuple(name for name, ident in (
+            ("protected_turn", row.protected_turn_id),
+            ("endpoint_turn", row.endpoint_turn_id),
+            ("candidate_turn", row.details.get("candidate_id")),
+        ) if ident == reference_turn_id)
+        if roles:
+            owners.append({"range_id": row.id, "range_version_id": row.version_id,
+                           "range_available_at": row.available_at,
+                           "reference_turn_id": reference_turn_id,
+                           "reference_roles": roles})
+    return tuple(sorted(owners, key=lambda owner: owner["range_id"]))
+
+
 def analyze(bars, policy=StrategyPolicy(), *, supplemental_liquidity=()) -> StructureResult:
     bars = tuple(bars)
     supplemental = tuple(supplemental_liquidity)
@@ -140,6 +163,9 @@ def analyze(bars, policy=StrategyPolicy(), *, supplemental_liquidity=()) -> Stru
         if ref is not None:
             deps.append(ref.available_at)
         clock = Clock(bar.start if wick else bar.end, bar.end, max(deps), "BAR" if wick else "EXACT")
+        if (scope is None and ref is not None and isinstance(ref, Turn)
+                and kind in ("BREAKOUT", "BOS", "SWEEP_BOS", "EXTERNAL_BREAK")):
+            extra["continuation_range_owners"] = _continuation_owners(active, ref.id, clock.available_at)
         event = Event(id=stable_id("structure_event", policy.id, kind, bar.id,
                                   ref.id if ref else None, scope, tuple(evidence)),
                       kind=kind, instrument=bar.instrument, tf=bar.tf, clock=clock,

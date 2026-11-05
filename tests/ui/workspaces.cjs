@@ -173,7 +173,7 @@ const root=path.resolve(__dirname,'../../webapp/static');
  await page.locator('#chart-tools-panel summary').first().click();
 
  await tool('line');await chartClick({x:100,y:100});
- await tool('long');await chartClick({x:100,y:100});await chartClick({x:100,y:150});assert((await page.locator('#chart-help').textContent()).includes('drawing added'));
+ await tool('long');await chartClick({x:100,y:100});await chartClick({x:100,y:150});assert((await page.locator('#chart-help').textContent()).includes('Risk/reward added.'));
  await page.screenshot({path:'/tmp/replay-mobile.png'});
  await toolButton('#chart-undo');await toolButton('#chart-in');await toolButton('#chart-out');
  // Drawings use chart coordinates, survive zoom, and support editing/moving/deleting with undo.
