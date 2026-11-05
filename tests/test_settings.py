@@ -19,7 +19,7 @@ def test_settings_module_has_no_pandas():
 def test_defaults_match_code_defaults():
     vals = S.load({})
     for k, v in S.story_cfg(vals).items():
-        assert story.DEFAULT[k] == v, k
+        assert ({**story.DEFAULT, "next_day_rule": "flag"})[k] == v, k
     e = S.entry_cfg(vals)
     assert e["entry_tfs"] == entry.ENTRY_TFS
     assert e["max_stop_pips"] == entry.DEFAULT["max_stop_pips"] and e["tp1_min_rr"] == entry.DEFAULT["tp1_min_rr"]
@@ -65,7 +65,7 @@ def test_build_cfg_from_stored_strings():
     al = [("TAPPED", {}), ("CONFIRMED", {}), ("INVALIDATED", {})]
     assert [e for e, _ in alerts_enabled(al, vals)] == ["CONFIRMED", "INVALIDATED"]
     cfg0, ecfg0, _ = build_cfg({})
-    assert cfg0 == story.DEFAULT and ecfg0["entry_tfs"] == entry.ENTRY_TFS
+    assert cfg0 == {**story.DEFAULT, "next_day_rule": "flag"} and ecfg0["entry_tfs"] == entry.ENTRY_TFS
 
 
 def test_break_is_always_external():

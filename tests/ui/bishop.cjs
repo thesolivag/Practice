@@ -34,7 +34,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  assert(!(await page.locator('#entries-list').textContent()).includes('TP1'));
  assert((await page.locator('#entries-list').textContent()).includes('Target context'));
  assert((await page.locator('#entries-list').textContent()).includes('Larger story objective'));
- assert((await page.locator('#entries-list').textContent()).includes('1.2')); 
+ assert((await page.locator('#entries-list').textContent()).includes('1.2'));
  await page.screenshot({path:'/tmp/bishop-entries.png',fullPage:true});
  assert.deepEqual(errors,[]);
  await browser.close();console.log('Bishop/KK source labels, filtering, separate paper summaries, Unknown and no Bishop approval passed');
