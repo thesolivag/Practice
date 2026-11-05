@@ -33,6 +33,8 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+- 2026-11-05: Diagnosed run41945533672: candle cache miss; 2018 completeness gate prevented save; 37-market preparation took ~182s before user run record. Live workflow now saves successful incremental stores immediately after live scan under isolated live-candles-v1 keys, restoring these first and legacy candles-v3 second. Full-history research cache policy unchanged; next run must seed cache before warm-run speed can be measured.
+
 - 2026-11-05: Removed live.yml GitHub :07 schedule on main and Kevin per user request. External cron-job.org should call Render /cron/tick at 2 * * * *. Manual workflow_dispatch retained. External timer settings and historical DB rows cannot be verified from this session. Render currently has only a ten-minute in-memory dispatch cooldown, not durable hourly deduplication. GitHub runner queue latency remains possible.
 
 - 2026-11-05: Render dispatch migration repair: accept GH_REPO or legacy GITHUB_REPO, default to thesolivag/Practice; preserve explicit overrides. Report safe upstream HTTP status and actionable configuration guidance, never response bodies/tokens. Isolated dispatch tests: success plus 401/403/404/422/500 passed; syntax valid. Live token configuration remains unverified.
@@ -179,6 +181,8 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+- 2026-11-05: Diagnosed run41945533672: candle cache miss; 2018 completeness gate prevented save; 37-market preparation took ~182s before user run record. Live workflow now saves successful incremental stores immediately after live scan under isolated live-candles-v1 keys, restoring these first and legacy candles-v3 second. Full-history research cache policy unchanged; next run must seed cache before warm-run speed can be measured.
 
 - 2026-11-05: Integrated existing Bishop confirmation engine as a separate paper strategy alongside KK per owner request; source banners, independent results/filter, explicit user-owned storage/outbox, selected-only bounded runner, source/calendar limits and no Bishop broker approval. Independent review and232 targeted tests passed; browser suites and Docker smoke passed. See BISHOP_INTEGRATION.md. Preserved concurrent remote dispatch/timer repairs; no GitHub schedule restored.
 

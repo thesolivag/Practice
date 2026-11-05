@@ -61,8 +61,10 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: candles-v3-  # cTrader store only (v2 = Dukascopy, never restored)
+          key: live-candles-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            live-candles-v1-
+            candles-v3-
       - name: Apply db/schema.sql
         if: steps.s.outputs.ok == 'true'
         run: |
@@ -93,6 +95,12 @@ jobs:
           PAIRS_IN: ${{ inputs.pairs }}
         run: |
           if [ -n "$PAIRS_IN" ]; then python -m slk.jobs live --pairs "$PAIRS_IN"; else python -m slk.jobs live; fi
+      - name: Save incremental live candle store
+        if: always() && steps.s.outputs.ok == 'true' && steps.runner.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: data/store
+          key: live-candles-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Publish queued replay windows
         if: always() && steps.s.outputs.ok == 'true'
         run: python -u -m slk.replay_cache --publish
@@ -119,17 +127,6 @@ jobs:
         timeout-minutes: 7
         continue-on-error: true
         run: python -m slk.bishop_paper
-      - name: Is the candle store complete?
-        id: chk
-        if: always()
-        run: |
-          if python -m slk.store --check --start 2018 --source ctrader; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
-      - name: Save candle store
-        if: always() && steps.s.outputs.ok == 'true' && steps.chk.outputs.ok == 'true'
-        uses: actions/cache/save@v4
-        with:
-          path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Telegram alert on failure
         if: failure() || cancelled()
         env:
