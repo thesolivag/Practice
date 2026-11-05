@@ -117,3 +117,12 @@ confirmation protection logic. The saved engulfing correction is present. The
 archived breakout review explicitly leaves the earlier-take-low issue unresolved;
 it does not certify every breakout stop. No speculative stop/RR adjustment is
 included in this alignment change.
+
+## Per-source Telegram controls
+Settings → Alerts: alert_bishop_aligned defaults on, alert_bishop_standalone
+defaults off. Both respect master alert_entry. Messages and entry labels identify
+Bishop + KK or Bishop Standalone from frozen bias linkage. Muting suppresses new
+queue creation and drops existing muted queue events at delivery; unmute does
+not replay old notifications. It does not delete trades or alter paper outcomes.
+These switches do not start a second standalone scanner: currently only the
+KK-gated scanner creates new entries. Unknown/CENSORED records remain unresolved.

@@ -196,6 +196,15 @@ def display_status(row):
     return outcome
 
 
+
+def notification_mode(row):
+    return 'aligned' if row.get('web_bias',{}).get('bias',{}).get('id') is not None else 'standalone'
+
+
+def notification_modes(vals):
+    if not vals['alert_entry']:return set()
+    return {mode for mode in ('aligned','standalone') if vals['alert_bishop_'+mode]}
+
 def public_entry(row):
     order=row['order'];obs=row['observation'];tick=Decimal(row['instrument']['tick_size'])
     price=lambda v:float(Decimal(v)*tick) if v is not None else None
@@ -205,7 +214,7 @@ def public_entry(row):
     destination=target_plan.get('story_destination',{})
     return dict(target_sources=[{'timeframe':tf,'kind':kind} for tf,kind in target_sources],
                 story_target=price(destination.get('price_ticks')),story_target_timeframe=destination.get('tf'),
-                id='bishop:'+order['id'],strategy='bishop',strategy_label='Bishop · Paper',pair=order['instrument'],
+                id='bishop:'+order['id'],strategy='bishop',strategy_label='Bishop + KK · Paper' if notification_mode(row)=='aligned' else 'Bishop Standalone · Paper',bishop_mode=notification_mode(row),pair=order['instrument'],
                 tf=order['tf'],side=order['side'],model=order['model'],entry=price(order['entry_ticks']),
                 stop=price(order['stop_ticks']),tp1=None,tp2=price(order['target_ticks']),status=display_status(row),
                 result_r=float(obs['net_r']) if obs.get('net_r') is not None else None,result_r_tp2=None,
@@ -217,7 +226,7 @@ def public_entry(row):
 
 def message(row):
     e=public_entry(row)
-    lines=[f"Bishop · PAPER | {e['pair']} | {e['tf']} | {e['side']} | {e['model']} | {e['status']}",
+    lines=[f"{e['strategy_label'].replace('Paper','PAPER')} | {e['pair']} | {e['tf']} | {e['side']} | {e['model']} | {e['status']}",
            f"Entry {e['entry']}  Stop {e['stop']}  Target {e['tp2']}",
            f"Setup {e['created_at']}"]
     lines.append(e['bias_alignment']+(f" · Bias #{e['bias_id']}" if e['bias_id'] is not None else ''))
@@ -268,13 +277,13 @@ class Repository:
                         if int(cur.fetchone()['n'])>=10:continue
                     created=int(datetime.fromisoformat(row['order']['clock']['available_at']).timestamp())
                     cur.execute('INSERT INTO bishop_app_entries(user_id,signal_id,pair,status,created_at,updated_at,payload) VALUES(%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE status=VALUES(status),updated_at=VALUES(updated_at),payload=VALUES(payload)',(int(uid),ident,pair,status,created,stamp,encode(row)))
-                    if alerts and (not found or found['status']!=status):
+                    if (alerts(row) if callable(alerts) else alerts) and (not found or found['status']!=status):
                         event=ident+':'+status
                         cur.execute('INSERT IGNORE INTO bishop_app_outbox(user_id,event_id,payload) VALUES(%s,%s,%s)',(int(uid),event,message(row)))
             conn.commit()
         except Exception:conn.rollback();raise
         finally:conn.close()
-    def deliver(self,uid,sender,stamp,deadline=None):
+    def deliver(self,uid,sender,stamp,deadline=None,allowed_modes=None):
         import secrets
         conn=self.db.connect()
         try:
@@ -284,6 +293,14 @@ class Repository:
                 with conn.cursor() as cur:
                     won=cur.execute('UPDATE bishop_app_outbox SET lease_token=%s,lease_until=%s WHERE user_id=%s AND event_id=%s AND sent_at IS NULL AND lease_until<=%s',(token,stamp+600,int(uid),row['event_id'],stamp))
                 if not won:continue
+                if allowed_modes is not None:
+                    signal_id=row['event_id'].rsplit(':',1)[0]
+                    records=self.db.query('SELECT payload FROM bishop_app_entries WHERE user_id=%s AND signal_id=%s',(int(uid),signal_id))
+                    permitted=bool(records) and notification_mode(json.loads(records[0]['payload'])) in allowed_modes
+                    if not permitted:
+                        # Drop muted queued events; unmuting must not replay old popups.
+                        self.db.execute('DELETE FROM bishop_app_outbox WHERE user_id=%s AND event_id=%s AND sent_at IS NULL AND lease_token=%s',(int(uid),row['event_id'],token))
+                        continue
                 try:ok=sender(row['payload'],chat=int(uid))
                 except Exception:ok=False
                 if ok:
@@ -344,7 +361,7 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
                     proc=subprocess.run([sys.executable,'-m','slk.bishop_paper','--compute'],input=encode(payload),text=True,capture_output=True,timeout=timeout,check=True)
                     result=json.loads(proc.stdout)
                 if 'error' in result:raise ValueError(result['error'])
-                repo.persist(uid,pair,result['entries'],stamp,alerts=vals['alert_entry'])
+                repo.persist(uid,pair,result['entries'],stamp,alerts=lambda row:notification_mode(row) in notification_modes(vals))
                 repo.note(uid,pair,stamp,result['note']);done+=1
             except subprocess.TimeoutExpired:
                 repo.note(uid,pair,stamp,'Deferred: Bishop computation reached its time budget');deferred+=1
@@ -353,7 +370,9 @@ def scan(*,budget=360,timeout=15,now=None,worker=None):
                 # contain broker library output and is never echoed.
                 note=str(exc) if isinstance(exc,ValueError) else type(exc).__name__
                 repo.note(uid,pair,stamp,('Bishop unavailable: '+note)[:200]);errors+=1
-        if vals['alert_entry']:repo.deliver(uid,send_telegram,stamp,deadline=deadline)
+        with tenancy.scope(uid):
+            delivery_vals=settings.load(db.get_settings())
+        repo.deliver(uid,send_telegram,stamp,deadline=deadline,allowed_modes=notification_modes(delivery_vals))
         db.set_setting('bishop_scan_user_cursor',str(uid))
     db.execute("DELETE FROM bishop_app_outbox WHERE sent_at IS NOT NULL AND sent_at<%s",(stamp-30*86400,))
     db.execute("DELETE FROM bishop_app_entries WHERE status IN ('WIN','LOSS','BREAK_EVEN','EXPIRED','CANCELLED','REPLACED') AND updated_at<%s",(stamp-30*86400,))

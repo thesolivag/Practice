@@ -40,7 +40,7 @@ def test_frozen_order_replays_to_real_paper_win_without_new_setups(monkeypatch):
     assert view['strategy']=='bishop' and view['paper_only'] and view['id'].startswith('bishop:')
     assert view['tp1'] is None and view['tp2']==1.002 and view['result_r']==2
     assert view['filled_at'] and view['closed_at']
-    assert 'Bishop · PAPER' in B.message(row) and 'no broker order' in B.message(row)
+    assert 'Bishop Standalone · PAPER' in B.message(row) and 'no broker order' in B.message(row)
 
 
 def test_revised_execution_history_is_unknown_not_new_fill(monkeypatch):
@@ -146,6 +146,14 @@ def test_mysql_owned_immutable_entries_delivery_and_retention(monkeypatch):
         changed_terminal=copy.deepcopy(closed);changed_terminal['order']['target_ticks']+=100
         repo.persist(uid,'EURUSD',[changed_terminal],stamp+4)
         assert repo.rows(uid)[0]['order']['target_ticks']==100200
+        # A queued standalone result is suppressed after muting, without deleting its trade.
+        repo.deliver(uid,lambda *a,**kw:pytest.fail('muted standalone sent'),stamp+5,allowed_modes={'aligned'})
+        assert not Adapter.query('SELECT event_id FROM bishop_app_outbox WHERE user_id=%s AND sent_at IS NULL',(uid,))
+        assert repo.rows(uid)[0]['observation']['outcome']=='WIN'
+        aligned=copy.deepcopy(saved());aligned['order']['id']='aligned-order';aligned['web_bias']={'bias':{'id':7}}
+        repo.persist(uid,'EURUSD',[aligned],stamp+6,alerts=lambda r:B.notification_mode(r)=='aligned')
+        repo.deliver(uid,lambda text,chat:sent.append((text,chat)) or True,stamp+7,allowed_modes={'aligned'})
+        assert len(sent)==2 and 'Bishop + KK' in sent[-1][0]
     finally:
         for table in ('bishop_app_entries','bishop_app_state','bishop_app_outbox'):Adapter.execute('DELETE FROM '+table+' WHERE user_id=%s',(uid,))
 
@@ -176,7 +184,7 @@ def test_scan_activation_selected_only_disabled_tracking_and_weekend(monkeypatch
         def rows(self,uid,pair=None,active=False):return [saved()]
         def note(self,uid,pair,stamp,note):events.append(('note',uid,pair,note))
         def persist(self,uid,pair,rows,stamp,alerts=True):events.append(('persist',uid,pair))
-        def deliver(self,*a):pytest.fail('alerts disabled')
+        def deliver(self,*a,**kw):assert kw['allowed_modes']==set()
     monkeypatch.setattr(B,'Repository',Repo)
     worker_calls=[]
     def worker(payload):worker_calls.append(payload);return {'entries':[],'note':'computed'}
@@ -216,3 +224,15 @@ def test_legacy_pending_is_cancelled_without_rewriting_filled_trade(monkeypatch)
     assert row['observation']['outcome']=='CANCELLED'
     assert row['order']==saved()['order']
     assert B.public_entry(row)['bias_alignment'].startswith('Legacy:')
+
+
+def test_independent_notification_switches_and_master():
+    from slk import settings
+    vals=settings.load({})
+    assert B.notification_modes(vals)=={'aligned'}
+    assert B.notification_mode(saved())=='standalone'
+    aligned={**saved(),'web_bias':{'bias':{'id':1}}}
+    assert B.notification_mode(aligned)=='aligned'
+    assert B.public_entry(aligned)['strategy_label']=='Bishop + KK · Paper'
+    assert B.notification_modes(settings.load({'alert_bishop_aligned':'off','alert_bishop_standalone':'on'}))=={'standalone'}
+    assert B.notification_modes(settings.load({'alert_entry':'off','alert_bishop_standalone':'on'}))==set()

@@ -166,6 +166,8 @@ SCHEMA = [
        "How much each bias message shows. short = sections with the key facts (continuation breaks as a count + "
        "the latest one). full = also every continuation break and each candle's open and close time.",
        choices=["short", "full"]),
+    _s("alert_bishop_aligned", "bool", "on", "Alerts", "Telegram entry and result notifications for Bishop entries linked to confirmed KK web-app bias. The master entry alert switch must also be on. Muting does not stop paper tracking."),
+    _s("alert_bishop_standalone", "bool", "off", "Alerts", "Telegram entry and result notifications for original standalone Bishop records without KK web-bias linkage. Off by default. Muting does not stop paper tracking or hide records; this switch does not start a separate standalone scanner."),
     _s("alert_entry", "bool", "on", "Alerts", "Telegram on new / triggered entries."),
     _s("early_breakout_alert", "bool", "off", "Alerts",
        "Extra early message when a TAPPED story's lower-TF candle (H4 for a daily story) closes beyond point B "

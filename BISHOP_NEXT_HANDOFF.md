@@ -1,3 +1,8 @@
+## Latest completed notification change
+Owner explicitly requested notification switches first. Added alert_bishop_aligned (on) and alert_bishop_standalone (off) in Settings → Alerts, both under master alert_entry. Source mode is frozen web_bias linkage versus original standalone rows. Persist and delivery enforce per-mode settings; muted queued events are dropped instead of replayed on unmute. Entries/messages identify Bishop + KK versus Bishop Standalone. Existing records remain; Unknown/CENSORED stays unresolved in current code, not automatically a future win/loss.
+
+The separate concurrent standalone scanner is STILL NOT IMPLEMENTED. Only the KK-gated scanner currently creates new Bishop orders. The owner’s latest request prioritized notification switches, then further comparison work. Do not describe a second live environment as running. Original baseline remains archived unchanged; stop/target fixes remain outstanding.
+
 # Bishop continuation handoff — 2026-11-05
 
 ## Owner's latest direction
@@ -20,7 +25,7 @@ Private audit local files (may not persist): /workspace/scratch/bishop-audit/rec
 1. Bishop standalone baseline: independent mode, paper only; optional notifications default off for requested observation mode.
 2. Bishop following KK: current web-bias gate, independently controlled notifications.
 3. Corrected SL/target experiment separate from unchanged baseline until reviewed.
-Use explicit mode/version namespaces for order IDs, DB rows, outbox, activation cursors, summaries, API/UI filters and settings. Preserve user isolation. Do not reuse baseline order IDs across modes or combine their win/loss/R. Avoid duplicate Telegram alerts. Existing alert_entry is shared: a per-mode mute setting is NOT implemented yet. No extra Render worker deployment authorized by this discussion alone.
+Use explicit mode/version namespaces for order IDs, DB rows, outbox, activation cursors, summaries, API/UI filters and settings. Preserve user isolation. Do not reuse baseline order IDs across modes or combine their win/loss/R. Avoid duplicate Telegram alerts. Existing alert_entry is shared: per-mode mute settings ARE now implemented; a separate standalone scanner is not. No extra Render worker deployment authorized by this discussion alone.
 
 ## Performance interpretation and outstanding work
 Owner-reported35wins/8hours not independently aggregated yet. Actual recent USDCAD wins verified, but whole account performance not audited. Report paper R separately from account percentage; percent needs explicit position-risk/equity assumptions. Include fees/spread/slippage, censored/unknown/pending and open exposure. Multiple simultaneous models can represent the same opportunity;35rows are not necessarily35independent bets. Preserve frozen historical results, distinguish baseline versus corrected versions; inspect losses/drawdown over a longer forward sample without promising profitability.
