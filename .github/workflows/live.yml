@@ -1,11 +1,11 @@
+# Hourly trigger: cron-job.org at 2 * * * * via Render /cron/tick.
+# No GitHub schedule: avoid delayed/duplicate scheduled scans.
 name: SLK live bias
 # Hourly bias runner (no VPS). Needs repo secrets DATABASE_URL, TELEGRAM_BOT_TOKEN (chat id defaults to the owner, 1410229777)
 # (optional DATABASE_CA = Aiven CA certificate, to verify the server). Without secrets it exits green.
 # Candles: IC Markets cTrader (CTRADER_* secrets, one connection, last few days per pair); Dukascopy when cTrader
 # fails or its secrets are missing (a ::warning:: annotation says so).
 on:
-  schedule:
-    - cron: "7 * * * *"   # hourly incl continuous Deriv markets; best effort: GitHub may start some minutes late
   workflow_dispatch:
     inputs:
       pairs: {description: "Comma list, empty = settings 'pairs' or all 28", default: ""}
