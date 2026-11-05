@@ -200,6 +200,8 @@ problems fixed by this alignment-only change.
 
 ## Log
 
+- Latest owner direction and full continuation state: read BISHOP_NEXT_HANDOFF.md first. Exact standalone baseline preserved on archive/bishop-standalone-047f112. Separate runtime and per-mode Telegram controls remain proposed, pending owner acceptance of the direction explanation; not implemented.
+
 - Owner-authorized read-only USDCAD audit completed through encrypted Actions output. Production evidence confirms breakout/nonadjacent OC routes can inherit a long reaction episode as stop protection; adjacent engulfing records have their own pair. No private trade data or credentials published. Temporary audit workflow/key/script removed after successful read. Alignment deployment a870f068 and database/browser CI verified; SL and target correction remain outstanding.
 
 ### Confirmed web bias → Bishop H4 entry gate
