@@ -33,6 +33,9 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+- 2026-11-05: Owner clarified initial trade target can be nearer local liquidity or a contextual KL before the larger ERL, with larger storyline objective separate. Primary-source recheck confirms nearest ERL, distinct H4 KL exit and nearby H1 ERL routes. Current nearest_erl is not global-only; sponsor/range qualification and absent production KL links block some targets. See reports/teacher_validation/2026-11-05/TARGET_CLARIFICATION.md for source passages and correction acceptance contract. No live rules/settings changed.
+
+
 - 2026-11-05: User approved bounded teacher-example validation pilot. Replayed frozen AUDCHF/NZDCHF/USDJPY cases with deployed35day bishop_confirmation profile; all3 diagnostics completed,0 eligible orders in source windows. AUDCHF40 H1 BUY plans andUSDJPY342 H3 BUY plans all target_unresolved/qualified_first_external_objective_unresolved; NZDCHF0 matching H2 BUY plans. No teacher acceptance awarded; FOREXCOM-to-IC candle alignment and exact source clocks remain unresolved. Independent source/blocker review completed; AUDCHF loss preserved. One fixed-history causal-prefix check matched1754 setup records exactly. See reports/teacher_validation/2026-11-05/REPORT.md. Validation report only; live strategy/settings unchanged.
 
 
@@ -182,6 +185,9 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+- 2026-11-05: Owner clarified initial trade target can be nearer local liquidity or a contextual KL before the larger ERL, with larger storyline objective separate. Primary-source recheck confirms nearest ERL, distinct H4 KL exit and nearby H1 ERL routes. Current nearest_erl is not global-only; sponsor/range qualification and absent production KL links block some targets. See reports/teacher_validation/2026-11-05/TARGET_CLARIFICATION.md for source passages and correction acceptance contract. No live rules/settings changed.
+
 
 - 2026-11-05: User approved bounded teacher-example validation pilot. Replayed frozen AUDCHF/NZDCHF/USDJPY cases with deployed35day bishop_confirmation profile; all3 diagnostics completed,0 eligible orders in source windows. AUDCHF40 H1 BUY plans andUSDJPY342 H3 BUY plans all target_unresolved/qualified_first_external_objective_unresolved; NZDCHF0 matching H2 BUY plans. No teacher acceptance awarded; FOREXCOM-to-IC candle alignment and exact source clocks remain unresolved. Independent source/blocker review completed; AUDCHF loss preserved. One fixed-history causal-prefix check matched1754 setup records exactly. See reports/teacher_validation/2026-11-05/REPORT.md. Validation report only; live strategy/settings unchanged.
 
