@@ -29,3 +29,7 @@ Integration changes to vendored source:
 - `v2/engine.py`: optional entry_gate, evaluated before order selection. The
   app supplies its per-user confirmed web-bias/H4 lineage gate; offline callers
   retain existing behavior when no gate is supplied.
+
+- `v2/entries.py`: evidence-only study_pattern_bar_ids and policy label. Original
+  stops, targets, selection and execution unchanged; a separate slk/bishop_rr.py
+  paper experiment consumes the evidence.

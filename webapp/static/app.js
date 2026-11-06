@@ -207,7 +207,7 @@
   async function loadEntries() {
     const generation=++entriesGeneration;
     const q = new URLSearchParams({ status: $("#f-estatus").value, strategy: $("#f-estrategy").value });
-    const [rows, summary] = await Promise.all([api(`/api/entries?${q}`), api("/api/entries/summary").catch(() => null)]);
+    const [rows, summary, study] = await Promise.all([api(`/api/entries?${q}`), api("/api/entries/summary").catch(() => null), api("/api/bishop/rr-study").catch(() => null)]);
     if (generation!==entriesGeneration)return;
     const bishopStatus=await api('/api/bishop/status').catch(()=>null);
     if (generation!==entriesGeneration)return;
@@ -216,6 +216,11 @@
       $("#bishop-status").innerHTML=`<strong>Bishop · Paper</strong><p>${esc(bishopStatus.note || '')}</p><details><summary>${markets.length} markets registered · scan details</summary>${markets.length ? markets.map(r=>`<p>${esc(marketLabel(r.pair))}: ${esc(r.note || 'Waiting for the next scan')}</p>`).join('') : '<p>Activates on the next hourly scan when enabled in Settings → Entry rules.</p>'}</details>`;
     } else $("#bishop-status").textContent='Bishop paper scan status is temporarily unavailable.';
     if (summary) renderSummary(summary); else $("#entries-summary").innerHTML = "";
+    if (study?.available && study.summary) {
+      const z=study.summary;
+      $("#entries-summary").innerHTML+=`<div class="card"><strong>Bishop study · 1R / 2R / 3R</strong><p>${esc(z.cohort)} enrolled (full history) · ${esc(z.stop_unresolved)} stops unresolved · ${esc(z.paired_closed)} fully resolved across all three exits</p><div style="overflow:auto"><table><thead><tr><th>Exit</th><th>Wins / losses</th><th>Open / unknown</th><th>Total R</th><th>Paired R</th><th>Closed drawdown</th></tr></thead><tbody>${Object.entries(z.variants).map(([k,v])=>`<tr><td>${esc(k)}R</td><td>${esc(v.wins)} / ${esc(v.losses)}</td><td>${esc(v.open)} / ${esc(v.unknown)}</td><td>${esc(v.total_r)}</td><td>${esc(v.paired_total_r)}</td><td>${esc(v.closed_drawdown_r)}R</td></tr>`).join("")}</tbody></table></div><p class="muted">Same entry and study stop; three independent full exits, no partial exits. Paired R compares only entries resolved at all three targets. Closed drawdown excludes floating losses. ${esc(z.note)}</p><details><summary>Latest 50 study entries and logical stops</summary>${study.entries.map(r=>`<p><b>${esc(r.pair)} ${esc(r.tf)} ${esc(r.side)}</b> · ${esc(dt(r.created_at))}<br>Entry ${esc(num(r.entry))} · Study SL ${esc(num(r.stop))}<br>${Object.entries(r.variants).map(([k,v])=>`${esc(k)}R TP ${esc(num(v.target))}: ${esc(v.outcome)}`).join(" · ")}${r.reason?`<br>${esc(r.reason)}`:""}</p>`).join("") || "Waiting for new entries after activation."}</details></div>`;
+    }
+
     const canApprove = settings.auto_trade === "confirm" && settings.kill_switch !== "on";
     $("#entries-list").innerHTML = rows.length ? rows.map((r) => `
       <div class="card">

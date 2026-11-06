@@ -690,6 +690,7 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
         if ((not policy.allow_counterweekly and selection_relation=='COUNTER_WEEKLY')
                 or (initially_blocked and entry_relation!='ALIGNED')):
             return
+        study_pattern=tuple(confirmation_bars or protection)
         # H4 first-take/reaction history qualifies the entry. An explicit
         # adjacent engulfing has its own invalidation candles: never inherit
         # an earlier engulfing's extreme just because the H4 context survives.
@@ -727,7 +728,8 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
         risk=risk_cache[risk_key]
         sid=stable_id('setup',story.id,tf,model,level.id,tuple(causes),policy.id)
         clock=Clock(at,at,at)
-        details=dict(risk.details,entry_weekly_relation=entry_relation,entry_weekly_context=weekly,
+        details=dict(risk.details,study_pattern_bar_ids=tuple(b.id for b in study_pattern),
+                     study_stop_policy='current_confirmation_episode_v1',entry_weekly_relation=entry_relation,entry_weekly_context=weekly,
                      confirmation_protection_bar_ids=tuple(b.id for b in confirmation_bars),
                      confirmation_protection_policy='current_adjacent_engulf_pair_v1' if confirmation_bars else None,
                      protection_episode_bar_ids=tuple(b.id for b in protection_episode),

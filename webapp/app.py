@@ -387,6 +387,24 @@ def bishop_status(user=Depends(require_user)):
         'note':'Bishop confirmation profile with bounded 35-day context (older monthly/weekly context may be unavailable). Primary cTrader FX/continuous Deriv only; H1/H2/H3/H4. Starts with new setups after activation. Zero-cost paper estimates assume submission at setup close; hourly delivery may be later. Ambiguous outcomes stay Unknown.'}
 
 
+@app.get('/api/bishop/rr-study')
+def bishop_rr_study(user=Depends(require_user)):
+    from slk.bishop_rr import report
+    try:
+        study_summary,data=_db(report,db,int(user['id']))
+    except Exception:
+        return {'available':False,'note':'Study is waiting for its first scanner initialization.'}
+    entries=[]
+    for r in data[:50]:
+        tick=float(r['instrument']['tick_size']);o=r['source_order'];proof=r['stop_proof']
+        entries.append({'pair':r['pair'],'tf':r['tf'],'side':r['side'],'model':r['model'],'created_at':r['created_at'],
+            'entry':o['entry_ticks']*tick,'stop':proof.get('stop_ticks',0)*tick if proof.get('stop_ticks') is not None else None,
+            'status':r['status'],'reason':proof.get('reason') or r.get('reason'),
+            'variants':{k:{'target':v['order']['target_ticks']*tick,'outcome':'UNKNOWN' if r['status']=='UNKNOWN' or v['observation']['outcome']=='CENSORED' else v['observation']['outcome'],
+                'r':None if r['status']=='UNKNOWN' else v['observation'].get('net_r')} for k,v in r['variants'].items()}})
+    return {'available':True,'summary':study_summary,'entries':entries,'scope':'Full enrolled history; details show the latest 50. No Telegram notifications.'}
+
+
 @app.get("/api/entries")
 def entries(status: str = "", limit: int = 100, strategy: str = "", user=Depends(require_user)):
     if strategy not in ("", "kk", "bishop"):raise HTTPException(422,"Unknown entry strategy")

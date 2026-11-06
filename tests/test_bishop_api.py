@@ -35,3 +35,16 @@ def test_entry_strategy_filters_and_bishop_summary_are_separate(client,monkeypat
     assert client.post('/api/entries/bishop:order-test/approve',headers=headers).status_code==422
     status=client.get('/api/bishop/status',headers=headers).json()
     assert status['paper_only'] and status['entry_timeframes']==['H4','H3','H2','H1']
+
+
+def test_rr_endpoint_is_private_and_user_scoped(client,monkeypatch):
+    calls=[]
+    def query(sql,args=None):
+        calls.append((sql,args));assert 'bishop_rr_studies' in sql and args==(OWNER,)
+        return []
+    monkeypatch.setattr(app.db,'query',query)
+    assert client.get('/api/bishop/rr-study').status_code==403
+    response=client.get('/api/bishop/rr-study',headers={'X-Telegram-Init-Data':make_init_data()})
+    assert response.status_code==200 and response.json()['summary']['cohort']==0
+    assert set(response.json()['summary']['variants'])=={'1','2','3'}
+    assert calls

@@ -33,6 +33,15 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+### Separate Bishop RR study (2026-11-06)
+Built isolated1R/2R/3R full-exit study with current-confirmation episode protection;
+original strategy geometry/selection preserved. New evidence-only fields in
+entries.py; versioned per-user study table and private UI reporting. No Telegram
+messages. Fresh activation, selected markets, same entry across variants, explicit
+zero-cost estimates. Missing stop evidence stays unresolved. Read BISHOP_RR_STUDY.md
+and BISHOP_NEXT_HANDOFF.md for source limits, tests, deployment and follow-up.
+
+
 ### Confirmed web bias → Bishop H4 entry gate
 User clarified Bishop entries must follow confirmed biases already displayed in
 the web app. Added per-user latest-row, preference, direction and causal H4
@@ -199,6 +208,14 @@ problems fixed by this alignment-only change.
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+### Separate Bishop RR study (2026-11-06)
+Built isolated1R/2R/3R full-exit study with current-confirmation episode protection;
+original strategy geometry/selection preserved. New evidence-only fields in
+entries.py; versioned per-user study table and private UI reporting. No Telegram
+messages. Fresh activation, selected markets, same entry across variants, explicit
+zero-cost estimates. Missing stop evidence stays unresolved. Read BISHOP_RR_STUDY.md
+and BISHOP_NEXT_HANDOFF.md for source limits, tests, deployment and follow-up.
 
 - Added per-mode Bishop Telegram switches: aligned on, standalone off, both respect master alert_entry. Delivery rechecks mode settings and drops muted queued notifications. Source labels distinguish aligned versus standalone records. Separate standalone runtime is not yet built; preserved archive unchanged. Updated BISHOP_NEXT_HANDOFF.md; SL/target corrections remain outstanding. Unknown records are frozen unresolved outcomes, not pending wins.
 

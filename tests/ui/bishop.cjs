@@ -14,6 +14,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
   if(url.pathname==='/api/auth/session')return reply({user:{id:42},csrf:'test',auth_method:'browser'});
   if(url.pathname==='/api/settings')return reply({auto_trade:'confirm',kill_switch:'off',pairs:'EURUSD,GBPUSD'});
   if(url.pathname==='/api/settings/schema')return reply({groups:[],settings:[]});
+  if(url.pathname==='/api/bishop/rr-study')return reply({available:true,summary:{cohort:1,stop_unresolved:0,paired_closed:1,note:'Zero-cost study',variants:{'1':{wins:1,losses:0,open:0,unknown:0,total_r:1,paired_total_r:1,closed_drawdown_r:0},'2':{wins:0,losses:1,open:0,unknown:0,total_r:-1,paired_total_r:-1,closed_drawdown_r:1},'3':{wins:0,losses:1,open:0,unknown:0,total_r:-1,paired_total_r:-1,closed_drawdown_r:1}}},entries:[]});
   if(url.pathname==='/api/entries')return reply(entries.filter(e=>!url.searchParams.get('strategy')||e.strategy===url.searchParams.get('strategy')));
   if(url.pathname==='/api/entries/summary')return reply({closed:0,wins:0,losses:0,total_r:0,open:1,by_model:{},bishop:{closed:0,wins:0,losses:0,total_r:0,open:1,unknown:1,cost_note:'Zero-cost paper estimates',scope:'Most recent 500 Bishop signals'}});
   if(url.pathname==='/api/bishop/status')return reply({note:'Paper only · H4/H3/H2/H1 · Zero-cost estimates',markets:[{pair:'EURUSD',note:'COMPUTED_UNVALIDATED'},{pair:'US30',note:'Calendar unavailable'}]});
@@ -26,6 +27,8 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  assert.equal(await page.locator('#entries-list .approve').count(),1); // KK only
  assert.equal(await page.locator('#entries-list .card').filter({hasText:'Bishop · Paper'}).locator('.approve').count(),0);
  assert((await page.locator('#entries-summary').textContent()).includes('1 Unknown'));
+ assert((await page.locator('#entries-summary').textContent()).includes('Bishop study · 1R / 2R / 3R'));
+ assert((await page.locator('#entries-summary').textContent()).includes('Paired R'));
  await page.locator('#f-estrategy').selectOption('bishop');
  await page.waitForFunction(()=>document.querySelectorAll('#entries-list .card').length===2);
  assert.equal(await page.locator('#entries-list .approve').count(),0);

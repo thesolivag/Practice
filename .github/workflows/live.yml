@@ -127,6 +127,11 @@ jobs:
         timeout-minutes: 7
         continue-on-error: true
         run: python -m slk.bishop_paper
+      - name: Bishop 1R 2R 3R paper study
+        if: steps.s.outputs.ok == 'true' && steps.runner.outcome == 'success'
+        timeout-minutes: 2
+        continue-on-error: true
+        run: python -m slk.bishop_rr
       - name: Telegram alert on failure
         if: failure() || cancelled()
         env:
