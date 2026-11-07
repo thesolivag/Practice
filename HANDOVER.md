@@ -34,7 +34,7 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 ## Status (2026-10-27)
 
 ### External hourly weekend filter (2026-11-07)
-User authorized deployment after Saturday FX download failures. External workflow_dispatch tick=1 now reaches SLK_HOURLY_TICK, and the existing DST-aware weekend filter runs before the shared download union is built. Continuous Deriv markets remain selected; explicit manual tick=0 stays unchanged. Main and Kevin workflow definitions need the same environment field. Existing Friday close-finalization window is preserved. Backtest workflow and frozen research code are untouched. Deployment verification follows.
+User authorized deployment after Saturday FX download failures. External workflow_dispatch tick=1 now reaches SLK_HOURLY_TICK, and the existing DST-aware weekend filter runs before the shared download union is built. Continuous Deriv markets remain selected; explicit manual tick=0 stays unchanged. Main and Kevin workflow definitions need the same environment field. Existing Friday close-finalization window is preserved. Backtest workflow and frozen research code are untouched. Deployed Kevin86d0791750935779e72709acf7e8aa35d52a9743 and mainf28f9fdc1d7ca144b9588ed02c71c667b4abb550.21 focused tests passed; CI42401902798 passed477 backend tests and browser checks. First live bias step in run42401902755 succeeded at18:35UTC; remaining Bishop stages still running, exact filtered-market count awaits completed job logs. Year backtest42371042901 continues independently.
 
 
 ### Bishop 2026 causal comparison (2026-11-07)
@@ -222,7 +222,7 @@ problems fixed by this alignment-only change.
 ## Log
 
 ### External hourly weekend filter (2026-11-07)
-User authorized deployment after Saturday FX download failures. External workflow_dispatch tick=1 now reaches SLK_HOURLY_TICK, and the existing DST-aware weekend filter runs before the shared download union is built. Continuous Deriv markets remain selected; explicit manual tick=0 stays unchanged. Main and Kevin workflow definitions need the same environment field. Existing Friday close-finalization window is preserved. Backtest workflow and frozen research code are untouched. Deployment verification follows.
+User authorized deployment after Saturday FX download failures. External workflow_dispatch tick=1 now reaches SLK_HOURLY_TICK, and the existing DST-aware weekend filter runs before the shared download union is built. Continuous Deriv markets remain selected; explicit manual tick=0 stays unchanged. Main and Kevin workflow definitions need the same environment field. Existing Friday close-finalization window is preserved. Backtest workflow and frozen research code are untouched. Deployed Kevin86d0791750935779e72709acf7e8aa35d52a9743 and mainf28f9fdc1d7ca144b9588ed02c71c667b4abb550.21 focused tests passed; CI42401902798 passed477 backend tests and browser checks. First live bias step in run42401902755 succeeded at18:35UTC; remaining Bishop stages still running, exact filtered-market count awaits completed job logs. Year backtest42371042901 continues independently.
 
 
 ### Bishop 2026 causal comparison (2026-11-07)
