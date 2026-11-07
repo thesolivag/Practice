@@ -131,12 +131,39 @@ def pilot(root,out):
         raise RuntimeError('Measured replay exceeds bounded job budget; subdivide segments before launching full run')
 
 
+
+def reuse_snapshot(root):
+    """Reuse the already acquired, hashed snapshot; no broker or DB calls."""
+    from bishop.v2.types import utc
+    root=Path(root);m=Y.load(root/'manifest.json');end=utc(m['end'])
+    for pair in m['pairs']:
+        actual=hashlib.sha256((root/(pair+'.json.gz')).read_bytes()).hexdigest()
+        if actual!=m['markets'][pair]['sha256']:raise ValueError('Frozen feed checksum mismatch')
+    m['source_snapshot_commit']=m['commit'];m['commit']=os.environ['GITHUB_SHA']
+    m['source_snapshot_run']=42354575813
+    m['segment_ends']=[min(end,datetime(2026+(month==13),1 if month==13 else month,1,tzinfo=timezone.utc)).isoformat() for month in range(2,14)]
+    Y.dump(root/'manifest.json',m)
+    with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('pairs='+json.dumps(m['pairs'])+'\n')
+
+
+def reuse_pilot(previous,out):
+    """Keep the passed causal audit; change only the bounded section length."""
+    p=Y.load(Path(previous)/'pilot.json')
+    if p['status']!='PASS' or not p['physical_prefix_equal'] or not p['poisoned_future_equal'] or p['hours']<24:
+        raise ValueError('Prior causal pilot did not pass')
+    p['estimated_31day_segment_minutes']=p['seconds_per_hour']*24*31/60
+    p['source_run']=42354575813;p['segmentation']='MONTHLY_CHECKPOINTS'
+    Y.dump(Path(out)/'pilot.json',p);print(json.dumps(p),flush=True)
+    if p['estimated_31day_segment_minutes']>300:raise RuntimeError('Even monthly sections exceed bounded job budget')
+
+
 def segment(root,pair,number,out,resume=None):
     root=Path(root);m=Y.load(root/'manifest.json');feed=Y.feed_file(root/(pair+'.json.gz'))
     state=Y.thaw_state(Y.load(resume)) if resume else Y.new_state()
     end=m['segment_ends'][number-1];out=Path(out);out.mkdir(parents=True,exist_ok=True)
     try:
         state=Y.replay(feed,Y.load(root/'config.json'),m['start'],end,state,checkpoint=out/'checkpoint.json.gz')
+        Y.dump(out/'checkpoint.json.gz',state)
         Y.dump(out/'summary.json',Y.report(state,feed,'COMPLETED_SEGMENT',m['start'],end))
     except Exception as exc:
         Y.dump(out/'checkpoint.json.gz',state)
@@ -147,7 +174,7 @@ def segment(root,pair,number,out,resume=None):
 def collect(inputs,results,out):
     from bishop.v2.types import utc
     inputs=Path(inputs);results=Path(results);out=Path(out);out.mkdir(parents=True,exist_ok=True)
-    m=Y.load(inputs/'manifest.json');summaries=[];all_rows=[];completed=[];incomplete=[]
+    m=Y.load(inputs/'manifest.json');config=Y.load(inputs/'config.json');summaries=[];all_rows=[];completed=[];incomplete=[];matched_rows=[];matched_markets=[]
     for pair in m['pairs']:
         files=list(results.glob(f'year-*-{pair}/checkpoint.json.gz'))
         if not files:incomplete.append(pair);continue
@@ -157,18 +184,28 @@ def collect(inputs,results,out):
         required=max(b.available_at for b in feed['bars'] if b.available_at<=utc(m['end']))
         done=bool(state['audit']) and utc(state['audit'][-1]['at'])==required
         (completed if done else incomplete).append(pair)
-        s=Y.report(state,feed,'COMPLETED' if done else 'INCOMPLETE',m['start'],m['end']);summaries.append(s)
+        s=Y.report(state,feed,'COMPLETED' if done else 'INCOMPLETE',m['start'],m['end'])
+        eligible=m['markets'][pair]['kk_full_warmup'] and pair not in config['avoid_pairs']
+        s['kk_comparison_availability']='AVAILABLE' if eligible else 'UNAVAILABLE_FULL_WARMUP_OR_AVOIDED_MARKET'
+        if not eligible:
+            for mode in s['models']:
+                if mode!='standalone':s['models'][mode]['availability']='UNAVAILABLE_FULL_WARMUP_OR_AVOIDED_MARKET'
+        summaries.append(s)
         # Incomplete markets are visibly excluded from combined totals.
-        if done:all_rows.extend(state['book'].values())
-    modes=sorted({r['mode'] for r in all_rows})
-    combined={mode:Y.summarize([r for r in all_rows if r['mode']==mode]) for mode in modes}
+        if done:
+            all_rows.extend(state['book'].values())
+            if eligible:matched_rows.extend(state['book'].values());matched_markets.append(pair)
+    modes=sorted({r['mode'] for r in all_rows} | {'standalone','kk_aligned','kk_aligned_1R','kk_aligned_2R','kk_aligned_3R','recognition_1R','recognition_2R','recognition_3R'})
+    combined={mode:Y.summarize([r for r in matched_rows if r['mode']==mode]) for mode in modes}
+    all_available={mode:Y.summarize([r for r in all_rows if r['mode']==mode]) for mode in modes}
     excluded={p:v for p,v in m['markets'].items() if v['status']!='READY'}
     report={'status':'COMPLETE' if not incomplete and not excluded else 'PARTIAL','completed':completed,
-        'incomplete':incomplete,'excluded':excluded,'data_gaps':{p:v['missing_ytd_hours'] for p,v in m['markets'].items() if v.get('missing_ytd_hours')},'manifest':m,'markets':summaries,'combined_completed_markets':combined}
+        'incomplete':incomplete,'excluded':excluded,'data_gaps':{p:v['missing_ytd_hours'] for p,v in m['markets'].items() if v.get('missing_ytd_hours')},'manifest':m,'markets':summaries,'matched_comparison_markets':matched_markets,'combined_matched_markets':combined,'all_available_markets_separate':all_available}
     Y.dump(out/'REPORT.json',report)
     lines=['# Bishop 2026 prefix-only backtest','',f"Status: **{report['status']}**. Completed markets: {len(completed)}. Incomplete: {len(incomplete)}. Unavailable/unsupported: {len(excluded)}.",'',
         'Period: '+m['start']+' through '+m['end']+'. Frozen code: `'+str(m['commit'])+'`.','',
         'Every decision uses only physically available closed candles. Current KK rules/preferences are reconstructed historically. Original baseline means current Bishop rules without the KK gate, not an archived older software version.','',
+        f'Primary comparison uses the same {len(matched_markets)} completed markets with full KK warmup and permitted by the current avoid list. Other standalone results are retained separately in JSON.', '',
         '| Model / exit | Orders | Resolved | Wins | Losses | Open | Unknown | Total gross R | Win % | Closed drawdown R |',
         '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
     for mode,s in combined.items():
@@ -176,18 +213,20 @@ def collect(inputs,results,out):
         lines.append(f"| {mode} | {s['orders']} | {s['resolved']} | {c.get('WIN',0)} | {c.get('LOSS',0)} | {c.get('OPEN',0)} | {c.get('CENSORED',0)} | {s['total_R']:.2f} | {wr} | {s['closed_drawdown_R']:.2f} |")
     lines+=['','1R/2R/3R are separate full exits on the same enrolled entries. They are not hours, partial exits, or simultaneous account allocations. Recognition is a new research execution cohort; its production panel still does not place orders.',
         '', 'Unknown/open outcomes are not wins or losses. Gross totals exclude costs; per-market JSON includes explicit 1- and 2-pip cost hurdles (not a historical spread/fill simulation). Closed drawdown excludes floating loss. Results are not a live-return guarantee.',
-        '', 'Quarter checkpoints preserve open positions and frozen geometry. Incomplete markets are excluded from combined totals. Inspect REPORT.json for coverage, exclusions, paired same-entry exits, cost hurdles and per-market details.']
+        '', 'Monthly checkpoints preserve open positions and frozen geometry. Incomplete markets are excluded from combined totals. Inspect REPORT.json for coverage, exclusions, paired same-entry exits, cost hurdles and per-market details.']
     (out/'REPORT.md').write_text('\n'.join(lines)+'\n')
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n'.join(lines)+'\n')
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('job',choices=['prepare','pilot','segment','collect'])
+    p=argparse.ArgumentParser();p.add_argument('job',choices=['prepare','pilot','segment','collect','reuse','reuse-pilot'])
     p.add_argument('--inputs',default='year-inputs');p.add_argument('--out',default='year-results');p.add_argument('--pair')
     p.add_argument('--number',type=int);p.add_argument('--resume');p.add_argument('--results',default='collected')
     a=p.parse_args()
-    if a.job=='prepare':prepare(a.inputs)
+    if a.job=='reuse':reuse_snapshot(a.inputs)
+    elif a.job=='reuse-pilot':reuse_pilot(a.results,a.out)
+    elif a.job=='prepare':prepare(a.inputs)
     elif a.job=='pilot':pilot(a.inputs,a.out)
     elif a.job=='segment':segment(a.inputs,a.pair,a.number,a.out,a.resume)
     else:collect(a.inputs,a.results,a.out)

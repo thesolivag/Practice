@@ -103,3 +103,55 @@ def test_feed_lock_uses_nonblocking_retry_and_releases(monkeypatch):
  monkeypatch.setattr(J.time,'sleep',lambda _:None)
  with J.research_feed_lock(None):assert calls==[0,0]
  assert len(released)==2
+
+
+def test_monthly_snapshot_reuse_checks_hashes_and_keeps_cutoff(tmp_path,monkeypatch):
+ import hashlib
+ from slk import bishop_year_jobs as J
+ path=tmp_path/'X.json.gz';Y.dump(path,{'frozen':True})
+ meta={'commit':'original','end':'2026-11-07T11:00:00+00:00','pairs':['X'],'markets':{'X':{'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}}}
+ Y.dump(tmp_path/'manifest.json',meta)
+ monkeypatch.setenv('GITHUB_SHA','runner');monkeypatch.setenv('GITHUB_OUTPUT',str(tmp_path/'output'))
+ J.reuse_snapshot(tmp_path);m=Y.load(tmp_path/'manifest.json')
+ assert m['source_snapshot_commit']=='original' and len(m['segment_ends'])==12
+ assert m['segment_ends'][0]=='2026-02-01T00:00:00+00:00' and m['segment_ends'][-1]==meta['end']
+ path.write_bytes(b'changed')
+ with pytest.raises(ValueError,match='checksum'):J.reuse_snapshot(tmp_path)
+
+
+def test_prior_passed_pilot_can_use_smaller_sections_but_failed_causal_audit_cannot(tmp_path):
+ from slk import bishop_year_jobs as J
+ p={'status':'PASS','physical_prefix_equal':True,'poisoned_future_equal':True,'hours':24,'seconds_per_hour':15}
+ Y.dump(tmp_path/'pilot.json',p);J.reuse_pilot(tmp_path,tmp_path/'out')
+ assert Y.load(tmp_path/'out/pilot.json')['estimated_31day_segment_minutes']==186
+ p['poisoned_future_equal']=False;Y.dump(tmp_path/'pilot.json',p)
+ with pytest.raises(ValueError,match='did not pass'):J.reuse_pilot(tmp_path,tmp_path/'out')
+
+
+def test_comparison_uses_same_eligible_markets_and_marks_missing_warmup(tmp_path):
+ from slk import bishop_year_jobs as J
+ inputs=tmp_path/'inputs';results=tmp_path/'results';end=T+timedelta(hours=1)
+ Y.dump(inputs/'manifest.json',{'commit':'test','start':T.isoformat(),'end':end.isoformat(),'pairs':['X','Y'],
+  'markets':{p:{'status':'READY','kk_full_warmup':p=='X','missing_ytd_hours':0} for p in ['X','Y']}})
+ Y.dump(inputs/'config.json',{'avoid_pairs':[]})
+ for pair in ['X','Y']:
+  Y.dump(inputs/(pair+'.json.gz'),{'instrument':replace(I,symbol=pair),'bars':[replace(bar(0),instrument=pair)],'manifest':{}})
+  state=Y.new_state();state['audit']=[{'at':end.isoformat()}]
+  Y.dump(results/f'year-1-{pair}'/'checkpoint.json.gz',state)
+ J.collect(inputs,results,tmp_path/'out');r=Y.load(tmp_path/'out/REPORT.json')
+ assert r['matched_comparison_markets']==['X']
+ y=next(x for x in r['markets'] if x['pair']=='Y')
+ assert y['models']['kk_aligned']['availability'].startswith('UNAVAILABLE')
+
+
+def test_no_bias_skips_ineligible_research_detection_but_advances_existing_orders(monkeypatch):
+ called=[]
+ monkeypatch.setattr(Y,'historical_bias',lambda *args:[])
+ def detect(feed,now,later=False):
+  called.append(later)
+  return {'diagnostics':{'structures':{}},'story_events':[],'setups':[],'stories':[],'input':{'prefix':'test'}},StrategyPolicy(entry_tfs=('H1',))
+ monkeypatch.setattr(Y,'detect',detect)
+ state=Y.new_state();Y.add_order(state['book'],order(),setup(),'standalone')
+ f={'instrument':I,'bars':(bar(0,hi=111,lo=98),),'manifest':{}}
+ Y.decision(f,None,T+timedelta(hours=1),T,{},state,{})
+ assert called==[False] and state['book']['order']['observation']['outcome']=='WIN'

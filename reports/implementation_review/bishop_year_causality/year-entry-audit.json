@@ -1,0 +1,9 @@
+{
+  "at": "2026-07-01T00:00:00+00:00",
+  "biases": 1,
+  "candidate_selection": "earliest eligible signal, no outcome filtering",
+  "orders": 1,
+  "pair": "EURNZD",
+  "physical_prefix_equal": true,
+  "poisoned_future_equal": true
+}

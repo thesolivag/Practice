@@ -168,14 +168,16 @@ def decision(feed, h1, now, start, config, state, memo):
     assert all(b.available_at <= now for b in known)
     biases = historical_bias(feed['instrument'].symbol, h1, now, config, memo)
     base, policy = detect(feed, now)
-    research, research_policy = detect(feed, now, later=True)
+    # Production recognition skips detector work without an eligible KK bias.
+    # It cannot admit a plan in that state; existing positions still advance.
+    research, research_policy = detect(feed, now, later=True) if biases else ({'story_events': [], 'setups': [], 'stories': []}, policy)
     structures = {tf: thaw_structure(raw) for tf, raw in base['diagnostics']['structures'].items()}
-    h4 = thaw_structure(research['diagnostics']['structures']['H4'])
+    h4 = thaw_structure(research['diagnostics']['structures']['H4']) if biases else None
     events = {m: base['story_events'] if not m.startswith('recognition') else research['story_events']
               for m in (*MODES, 'kk_aligned_1R','kk_aligned_2R','kk_aligned_3R','recognition_1R','recognition_2R','recognition_3R')}
     advance(state['book'], known, now, feed['instrument'], biases, events)
     frames = {tf: aggregate(prefix(feed, now, 35)['bars'], tf, feed['instrument'], now,
-                          calendar=feed['instrument'].calendar_id)['bars'] for tf in ('H4','H3','H2','H1')}
+                          calendar=feed['instrument'].calendar_id)['bars'] for tf in ('H4','H3','H2','H1')} if biases else {}
     setups = [thaw_setup(s) for s in base['setups'] if utc(s['clock']['available_at']) == now]
     emitted = []
     for mode in ('standalone', 'kk_aligned'):
@@ -191,7 +193,9 @@ def decision(feed, h1, now, start, config, state, memo):
             if mode == 'kk_aligned' and not enroll_rr(state['book'], o, s, frames, feed['instrument'], mode, bias):
                 state['rejections']['kk_aligned:STOP_UNRESOLVED'] += 1
     flow = recognize(frames, h4, biases, research_policy, now, max(start, now-timedelta(days=7)),
-                     research['setups'], feed['instrument'].calendar_id, feed['instrument'])
+                     research['setups'], feed['instrument'].calendar_id, feed['instrument']) if biases else {
+                         'version': 'closed_break_later_liquidity_v1', 'as_of': now.isoformat(), 'flows': [], 'rejected_breaks': [],
+                         'note': 'Recognition study only; no order, fill or profitability claim. Later approach geometry is experimental.'}
     flow = merge(state.get('flow'), flow); state['flow'] = flow
     rsetups = {s['id']: thaw_setup(s) for s in research['setups']}
     proposed = []; metadata = {}

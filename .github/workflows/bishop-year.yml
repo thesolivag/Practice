@@ -1,4 +1,3 @@
-# Research acquisition polls the feed lock without blocking database reads.
 name: Bishop 2026 causal comparison
 on:
   workflow_dispatch:
@@ -7,73 +6,56 @@ on:
     paths: ['.github/workflows/bishop-year.yml']
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: bishop-year-research
   cancel-in-progress: false
 jobs:
   prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     outputs:
       pairs: ${{ steps.prepare.outputs.pairs }}
-    env:
-      SLK_STORE: data/year-store
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20' pytest
-      - name: Prefix, freezing and ambiguity regression tests
-        run: python -m pytest -q tests/test_bishop_year_replay.py tests/test_bishop_flow.py tests/test_bishop_rr.py tests/test_bishop_web_bias.py
-      - uses: actions/cache/restore@v4
-        with:
-          path: data/store
-          key: year-read-only-${{ github.run_id }}
-          restore-keys: |
-            live-candles-v1-
-            candles-v3-
-      - name: Copy cache into isolated research store
-        run: |
-          mkdir -p data/year-store
-          if [ -d data/store ]; then cp -a data/store/. data/year-store/; fi
-      - name: Snapshot selected markets and primary historical candles
-        id: prepare
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_CA: ${{ secrets.DATABASE_CA }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '1410229777' }}
-          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
-          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
-          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
-          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
-          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
-          CTRADER_ENV: demo
-        run: python -m slk.bishop_year_jobs prepare
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - run: python -m pytest -q tests/test_bishop_year_replay.py tests/test_bishop_flow.py tests/test_bishop_rr.py tests/test_bishop_web_bias.py
+      - name: Reuse frozen primary quotes; no broker connection
+        uses: actions/download-artifact@v4
         with:
           name: year-inputs
-          path: year-inputs/
-          retention-days: 30
-          overwrite: true
+          path: year-inputs
+          run-id: 42354575813
+          github-token: ${{ github.token }}
+      - name: Verify source checksums and divide into monthly sections
+        id: prepare
+        run: python -m slk.bishop_year_jobs reuse
+      - uses: actions/upload-artifact@v4
+        with: {name: year-inputs, path: year-inputs/, retention-days: 30, overwrite: true}
   pilot:
     needs: prepare
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
-      - uses: actions/download-artifact@v4
-        with: {name: year-inputs, path: year-inputs}
-      - name: Physical-prefix and poisoned-future audit plus 24-hour benchmark
-        run: python -m slk.bishop_year_jobs pilot --out pilot
+      - name: Retrieve passed prefix/poisoned-future audit and measured benchmark
+        uses: actions/download-artifact@v4
+        with:
+          name: year-pilot
+          path: prior-pilot
+          run-id: 42354575813
+          github-token: ${{ github.token }}
+      - name: Require passed audit and bounded monthly runtime
+        run: python -m slk.bishop_year_jobs reuse-pilot --results prior-pilot --out pilot
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: year-pilot, path: pilot/, retention-days: 30}
-  q1:
+        with: {name: year-pilot, path: pilot/, retention-days: 30, overwrite: true}
+  m1:
     needs: [prepare, pilot]
     strategy:
       fail-fast: false
@@ -99,8 +81,8 @@ jobs:
           name: year-1-${{ matrix.pair }}
           path: result/
           retention-days: 30
-  q2:
-    needs: [prepare, q1]
+  m2:
+    needs: [prepare, m1]
     strategy:
       fail-fast: false
       max-parallel: 12
@@ -117,7 +99,7 @@ jobs:
         with: {name: year-inputs, path: year-inputs}
       - uses: actions/download-artifact@v4
         with: {name: 'year-1-${{ matrix.pair }}', path: previous}
-      - name: Replay segment 2 with frozen carry-over
+      - name: Replay month 2 with frozen carry-over
         env:
           REPLAY_PAIR: ${{ matrix.pair }}
         run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 2 --out result --resume previous/checkpoint.json.gz
@@ -127,36 +109,8 @@ jobs:
           name: year-2-${{ matrix.pair }}
           path: result/
           retention-days: 30
-  q3:
-    needs: [prepare, q2]
-    strategy:
-      fail-fast: false
-      max-parallel: 12
-      matrix:
-        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 330
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
-      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
-      - uses: actions/download-artifact@v4
-        with: {name: year-inputs, path: year-inputs}
-      - uses: actions/download-artifact@v4
-        with: {name: 'year-2-${{ matrix.pair }}', path: previous}
-      - name: Replay segment 3 with frozen carry-over
-        env:
-          REPLAY_PAIR: ${{ matrix.pair }}
-        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 3 --out result --resume previous/checkpoint.json.gz
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: year-3-${{ matrix.pair }}
-          path: result/
-          retention-days: 30
-  q4:
-    needs: [prepare, q3]
+  m3:
+    needs: [prepare, m2]
     strategy:
       fail-fast: false
       max-parallel: 12
@@ -173,7 +127,35 @@ jobs:
         with: {name: year-inputs, path: year-inputs}
       - uses: actions/download-artifact@v4
         with: {name: 'year-3-${{ matrix.pair }}', path: previous}
-      - name: Replay segment 4 with frozen carry-over
+      - name: Replay month 3 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 3 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-3-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m4:
+    needs: [prepare, m3]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-3-${{ matrix.pair }}', path: previous}
+      - name: Replay month 4 with frozen carry-over
         env:
           REPLAY_PAIR: ${{ matrix.pair }}
         run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 4 --out result --resume previous/checkpoint.json.gz
@@ -183,8 +165,232 @@ jobs:
           name: year-4-${{ matrix.pair }}
           path: result/
           retention-days: 30
+  m5:
+    needs: [prepare, m4]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-4-${{ matrix.pair }}', path: previous}
+      - name: Replay month 5 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 5 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-5-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m6:
+    needs: [prepare, m5]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-5-${{ matrix.pair }}', path: previous}
+      - name: Replay month 6 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 6 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-6-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m7:
+    needs: [prepare, m6]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-6-${{ matrix.pair }}', path: previous}
+      - name: Replay month 7 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 7 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-7-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m8:
+    needs: [prepare, m7]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-7-${{ matrix.pair }}', path: previous}
+      - name: Replay month 8 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 8 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-8-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m9:
+    needs: [prepare, m8]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-8-${{ matrix.pair }}', path: previous}
+      - name: Replay month 9 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 9 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-9-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m10:
+    needs: [prepare, m9]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-9-${{ matrix.pair }}', path: previous}
+      - name: Replay month 10 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 10 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-10-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m11:
+    needs: [prepare, m10]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-10-${{ matrix.pair }}', path: previous}
+      - name: Replay month 11 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 11 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-11-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+  m12:
+    needs: [prepare, m11]
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with: {name: year-inputs, path: year-inputs}
+      - uses: actions/download-artifact@v4
+        with: {name: 'year-11-${{ matrix.pair }}', path: previous}
+      - name: Replay month 12 with frozen carry-over
+        env:
+          REPLAY_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_year_jobs segment --pair "$REPLAY_PAIR" --number 12 --out result --resume previous/checkpoint.json.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year-12-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
   report:
-    needs: [prepare, pilot, q1, q2, q3, q4]
+    needs: [prepare, pilot, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12]
     if: always() && needs.prepare.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15

@@ -1,0 +1,8 @@
+{
+  "at": "2026-01-01T23:00:00+00:00",
+  "input_manifest_commit": "b24f0e15778478ef65001cbae27d7c1b8e086843",
+  "pair": "AUDUSD",
+  "physical_prefix_equal": true,
+  "poisoned_future_equal": true,
+  "seconds": 17.308227624998835
+}
