@@ -88,3 +88,18 @@ def test_report_paired_exits_excludes_unresolved_member():
  result=Y.report(state,{'instrument':I},'TEST',T,T)
  assert result['paired']['kk_aligned']['all_exits_resolved']==0
  assert result['paired']['kk_aligned']['total_R']['1R']==0
+
+
+def test_feed_lock_uses_nonblocking_retry_and_releases(monkeypatch):
+ from contextlib import contextmanager
+ from slk import jobs,bishop_year_jobs as J
+ calls=[];released=[]
+ @contextmanager
+ def lock(db,wait):
+  calls.append(wait)
+  try:yield len(calls)>1
+  finally:released.append(True)
+ monkeypatch.setattr(jobs,'feed_lock',lock)
+ monkeypatch.setattr(J.time,'sleep',lambda _:None)
+ with J.research_feed_lock(None):assert calls==[0,0]
+ assert len(released)==2

@@ -1,3 +1,4 @@
+# Research acquisition polls the feed lock without blocking database reads.
 name: Bishop 2026 causal comparison
 on:
   workflow_dispatch:
@@ -55,6 +56,7 @@ jobs:
           name: year-inputs
           path: year-inputs/
           retention-days: 30
+          overwrite: true
   pilot:
     needs: prepare
     runs-on: ubuntu-latest

@@ -1,5 +1,6 @@
 """GitHub job preparation/reporting for the isolated yearly replay."""
 import argparse
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 import hashlib
@@ -9,6 +10,22 @@ import re
 from pathlib import Path
 import time
 from slk import bishop_year_replay as Y
+
+
+
+@contextmanager
+def research_feed_lock(db, wait=300):
+    """Poll nonblocking acquisition; GET_LOCK(wait) exceeds DB read timeout."""
+    from slk.jobs import feed_lock
+    deadline=time.monotonic()+wait
+    while True:
+        with feed_lock(db,wait=0) as acquired:
+            if acquired:
+                yield True
+                return
+        if time.monotonic()>=deadline:
+            raise RuntimeError('Broker feed busy; no replay launched')
+        time.sleep(min(5,max(0,deadline-time.monotonic())))
 
 
 def prepare(root):
@@ -30,7 +47,7 @@ def prepare(root):
         'end':end.isoformat(),'selected':selected,'markets':{},'config_sha256':hashlib.sha256((root/'config.json').read_bytes()).hexdigest(),
         'interpretation':'Current settings applied throughout the historical year; historical preferences and actual past web rows are not reconstructed.'}
     pairs=[]
-    with feed_lock(db,wait=240) as acquired:
+    with research_feed_lock(db) as acquired:
         if not acquired:raise RuntimeError('Broker feed busy; no replay launched')
         try:
             for pair in selected:

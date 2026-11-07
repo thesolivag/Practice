@@ -34,7 +34,7 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 ## Status (2026-10-27)
 
 ### Bishop 2026 causal comparison (2026-11-07)
-Built isolated hourly physical-prefix replay for current standalone Bishop, historically reconstructed KK-aligned Bishop, aligned logical-stop RR variants and new recognition RR variants. Every decision is truncated; exact-clock issuance, frozen geometry/checkpoints, ambiguous execution remains Unknown. Read BISHOP_YEAR_BACKTEST.md. Current preferences, not historical DB bias; no live entries/settings/messages changed.24 focused tests passed (2 optional MySQL tests skipped); local one-hour benchmark ~6seconds. GitHub preparation/pilot/full-year run pending launch; do not claim results yet.
+Built isolated hourly physical-prefix replay for current standalone Bishop, historically reconstructed KK-aligned Bishop, aligned logical-stop RR variants and new recognition RR variants. Every decision is truncated; exact-clock issuance, frozen geometry/checkpoints, ambiguous execution remains Unknown. Read BISHOP_YEAR_BACKTEST.md. Current preferences, not historical DB bias; no live entries/settings/messages changed.24 focused tests passed (2 optional MySQL tests skipped); local one-hour benchmark ~6seconds. Initial run42354389795 stopped before acquisition because blocking GET_LOCK exceeded the DB read timeout. Research-only nonblocking lock retry added and tested; restart pending. No profitability result exists.
 
 
 ### Bishop recognition study (2026-11-06)
@@ -218,7 +218,7 @@ problems fixed by this alignment-only change.
 ## Log
 
 ### Bishop 2026 causal comparison (2026-11-07)
-Built isolated hourly physical-prefix replay for current standalone Bishop, historically reconstructed KK-aligned Bishop, aligned logical-stop RR variants and new recognition RR variants. Every decision is truncated; exact-clock issuance, frozen geometry/checkpoints, ambiguous execution remains Unknown. Read BISHOP_YEAR_BACKTEST.md. Current preferences, not historical DB bias; no live entries/settings/messages changed.24 focused tests passed (2 optional MySQL tests skipped); local one-hour benchmark ~6seconds. GitHub preparation/pilot/full-year run pending launch; do not claim results yet.
+Built isolated hourly physical-prefix replay for current standalone Bishop, historically reconstructed KK-aligned Bishop, aligned logical-stop RR variants and new recognition RR variants. Every decision is truncated; exact-clock issuance, frozen geometry/checkpoints, ambiguous execution remains Unknown. Read BISHOP_YEAR_BACKTEST.md. Current preferences, not historical DB bias; no live entries/settings/messages changed.24 focused tests passed (2 optional MySQL tests skipped); local one-hour benchmark ~6seconds. Initial run42354389795 stopped before acquisition because blocking GET_LOCK exceeded the DB read timeout. Research-only nonblocking lock retry added and tested; restart pending. No profitability result exists.
 
 
 ### Bishop recognition study (2026-11-06)
