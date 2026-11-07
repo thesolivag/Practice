@@ -29,6 +29,8 @@ jobs:
       CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
       CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
       CTRADER_ENV: demo
+      # workflow_dispatch tick=1 is the external hourly scheduler; manual tick=0 stays explicit.
+      SLK_HOURLY_TICK: ${{ inputs.tick || '1' }}
       SLK_CACHE: data
       SLK_STORE: data/store
     steps:
