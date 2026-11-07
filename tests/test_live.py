@@ -288,3 +288,29 @@ def test_h4_only_available_at_actual_close(date):
         cb = resample(drop_forming(h, "H4", now), "H4")
         assert all(live_mod.candle_end(t, "H4") <= now for t in cb["start"])
         assert (cb["start"].iloc[-1] == close - pd.Timedelta(hours=4)) == (delta >= 0)
+
+
+@pytest.mark.parametrize('event,tick,when,expected', [
+    ('workflow_dispatch','1','2026-11-07T08:00:00Z',['DVR25']),
+    ('schedule','','2026-11-07T08:00:00Z',['DVR25']),
+    ('workflow_dispatch','0','2026-11-07T08:00:00Z',['EURUSD','DVR25']),
+    ('push','1','2026-11-07T08:00:00Z',['DVR25']),
+    ('workflow_dispatch','1','2026-11-08T21:00:00Z',['DVR25']),
+    ('workflow_dispatch','1','2026-11-08T22:00:00Z',['EURUSD','DVR25']),
+    ('workflow_dispatch','1','2026-10-25T21:00:00Z',['EURUSD','DVR25']),
+])
+def test_external_tick_filters_closed_markets_before_download(monkeypatch,event,tick,when,expected):
+    from types import SimpleNamespace
+    from slk import db,tenancy
+    monkeypatch.setenv('GITHUB_EVENT_NAME',event)
+    monkeypatch.setenv('SLK_HOURLY_TICK',tick)
+    monkeypatch.setattr(db,'apply_schema',lambda:None)
+    monkeypatch.setattr(db,'query',lambda *a,**k:[])
+    monkeypatch.setattr(db,'get_setting',lambda *a:'0')
+    monkeypatch.setattr(db,'get_settings',lambda:{'pairs':'EURUSD,DVR25'})
+    monkeypatch.setattr(live_mod.instruments,'deriv_continuous',lambda p:p=='DVR25')
+    downloaded=[];scanned=[]
+    monkeypatch.setattr(live_mod,'prepare_candles',lambda pairs,now:downloaded.extend(pairs) or {})
+    monkeypatch.setattr(live_mod,'main',lambda *a,**k:scanned.extend(k['_watch_pairs']) or 0)
+    assert live_mod.run_user_watchlists([],SimpleNamespace(pairs=''),pd.Timestamp(when))==0
+    assert downloaded==sorted(expected) and scanned==expected
