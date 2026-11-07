@@ -33,6 +33,10 @@ Claude cannot read Actions logs (redirect blocked) → workflows write errors as
 
 ## Status (2026-10-27)
 
+### Bishop recognition study (2026-11-06)
+Built separate slk/bishop_flow.py mode and private Entries evidence panel. Confirmed web bias → exact closed H4 A/V break → prospective later-KL liquidity candidate → observed take → linked reaction → existing closed confirmation → proposed study SL/1R/2R/3R geometry. No orders, fills or Telegram. Independent setting/table/workflow, fresh activation, selected markets, bounded children. Baseline remains unchanged. Read BISHOP_RECOGNITION.md for limitations and verification. Local verification: 54 focused tests passed, 2 optional MySQL tests skipped; browser suites passed. Frozen EURNZD integration completed in 5.78 seconds using a synthetic test bias. A 12-hour prefix comparison preserved all 33 prior stage events after fixing an invalid cross-timeframe segment-counter comparison. This is one causal replay, not teacher validation or profitability evidence. Deployment verification follows separately; do not describe plans as trades.
+
+
 ### Separate Bishop RR study (2026-11-06)
 Built isolated1R/2R/3R full-exit study with current-confirmation episode protection;
 original strategy geometry/selection preserved. New evidence-only fields in
@@ -208,6 +212,10 @@ problems fixed by this alignment-only change.
 4. Entry alerts live → then demo trading with kill switch + confirm button.
 
 ## Log
+
+### Bishop recognition study (2026-11-06)
+Built separate slk/bishop_flow.py mode and private Entries evidence panel. Confirmed web bias → exact closed H4 A/V break → prospective later-KL liquidity candidate → observed take → linked reaction → existing closed confirmation → proposed study SL/1R/2R/3R geometry. No orders, fills or Telegram. Independent setting/table/workflow, fresh activation, selected markets, bounded children. Baseline remains unchanged. Read BISHOP_RECOGNITION.md for limitations and verification. Local verification: 54 focused tests passed, 2 optional MySQL tests skipped; browser suites passed. Frozen EURNZD integration completed in 5.78 seconds using a synthetic test bias. A 12-hour prefix comparison preserved all 33 prior stage events after fixing an invalid cross-timeframe segment-counter comparison. This is one causal replay, not teacher validation or profitability evidence. Deployment verification follows separately; do not describe plans as trades.
+
 
 ### Separate Bishop RR study (2026-11-06)
 Built isolated1R/2R/3R full-exit study with current-confirmation episode protection;

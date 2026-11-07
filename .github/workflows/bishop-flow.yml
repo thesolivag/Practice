@@ -1,0 +1,36 @@
+name: Bishop recognition initialization
+on:
+  push:
+    branches: [claude-kevin-king]
+    paths: ['slk/bishop_flow.py', '.github/workflows/bishop-flow.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: {group: slk-live, cancel-in-progress: false}
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DATABASE_CA: ${{ secrets.DATABASE_CA }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '1410229777' }}
+      SLK_CACHE: data
+      SLK_STORE: data/store
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: flow-read-only-${{ github.run_id }}
+          restore-keys: |
+            live-candles-v1-
+            candles-v3-
+      - name: Initialize isolated recognition study
+        run: python -m slk.bishop_flow
+      - name: Verify recognition scanner against cached feed
+        run: python -m slk.bishop_flow

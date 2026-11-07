@@ -26,6 +26,7 @@ def _s(name, type_, default, group, help_, **kw):
 # pairs (CSV of symbols, `choices` = suggestions), ladder ("D=H4,H2;W=D,H4;M=W,D"), tz (IANA time zone name)
 SCHEMA = [
     _s("bishop_rr_study", "bool", "on", "Entry rules", "Separate paper-only 1R/2R/3R comparison on new issued Bishop entries, using a frozen experimental confirmation-specific stop. No changes to original trades or Telegram alerts. Existing studies continue tracking when off. Unknown outcomes stay unresolved; prices are zero-cost estimates."),
+    _s("bishop_flow_study", "bool", "on", "Entry rules", "Separate Bishop recognition study: confirmed web bias, proved closed H4 break, later liquidity, take, reaction and confirmation. Shows evidence and proposed 1R/2R/3R plans only; no orders or Telegram messages."),
     _s("bishop_paper_entries", "bool", "on", "Entry rules", "New Bishop confirmation entries alongside KK, paper only. Existing paper entries keep tracking while their market remains selected. Uses selected markets, H4/H3/H2/H1, primary cTrader FX/continuous Deriv data; other calendars and subhour entries are unavailable. Bounded 35-day context, 180-day execution history. Zero-cost paper estimates at setup close; hourly delivery may be later."),
     _s("news_enabled", "bool", "on", "Alerts", "Economic calendar Telegram alerts. News tab remains available when off."),
     _s("news_currencies", "multi", "USD,EUR,GBP", "Alerts", "Currencies for calendar view and news alerts.", choices=["USD","EUR","GBP","JPY","AUD","NZD","CAD","CHF","CNY","ALL"]),

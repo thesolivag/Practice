@@ -387,6 +387,17 @@ def bishop_status(user=Depends(require_user)):
         'note':'Bishop confirmation profile with bounded 35-day context (older monthly/weekly context may be unavailable). Primary cTrader FX/continuous Deriv only; H1/H2/H3/H4. Starts with new setups after activation. Zero-cost paper estimates assume submission at setup close; hourly delivery may be later. Ambiguous outcomes stay Unknown.'}
 
 
+@app.get('/api/bishop/recognition')
+def bishop_recognition(user=Depends(require_user)):
+    try:
+        rows=_db(db.query,'SELECT pair,activated_at,checked_at,payload FROM bishop_flow_state WHERE user_id=%s ORDER BY checked_at DESC',(int(user['id']),))
+    except Exception:
+        return {'available':False,'markets':[]}
+    return {'available':True,'markets':[{'pair':r['pair'],'activated_at':r['activated_at'],'checked_at':r['checked_at'],
+        'study':json.loads(r['payload']) if r['payload'] else {'flows':[],'note':'Activated; waiting for the next scan'}} for r in rows],
+        'note':'Recognition study only. Plans are not orders or fills. All current watches plus latest 100 completed/retired records per market.'}
+
+
 @app.get('/api/bishop/rr-study')
 def bishop_rr_study(user=Depends(require_user)):
     from slk.bishop_rr import report

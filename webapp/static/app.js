@@ -207,7 +207,7 @@
   async function loadEntries() {
     const generation=++entriesGeneration;
     const q = new URLSearchParams({ status: $("#f-estatus").value, strategy: $("#f-estrategy").value });
-    const [rows, summary, study] = await Promise.all([api(`/api/entries?${q}`), api("/api/entries/summary").catch(() => null), api("/api/bishop/rr-study").catch(() => null)]);
+    const [rows, summary, study, recognition] = await Promise.all([api(`/api/entries?${q}`), api("/api/entries/summary").catch(() => null), api("/api/bishop/rr-study").catch(() => null), api("/api/bishop/recognition").catch(() => null)]);
     if (generation!==entriesGeneration)return;
     const bishopStatus=await api('/api/bishop/status').catch(()=>null);
     if (generation!==entriesGeneration)return;
@@ -219,6 +219,14 @@
     if (study?.available && study.summary) {
       const z=study.summary;
       $("#entries-summary").innerHTML+=`<div class="card"><strong>Bishop study · 1R / 2R / 3R</strong><p>${esc(z.cohort)} enrolled (full history) · ${esc(z.stop_unresolved)} stops unresolved · ${esc(z.paired_closed)} fully resolved across all three exits</p><div style="overflow:auto"><table><thead><tr><th>Exit</th><th>Wins / losses</th><th>Open / unknown</th><th>Total R</th><th>Paired R</th><th>Closed drawdown</th></tr></thead><tbody>${Object.entries(z.variants).map(([k,v])=>`<tr><td>${esc(k)}R</td><td>${esc(v.wins)} / ${esc(v.losses)}</td><td>${esc(v.open)} / ${esc(v.unknown)}</td><td>${esc(v.total_r)}</td><td>${esc(v.paired_total_r)}</td><td>${esc(v.closed_drawdown_r)}R</td></tr>`).join("")}</tbody></table></div><p class="muted">Same entry and study stop; three independent full exits, no partial exits. Paired R compares only entries resolved at all three targets. Closed drawdown excludes floating losses. ${esc(z.note)}</p><details><summary>Latest 50 study entries and logical stops</summary>${study.entries.map(r=>`<p><b>${esc(r.pair)} ${esc(r.tf)} ${esc(r.side)}</b> · ${esc(dt(r.created_at))}<br>Entry ${esc(num(r.entry))} · Study SL ${esc(num(r.stop))}<br>${Object.entries(r.variants).map(([k,v])=>`${esc(k)}R TP ${esc(num(v.target))}: ${esc(v.outcome)}`).join(" · ")}${r.reason?`<br>${esc(r.reason)}`:""}</p>`).join("") || "Waiting for new entries after activation."}</details></div>`;
+    }
+
+    if (recognition?.available) {
+      const markets=recognition.markets || [];
+      const records=markets.flatMap(m=>(m.study.flows || []).map(r=>({...r, tick:Number(m.study.tick_size || 0), market:m})));
+      const counts={}; records.forEach(r=>counts[r.status]=(counts[r.status] || 0)+1);
+      const shown=[...records].sort((a,b)=>String(b.timeline.at(-1)?.at).localeCompare(String(a.timeline.at(-1)?.at))).slice(0,50);
+      $("#entries-summary").innerHTML+=`<div class="card"><strong>Bishop recognition study</strong><p>Confirmed web bias → proved H4 break → liquidity candidate → take → key-level reaction → closed confirmation</p><p>${esc(Object.entries(counts).map(([k,v])=>k.replaceAll("_"," ")+": "+v).join(" · ") || "Waiting for new sequences after activation")}</p><p class="muted">${esc(recognition.note)}</p><details><summary>Sequence evidence · latest 50 records</summary>${shown.map(r=>`<div class="card"><b>${esc(r.pair)} ${esc(r.side)} ${esc(r.tf)} · ${esc(r.status.replaceAll("_"," "))}</b><p>Bias #${esc(r.bias.id)} · H4 broken level ${esc(num(r.tick?r.break.level_ticks*r.tick:null))} · confirming close ${esc(num(r.tick?r.break.close_ticks*r.tick:null))}</p><p>Liquidity ${esc(num(r.tick && r.pool.price_ticks!=null?r.pool.price_ticks*r.tick:null))} · key level ${esc(num(r.tick && r.level.price_ticks!=null?r.level.price_ticks*r.tick:null))}</p>${r.timeline.map(t=>`<p>${esc(dt(t.at))}: ${esc(t.stage.replaceAll("_"," "))}${t.reason?" · "+esc(t.reason):""}</p>`).join("")}${r.reason?`<p>${esc(r.reason)}</p>`:""}${r.plans.map(p=>`<p>${esc(p.confirmation)} · Proposed entry ${esc(num(r.tick?p.entry_ticks*r.tick:null))} · SL ${esc(num(r.tick && p.stop_proof.stop_ticks!=null?p.stop_proof.stop_ticks*r.tick:null))}<br>${Object.entries(p.targets || {}).map(([k,v])=>esc(k)+"R: "+esc(num(v*r.tick))).join(" · ")}${p.stop_proof.reason?" · "+esc(p.stop_proof.reason):""}<br>Plan only; no order submitted.</p>`).join("")}</div>`).join("")}</details><details><summary>Market checks and rejected breaks</summary>${markets.map(m=>`<p><b>${esc(m.pair)}</b> · checked ${esc(dt(m.checked_at))} · ${esc(m.study.note || "")}${m.study.stale?" · STALE":""}<br>${(m.study.rejected_breaks || []).slice(-10).map(x=>esc(dt(x.at))+": "+esc(x.reason)).join("<br>")}</p>`).join("")}</details></div>`;
     }
 
     const canApprove = settings.auto_trade === "confirm" && settings.kill_switch !== "on";

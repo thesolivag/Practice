@@ -48,3 +48,13 @@ def test_rr_endpoint_is_private_and_user_scoped(client,monkeypatch):
     assert response.status_code==200 and response.json()['summary']['cohort']==0
     assert set(response.json()['summary']['variants'])=={'1','2','3'}
     assert calls
+
+
+def test_recognition_api_requires_auth_and_user_scope(client,monkeypatch):
+    assert client.get('/api/bishop/recognition').status_code==403
+    def query(sql,args=None):
+        assert 'bishop_flow_state' in sql and 'user_id=%s' in sql and args==(OWNER,)
+        return [{'pair':'EURUSD','activated_at':1,'checked_at':2,'payload':json.dumps({'flows':[],'note':'test'})}]
+    monkeypatch.setattr(app.db,'query',query)
+    response=client.get('/api/bishop/recognition',headers={'X-Telegram-Init-Data':make_init_data(OWNER)})
+    assert response.status_code==200 and response.json()['markets'][0]['pair']=='EURUSD'

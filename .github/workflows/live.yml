@@ -132,6 +132,11 @@ jobs:
         timeout-minutes: 2
         continue-on-error: true
         run: python -m slk.bishop_rr
+      - name: Bishop recognition study
+        if: steps.s.outputs.ok == 'true' && steps.runner.outcome == 'success'
+        timeout-minutes: 2
+        continue-on-error: true
+        run: python -m slk.bishop_flow
       - name: Telegram alert on failure
         if: failure() || cancelled()
         env:
