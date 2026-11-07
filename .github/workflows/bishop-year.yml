@@ -9,7 +9,7 @@ permissions:
   actions: read
 concurrency:
   group: bishop-year-research
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -126,7 +126,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with: {name: year-inputs, path: year-inputs}
       - uses: actions/download-artifact@v4
-        with: {name: 'year-3-${{ matrix.pair }}', path: previous}
+        with: {name: 'year-2-${{ matrix.pair }}', path: previous}
       - name: Replay month 3 with frozen carry-over
         env:
           REPLAY_PAIR: ${{ matrix.pair }}
