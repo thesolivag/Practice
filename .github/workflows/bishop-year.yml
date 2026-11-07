@@ -81,6 +81,7 @@ jobs:
           name: year-1-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m2:
     needs: [prepare, m1]
     strategy:
@@ -109,6 +110,7 @@ jobs:
           name: year-2-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m3:
     needs: [prepare, m2]
     strategy:
@@ -137,6 +139,7 @@ jobs:
           name: year-3-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m4:
     needs: [prepare, m3]
     strategy:
@@ -165,6 +168,7 @@ jobs:
           name: year-4-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m5:
     needs: [prepare, m4]
     strategy:
@@ -193,6 +197,7 @@ jobs:
           name: year-5-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m6:
     needs: [prepare, m5]
     strategy:
@@ -221,6 +226,7 @@ jobs:
           name: year-6-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m7:
     needs: [prepare, m6]
     strategy:
@@ -249,6 +255,7 @@ jobs:
           name: year-7-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m8:
     needs: [prepare, m7]
     strategy:
@@ -277,6 +284,7 @@ jobs:
           name: year-8-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m9:
     needs: [prepare, m8]
     strategy:
@@ -305,6 +313,7 @@ jobs:
           name: year-9-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m10:
     needs: [prepare, m9]
     strategy:
@@ -333,6 +342,7 @@ jobs:
           name: year-10-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m11:
     needs: [prepare, m10]
     strategy:
@@ -361,6 +371,7 @@ jobs:
           name: year-11-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   m12:
     needs: [prepare, m11]
     strategy:
@@ -389,6 +400,7 @@ jobs:
           name: year-12-${{ matrix.pair }}
           path: result/
           retention-days: 30
+          overwrite: true
   report:
     needs: [prepare, pilot, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12]
     if: always() && needs.prepare.result == 'success'
@@ -405,4 +417,4 @@ jobs:
         run: python -m slk.bishop_year_jobs collect --inputs collected/year-inputs --results collected --out report
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: year-report, path: report/, retention-days: 30}
+        with: {name: year-report, path: report/, retention-days: 30, overwrite: true}
