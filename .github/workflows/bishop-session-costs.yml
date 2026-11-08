@@ -1,0 +1,54 @@
+name: Bishop existing cohort session cost scenarios
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude-kevin-king]
+    paths: ['.github/workflows/bishop-session-costs.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-session-costs
+  cancel-in-progress: false
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20' pytest
+      - run: python -m pytest -q tests/test_bishop_session_costs.py
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: year-12-*
+          path: saved
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unknown-*
+          path: saved/minute
+          run-id: 42499187752
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: stop-proof-report
+          path: saved/proof
+          run-id: 42516446781
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: year-inputs
+          path: year-inputs
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - run: python -m slk.bishop_session_costs --original
+      - run: cat report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: existing-session-cost-report
+          path: report/
+          retention-days: 30
+          overwrite: true
