@@ -1,0 +1,112 @@
+name: Bishop unknown trades - one minute execution
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude-kevin-king]
+    paths: ['.github/workflows/bishop-unknown.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-unknown-research
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      pairs: ${{ steps.prepare.outputs.pairs }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20' pytest
+      - run: python -m pytest -q tests/test_bishop_unknown_jobs.py
+      - name: Verify pinned original run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/actions/runs/42371042901 > source-run.json
+          python -c "import json; d=json.load(open('source-run.json')); assert d['conclusion']=='success' and d['head_sha']=='861549cbd919021905ad721f9799f969a5ceacf8'"
+      - uses: actions/download-artifact@v4
+        with:
+          name: year-inputs
+          path: year-inputs
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - id: prepare
+        run: python -m slk.bishop_unknown_jobs prepare
+  refine:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        pair: ${{ fromJSON(needs.prepare.outputs.pairs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with:
+          name: year-inputs
+          path: year-inputs
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: year-12-${{ matrix.pair }}
+          path: original
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - name: Resolve frozen unknowns using primary broker M1 data
+        env:
+          REFINEMENT_PAIR: ${{ matrix.pair }}
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m slk.bishop_unknown_jobs pair --pair "$REFINEMENT_PAIR" --checkpoint original/checkpoint.json.gz --out result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unknown-${{ matrix.pair }}
+          path: result/
+          retention-days: 30
+          overwrite: true
+  report:
+    needs: [prepare, refine]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unknown-*
+          path: results
+      - uses: actions/download-artifact@v4
+        with:
+          name: year-report
+          path: results/original-report
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - run: python -m slk.bishop_unknown_jobs collect --out report
+      - run: cat report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unknown-report
+          path: report/
+          retention-days: 30
+          overwrite: true
