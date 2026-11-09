@@ -699,7 +699,7 @@
   }
 
   // ---------------- Tabs
-  const loaders = { alerts: loadWatches, devices: loadDevices, journal: loadJournal, replay: loadReplay, news: loadNews, bias: loadBias, entries: loadEntries, orders: loadOrders, settings: loadSettings, status: loadRuns };
+  const loaders = { review: () => window.BishopReview.open(api), alerts: loadWatches, devices: loadDevices, journal: loadJournal, replay: loadReplay, news: loadNews, bias: loadBias, entries: loadEntries, orders: loadOrders, settings: loadSettings, status: loadRuns };
   let current = "bias";
   async function show(tab) {
     if (tab !== "replay") { stopReplay(); historyBusy=false; historyUser=false; replayGeneration++; }

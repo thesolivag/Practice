@@ -183,3 +183,21 @@ body.chart-open { overflow: hidden; }
 
 #replay-panel #replay-reset { width: auto; font-size: 12px; }
 #replay-reset::after { content: none; }
+
+/* Frozen research review */
+#review-setups {width:100%;max-width:100%;min-height:135px;font-size:13px;}
+.review-controls {display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0;}
+.review-controls label {display:flex;gap:6px;align-items:center;}
+.review-charts {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px;}
+.review-panel {min-width:0;border:1px solid #344354;border-radius:12px;padding:12px;background:#101923;color:#d6e2ef;}
+.review-panel h4 {margin:0 0 8px;}
+.review-canvas {width:100%;height:380px;}
+.review-quote {font-size:12px;min-height:36px;font-variant-numeric:tabular-nums;}
+.review-expanded {position:fixed;inset:8px;z-index:1000;overflow:auto;}
+.review-expanded .review-canvas {height:calc(100dvh - 200px);min-height:300px;}
+.review-detail pre {white-space:pre-wrap;overflow-wrap:anywhere;max-height:350px;overflow:auto;font-size:12px;}
+.review-outcomes {white-space:pre-line;}
+.review-status,.review-detail p {overflow-wrap:anywhere;}
+#review button {border:1px solid #8393a5;border-radius:7px;padding:8px 11px;background:#edf2f7;color:#172c40;cursor:pointer;}
+#review button:disabled {opacity:.45;cursor:default;}
+.review-legend {font-size:13px;line-height:1.7;padding-left:24px;}

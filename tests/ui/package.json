@@ -3,5 +3,5 @@
   "private": true,
   "version": "1.0.0",
   "devDependencies": {"playwright": "1.58.2"},
-  "scripts": {"test": "node workspaces.cjs && node extension.cjs && node bishop.cjs"}
+  "scripts": {"test": "node workspaces.cjs && node extension.cjs && node bishop.cjs && node review.cjs"}
 }

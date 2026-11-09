@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SLK Bias</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="/static/style.css?v=workspace-8">
+  <link rel="stylesheet" href="/static/style.css?v=workspace-9">
 </head>
 <body>
   <header>
@@ -17,6 +17,7 @@
       <button data-tab="alerts">My alerts</button>
       <button data-tab="journal">Journal</button>
       <button data-tab="replay">Replay</button>
+      <button data-tab="review">Trade review</button>
       <button data-tab="devices">Browsers</button>
       <button data-tab="settings">Settings</button>
       <button data-tab="status">Status</button>
@@ -145,6 +146,7 @@
       <div id="journal-list" class="list"></div>
     </section>
 
+    <section id="review" hidden><h2>Trade review</h2><div id="review-root"></div></section>
     <section id="replay" hidden>
       <p>Reveal historical candles one at a time. Alert replay starts from an owned event; price replay starts from a market and time you choose.</p>
       <form id="replay-form" class="card form">
@@ -183,6 +185,7 @@
   </main>
   <script src="/static/vendor/lightweight-charts.standalone.production.js?v=5.0.8"></script>
   <script src="/static/replay_chart.js?v=workspace-8"></script>
-  <script src="/static/app.js?v=workspace-14"></script>
+  <script src="/static/bishop_review.js?v=1"></script>
+  <script src="/static/app.js?v=workspace-15"></script>
 </body>
 </html>
