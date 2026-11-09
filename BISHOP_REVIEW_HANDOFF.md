@@ -7,6 +7,7 @@ Mini App → Trade review. Read-only authenticated archive, separate from live e
 - Original capacity-limited cohort: do not mistake this for the newer capacity replay or infer full-year profitability.
 - RR variants share a selectable setup; targets and corrected outcomes remain separate.
 - Opens at decision time. Server excludes future/unavailable and unfinished candles. Reveal outcomes is explicit and independent of chart-clock advancement.
+- Revealed results add fill/exit observation markers only once the chart clock reaches those bounds; these are not precise execution ticks.
 - Independent H1/H2/H3/H4/D/W selectors, older-candle paging, pan/zoom, crosshair OHLC, expanded view.
 - Existing broker-calendar aggregation uses New York 17:00 with DST. Gaps remain gaps. Frozen base feed is H1 BID, not minute/tick execution evidence.
 - Three starred EURUSD recognition examples have reconstructed H4 sequence evidence: Feb18 engulfing/H1 and 4th man/H2, Feb19 breakout/H1. These are bot annotations, not original teacher charts.
