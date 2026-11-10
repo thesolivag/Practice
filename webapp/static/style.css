@@ -201,3 +201,11 @@ body.chart-open { overflow: hidden; }
 #review button {border:1px solid #8393a5;border-radius:7px;padding:8px 11px;background:#edf2f7;color:#172c40;cursor:pointer;}
 #review button:disabled {opacity:.45;cursor:default;}
 .review-legend {font-size:13px;line-height:1.7;padding-left:24px;}
+
+.review-report {margin-top:20px;padding:14px;border:1px solid #8393a5;border-radius:10px;}
+.review-report summary {font-weight:600;cursor:pointer;}
+.review-report-fields {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:12px 0;}
+.review-report label {display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
+.review-report textarea {width:100%;box-sizing:border-box;min-height:80px;}
+.review-saved-reports {margin:10px 0;overflow-wrap:anywhere;}
+.review-saved-reports select {max-width:100%;width:100%;}

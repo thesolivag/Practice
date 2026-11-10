@@ -51,6 +51,22 @@ def test_browser_extension_same_telegram_account_and_tenant_isolation(monkeypatc
         assert browser.get('/api/journal',headers=tg_other).json()==[]
         assert browser.put(f'/api/journal/{note_id}',headers=tg_other,json={'notes':'intrusion'}).status_code==404
         assert browser.post('/api/replay/open',headers=csrf,json={'kind':'watch','id':ident}).status_code==409
+        # Report writes persist in MySQL, require browser CSRF, and stay private.
+        import research_reports
+        from tests.test_research_reports import SETUP
+        monkeypatch.setattr(research_reports,'selected',lambda key:SETUP)
+        report={'assessments':{'bias':'wrong','entry':'correct'},'notes':'Expected a confirmed close'}
+        assert browser.put('/api/research-reports/setup',json=report).status_code==403
+        written=browser.put('/api/research-reports/setup',headers=csrf,json=report)
+        assert written.status_code==200,written.text
+        assert browser.get('/api/research-reports/setup',headers=tg).json()['report']['notes']==report['notes']
+        assert browser.get('/api/research-reports/setup',headers=tg_other).json() is None
+        assert browser.get('/api/research-reports',headers=tg_other).json()=={'reports':[]}
+        assert browser.put('/api/research-reports/setup',headers=tg_other,json={'notes':'Other user'}).status_code==200
+        assert browser.get('/api/research-reports/setup',headers=tg).json()['report']['notes']==report['notes']
+        report['notes']='Updated review'
+        assert browser.put('/api/research-reports/setup',headers=csrf,json=report).status_code==200
+        assert len(browser.get('/api/research-reports',headers=tg).json()['reports'])==1
         pair=browser.post('/api/auth/pair-code',headers=tg,json={'client':'extension'}).json()
         ext_origin='chrome-extension://'+'a'*32
         ext=browser.post('/api/auth/redeem',headers={'Origin':ext_origin},json={'code':pair['code'],'client':'extension'})

@@ -14,6 +14,7 @@ window.BishopReview = (() => {
     root.append(el('p','Browse frozen research setups. Drag to move through history; pinch or scroll to zoom. All times are UTC.','muted'));
     const filters=el('div',undefined,'review-controls');root.append(filters);
     for(const [id,label] of [['pair','Market'],['strategy','Strategy'],['confirmation','Confirmation']]){const [w,s]=select(label,[['','All']]);s.id='review-'+id;s.onchange=()=>{offset=0;catalog().catch(error);};filters.append(w);}
+    root.append(button('My setup reports',savedReports),el('div',undefined,'review-saved-reports'));
     root.append(el('p','','review-status'));const list=el('select');list.id='review-setups';list.size=5;list.setAttribute('aria-label','Saved setups');list.onchange=()=>choose(list.value).catch(error);root.append(list);
     const paging=el('div',undefined,'review-controls');paging.append(button('Previous setups',()=>{offset=Math.max(0,offset-40);return catalog();}),button('More setups',()=>{if(offset+40<Number(list.dataset.total))offset+=40;return catalog();}));root.append(paging,el('div',undefined,'review-detail'));
     try { await catalog(); } catch(e) { ready=false;root.replaceChildren();throw e; }
@@ -25,6 +26,41 @@ window.BishopReview = (() => {
     d.entries.forEach(e=>list.add(new Option(`${e.highlight?'★ ':''}${e.pair} ${e.side} · ${e.confirmation} ${e.tf} · ${e.decision.slice(0,16).replace('T',' ')} · ${names[e.strategy]||e.strategy}`,e.id)));
     if(d.entries.length){list.value=d.entries[0].id;await choose(list.value);}else{generation++;panels.forEach(p=>p.chart.remove());panels=[];selected=null;root.querySelector('.review-detail').textContent='No setups match these filters.';}
   }
+  async function reportForm(parent,e,version){
+    const box=el('details',undefined,'review-report'),title=el('summary','Report / review this setup');box.append(title);
+    box.append(el('p','Mark what looks right or wrong. Your report is saved to your account and does not change the trade result.'));
+    const fields=el('div',undefined,'review-report-fields'),inputs={};
+    for(const [key,label] of [['whole_setup','Whole setup'],['bias','Bias / direction'],['h4_break','H4 breakout'],['liquidity','Single-candle liquidity'],['key_level_reaction','Key level / rejection'],['confirmation','Confirmation'],['entry','Entry'],['stop_loss','Stop loss'],['target','Target']]){
+      const [w,s]=select(label,[['not_reviewed','Not reviewed'],['correct','Correct'],['wrong','Wrong'],['unsure','Unsure']]);s.name=key;inputs[key]=s;fields.append(w);
+    }
+    box.append(fields);
+    const noteLabel=el('label','What looks right or wrong?'),notes=el('textarea');notes.name='report_notes';notes.rows=4;notes.maxLength=4000;noteLabel.append(notes);
+    const expectedLabel=el('label','What should the model have done instead? (Optional)'),expected=el('textarea');expected.name='report_expected';expected.rows=3;expected.maxLength=4000;expectedLabel.append(expected);
+    box.append(noteLabel,expectedLabel);
+    const status=el('p','Loading your saved report…','review-report-status');status.setAttribute('role','status');
+    const save=button('Save setup report',async()=>{
+      save.disabled=true;status.textContent='Saving…';
+      try {const body={assessments:Object.fromEntries(Object.entries(inputs).map(([k,s])=>[k,s.value])),notes:notes.value,expected:expected.value,review_clock:clock,context_tf:panels[0].select.value,entry_tf:panels[1].select.value,outcomes_revealed:!!e.revealedTargets};
+        const r=await api('/api/research-reports/'+encodeURIComponent(e.id),{method:'PUT',body:JSON.stringify(body)});status.textContent='Saved to your account · '+stamp(r.updated_at);title.textContent='Review saved — edit report';
+      } catch(err){status.textContent='Not saved: '+err.message;}finally{save.disabled=false;}
+    });save.disabled=true;box.append(save,status);parent.insertBefore(box,parent.querySelector('.review-controls'));
+    try {const saved=await api('/api/research-reports/'+encodeURIComponent(e.id));if(version!==generation)return;
+      if(saved){for(const [k,s] of Object.entries(inputs))s.value=saved.report.assessments[k]||'not_reviewed';notes.value=saved.report.notes||'';expected.value=saved.report.expected||'';status.textContent='Saved report · '+stamp(saved.updated_at);title.textContent='Review saved — edit report';box.append(button('Restore saved chart view',async()=>{panels[0].select.value=saved.report.context_tf;panels[1].select.value=saved.report.entry_tf;await advance(saved.report.review_clock,true);}));}
+      else status.textContent='No report saved for this setup yet.';
+      save.disabled=false;
+    } catch(err){status.textContent='Could not load your report: '+err.message+' Reopen this setup to retry.';}
+  }
+  async function savedReports(){
+    const area=root.querySelector('.review-saved-reports');area.replaceChildren(el('p','Loading your reports…'));
+    const d=await api('/api/research-reports');area.replaceChildren();
+    if(!d.reports.length){area.append(el('p','No saved reports yet. Open a setup and choose Report / review this setup.'));return;}
+    const [wrap,s]=select('Your saved reports',d.reports.map(r=>[r.setup_id,`${r.report.setup.pair} · ${r.report.setup.confirmation} · ${r.report.setup.decision.slice(0,16)} · ${names[r.report.setup.strategy]||r.report.setup.strategy}`]));
+    area.append(wrap,button('Open reported setup',()=>choose(s.value)),button('Export my reports',async()=>{
+      const latest=await api('/api/research-reports');
+      const url=URL.createObjectURL(new Blob([JSON.stringify(latest,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download='my-setup-reports.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }),el('p',`${d.reports.length} saved reports. Export the file when you want to share the feedback for investigation.`));
+  }
+
   async function choose(id){const version=++generation;const e=await api('/api/research-review/'+encodeURIComponent(id));if(version!==generation)return;selected=e;clock=epoch(e.decision);panels.forEach(p=>p.chart.remove());panels=[];const detail=root.querySelector('.review-detail');detail.replaceChildren();
     detail.append(el('h3',`${e.pair} ${e.side} · ${e.confirmation} · ${names[e.strategy]||e.strategy}`),el('p',`${e.kind} entry ${price(e.entry)} · SL ${price(e.stop)} · ${e.targets.map(t=>t.label+' '+price(t.price)).join(' · ')}`));
     detail.append(el('p',e.flow?'★ Audited bot sequence. These markings are the model’s saved/reconstructed evidence, not Bishop’s original drawings.':'H4 sequence was not retained for this setup. Entry, stop and target values are recorded; no liquidity candle has been guessed.','muted'));
@@ -36,6 +72,7 @@ window.BishopReview = (() => {
     if(e.flow){const legend=el('ol',undefined,'review-legend');e.flow.timeline.forEach(t=>legend.append(el('li',t.stage.replaceAll('_',' ')+' · '+t.at.replace('T',' ').replace('+00:00',' UTC'))));legend.append(el('li','ENTRY PLAN · '+e.decision.replace('T',' ')));detail.append(legend);const evidence=el('details'),summary=el('summary','Recorded sequence and evidence');evidence.append(summary);const pre=el('pre',JSON.stringify(e.flow,null,2));evidence.append(pre);detail.append(evidence);}
     if(e.stop_proof){const proof=el('details'),s=el('summary','Logical stop evidence');proof.append(s,el('pre',JSON.stringify(e.stop_proof,null,2)));detail.append(proof);}
     await advance(clock,true);
+    if(version===generation)await reportForm(detail,e,version);
   }
   function panel(parent,title,tf,version){const box=el('div',undefined,'review-panel');box.append(el('h4',title));const controls=el('div',undefined,'review-controls');const [wrap,s]=select('Timeframe',tfs.map(t=>[t,t==='D'?'Daily':t==='W'?'Weekly':t]));s.value=tf;controls.append(wrap);box.append(controls);const quote=el('div','Move the crosshair over a candle for OHLC.','review-quote');box.append(quote);const canvas=el('div',undefined,'review-canvas');box.append(canvas);parent.append(box);
     const chart=LightweightCharts.createChart(canvas,{autoSize:true,height:380,layout:{background:{color:'#101923'},textColor:'#d6e2ef'},grid:{vertLines:{color:'#202d3b'},horzLines:{color:'#202d3b'}},timeScale:{timeVisible:true,secondsVisible:false,rightOffset:8},localization:{timeFormatter:stamp},handleScroll:true,handleScale:true});

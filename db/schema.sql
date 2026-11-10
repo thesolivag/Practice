@@ -269,3 +269,14 @@ CREATE TABLE IF NOT EXISTS bishop_app_outbox (
  sent_at BIGINT NULL, lease_until BIGINT NOT NULL DEFAULT 0, lease_token VARCHAR(32) NULL,
  PRIMARY KEY(user_id,event_id), KEY ix_bishop_delivery(sent_at,lease_until)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Private human assessments of frozen research setups. One editable report per user/setup.
+CREATE TABLE IF NOT EXISTS research_setup_reports (
+ user_id BIGINT NOT NULL,
+ setup_id VARCHAR(160) NOT NULL,
+ payload MEDIUMTEXT NOT NULL,
+ created_at BIGINT NOT NULL,
+ updated_at BIGINT NOT NULL,
+ PRIMARY KEY (user_id,setup_id),
+ KEY ix_research_reports_user_time (user_id,updated_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
