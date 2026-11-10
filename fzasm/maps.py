@@ -64,11 +64,6 @@ class DailyMapEvaluator:
 
             # Bullish CRT: Swept prior low, closed above prior low
             if curr.low < prior.low and curr.close > prior.low:
-                # If checking prior candle (i == -2), ensure latest candle hasn't broken or finished it
-                if i == -2:
-                    latest = candles[-1]
-                    if latest.low < curr.low or latest.high >= prior.high:
-                        continue
                 return DailyMapResult(
                     map_type=MapType.MAP_2_CANDLE_RANGE_CRT,
                     bias=BiasDirection.BULLISH,
@@ -83,11 +78,6 @@ class DailyMapEvaluator:
 
             # Bearish CRT: Swept prior high, closed below prior high
             if curr.high > prior.high and curr.close < prior.high:
-                # If checking prior candle (i == -2), ensure latest candle hasn't broken or finished it
-                if i == -2:
-                    latest = candles[-1]
-                    if latest.high > curr.high or latest.low <= prior.low:
-                        continue
                 return DailyMapResult(
                     map_type=MapType.MAP_2_CANDLE_RANGE_CRT,
                     bias=BiasDirection.BEARISH,
@@ -175,8 +165,7 @@ class DailyMapEvaluator:
             return None
 
         curr = candles[-1]
-        tested = poi.is_tested_by(curr) or any(poi.is_tested_by(c) for c in m2.reference_candles)
-        if tested:
+        if poi.is_tested_by(curr):
             return DailyMapResult(
                 map_type=MapType.MAP_4_CRT_POI_CONFLUENCE,
                 bias=m2.bias,

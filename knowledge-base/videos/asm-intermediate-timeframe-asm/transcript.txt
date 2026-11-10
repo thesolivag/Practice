@@ -1,0 +1,2497 @@
+[3.2-16.1] Okay. So in the last class, we gave an intro towards to the ASM, right?
+[16.1-20.1] We gave an intro to what we want to look at, Abby.
+[20.1-31.7] Yes, boss.
+[31.7-68.8] Okay. We gave an intro to ASM in the last class.
+[68.8-75.8] In this class, I want to see very much during the ASAN ASM trade-up.
+[75.8-92.5] We talked about, sorry.
+[92.5-94.5] I don't know.
+[94.5-96.5] I'm not sure.
+[104.2-132.6] Okay. So we talked about what we want to see.
+[132.6-151.0] We talked about what we want to see.
+[151.0-156.0] So today we'll be looking at the interview.
+[156.0-162.0] We said as an ASM trader that those are the list of the things that we want to see in our IR timeframe.
+[162.0-169.0] And we may declare that our major IR timeframe is the daily timeframe.
+[169.0-173.0] So we list out the five things we want to see involved in the daily timeframe.
+[173.0-179.0] So as an permit me to say this, permit me to say this.
+[179.0-184.0] As an ASM trader, you can actually use just two time frame,
+[184.0-193.6] just from your time frame down towards your internal time frame.
+[193.6-196.6] Or you can even call the internal time frame to our time frame.
+[196.6-201.6] So you can trade like this as an ASM trader.
+[201.6-204.6] It gets me. Or you can trade like this.
+[204.6-216.9] We'll be looking at all of this.
+[216.9-218.9] We'll be looking at all of this.
+[218.9-219.9] We'll be looking at them today.
+[219.9-223.9] I told you the concept of ASM model is not actually difficult.
+[223.9-224.9] It's surface binary.
+[224.9-227.9] There's few steps and you are good to go.
+[227.9-232.9] What you need to do is to build an experience in the shards with it.
+[232.9-234.9] So build an experience in the shards with it.
+[234.9-246.1] So we already explained.
+[246.1-247.1] I would like to ask a question.
+[247.1-249.1] Please permit me to ask a question.
+[249.1-253.1] Is there anyone that is confused from what we thought in the last class?
+[253.1-255.1] Anybody confused at all?
+[255.1-256.1] Anybody confused at all?
+[256.1-262.9] Oh, please stop to make this.
+[262.9-273.4] No.
+[273.4-275.4] Last one.
+[275.4-276.4] Personally.
+[276.4-278.4] It was separate.
+[278.4-280.4] It was separate, right?
+[280.4-282.4] Please, I beg you.
+[282.4-283.4] Please, I beg you.
+[283.4-285.4] Remember, you paid for this class.
+[285.4-287.4] It doesn't give it to you for free.
+[287.4-288.4] You pay for it.
+[288.4-297.3] And okay.
+[297.3-307.6] So please, I beg you that you should ask questions.
+[307.6-309.6] Like ask questions.
+[309.6-310.6] Ask questions.
+[310.6-311.6] Ask questions.
+[311.6-316.6] If you have no been asking questions, please, I beg you to ask questions.
+[316.6-317.6] Ask questions.
+[317.6-322.6] In fact, we are in those season where you should be asking questions.
+[322.6-325.6] You should be asking questions.
+[325.6-327.6] So I beg you to ask questions.
+[327.6-332.0] I beg you to ask questions.
+[332.0-347.9] Okay.
+[347.9-351.9] I think I've tried my best to push you to ask questions.
+[351.9-354.9] But many of you don't really want to ask questions.
+[354.9-363.9] So I just continue because I believe the absence of these questions is the
+[363.9-367.9] presence of strong knowledge and strong understanding of what it does.
+[367.9-371.9] You'll let it be known that I literally paid it for questions to the
+[371.9-373.9] absence.
+[373.9-374.9] Exactly.
+[374.9-379.9] And I said, I don't even go back.
+[379.9-385.9] I said from the last class I explained.
+[385.9-391.9] And last class, going through the last class, we will see that it is just a
+[391.9-393.9] 46-minute video.
+[393.9-395.9] It was not a long.
+[395.9-397.9] No, it was not long.
+[397.9-400.9] It was just a 46-minute video.
+[400.9-411.6] So I was trying to know if anybody asked any misunderstanding or like any confusion
+[411.6-415.6] around it so I can deal with it before moving into the next thing.
+[415.6-418.6] First of all, personally, I was not expecting it to be difficult.
+[418.6-420.6] It's just, oh, this is what you should see.
+[420.6-424.6] So what I was, the questions I was asking, I was expecting was, okay,
+[424.6-428.6] can you show us what it looks like on the shot?
+[428.6-433.6] I tried looking for it on the shot and I was confused.
+[433.6-437.6] So those were the kind of questions I was expecting you guys to ask.
+[437.6-440.6] There were the kind of questions I was expecting you guys to ask.
+[440.6-444.6] But no questions was dropped.
+[444.6-455.3] So, okay, let me do the shot of the previous class before we dive into this class.
+[455.3-462.3] Now, I remember we talked about how easy it is that I want to see in the shot.
+[462.3-466.3] Now, okay, yeah.
+[466.3-473.3] So this was the real hard training we were doing.
+[473.3-476.3] If you're afraid that you shouldn't buy now, you're doing a new day.
+[476.3-477.3] It's already 10 o'clock.
+[477.3-482.3] So you're doing a new day already.
+[482.3-489.3] So I will be using AUDJPWI here because it's just tearing out to me right here.
+[489.3-491.3] And I think it's a very nice pair.
+[491.3-493.3] I think it's a very nice pair.
+[493.3-501.7] Now, first of all, we list out about five things we want to see in the shots.
+[501.7-506.7] I even don't like the fact that I'm going back here because I don't want to waste unnecessary time.
+[506.7-512.7] I don't know if you notice, but your screen, you're not sharing your screen anymore.
+[512.7-516.4] Are you for it?
+[519.4-523.4] You should have talked to me or...
+[536.2-544.0] You cannot see it.
+[544.0-547.7] Yes.
+[547.7-549.7] You can see it now.
+[549.7-551.7] Yeah, let's see.
+[551.7-554.7] You cannot see it.
+[554.7-556.7] You cannot see it.
+[556.7-558.7] Okay.
+[559.7-561.7] Okay.
+[566.9-570.9] First of all, I explained the...
+[570.9-572.9] I explained the...
+[572.9-578.9] I explained the way to use the daily timeframe and the 3-day timeframe.
+[578.9-584.9] I don't know if you still remember that explanation in details.
+[584.9-587.9] I don't know if you still remember that explanation in details.
+[587.9-590.9] I don't know why I explained that.
+[590.9-598.6] Now, first of all, I said something as an ASM,
+[598.6-601.6] that there are about five things you want to see in your higher time frames.
+[601.6-604.6] And I said, these are the major higher time frames you can use
+[604.6-608.6] when you come to non-directional bias from a daily timeframe.
+[608.6-611.6] I said, you know, one day you can use your daily timeframe.
+[611.6-614.6] I began to say that, oh, it's not like I see the one we call the one moment.
+[614.6-616.6] We don't use it.
+[616.6-619.6] I said, we use it, but we use it really.
+[619.6-623.6] That we can probably use a one-week timeframe when a new week starts.
+[623.6-625.6] That is a one-month timeframe when a new one starts.
+[625.6-627.6] It gets me.
+[627.6-629.6] And that's it.
+[629.6-633.6] And that time I can see me probably I began to rush into a one-month timeframe.
+[633.6-642.6] It's probably I'm trying to check out zones that is going to synchronize with my daily timeframe.
+[642.6-644.6] So zones are not supposed to be there.
+[644.6-646.6] Right there.
+[646.6-652.6] So as an ASM trader, one of the things you want to look at is these five things.
+[652.6-656.6] We said, first of all, when you look at structures, structural arrangements,
+[656.6-658.6] I said, well, look at candle range.
+[658.6-669.0] I said, well, we want to also look at consecutive cell candles, consecutive cell.
+[669.0-674.0] So I said, we want to also look at what, when the candle range labs,
+[674.0-682.6] which was a structural range, but then we begin to explain when to use the rejection
+[682.6-686.6] and when not to use the rejection.
+[686.6-688.6] It gets me.
+[688.6-691.6] So I took it at those are the five things that I want to be able to see in the world.
+[691.6-694.6] You know, the daily time frames.
+[694.6-699.6] The fourth one is, for example, I said, we have this guy.
+[700.6-703.6] We want to ensure that if we're going to show you a bit on rejection,
+[703.6-706.6] that there is already a sweep from here.
+[706.6-711.6] There's really a sweep from here that we can't really be on just what's kind of what's rejection.
+[711.6-716.6] I said, oh, for the candle like one is probably we haven't moved like this.
+[716.6-719.6] And we have this particular sweep here.
+[719.6-721.6] Now.
+[721.6-725.6] So if we have something like this, that because of this sweep,
+[725.6-728.6] I mean, market is coming back into this zone.
+[728.6-733.6] I can just use just what's rejection, just rejection.
+[733.6-736.6] It does not have to be a sweep rejection.
+[736.6-737.6] Why?
+[737.6-739.6] Because of this Saturday sweep.
+[739.6-747.6] So this number five has a and what's five, five, four to be the one of structure and the one of what the world can do.
+[747.6-749.6] I remember we explained this.
+[749.6-753.6] So I don't really think this is complicated.
+[753.6-754.6] No, I don't think it's complicated.
+[754.6-762.6] Now we went for that to begin to explain, oh, that the ASM that the ASM of the symbol for ASM is this,
+[762.6-765.6] that this is the symbol for ASM.
+[765.6-767.6] Now we begin to explain.
+[767.6-768.6] Yeah.
+[768.6-772.6] When to use this in the daily timeframe, one day timeframe,
+[772.6-779.6] I went to use this in a three day worth timeframe.
+[779.6-782.6] I remember we explained this very well.
+[782.6-786.6] So I can't, I won't go back to this again.
+[786.6-787.6] I won't go back to this.
+[787.6-790.6] You can go back to the video and watch this for yourself.
+[790.6-791.6] You get me?
+[791.6-795.6] So let's just dive, let's just dive into it.
+[795.6-797.6] Okay.
+[797.6-803.1] Not for now.
+[803.1-808.1] This, I'm just going to start it and I'm not going to stress you.
+[808.1-810.1] I just, it is a three day timeframe now.
+[810.1-812.1] I can see this sweep around there.
+[812.1-813.1] This is a candle range.
+[813.1-815.1] I can see this sweep around here.
+[815.1-821.1] And after this sweep around here, market ensure that we pick out what the candle ratio is high,
+[821.1-822.1] which is this guy.
+[822.1-824.1] But we have perceptive cells.
+[824.1-829.1] So this is not high of the particulate candle, right?
+[829.1-830.1] Okay.
+[830.1-834.1] Around here again, we have this guy.
+[834.1-836.1] If we have this guy, a sweep around here,
+[836.1-843.1] perceptive cells after the sweep, then we have this particulate markets took out this guy
+[843.1-844.1] around here.
+[844.1-848.1] Now we have here sweep around here.
+[848.1-851.1] Now you see I'm just playing with three day timeframe.
+[851.1-855.8] Now we have this sweep around here.
+[855.8-856.8] Perceptive cells.
+[856.8-859.8] So this for the structural range, this is it.
+[859.8-862.8] For the candle range, this is the target.
+[862.8-866.8] For the structural range, this is the target.
+[867.8-868.8] Okay.
+[868.8-870.8] Now look at this guy.
+[870.8-875.8] It's a theory that we have this sweep around here.
+[875.8-881.8] And the market was expressed to take out what's this eye.
+[881.8-883.8] But market not take out this eye.
+[883.8-886.8] But theory was the downside.
+[886.8-887.8] Okay.
+[887.8-888.8] It's time.
+[888.8-891.8] It is not 100%.
+[891.8-892.8] Okay.
+[892.8-914.0] This was, we have market, we have this sweep that is here now from here, right?
+[914.0-918.0] And the markets came into the open place of that candle.
+[918.0-923.0] There's no need for another sweep to have these particular words.
+[923.0-924.0] Guy.
+[924.0-928.8] From that point.
+[928.8-932.3] What I was trying to explain to us.
+[932.3-935.3] Market came to go towards the sweep.
+[935.3-936.3] Yeah.
+[936.3-939.3] Perceptive cell can do a market thoughts.
+[939.3-942.3] We have this particular out sweep around here.
+[942.3-944.3] Okay.
+[944.3-945.3] Yeah.
+[945.3-955.9] Now.
+[955.9-959.9] Let's, let's look at what they look like from daily points.
+[959.9-960.9] It is standpoint.
+[960.9-962.9] One day standpoint.
+[962.9-963.9] No.
+[963.9-970.4] For my daily, for my daily, we have clear structures for my daily.
+[970.4-972.4] I have this structure.
+[972.4-975.4] Here is my target in my daily.
+[975.4-978.4] Here is my target sweep.
+[978.4-981.4] We have another sweep around here.
+[981.4-984.4] This sweep here.
+[984.4-986.4] Right.
+[986.4-989.4] Market saw it took out what's this guy.
+[989.4-1002.7] That is here.
+[1002.7-1006.6] I thought it was even our concept.
+[1006.6-1008.6] We have this sweep around here daily.
+[1008.6-1010.6] We are from this scale level.
+[1010.6-1011.6] You guessed me.
+[1011.6-1013.6] And we have this sweep here.
+[1013.6-1017.6] And market took out what's this eye here.
+[1017.6-1021.4] Okay.
+[1021.4-1025.3] We have this sweep around here.
+[1025.3-1029.8] Very tempting.
+[1029.8-1031.8] Constructed a long time.
+[1031.8-1033.8] Market took out what's this eye.
+[1033.8-1037.1] We have this guy.
+[1037.1-1050.8] Market took out what's this eye around here.
+[1050.8-1060.1] So.
+[1060.1-1061.1] Market came.
+[1061.1-1064.1] We acted from this zone here.
+[1064.1-1065.1] Just reaction.
+[1065.1-1066.1] Okay.
+[1066.1-1067.1] Now.
+[1067.1-1070.1] I am trying to show you this thing.
+[1070.1-1071.1] Oh, it works.
+[1071.1-1077.5] You have to be able to see.
+[1077.5-1078.5] Conceptive cell.
+[1078.5-1080.5] It takes out what's.
+[1080.5-1082.5] This party clouds.
+[1082.5-1084.5] Point here.
+[1084.5-1085.5] Right.
+[1085.5-1086.5] Whereas.
+[1086.5-1087.5] That field.
+[1087.5-1088.5] Whereas.
+[1088.5-1089.5] That field.
+[1089.5-1090.5] Right.
+[1090.5-1091.5] That field.
+[1091.5-1092.5] Plus.
+[1092.5-1094.5] We need to be able to see.
+[1094.5-1096.5] We need to be able to see.
+[1096.5-1097.5] That field.
+[1097.5-1098.5] Why do they feel.
+[1098.5-1099.5] Plus.
+[1099.5-1101.5] We need to pay attention to see.
+[1101.5-1102.5] Now.
+[1102.5-1103.5] For example.
+[1103.5-1104.5] Now.
+[1104.5-1107.4] From.
+[1107.4-1109.8] This.
+[1109.8-1110.8] We have this guy.
+[1110.8-1116.6] This guy.
+[1116.6-1117.6] A market.
+[1117.6-1118.6] To cost.
+[1118.6-1119.6] Of course.
+[1119.6-1120.6] That's.
+[1120.6-1121.6] That's.
+[1121.6-1122.6] That's.
+[1122.6-1123.6] Right.
+[1123.6-1124.6] Yes.
+[1124.6-1125.6] To pitch.
+[1125.6-1126.6] And.
+[1126.6-1127.6] Later on.
+[1127.6-1128.6] It's a poor direction.
+[1128.6-1129.6] Yeah.
+[1129.6-1130.6] I know how.
+[1130.6-1131.6] That can't be.
+[1131.6-1132.6] I know how.
+[1132.6-1133.6] To achieve.
+[1133.6-1134.6] And.
+[1134.6-1135.6] And.
+[1135.6-1136.6] There will have this guy.
+[1136.6-1137.6] So happy.
+[1137.6-1138.6] Because of.
+[1138.6-1139.6] Yes we.
+[1139.6-1140.6] Are.
+[1140.6-1142.6] From a key level or if we are to find out.
+[1142.6-1143.6] That.
+[1143.6-1144.6] I just thought.
+[1144.6-1145.6] It was.
+[1145.6-1149.3] Being took.
+[1149.3-1150.3] Our loss and.
+[1150.3-1151.3] Finally.
+[1151.3-1152.3] What.
+[1152.3-1153.3] When to the.
+[1153.3-1154.3] Outsize.
+[1154.3-1155.3] Right.
+[1155.3-1156.3] Now I will show you.
+[1156.3-1160.8] How to care for a month with each every single.
+[1160.8-1161.8] by asking.
+[1161.8-1162.8] In the markets.
+[1162.8-1163.8] Oh.
+[1163.8-1164.8] Let's just.
+[1164.8-1165.8] For.
+[1165.8-1188.2] Let's just keep looking at the stats and wonder if we have this super high level, how we have
+[1188.2-1193.5] this super high level, and the next thing I will do is to ensure that what is at, so
+[1193.5-1201.3] surely this is it, here is what this is, okay?
+[1201.7-1205.2] I feel like that's not for identification, what do you think?
+[1208.8-1217.4] Is reacting from this key level, also, and concept themselves are done quite threatening,
+[1217.4-1227.1] but not that I'm sure it took out this hard. I will actually expect themselves, but
+[1227.9-1232.7] this is why I did not think we sell it because I knew that it's a counter move,
+[1232.7-1238.3] it's a counter move, since it's a counter move around, I was no longer about that to take it,
+[1239.1-1245.9] so probably what we can see is, we can still see markets come down here, if market comes down here,
+[1245.9-1252.0] there's no, these are sweepers, that sweepers, sweep, I made a mistake actually,
+[1252.6-1257.8] if we see a sweep, double sweep, we need to follow the sweep, you know,
+[1257.8-1263.1] products to the trend, so there's sweeper, there's sweeper, well, I was expecting to sell
+[1263.1-1267.4] the universal flow fundamentally, this is what I was meant to sell, but technically speaking,
+[1267.4-1279.9] it was still telling us about, so I did not take any AJ trade around, so if I come in and I see
+[1280.9-1287.4] another sweep around there, so if AJ can't do this, excuse me, sorry for that,
+[1287.4-1295.3] we can actually trade this from that particular point of view, it's overlapping a key level,
+[1295.3-1303.6] and yes, it's a key level and it's overlapping an average around here, excuse me, so these don't
+[1303.6-1312.4] fail, AJ, these don't fail, these don't fail, yes, it's likely going to be, we don't,
+[1312.4-1317.2] that we're waiting for, it's going to happen, so I'm not really interested in docks, so how can
+[1317.2-1331.5] I exchange today's markets if we ask this kind of sweep that we have, so we can trade the contract
+[1332.2-1339.2] below or towards this particular one, and there are other examples like that, yes, there have been
+[1339.2-1347.8] examples like that, so this is a sweep and it's a counter move, a market and so that's what
+[1347.8-1358.0] we take out towards the low, right, we are, I think we have many, we have this one,
+[1358.9-1374.2] sweep and we are, I can take it out towards the low, we saw this sweep
+[1374.2-1382.6] and we see, perspective by pandas and take out the look at this concept of what, why not,
+[1384.6-1391.4] it's a rough work, I'm just trying to show you what it looks like on the chart, okay,
+[1392.8-1398.0] I don't need to start teaching structural outreach on everyone of you, by now we know structural
+[1398.0-1412.2] outreach, okay, you guys are now responding, yes, yes, yes, yeah, okay, so we see all of those
+[1412.2-1421.2] playing out on the market, now ask some of you, um, you had to use, you know, we, we had to use
+[1421.2-1436.0] your daily time frame, let's use your 3-day time frame, show me, we'll talk about that.
+[1437.3-1443.7] I noticed, I actually noticed, well I decided to define it about it first, I'm a very peaceful
+[1443.7-1448.8] person if I choose to be peaceful. I noticed that mass assignments, there are few people
+[1448.8-1454.7] that do mass assignments, and there are people that don't like, I don't know, I don't know
+[1454.7-1470.0] should I say, should I say, I don't know, should I say you actually, I don't know what's your,
+[1470.0-1476.7] what's going on to your head, I'm not really interested in it, well I don't know why you
+[1476.7-1483.7] are not doing your assignments, I don't know why I'm not doing your assignments, probably you actually
+[1483.7-1501.1] beat or, these are notes in your mind, okay, I think my screen has gone blank with me, right,
+[1502.7-1507.2] my screen is not on the screen, yeah it's not on the screen, I'm just sorry about,
+[1509.2-1515.9] so I don't know what's, you are not doing your assignments, if it seems like you are confused,
+[1515.9-1522.2] probably you are like, oh I don't know what to do, I'm confused, like that's what I've been screaming,
+[1522.2-1527.7] like I know actually questions, that's what I've been screaming, actually questions,
+[1531.2-1536.3] so genuinely I just wanted you to like, oh these are, be I'm confused, this is what I'm
+[1536.3-1544.1] confused, just help me out, you get me, I do go back for your sake, right, you know I'll go back
+[1544.1-1551.0] for your sake, I'll go back for your sake, I don't mind, so I'll go back for your sake and
+[1551.9-1556.8] just wanted you to ask me these questions, but you do not want to ask me these questions, so
+[1558.4-1571.0] I don't know what to do at this point, I really want you to be proficient, more than in the words
+[1571.0-1575.5] of the proficient, well that would be like, just know what I can't want, I can't want to
+[1575.7-1579.4] be proficient, more than you want yourself, I wanted to be proficient in the words,
+[1585.3-1590.6] so I, I just made it very high, I don't know how much you want yourself to be proficient,
+[1590.6-1599.5] but I need it to be proficient, and I am very sensitive about it, it's actually both ways,
+[1600.1-1605.5] I have a benefit that comes from me being proficient, and you are the major benefit
+[1605.5-1611.6] that comes from me being proficient, that's why you see I, I really really don't give, like I don't,
+[1612.6-1623.7] I have a benefit, that is not really about the payments, I care about the payments,
+[1624.6-1630.6] I care about every single payments, it's not really about the payments, it's about the
+[1630.7-1643.1] establishments of a person that give an intensity to a brand, so that's why your life changing results
+[1646.3-1652.8] it benefits the brand, you get what I'm saying, your life changing results benefits the brand,
+[1652.8-1658.9] like mad, like mad, so that's why I say I'm putting on my work, ask questions,
+[1658.9-1664.8] ask questions, you confuse, ask me questions, I would go back, like I would go back and say,
+[1665.7-1680.9] and I'm not joking about it, okay, the class is one of the best time if I ask questions.
+[1691.3-1696.9] Okay sir, so sir, I don't know how this will release some words, I would wish if you could
+[1696.9-1707.0] just like explain this one on the lower time frame. What is that? As in the maps,
+[1708.2-1714.8] on the lower time frames. Yes, that is the 30-minute answer. Why should I do that?
+[1717.4-1723.7] No, no, no, I get what you are saying, but I don't want you to know it in that
+[1723.7-1729.9] point yet, I just need you to follow me, you get me. If we get to the point where there will be
+[1729.9-1737.5] explaining lower time frames, right, I just want you to get me first. Yes, yes sir.
+[1750.5-1759.0] So, now we talked about the maps, the emphasis on, unless you look at zones as an instance,
+[1760.0-1765.7] we are not going back to zones, that's why we talked about zones, so we can communicate
+[1765.7-1774.5] on the same levels of understanding. So, we know that we have different zones, we have blocks,
+[1775.2-1788.9] we have everything, we have key levels, whatever it is that I wrote here,
+[1789.8-1812.5] we have good eyes and lose, you get me. So, emphasis on these five things I listed must
+[1813.1-1821.8] be formed on these zones, one of these zones. So, they must be rejecting from one of these zones.
+[1821.9-1826.6] So, we want to see this guy rejecting from what?
+[1828.4-1840.8] This zone. So, that affects selecting, or what's the word again? This selectivity of
+[1840.8-1853.0] these particular maps, you must see them in zones, right? This guy on this one.
+[1853.8-1858.7] Now, first of all, I like to state this, this is a short shot,
+[1859.7-1864.8] but you know that this particular range, structural range, that when you come to the map,
+[1864.8-1870.5] the map begins to tell you that, oh, we must trade the range most that I made with what is
+[1870.5-1874.9] we do. And we begin to say that, oh, if we don't have this food from this guy,
+[1874.9-1878.2] we should have it from here. If it's not from here, we should have it from here.
+[1878.8-1885.8] Right? So, the structural range is not, is not a, is not a single out map,
+[1886.6-1891.0] it gets me. We are just trying to, if I destructually, we need to tell us, oh,
+[1891.0-1897.1] where a legit place where the map is formed. Because we begin to say that, oh, that one of
+[1897.1-1905.2] the best maps you can have is this guy, right? Okay. So, we want to see these forms on,
+[1905.2-1909.1] in the same daily timeframe, we want to see the maps form a lot on one of these zones
+[1909.1-1914.5] like this one. Now, dive into the business of division, into the business of scale.
+[1915.5-1923.4] We want to be asked, in time, the time frames, in time, the time frames. And mind you, we have
+[1924.2-1933.7] behind the, um, superclass, our, this should be ending this class, we're ending this week.
+[1935.9-1943.0] Should be ending this week. So, we, by now, you should be looking like a trader,
+[1945.7-1951.2] and you should be looking like a trader. Though we're not diving, but I feel like,
+[1951.2-1956.3] by now, we should be analyzing, like you should. Now, you must, how hard do I say this to help you?
+[1974.8-1987.8] You must find, you must find happiness in what must benefit you. You don't understand the
+[1987.8-1995.2] meaning of the word find. You don't understand the meaning of the word find. It means if
+[1995.2-2006.6] it was not there, you must also to find happiness. Like, you must also for, to ensure that, oh,
+[2007.3-2021.3] what I'm doing right now, I have joined together. You must also for it, that's,
+[2022.4-2055.3] it's a, it's a must. It's a must. It's a must. You must, if you don't, you are not,
+[2056.3-2063.9] you are trying to say that, oh, it's okay and not about it, but it's not okay if you don't,
+[2063.9-2068.1] first of all, certainly be happy about it. Why are we saying it? We are saying it because of,
+[2079.7-2085.6] if you don't, at this particular level, you're hiring a trader, at this particular level,
+[2085.6-2095.6] you're hiring a trader, if you really don't, um, I would like to say, if you really don't,
+[2095.6-2128.7] uh, my brother is on my left, so I'm being distracted, breaking news. Okay.
+[2136.5-2142.1] You are not happy about it. You won't do it all the time. If you ever see something like a walk,
+[2143.0-2151.4] your brain is going to always send the signal of rejection, the signal of rejection.
+[2151.4-2155.1] For those that are praying, if you see your prayer, say, well, you will not pray often.
+[2156.1-2161.8] Your brain wants to always reject whatever is called work, whatever it's called, incontinence.
+[2163.6-2171.9] So you must fully love the shirt. You must love to see candles. You must love to analyze.
+[2174.1-2184.7] You must love it. Are you seeing the market? It's something, the candles, right? It's something
+[2184.7-2189.8] you can be repulsive, like you can be repulsive about, like you can reject it,
+[2189.9-2194.2] you can repel it. The market is one of the things you can do like that. And
+[2194.8-2200.0] where, and also the market is also something you can be extremely attracted or attached to.
+[2201.0-2207.1] It can be like that. It can be both ways. And it's simple because of it has a lot of things to do
+[2207.1-2213.9] with your emotions. That's why it can be like that. And because of emotions are not, um,
+[2213.9-2218.2] they are not fixed. They are temporal. They are temporal disposition of a man.
+[2219.2-2224.4] So they are not fixed. So how do I do it? If you analyze and it plays out well,
+[2225.9-2231.1] automatically it gives you the signals of, let me do this thing often, let me do it often.
+[2231.1-2236.6] And if you analyze and it is not going well, it keeps going, but it's, it repels.
+[2238.4-2243.1] It gives you a signal to always repel against it, a signal of rejection about it.
+[2243.2-2249.6] Those are the short words. Now there's one we call the mechanical input of
+[2251.9-2258.2] your craft. Sorry, I'm using words. I'm struggling with words. Now there's one we call the mechanical
+[2258.2-2265.8] input of words, of your craft, where you don't feel like you don't even, you are not even,
+[2265.8-2272.5] you don't feel like, but now you are print a disciplinary routine to ensure that you are
+[2272.5-2278.1] attentive to it every day. And not just attentive to fulfill all righteousness,
+[2278.1-2282.3] but why you're fulfilling all righteousness. There must be knowledge derived. There must be
+[2282.9-2289.0] long time spent on it. Why? Because of you are in your mastery
+[2290.5-2295.5] season or your mastery level. You get me? So you are trying to move from an amateur to
+[2296.3-2305.1] a master to a pro. You get me? So you can move from an amateur to a pro if you don't spend enough time
+[2305.1-2310.0] with it, times of when you feel like and when you don't feel like. I'm trying to take that right
+[2310.0-2316.3] now that you have, you have more business in spending time with a shirt than actually making
+[2316.3-2325.7] money from the shirt. By the time you spend time with a shirt, so long time, long time, meaningful
+[2325.7-2335.6] time, impactful time with a market for like back to back for the next 120 days.
+[2336.9-2344.7] We never miss out for the next 120 days. You stay with a shirt every day. You could literally vouch
+[2344.7-2351.8] that I gave my time not to videos now. You can tell yourself I gave my time for the next 120
+[2351.8-2360.5] days. I'm giving my time one hour and 30 seconds and take one hour and 30 minutes to videos and three
+[2360.5-2366.5] hours on shirts. By the time you tell yourself that these four hours 30 minutes you are giving it
+[2366.5-2373.3] to your craft every day. One hour 30 minutes on videos, three hours on the shirts. By the time
+[2373.3-2378.5] you tell yourself you make this kind of decision and you choose to keep to it. I am trying to
+[2378.5-2392.4] tell you that you won't take six months before you change. I promise you, you won't take six months
+[2393.8-2400.6] to see a drastic car shit. We are going to need a telescope to view what you used to look like
+[2400.6-2410.1] before because of the rate of transformation is so far from it. In fact, your throwback
+[2410.1-2420.0] will be unbelieving. But all of this thing becomes delusion when it all ends up in your brain.
+[2422.9-2430.2] It doesn't need to take time before it manifests. All it takes is you. So you begin to understand
+[2430.2-2435.2] that if there's ever a limitation on a man, it's the limitation he placed on himself.
+[2437.8-2448.0] No man with it can actually meet a man than himself and himself. Majority of you,
+[2449.6-2456.4] you need something external to push it. Just to not feel right that what is pushing you in life
+[2456.4-2462.8] is that one of your uncle, one of your teacher, one of your relative has told you that you look
+[2462.8-2469.8] like nothing and you will be nothing in life. And now you are striving to prove the person
+[2469.8-2483.8] wrong. That is not enough for you. That's where, as we take you to, a mind is very possible that
+[2483.8-2488.3] someone tells you that you look like nothing and you'll be nothing and you see actually become
+[2488.3-2493.8] nothing. Because of the laws of life, there's no care about the words that has been spoken to you.
+[2495.2-2501.2] The words are only trigger for you to put in the work. There are some people that don't need
+[2501.2-2508.0] such trigger and you are really putting in the work. And you see the laws of life does not care
+[2508.0-2514.5] about what triggers you. It doesn't pay attention to your triggers. It only pays attention to what
+[2514.5-2519.1] you are doing. So you begin to come with this knowledge with an understanding that it is actually
+[2519.1-2524.5] at your own liberty to decide if you'll be profitable number one and when you'll be profitable
+[2524.5-2541.8] number two. And can I tell you something? Money is very selective of gender. And money again
+[2541.8-2547.9] is very selective of age. That's two things I've seen that money does not respect. Money does not care.
+[2547.9-2553.0] Money does not care about your gender. It does not care about your age. And there's something
+[2553.0-2559.5] you must understand again in making money. Money is not emotional being, it's a thing and it
+[2559.5-2566.8] does not know your emotion. So just because of your suffered does not mean you stop suffering.
+[2567.4-2573.4] In fact, the shading you saw yesterday might not be compared to the shading you see tomorrow
+[2573.4-2592.6] and the same to its life. So you get hours, hours. I think I was going to get
+[2592.6-2596.7] swear with my brother as of yesterday and I was telling him something that's
+[2597.4-2606.0] number one, the price of what increase number two, it is scarce. There is no consideration of, oh,
+[2608.5-2619.5] it is increased. So we should make sure it is available. That's life. I'm trying to tell you
+[2619.5-2629.7] this thing now. There are people out there that have suffered, but the price of what does not
+[2629.7-2638.2] care whether they are suffering, which it keep increasing. As it is increasing, there are
+[2638.2-2648.4] other things that is also being increased. And guess what? They don't care about those that are
+[2648.4-2659.3] suffering. At me, I ensured that I'm not in the other part of the world where there is a need
+[2659.3-2665.5] to care whether I'm suffering because I won't be suffering. And you see, that decision
+[2665.5-2673.2] was not made by us, but was backed up with consistent actions that are proving that I've made a choice.
+[2674.4-2682.5] That's the truth. Because if we begin to understand that the signals of choice,
+[2683.6-2689.0] the way life receive it is not by words, it is by actions. So if you are going to send
+[2689.0-2693.9] like a signal that you made a choice, you are not going to tell it by informing it,
+[2693.9-2698.1] you are going to tell it by showing it that yet are the choices. And when it begins to
+[2698.1-2703.8] make demands of the choices you've made, it begins to make requirements of the actions it's taken.
+[2703.8-2710.0] So when we say life is like this, if life is like, oh, I love you. And life begins to say,
+[2710.0-2716.2] okay, we are the proofs of your love. It can be a written version. So life is like, oh,
+[2717.2-2722.0] I want to be wealthy. Life begins to demand, oh, that thing you said I don't care,
+[2722.0-2732.2] I want to see what backs it up. That's how it operates. So life is death to the ways we are
+[2732.2-2743.9] speaking to it. But it's understand the actions you are showing it. It's very simple. So when you
+[2743.9-2748.5] wake up one morning and you tell yourself, ah, nothing is going to make me point this life,
+[2748.5-2756.0] you see that thing you said, life denotes. That affirmation is for yourself.
+[2756.9-2764.6] Life denotes. You can see that and you will become the greatest poor man in your generation.
+[2764.6-2773.6] In fact, your kind of freshness is a mystery that they have nothing before. It's simple. Let's say
+[2773.6-2782.5] you are walking on the road and you lost your phone. And why you lost your phone? Life will
+[2782.5-2789.1] not say, oh, oh, oh my God, I'm so sorry for you. Take another phone. If you don't have money
+[2789.2-2793.7] in your purse to purchase another phone, you'll be fineless. And until when money comes,
+[2794.5-2801.9] you will still remain fineless. If money never comes. I'm trying to tell you that
+[2803.4-2815.0] people that are on the other side of wealth, they are going to suffer. In fact, it is terrible
+[2816.9-2822.2] that you are on the other side of wealth. Make a decision that is proven by the
+[2822.2-2831.2] data of actions that you are not on the other side of wealth. And then it becomes an act of
+[2831.2-2836.9] foolishness that you have a skill or you have a knowledge that can be
+[2838.1-2844.4] transmitted from information to transformation. And yet you ensure that it's being limited
+[2844.4-2854.9] in its transformative state. You are a fool if you are like that. There's so many persons out
+[2854.9-2865.3] there. They can't learn for us. Not because of that. They don't want to. They just can't. And now you
+[2865.3-2879.4] can. But then you are like those that can't. If a man is naked because of it does not have
+[2879.4-2888.6] what to wear, he is still naked. If another man have what to wear, but shoes not to wear it,
+[2888.6-2895.4] both of them are naked. And if you look at both of them, you can't tell the condition of
+[2896.5-2903.1] their situation. The only thing you can say is that they are both naked. So if I present to you two
+[2903.1-2912.0] naked man and one ask clothes but shoes not to wear and the other one does not have clothes.
+[2913.8-2918.4] You are not going to say this one has clothes but shoes not to wear. This one does not have
+[2918.4-2925.8] clothes. We call both of them two naked men. And that is our life. That is our life.
+[2926.8-2932.5] The reason is data. Life does not have time for an unnecessary explanation.
+[2932.5-2936.5] It just have time to tell you of what your life is reflecting.
+[2938.3-2949.0] That's simple. So life, when life begins to begin to present you to men and begin to give the
+[2949.0-2954.6] data of your life is not going to give them too much explanation. When it comes, if we say
+[2954.6-2961.0] this one did not make it, this one make it simple. He does not start coming and start saying,
+[2961.0-2966.3] oh, this one is journal. Though he did not make it, but he actually suffered. He labeled too much.
+[2966.3-2973.9] He worked day and night just that he could not still make it. You see, that emotional explanation
+[2973.9-2979.9] life does not have the time to give it to people. Do you know why this thing I'm saying
+[2979.9-2986.9] life, life, life, life, life. If you begin to ask me, what is this life? In fact, life is a
+[2986.9-2993.0] definition of how a man sees you. That's one of the most important things about life.
+[2994.3-2997.9] Another aspect of life is a definition of how a God sees you.
+[2999.7-3002.8] But now we are limiting it based on the jurisdictions of a man.
+[3003.3-3007.3] So if a man begins to see you at first sight, a man that does not know you,
+[3007.3-3013.6] he defines you by what he sees and not by the explanations of the process of your life.
+[3014.7-3018.8] So if a man wants to see you, he begins to say, oh, you are worthy because of you look
+[3018.8-3031.1] worthy. You're talking about being welcome, not getting nice clothes and everything. I'm
+[3031.1-3037.1] saying the person who comes close to you, do you have or you don't have? If you don't have,
+[3037.1-3042.7] you don't have. That's it. No one cares about how many times you try to have.
+[3043.5-3048.5] No, it's you. It's you that I say, like, do you know what I've done? We don't care what you've done.
+[3050.1-3057.8] We care what you've become. Behind the scene, if they begin to, they can make the movie scene
+[3059.5-3064.8] from behind the scene. Nobody can present behind the scene as the movie scene. That
+[3064.8-3070.5] is not what we pay for. That's not why we downloaded it. We downloaded it to see
+[3070.5-3079.0] the what? The diluted version, the printed version of it. In fact, sometimes it even
+[3079.0-3083.1] spoils the views of the entire movie when we begin to see behind the scene. There are some
+[3083.1-3086.1] behind the scenes that are behind the scene, but there are some that are very thick soft,
+[3087.0-3092.6] makes us see the movie entirely different from what it looks like. So you begin to
+[3092.6-3098.1] try to make men see the behind the scene of the movie you are making is an unnecessary
+[3098.1-3110.9] explanation of a lazy man that is trying to look like a sea is strong. If you find me as
+[3110.9-3122.5] I'm just trying to tell you what life will do to you. In fact, can I even tell you something?
+[3122.5-3128.6] Can I tell you something? Back then, behind the errors of a lady is going to choose
+[3129.7-3133.0] a man that is wealthy. But I'm trying to tell you that even right now,
+[3133.6-3143.8] a man is choosing a lady that is wealthy. It is not both sides now. It is not both sides.
+[3145.0-3153.9] It is both sides now. It is both sides. It is both sides. So somebody can see you.
+[3153.9-3163.5] Oh, you have a good character. Oh, you are well shaped. Your face card is unrepresent.
+[3164.2-3170.4] But your ATM card is zero. I think I have a problem with that.
+[3173.0-3177.9] At the rest of the level, you are so beautiful. And every single thing. But then the person
+[3177.9-3184.3] looked after life that there is nothing valuable or there is no network that is being built.
+[3186.0-3190.3] You just said, let me appreciate it for your beauty. No, you are going to get old.
+[3191.0-3203.8] But it doesn't care what you look like, what care you are in here. So you become both sides
+[3205.1-3219.1] and reciprocate. Okay, enough of those talks. Enough of those talks. Let's get back into life.
+[3221.3-3230.2] So, calm down. Let me take this question here. I hope you are not offended. I hope I'm still
+[3230.2-3249.3] loved. Okay, I need to hear from Elidio. Where is Jane? Jane is not in today's classroom.
+[3249.3-3260.1] No, I'm here. I'm here. Okay. Jane, open the door. I hope you. There's no issue.
+[3260.5-3272.3] Okay. That's a good question. Where is this young woman?
+[3284.8-3293.8] Okay, I'm not offended. Yeah. Oh, you are used to me like this, right?
+[3296.6-3303.2] Is that? You are used to me like this. Maybe.
+[3303.7-3342.8] Okay. Let's continue. Let's continue. Now, when we come into the, please make yourself,
+[3343.8-3352.9] when we come into the intermedia time frame, what do you want to say? Now, in the intermedia
+[3352.9-3365.6] time frame, one of the things you want to deal with so much is this guy. That's one of the
+[3365.6-3380.7] things you want to deal with so far. Seriously. Now, we know like I taught you two kinds of range,
+[3380.7-3389.9] continuation range, right? Reversal range. Now, the intermedia time frame is actually
+[3389.9-3400.6] H4 or H2. And it can be taken directly from these intermedia quotes. Fine for you.
+[3401.1-3415.2] Now, I love my life. Now, if I come into my intermedia time frame, probably we see,
+[3415.2-3422.4] from a daily time frame, we saw something like this, the intermedia frame markets tapped on
+[3422.4-3431.6] these particular words soon, right? Market tap on this particular one. Now, in this intermedia
+[3431.6-3440.8] time frame, there are two times, there are two times, sorry, there are two types of structure
+[3440.8-3448.4] that you must understand. There is one that does not need, it does not need a breakout.
+[3449.8-3454.4] Do you know what a breakout is? Because we never really touch a breakout. This is a breakout.
+[3457.9-3465.7] This is a breakout. And it's mostly body. So what does a breakout look like? For example,
+[3465.7-3471.1] now, let me say I'm using this guy as a case study, this place now,
+[3475.1-3484.8] as a case study. And we have this particular study, right? First particular study around
+[3484.8-3497.3] here. And I go into H4 or H2. Let's look at H4 or H2. Now, this is a breakout. This body here
+[3498.7-3524.1] is what is a breakout. It's a breakout. That's a breakout. So I have this. Now,
+[3524.1-3531.1] in fact, this thing we are looking at here now is going to help us as a very strong case study.
+[3534.8-3541.6] So in my intermedia time frame, there are two things I want to see here. I want to be able to see,
+[3541.6-3545.7] oh, the structure that is for a breakout and socialize, not for a breakout. Remember how
+[3545.7-3554.8] we are here? This is dead, right? Now, we are looking at H4, intermedia time frame for H2.
+[3555.6-3561.6] Right? In ASM, these are the two times that you want to use. So
+[3563.1-3572.1] if the structure, we have a structure like this, right? Initially, because of initially,
+[3572.1-3578.6] this structure is coming like this now. Now, we have this particular structure now,
+[3578.6-3585.5] it's a very, it's mostly a very sure beach in the intermedia time frame. So let's say it's
+[3585.5-3594.0] coming like this now in the intermedia time frame, probably something like this. We have this guy.
+[3603.4-3611.6] Sorry, sorry, sorry, sorry. We have something like this now. Now, if we see this, we are acting from
+[3612.9-3617.7] this zoom manipulation around here. Now, when we see this kind of movement,
+[3618.9-3623.2] yeah, we don't need a breakout mostly in this kind of movement and a rescuing one.
+[3623.2-3627.2] This is how we don't need a breakout because market can choose to do something like this
+[3631.0-3638.3] in the H4 because of this eye. Why don't we need a breakout around this guy? It's because of,
+[3638.3-3646.4] there is no cell momentaries. There's no cell momentaries. We all begin to need a cell momentaries
+[3646.4-3653.0] when we have something like this in the daily. And in the intermedia time frame, we begin to see
+[3654.1-3662.3] this move. We get it. If we see this move like this in the intermedia time frame,
+[3663.0-3673.6] we are going to need to watch a breakout before once or changing to the upside.
+[3674.8-3679.8] So I will explain what this thing is. So you're not before that you're confused.
+[3682.3-3691.5] For example now, I have something like this in my daily time frame. I've seen these things before
+[3691.5-3704.4] actually in my daily time frame. And I have this guy. So this is a trend and I have this guy.
+[3708.3-3720.8] This is daily time frame. Let's say this is the H4 piece. This is the H4 piece.
+[3722.7-3734.8] The H4 piece begins to move like this in this manner. Because of this cell momentary now,
+[3734.9-3738.8] that is here now. I told you that through the trade reversal range because this
+[3738.8-3746.2] cell momentary is here now. The trade reversal range from the daily is accurate.
+[3746.8-3752.1] You get me? Let's say we have this reversal range in the H4. So we can trade this reversal.
+[3753.0-3758.3] Sorry. We have this combination range in the H4. We can trade this daily reversal range
+[3758.3-3767.0] from here. Do you remember? I taught you this. Now, let's give you an example now.
+[3767.0-3771.5] This move now that is here now. This daily move that is here now. The market moves in this manner
+[3772.5-3781.5] in the H4 to get the market move in this manner in the H4. That does not market
+[3781.5-3790.2] move in the H4. If we come to this kind of new, this particular point now in the daily,
+[3790.2-3795.9] we don't market up on a key level. If you don't see something like this,
+[3796.5-3805.3] a breakout like this that we get there you sell. Sorry.
+[3806.7-3810.3] Here is that one of these. Let me teach it in a very simple manner.
+[3816.9-3821.7] Now, I remember telling you that in my daily, this range like this
+[3823.4-3828.6] is a reversal range. This range because of this breakout structure now
+[3829.5-3840.9] is a continuation range. Reversa, continuation. This first range is reversal range.
+[3843.5-3848.7] This second range is continuation. I believe you remember this.
+[3850.4-3854.6] I believe you remember this and it is not difficult to write. So we got that part.
+[3855.5-3863.4] Now, I say one of the best time to do this reversal range in the H4 is when the H4 give
+[3863.4-3872.9] you a continuation range. We have something like this in the H4 timeframe, a continuation
+[3872.9-3878.8] range. It gets me. So that's where we can now, common words, trade this guy like this,
+[3878.8-3883.8] and we can sell. H4 range is what has really given a continuation range.
+[3883.8-3888.4] The IAC and the daily range is reversal, but H4 give a continuation now.
+[3889.9-3895.3] It gets me. Now, let's look at these two guys now.
+[3903.5-3906.2] I think the screen is frozen.
+[3910.6-3911.6] My screen is frozen.
+[3912.4-3914.6] Yeah, it's not showing AP.
+[3935.6-3936.2] What about now?
+[3940.5-3943.5] You just said you started screen sharing.
+[3943.5-3945.8] Start sharing. Yeah, it's showing now.
+[3945.8-3946.5] Yeah, good now.
+[3958.8-3968.4] So we have the reversal range. We have the isolation range. Now, if the price distribution
+[3968.4-3974.3] of this diagonal is like this, let's use this one now.
+[3975.0-3980.8] We have something like this in the H4.
+[3986.1-3993.0] The H4, sorry, sorry, sorry, sorry.
+[3995.0-3996.8] Trying to draw this thing very well.
+[3997.5-4001.6] So, you know, the conflicts. We have something like this now in the H4 timeframe.
+[4003.9-4009.0] And we have this guy probably begins to build.
+[4010.8-4015.4] If he begins to build buyers like this,
+[4016.3-4018.3] he buys like this, he gets me.
+[4019.0-4021.8] If my can come to react for me because of this buy, this is beauty.
+[4023.4-4024.6] For this buy, this is beauty.
+[4024.6-4028.4] We might need a breakout along the side.
+[4031.1-4036.4] In the H4, before I say, okay, we are trading these words, sales.
+[4037.5-4040.0] That's the first scenario that the breakout is needed.
+[4040.6-4044.4] Now, a scenario where a breakout is not really needed is probably we have something
+[4044.5-4051.3] like this now in H4, sorry.
+[4057.1-4064.4] And we have this guy move like this in H4.
+[4065.6-4069.2] You don't probably come into the daily zone now.
+[4069.2-4070.6] You don't need a breakout.
+[4070.6-4072.3] Don't force a breakout if you don't see it.
+[4073.4-4075.7] You don't need a breakout from that part.
+[4075.7-4076.6] You don't need a breakout.
+[4077.7-4081.4] There's no need for a breakout in this kind of place structure of H4.
+[4083.0-4085.3] Your constellation now in this point can't play out.
+[4087.4-4088.1] Do you guys see?
+[4088.1-4089.9] Or why is there a need for a breakout?
+[4089.9-4090.9] A breakout is right there.
+[4090.9-4095.5] Oh, we are trying to see that this market has been buying and it's going to give us
+[4095.5-4096.3] a sell net.
+[4099.2-4101.7] So we are looking for a reason to say, oh, we are reversing.
+[4101.7-4106.9] But in a structure like this, we don't need a breakout.
+[4106.9-4109.1] The market does not show us a breakout in a structure like this.
+[4109.1-4114.4] We can't move out because of the H4 is quite clear.
+[4114.4-4125.3] We are here to ask a sale market to come into the zone and it's no need for a breakout here.
+[4125.3-4126.8] You can sell from here.
+[4128.1-4130.3] You can sell from here.
+[4130.3-4134.5] You can choose to sell from this particular family zone around here.
+[4134.5-4136.5] There's no need for a breakout.
+[4137.0-4139.1] I know there's a possibility of confusion.
+[4140.1-4150.5] Um, sorry, it's going to be possible to like get the chart example.
+[4152.1-4155.7] I get what you're saying or I'm just like saying, can you use,
+[4155.7-4162.7] I think the current market in GBP is doing something a bit similar to what you're explaining
+[4162.7-4163.2] right now.
+[4164.2-4167.8] So maybe you could take a look at it if possible.
+[4189.0-4197.1] So I think G is going to sell, probably not cemented this stuff.
+[4197.1-4202.7] You know, I told us last time we analyzed GBP, GSD.
+[4202.7-4206.5] I told us it's going to buy and I told us it's going to buy.
+[4206.5-4214.4] So market is reacting from the buyers and it's bought in little bits.
+[4215.0-4221.4] So, okay, let's look at it.
+[4222.3-4223.7] I don't know why we are here.
+[4224.2-4225.7] Friends say why we are here.
+[4225.7-4226.3] So why are we here?
+[4227.7-4228.7] This is something similar.
+[4228.7-4239.3] I've been asking that, so don't take a Z comment.
+[4254.9-4258.6] I don't know why the method is going out and coming back in.
+[4258.6-4259.2] I don't know.
+[4264.4-4268.0] This is something, let me understand what we are talking about.
+[4269.9-4274.6] Okay, let's say we have this, I think we've analyzed it before.
+[4277.1-4281.8] Let's say we have this, this is the daily range, right?
+[4288.4-4290.1] Let's look at this on the H4.
+[4297.6-4300.5] So this is the first example I'm trying to show you.
+[4301.0-4302.5] The first example I'm trying to show you.
+[4303.2-4307.8] That right here, we can see that the price distribution,
+[4310.0-4315.0] we can see that the price distribution of this H4.
+[4315.0-4316.4] We have this retracement.
+[4317.1-4318.1] We have this guy.
+[4319.0-4319.5] Right?
+[4322.4-4328.9] Because of that, we need to wait for this breakout that occurred here.
+[4329.6-4330.3] Right?
+[4330.3-4333.4] And after the breakouts, market retreats back into order.
+[4334.6-4336.7] We should, right?
+[4336.7-4338.6] This particular one is here.
+[4340.7-4343.5] Okay, let me look at the example.
+[4345.6-4352.5] This one too, just works well with this same example.
+[4352.6-4356.1] I'm trying to show you that when we see an H4,
+[4358.0-4359.4] probably we see something like this.
+[4362.4-4367.2] Or see an H4 viewed by move into this guy.
+[4368.3-4370.1] There is no need for something like this.
+[4373.4-4374.7] There's no need for something like this.
+[4377.3-4380.0] I said there's no need for something like that.
+[4380.0-4381.9] That's what I'm trying to show you in the H4.
+[4381.9-4383.9] Because when I need time, I'm not trying to study
+[4383.9-4386.0] the internal inputs, right here.
+[4386.0-4390.0] Something like this and go and move in that particular point.
+[4390.0-4395.3] And now we are looking for an example of such.
+[4410.5-4417.3] Now, okay, probably there's something like this now.
+[4418.4-4421.1] Some markets are still at this level.
+[4422.7-4426.2] I can't be without these particular breakout around here.
+[4431.2-4439.4] Now, why is this not a good market condition to treat?
+[4440.3-4442.1] This is not a good market condition to treat.
+[4442.1-4443.7] It's not like it's not really good.
+[4443.7-4447.9] But this is why we need to treat this and we are like just careful with it.
+[4448.6-4451.9] It's because of markets is reacting from an average.
+[4453.8-4455.9] Oh, we can't even say from these breakouts.
+[4456.8-4460.1] Look, nothing.
+[4460.1-4461.4] So I will see something like this now.
+[4461.4-4464.1] Markets reacting from this market that I was talking about.
+[4465.8-4470.1] We know that, oh, based on structure, based on daily,
+[4470.1-4473.2] we have market like this, like this, like this.
+[4473.2-4474.5] But this guy is not peanut.
+[4474.5-4477.6] Another, clearly, but another.
+[4483.7-4490.0] So I, if I'm looking at this, we have this rejection, this sweep,
+[4490.0-4493.7] all the first sweep around the rejection from that order,
+[4493.7-4495.7] another sweep around here.
+[4496.5-4497.3] Let's see.
+[4497.3-4504.8] So as particular point, we will look at how sweep is going to play out.
+[4504.8-4507.7] That's what makes this thing not a good market condition.
+[4507.7-4509.7] So if you want to treat something like this,
+[4509.7-4512.4] you're going to treat it as even I'm selling,
+[4512.4-4514.9] I'm selling it to the nearest buy zone
+[4514.9-4519.4] that can cause the fleet of that movement around it.
+[4519.4-4523.0] Where is the nearest buy zone in this particular case?
+[4523.5-4526.4] Yeah, it's possible for markets to come down here.
+[4526.4-4530.1] Yeah, it's possible for markets to trade into here.
+[4530.1-4532.3] So even though I'm going to sell anything,
+[4532.3-4534.9] I want to be able to find those sales
+[4534.9-4539.5] that is going to end into this particular guy here.
+[4539.5-4542.8] Where do I want to sell from?
+[4542.8-4547.1] I want to look out from here, to sell from here.
+[4547.1-4552.6] Going to talk to me probably, or let me share something
+[4553.5-4557.9] to ask when I talk about this more clearly.
+[4557.9-4563.7] So that particular zone is a good sell.
+[4563.7-4571.8] So I'm trying to look for how to get a smaller stop loss.
+[4571.8-4587.5] Yes, I said it, small stop loss.
+[4587.5-4592.2] So if I want to pull my stop loss,
+[4592.2-4594.4] markets can come and use this.
+[4594.4-4597.0] I think this breakout block has been used
+[4597.0-4599.4] by teams which rejected from there.
+[4599.4-4601.0] So probably the nearest zone of market
+[4601.0-4603.4] is going to use these points like this.
+[4607.4-4611.0] These points like this, these points.
+[4611.8-4614.7] So if I want to be very careful with it,
+[4614.7-4616.1] I can put it around here.
+[4617.0-4618.2] That same point.
+[4618.9-4621.6] I don't, this is a 3RR.
+[4622.6-4624.5] If I have a trade like this,
+[4624.5-4627.9] I just want to make it specifically 3RR.
+[4630.0-4636.2] Sorry, give room for that 3RR very well.
+[4637.8-4641.2] Yes, if I have something like this,
+[4641.2-4647.6] I can wait for the market to use it.
+[4648.5-4650.9] So, but now based on 13 minutes,
+[4650.9-4653.3] where we see for a good buy,
+[4653.3-4656.2] we are seeing markets doing something
+[4656.2-4660.1] like this, users liquidity and this order block.
+[4661.0-4663.2] Can be a good buy.
+[4665.2-4666.9] Now my buying, no, I'm not buying.
+[4668.0-4668.9] I'm not buying.
+[4668.9-4669.9] That doesn't shoot.
+[4669.9-4672.2] I'm not actually what, I won't be buying.
+[4673.1-4674.0] I don't want to do that.
+[4675.2-4678.5] I just want to take a sell to this.
+[4678.5-4680.8] So if I want to be, oh, let's go.
+[4680.8-4681.6] Did I put in that?
+[4681.6-4684.3] It's probably where I'm trying to take a sell for you.
+[4684.3-4686.3] Now, if I'm trying to take this sell,
+[4686.3-4687.4] most of the time for me,
+[4688.1-4689.2] we are talking about psychology,
+[4689.2-4690.2] most of the time for me,
+[4691.7-4697.8] I will have to protect my capital.
+[4697.8-4699.6] It's more important than to make profit.
+[4700.6-4701.0] Yes.
+[4701.8-4704.0] So my capital is more important than to make profit.
+[4704.0-4705.7] So if I see this kind of move,
+[4705.7-4707.2] yeah, it is our own to do.
+[4707.2-4710.5] First of all, I will increase this my sell now
+[4710.5-4711.0] to this point.
+[4711.0-4715.4] I know that yes, this point is like a good place.
+[4715.4-4717.7] I can just sell.
+[4718.4-4719.2] Yes.
+[4719.2-4721.9] Now this is me trying to take aggressively from here.
+[4722.5-4722.9] Have it?
+[4724.7-4726.7] Another way to treat this to be careful
+[4726.7-4729.7] is probably if markets are at home
+[4729.7-4731.8] and do something like an engineering liquidity,
+[4732.3-4733.4] you'll probably tap us.
+[4734.2-4735.4] If market taps us,
+[4735.4-4737.7] we'll give another structural break.
+[4737.7-4742.2] I can now take a trade from here and to this loop.
+[4742.7-4745.9] Now, I know a lot of people say that,
+[4745.9-4747.8] oh, don't trade break because the rest of it,
+[4750.6-4752.2] client data, those things are not.
+[4753.0-4754.6] If I know, say, don't trade break evens,
+[4754.6-4755.4] they are not correct.
+[4756.7-4757.8] So I can treat like this.
+[4757.8-4758.9] I can be patient like this.
+[4759.4-4760.2] So treat like that.
+[4761.2-4761.6] Okay.
+[4763.5-4766.7] Now, another thing about this is that
+[4767.4-4769.5] if market should get to this particular points,
+[4770.7-4771.8] this particular points,
+[4773.1-4775.4] I'm setting break even because I know that, oh,
+[4776.0-4780.4] if market should fail from this point,
+[4786.6-4788.0] it should be taken off this guy.
+[4789.0-4791.0] Now, another reason why I said break even is that, oh,
+[4791.0-4793.4] there is no, like, at my entry levels,
+[4794.5-4798.2] probably above my SL, like a little bit into my SL,
+[4799.5-4803.4] that every single order has been taken,
+[4803.4-4804.8] every single order has been taken,
+[4804.8-4806.0] every single order has been taken.
+[4807.0-4808.6] So structurally, I know that, oh,
+[4809.9-4811.8] market does not have anything about to take.
+[4812.8-4814.2] So if you are coming up from here,
+[4814.2-4816.8] then you are leveling out.
+[4817.8-4818.6] Okay.
+[4818.6-4820.2] So that's that.
+[4821.4-4822.0] How about us?
+[4822.6-4824.3] So we, I guess, yeah,
+[4825.5-4826.9] if we are going to pick aggressive,
+[4829.9-4831.0] this guy is good.
+[4832.1-4832.5] Okay.
+[4835.0-4836.8] I'll give you an entire analyzing view.
+[4841.8-4842.1] Okay.
+[4843.0-4844.4] I really don't see what you wanted us to see.
+[4844.4-4846.5] Well, let's check all that here.
+[4847.4-4849.0] So you know, okay, let's check.
+[4849.9-4850.6] Good.
+[4850.6-4852.0] I've not really been able to go
+[4853.1-4855.1] for a long while because it's,
+[4855.8-4859.1] it's like that is only going to mess around with a lot of people.
+[4859.6-4864.0] And I think today, there's a possibility it's buying though,
+[4864.0-4867.0] it's buying, but I don't just trust that buy.
+[4867.9-4873.1] I just like that buy can do wonders from nowhere.
+[4874.2-4876.7] Market does reject it from this particular center.
+[4880.5-4882.5] It can do wonders from any cell.
+[4883.1-4887.0] So I just allow it, I just allow it just move.
+[4887.0-4889.0] So even though I'm going to trade bull,
+[4889.0-4890.7] it's probably this is something like this.
+[4892.4-4895.8] I can't really buy or I refer that buy that is below.
+[4896.4-4896.9] Okay.
+[4896.9-4901.7] Let's look at bull, bull, bull, bull, bull, bull, bull.
+[4901.7-4902.3] Which four?
+[4906.8-4910.1] But the buy is more clear than me sell right now.
+[4910.1-4911.6] Like a lot of reason why the bull is,
+[4911.6-4912.7] why the buy is more clear.
+[4914.3-4916.0] We have an internal insurance, right?
+[4918.2-4920.4] This guy, this guy,
+[4922.4-4929.1] this guy gets me reacting from somewhere.
+[4929.1-4932.5] So buy is more clear than what's on the cell right now.
+[4933.3-4934.4] Why is it more clear?
+[4934.4-4937.0] Because of the way they close well.
+[4937.0-4939.3] We have the sweep, but the closure.
+[4940.6-4944.1] So the buy is more clear than what's on the cell actually.
+[4946.7-4948.7] There's a, the user is no good for me to trade with that.
+[4948.7-4950.7] All of this is just pulling out the side of the corner.
+[4951.9-4953.5] We have this rejection.
+[4953.5-4956.2] So another rejection, another reaction happened around here.
+[4956.7-4959.1] This guy just go down and scramble everybody.
+[4962.4-4964.3] But now look at something from two days.
+[4964.3-4978.7] Where's today's 10 minutes under range.
+[4978.7-4982.0] This is why I said the buy is more clear than what's on the cell.
+[4982.0-4984.2] So all of this internal is building.
+[4984.2-4986.7] So we have this candle range structure,
+[4986.7-4990.6] candle range and we have structural range compiling
+[4992.3-4996.3] before taking that what's on the range what's high.
+[4998.3-5001.8] So you see why it's more of a buy than the cell.
+[5002.7-5003.5] You understand that one.
+[5005.1-5006.0] You understand that one.
+[5010.4-5014.4] So we're trying to show you how structures can present themselves.
+[5015.7-5017.2] How structures can present themselves.
+[5017.9-5020.4] Okay. A lot of people is going to confirm that.
+[5020.4-5023.9] Oh, we are going to use this zone here too.
+[5024.9-5026.6] And we actually put it on it.
+[5028.2-5032.4] No, do you see the issue?
+[5032.4-5034.1] We have debated from our class like this one.
+[5038.1-5039.5] I think we should go back to our class.
+[5052.9-5053.6] I don't know.
+[5059.5-5061.7] The price distribution is out there.
+[5066.9-5067.8] Jb2.5.
+[5071.0-5072.5] Okay. This is where we play with my emotions.
+[5072.5-5073.5] And this is Jb2.5.
+[5074.4-5076.9] And I'm just waiting to see the worst you can do.
+[5076.9-5080.9] I'm just waiting to see the worst you can do.
+[5091.4-5094.9] But I know I'm looking for market to do something very strong.
+[5094.9-5097.6] And it's very close to get you to do it.
+[5098.9-5101.0] Okay. I ride the bar.
+[5103.1-5104.3] That's from the zone.
+[5105.1-5108.2] Okay. Jb2.5.1.0.
+[5109.3-5110.7] I think it's very quick here.
+[5112.0-5113.8] All of these are focused on Jb2.5.
+[5114.4-5115.9] I'm just trying to keep that strong.
+[5115.9-5122.9] You want to let it go.
+[5145.9-5149.0] Okay. This is activities.
+[5154.4-5159.7] I don't know what to use.
+[5161.4-5163.9] You can see now that we're used.
+[5164.7-5166.8] I don't want to go back, back, back, back, back.
+[5168.4-5169.9] Okay. Now let's look at this.
+[5174.6-5177.8] Okay. Markets use this.
+[5178.8-5184.0] You can see market use this on C-level around here.
+[5184.0-5186.5] Or you can see all the maze of the order block.
+[5186.5-5196.8] All of the managings from 3D.
+[5197.7-5202.4] On the one that is also clear around here.
+[5203.9-5204.5] Let's see now.
+[5205.8-5207.6] If I see something that I'm just in the odd age for,
+[5208.2-5210.0] it's not going to give us that example.
+[5210.0-5212.8] That example that I gave might rarely happen.
+[5212.8-5223.2] But trust me, that second example is more valid than this one.
+[5223.9-5225.6] So this one now we're just in the odd age.
+[5225.6-5231.9] Of course, I put it with cells before it came into words.
+[5232.9-5237.0] Okay. So there was a need for, you know,
+[5237.0-5239.6] after this rejection for a breakout.
+[5240.6-5241.1] Okay.
+[5242.8-5245.1] I see if I want to enter this from an age for,
+[5245.1-5246.3] I didn't want to stress myself.
+[5246.8-5247.9] But I see something like this.
+[5247.9-5248.8] I want to enter this.
+[5248.8-5249.8] I want to stress myself.
+[5251.2-5253.3] I already see this as engineer liquidity.
+[5253.3-5255.9] Okay. This is that order block.
+[5259.7-5262.4] And I can take my buy from that.
+[5270.1-5271.2] And buy from this phone.
+[5272.2-5273.1] My target says yeah.
+[5274.5-5277.2] And also, I don't even need to stress it.
+[5278.3-5280.9] I know I already have this breakout around here.
+[5285.0-5287.0] I guess and the breakout was just from
+[5287.8-5288.4] very late.
+[5288.4-5291.3] It's that it's actually this, you know,
+[5291.3-5294.9] this was the last breakout section
+[5294.9-5298.0] and it took out this guy again.
+[5298.0-5298.7] Very wonderful.
+[5299.4-5303.0] Telling me that, oh, even the internal range of
+[5304.8-5312.1] the, you know, the, the range of the internal data frame
+[5312.1-5314.7] has actually changed as well from there.
+[5316.4-5320.4] So we have this guy here like this.
+[5322.4-5324.2] So once the breakdown of this particular
+[5324.3-5325.5] inventory that we have,
+[5325.5-5327.2] I don't think you should have an issue with this.
+[5328.3-5329.8] I don't think you should have an issue with it.
+[5329.8-5334.7] Cool. Where's the breakdown?
+[5334.7-5335.8] The breakdown is very simple.
+[5341.4-5351.8] I have a, let's say, let's say we made use of
+[5351.8-5352.7] three days, right?
+[5354.6-5356.1] Three days gave us a sweep.
+[5357.4-5358.2] That's the sweep.
+[5359.7-5363.8] Which is a condo range, right?
+[5365.5-5366.3] A condo range.
+[5366.3-5367.6] That's what three days gave us.
+[5369.4-5371.1] Since three days gave us a condo range.
+[5375.9-5379.1] This is an open-blood in the three-day time frame.
+[5380.9-5382.6] Just wait, just wait.
+[5383.1-5383.8] I want to show you something.
+[5384.6-5386.3] I went into H4.
+[5393.6-5402.6] I went into H4 and we had,
+[5402.6-5404.1] what's the next thing we saw in H4?
+[5406.6-5409.0] The next thing we saw in H4 was that
+[5409.0-5410.1] there was a breakout.
+[5414.4-5416.1] If I see this kind of breakout,
+[5418.1-5420.6] there's no way I'm not taking this trade.
+[5422.4-5424.8] A breakout that actually broke the entire structure
+[5424.8-5426.8] and not just the entire structure,
+[5427.3-5428.8] broke the entire structure.
+[5431.5-5433.1] There's no way I'm not taking this.
+[5433.1-5435.1] And now we are seen as in our liquidity.
+[5437.2-5438.5] We are riding with it.
+[5438.5-5440.4] If I want to, like, I'm trying to make sure that,
+[5440.4-5442.0] oh, my surplus is not added and the rest of it.
+[5442.6-5444.0] I can't, it's just to be precise.
+[5446.7-5449.9] And this rejection from here,
+[5451.5-5457.8] is the same zone of that three-day open-close.
+[5459.4-5468.2] So if I choose this particular open-close of this H2 from here,
+[5468.2-5470.5] and I begin to look at the H2, the H2 as,
+[5470.5-5472.9] oh, no, I would not talk about this,
+[5472.9-5473.9] we'll see the entire later.
+[5474.7-5478.4] So we can take this trade from here.
+[5478.5-5485.8] I don't need to go into any 30 minutes again.
+[5486.5-5487.9] It's very unnecessary.
+[5488.4-5490.4] Why do I, if you begin to ask,
+[5490.4-5492.8] is it why you are avoiding 30 minutes?
+[5492.8-5495.1] Because the more you go into lower time frames,
+[5496.3-5504.1] the more it's going to get so often complicated.
+[5507.1-5508.8] In multitude, you will find destruction.
+[5509.4-5512.0] So you begin to find multitude of candles
+[5512.0-5513.0] in the lower time frames.
+[5517.3-5520.4] And you have a lot of weekly sweet dance.
+[5520.4-5522.9] So the best thing is from the time frame
+[5522.9-5526.0] that we do all of those noises for you.
+[5530.7-5531.1] Okay.
+[5544.4-5545.4] So I have a question.
+[5546.3-5548.1] Yeah, is it on my engine?
+[5549.1-5554.8] No, no, please go to three-day time frame
+[5554.8-5556.4] on these particular markings.
+[5564.5-5570.5] Oh, well, yeah.
+[5571.9-5576.9] Okay, you know, if you are trying to back test,
+[5576.9-5579.3] you know, this candle has already played out.
+[5580.0-5585.3] So this first, that first cell candle that had a rejection
+[5586.4-5589.5] and the second one that came and swept the low.
+[5590.9-5592.0] Which candle?
+[5593.1-5596.1] This after this bi candle, after that long bi candle
+[5596.1-5596.6] on the left.
+[5599.1-5601.7] Then the first candle that had a rejection.
+[5601.7-5602.9] Are you talking about this one?
+[5604.1-5606.4] Yeah, after this bi candle, this one now.
+[5606.4-5607.7] Yeah, there was a sweep here.
+[5608.5-5611.7] So no, you shouldn't be taking this now.
+[5611.7-5615.3] Like it's not, where is it rejecting from?
+[5616.5-5617.2] You get me?
+[5617.8-5619.8] This guy is not rejecting from.
+[5619.8-5621.5] That's why I talked about zones.
+[5622.3-5623.7] I thought we talked about zones.
+[5624.2-5625.9] We made a pass zone zones.
+[5626.7-5627.3] You get me?
+[5628.2-5629.3] Made a pass zone.
+[5630.0-5630.9] We talked about zone.
+[5631.7-5632.3] You get zone.
+[5632.3-5634.1] There's no zone that guy is rejecting from.
+[5634.1-5636.4] That guy knows there's a clay leaf in it now.
+[5636.4-5638.0] Why would he take that kind of sweep?
+[5638.0-5638.9] Okay, look at this one.
+[5642.0-5643.1] There's no zone.
+[5643.1-5646.2] This one is rejecting from another block.
+[5648.8-5649.3] This guy.
+[5650.1-5652.6] And so you won't talk about this.
+[5652.6-5657.7] There's this fresh zone here that is rejecting from.
+[5658.2-5660.9] So that's why it's most strong.
+[5663.1-5664.4] Okay, okay.
+[5665.1-5667.6] Some people might even want to use the FVG.
+[5667.6-5671.4] There's a tiny FVG there, the daily FVG.
+[5671.4-5674.4] If they want to use the FVG, they might be wrong.
+[5675.5-5677.4] The FVG might actually kill them.
+[5678.0-5681.9] Because of, if I see this FVG now from there.
+[5683.3-5686.1] Now, I will still explain how to know the one who is not just
+[5686.7-5688.1] the rejection of the zones.
+[5688.1-5689.0] I will say explain.
+[5689.0-5690.9] There might be actually be confused from,
+[5691.5-5695.8] oh, that there's a rejection already.
+[5695.8-5697.1] Can we start taking the rejection?
+[5697.1-5697.8] No, no, no, no, no.
+[5699.1-5700.3] It doesn't just work like that.
+[5701.8-5702.1] Yes.
+[5703.3-5704.8] We are not done with inter-mid-time.
+[5704.8-5707.0] I think it's just this thing that we have realized
+[5707.0-5708.1] is not the thing that is necessary.
+[5709.6-5709.9] Okay.
+[5712.1-5712.5] For me.
+[5728.4-5731.2] I feel like it's the only one that does not understand
+[5731.2-5732.8] how it should be described.
+[5732.8-5734.9] Now, let's do some more complicatives for you.
+[5736.5-5737.0] For me.
+[5740.4-5743.7] The key level to use does not need to be taxed.
+[5743.7-5746.7] That's why I'm trying to correct this in this point.
+[5747.5-5752.5] Why is the key level that is closer to this liquidity now?
+[5753.3-5754.4] Is actually this guy.
+[5755.6-5755.9] Yeah.
+[5756.7-5757.1] Show me.
+[5757.7-5761.1] If the right place to take this card is from here.
+[5762.1-5763.6] And your look can be around what?
+[5765.4-5767.8] Yeah.
+[5767.8-5768.9] The target is in.
+[5768.9-5771.6] So that's the right.
+[5772.0-5772.4] Point.
+[5774.2-5777.7] Now, if there is another reason why we take it from that point,
+[5777.7-5780.9] I think it's, I will see, show you that one.
+[5781.7-5786.2] Wish you start taking it with the same zone of the data,
+[5786.2-5787.4] of the three-day timeframe.
+[5788.4-5789.9] Well, let's forget about that now.
+[5789.9-5791.6] We are not even into that for now.
+[5794.6-5795.0] Okay.
+[5795.8-5798.8] Go back to the board from where we started.
+[5799.7-5804.2] You will start with to identify in the daily timeframe
+[5804.2-5806.7] back into this guy now.
+[5808.1-5812.9] Now, when you come to the daily timeframe,
+[5812.9-5814.5] you are not just trading from any place.
+[5815.1-5818.7] You must pay attention to the zones market is rejecting from.
+[5819.9-5820.6] You guys see.
+[5820.6-5822.2] So market should be rejecting from.
+[5822.2-5822.9] Okay.
+[5822.9-5825.0] There's a zone that is rejecting from.
+[5825.0-5828.4] And that zone I told you ranges
+[5829.2-5831.8] of higher time frames.
+[5832.6-5833.7] Fifty percent.
+[5833.7-5836.1] And I told you when it should not be 50 percent.
+[5836.9-5837.8] We talked about this.
+[5840.1-5841.9] That's why I say when I start talking about ASN,
+[5841.9-5843.2] I will not be going back to some certain things.
+[5843.2-5844.4] Because I believe that also.
+[5846.6-5849.1] So we want to see market rejecting from.
+[5850.7-5853.3] If market is going to give this kind of range,
+[5853.9-5856.2] once it's rejected from a good zone,
+[5857.0-5858.1] not just a random zone.
+[5859.0-5859.7] A zone that's.
+[5860.7-5861.0] Yes.
+[5861.9-5864.1] It's in the range or.
+[5866.0-5866.9] A good killer.
+[5869.0-5871.1] A killer that overlaps and everything.
+[5873.9-5876.6] If we should go into this to be the timeframe.
+[5881.7-5882.6] We have to do that.
+[5884.2-5886.5] But you realize that this killer now.
+[5887.9-5890.0] Is overlapping and everything.
+[5890.0-5892.2] Now, I want to explain for that.
+[5892.2-5894.1] You explain something to them.
+[5894.1-5895.3] But when we get into.
+[5896.3-5898.5] When we start talking about range of family time frame,
+[5898.5-5899.9] I'm going to speak deeply on.
+[5900.6-5902.5] Kind of killer who's I want to trade from.
+[5904.4-5905.2] For example, now.
+[5905.8-5907.0] We're coming to a range now.
+[5907.0-5909.9] I'm beginning to see market as this one,
+[5909.9-5911.6] as one, as one, as one.
+[5911.6-5914.4] And we see which skill level will I trade from.
+[5914.4-5917.1] Now, they are about three characters.
+[5917.6-5919.4] Or characteristics of a good killer.
+[5919.9-5920.7] First of all.
+[5921.6-5924.5] The first level that is a killer who.
+[5927.2-5928.8] Plus an average.
+[5929.7-5931.3] Overlight and average.
+[5931.3-5933.7] Come back to is a key level.
+[5935.4-5937.1] Plus with history.
+[5937.1-5939.1] Or we can see plus history.
+[5939.1-5940.9] And I will explain this guy to us.
+[5941.7-5943.9] About three is a key level.
+[5945.6-5948.0] Arts and invalidation.
+[5948.0-5948.4] What?
+[5949.5-5950.1] Zoom.
+[5950.1-5951.5] Let's explain this three things.
+[5952.3-5954.0] So you can understand because of.
+[5954.0-5956.4] Key levels at the intermediate timeframe.
+[5956.8-5957.7] Are very important.
+[5958.3-5959.3] They are not even jokes.
+[5959.9-5962.3] Like I'm not even joking to you.
+[5962.3-5963.3] You must understand this.
+[5964.0-5965.6] Like it's most.
+[5965.6-5966.2] It's a must.
+[5968.0-5968.5] The most.
+[5973.0-5973.5] It's most.
+[5986.4-5988.5] I'm not sacrificing my career time for you guys to do.
+[5989.8-5991.9] You know, it's not work.
+[5995.4-5998.8] But a killer like this, for example.
+[5999.7-6001.0] Have a killer.
+[6001.0-6002.2] He's a killer.
+[6003.5-6004.3] He gets me.
+[6004.3-6005.6] And he gets an FBG here.
+[6007.5-6008.1] Most of the time.
+[6008.1-6009.1] I guess it's going to use.
+[6010.4-6010.9] This guy.
+[6013.7-6015.9] Now what market feels to use this guy.
+[6017.3-6020.2] Market will always come at the killer of the.
+[6020.2-6021.4] Invalidation what to do.
+[6022.1-6023.8] Because of this is an order.
+[6023.8-6024.9] FBG is the.
+[6025.7-6026.1] If the.
+[6027.0-6027.3] Or.
+[6029.0-6031.8] Size diagrammatically presentation off.
+[6036.6-6037.3] Price order.
+[6040.4-6041.7] He gets an explanation.
+[6041.7-6042.0] Right.
+[6043.1-6043.7] Oh.
+[6043.7-6048.3] Go on price orders.
+[6050.3-6051.1] Okay.
+[6051.1-6051.8] Now.
+[6051.8-6053.5] A market react on price orders.
+[6053.5-6055.4] Now I'm not acting that market react on is.
+[6056.4-6057.4] Liquidities.
+[6057.4-6061.7] So if validation zones is telling us that market has taken every liquidity.
+[6062.6-6065.2] And if market does not react from that particular point.
+[6065.2-6069.1] The market is going to share in that particular trend.
+[6069.1-6069.4] Right.
+[6071.4-6073.7] So that's why most of the time market feels the killer.
+[6077.4-6078.5] Invalidation acts.
+[6079.6-6082.3] If market is a killer that overlaps and FBG.
+[6082.3-6084.1] Is mostly pumped into what.
+[6084.1-6086.9] The killer of the invalidation zone.
+[6086.9-6091.0] And I saw the killer of the last killer in what in a range.
+[6092.6-6093.1] Right.
+[6093.8-6094.3] That is that.
+[6095.4-6098.4] Killer wounds history is a little bit complicated.
+[6098.4-6099.3] But it's simple.
+[6099.3-6100.6] Let's say we have something like this.
+[6106.1-6106.8] Is a killer.
+[6108.2-6110.0] Market attack on it like this.
+[6111.3-6112.4] A market goes down.
+[6113.1-6116.4] And later we have the same market comes.
+[6117.1-6118.7] In what date it's now.
+[6118.7-6121.0] Is a killer with history because of marketers.
+[6121.0-6121.7] Touch it before.
+[6122.5-6123.1] Most of the time.
+[6123.2-6123.6] Market.
+[6124.2-6125.7] If you see liquidities.
+[6126.6-6127.5] Around this guy.
+[6127.5-6127.8] Market.
+[6127.8-6128.9] What mostly what.
+[6130.1-6130.6] Use it.
+[6132.8-6135.5] So now when we see the killer with Israelized overlapping.
+[6135.5-6137.6] And every day like this is a very strong word.
+[6138.2-6139.9] Key zone in the markets.
+[6139.9-6140.2] Now.
+[6140.8-6141.6] Pay attention.
+[6143.1-6144.4] In the continuation on range.
+[6145.6-6147.2] In the continuation on range like this.
+[6148.8-6150.0] Market we always use.
+[6150.7-6152.3] Key levels with history.
+[6152.3-6152.8] Markets.
+[6155.0-6155.9] Tend to use.
+[6157.6-6160.3] I'm washing my voice because if we don't use the word the most.
+[6162.5-6163.0] Tribune.
+[6165.0-6165.4] Okay.
+[6166.5-6167.4] Levels history.
+[6168.3-6169.1] And rest of it now.
+[6170.7-6171.4] Key level with.
+[6172.5-6172.8] Oh.
+[6173.7-6174.8] Key level that overlaps.
+[6174.8-6175.6] If you ever look up.
+[6176.6-6180.5] Is when market is about to start a fresh move.
+[6181.0-6182.2] What do I mean by that?
+[6183.2-6185.0] And we can see markets selling.
+[6186.6-6188.6] And a new directional move is about to start.
+[6188.6-6190.1] And we find a key level around there.
+[6190.1-6191.2] Most of those key level.
+[6191.8-6192.6] Can either be.
+[6193.5-6193.8] A.
+[6194.9-6196.4] Previous invalidation.
+[6197.1-6197.5] Zone.
+[6198.2-6201.8] Or a key level that has an energy.
+[6203.1-6204.6] They are always used to start towards.
+[6205.2-6205.8] A fresh word.
+[6206.6-6207.0] Move.
+[6208.7-6209.4] You get me.
+[6209.4-6210.8] But for continuation that move.
+[6211.8-6213.2] That's in this manner.
+[6215.0-6216.6] Most of the key level that we have is.
+[6217.2-6218.9] Want to see a key level with history.
+[6219.4-6221.4] Or a key level that is what.
+[6221.8-6223.5] That is well after that energy.
+[6224.4-6225.7] I'm giving you examples.
+[6225.7-6226.6] Please notice this.
+[6229.2-6230.3] I'm not stating this.
+[6230.3-6232.6] We're still going to make it as simple as possible.
+[6232.6-6234.0] So that is that about key level.
+[6234.6-6234.8] So.
+[6235.5-6236.2] Where I have.
+[6237.5-6239.4] With stated out those facts.
+[6240.0-6241.7] And you should know how to apply them.
+[6241.7-6243.1] When I have daily time frame.
+[6243.8-6245.1] And I have this guy like this.
+[6247.4-6248.3] Judging.
+[6248.3-6249.6] I go into my age home.
+[6251.1-6251.6] You get me.
+[6251.6-6253.1] The next thing if I see that.
+[6254.1-6255.4] The movement has been like this.
+[6255.9-6256.9] What do I do next?
+[6257.5-6258.7] I wait for.
+[6261.5-6262.2] A break out.
+[6262.7-6263.0] Right.
+[6263.9-6264.6] Wait for what?
+[6264.6-6265.2] A break out.
+[6267.0-6267.4] Avic.
+[6268.6-6269.8] If I wait for a break out.
+[6271.0-6271.8] Automatically.
+[6272.5-6273.9] This is my new range.
+[6273.9-6277.7] So this is just telling us that this is our area of interest.
+[6277.7-6279.0] We want to focus on treats.
+[6279.0-6279.3] Now.
+[6279.8-6280.1] Yeah.
+[6280.1-6282.2] Tension before you get confused.
+[6283.2-6283.8] Now.
+[6283.8-6284.6] When we have this.
+[6285.4-6285.8] Now.
+[6285.8-6287.4] We are not talking about intermediate.
+[6287.4-6288.4] What time frame.
+[6289.4-6290.4] In the time frame.
+[6291.7-6294.2] We begin to talk about ASM.
+[6294.2-6296.0] Of the intermediate.
+[6296.0-6297.8] What time frame.
+[6298.5-6301.2] And what is the ASM of the intermediate time frame.
+[6312.4-6312.7] Okay.
+[6357.3-6357.7] Okay.
+[6358.4-6359.3] Now let's continue.
+[6361.0-6361.9] If we have this.
+[6362.4-6365.9] We are not focusing on this intermediate time frame range.
+[6367.6-6369.0] And believe me.
+[6369.0-6370.4] You can treat from here.
+[6370.4-6371.6] This intermediate time frame range.
+[6371.6-6373.5] I keep saying it's H2 or what.
+[6374.4-6375.1] Or H4.
+[6376.1-6376.4] Right.
+[6378.1-6378.4] Okay.
+[6379.2-6379.5] Now.
+[6383.4-6384.3] If I have this range.
+[6386.8-6388.6] What do you want to do?
+[6388.6-6390.6] What is the ASM I'm going to tell you?
+[6390.6-6392.7] The ASM is going to tell you something very simple.
+[6393.3-6395.1] It will tell you the same thing that I will tell you.
+[6395.9-6398.8] If we have a sweep that sponsored this movement.
+[6398.8-6400.3] In H4 or H2.
+[6401.7-6402.8] If we have this guy.
+[6402.8-6404.0] If it was sponsored.
+[6404.0-6405.3] Then we just need a rejection.
+[6406.0-6407.0] You get me.
+[6407.0-6408.3] Mostly we will get.
+[6408.3-6411.3] If this killer wear overlaps and everything.
+[6412.2-6412.9] You get me.
+[6414.1-6414.7] We need to.
+[6416.0-6416.2] Wait.
+[6416.2-6417.4] Because we have this killer wear.
+[6418.0-6419.1] We have this killer wear.
+[6420.6-6421.7] You get me.
+[6421.7-6421.9] Now.
+[6423.1-6425.4] When do we use this kind of killer wear?
+[6425.4-6427.0] And when do we use this killer wear?
+[6427.0-6428.5] Or when do we use this killer wear?
+[6428.5-6430.6] Yeah, attention to what I'm trying to show you.
+[6431.4-6432.3] If this move.
+[6433.2-6434.3] This move now.
+[6437.6-6444.5] Is coming from a bullish buy.
+[6445.4-6446.9] And this bullish buy.
+[6448.1-6450.6] This move is the counter trend of.
+[6450.6-6450.9] Sorry.
+[6451.5-6454.6] Is the counter trend of this guy.
+[6454.7-6454.9] Yeah.
+[6458.0-6459.5] Is the counter trend of this guy.
+[6459.5-6462.5] So this reversal that Acundia is not a reversal of.
+[6462.5-6462.8] Oh.
+[6463.7-6465.7] Probably from the daily is a sell.
+[6465.7-6466.7] Is a bearish market.
+[6466.7-6470.0] Now that this is just an internal range.
+[6470.6-6472.8] Or an internal time frame range.
+[6472.8-6476.8] Of a daily time frame buy.
+[6478.4-6479.6] What am I saying?
+[6479.6-6480.9] You need to understand what I'm saying.
+[6481.6-6482.6] This is what I'm talking about.
+[6482.6-6483.4] This is daily.
+[6485.0-6485.3] Right.
+[6486.3-6488.9] So this H4 move that is like this.
+[6491.2-6492.1] Is the counter trend.
+[6492.8-6494.9] So a pro trend is about to start now.
+[6495.6-6496.4] It gets me.
+[6496.4-6498.6] And this is the H4 reversal move.
+[6498.6-6499.8] Of that pro trend.
+[6499.8-6502.5] And we can get it to the upside.
+[6502.5-6502.9] Right.
+[6503.5-6504.4] I'm trying to tell that.
+[6505.4-6506.0] This is what I'm saying.
+[6506.0-6507.5] Is because most of the time.
+[6508.9-6510.7] Market does not necessarily use.
+[6510.7-6513.2] To use this header shoulder in such cases.
+[6513.2-6515.4] For all everybody that has master header shoulder.
+[6515.5-6517.8] Markets can possibly use any ring.
+[6517.8-6518.9] Any of this killer.
+[6518.9-6519.8] Either this killer.
+[6519.8-6521.5] Either this one or this one.
+[6521.5-6522.7] So what do we do now?
+[6522.7-6523.9] Around here now.
+[6523.9-6526.1] First of all, pay attention with.
+[6526.1-6527.2] The thing you want to pay attention is.
+[6527.2-6528.5] Oh, which of this killer.
+[6529.2-6531.4] Probably has an history.
+[6531.4-6532.6] A killer with history.
+[6533.4-6534.4] That's the first thing.
+[6535.3-6536.4] But not only that.
+[6536.4-6538.6] Which of them is overlapping.
+[6539.4-6540.2] And every gene.
+[6541.7-6543.7] Reading that this one is an invalidation zone.
+[6544.4-6546.3] So you're not looking at these two now.
+[6549.2-6549.4] So.
+[6550.3-6551.8] What do I need to do?
+[6551.8-6552.9] What am I stating?
+[6552.9-6554.4] What am I trying to know this?
+[6554.4-6555.2] This is what I'm trying to know.
+[6555.2-6556.4] This is because of.
+[6556.4-6557.9] It seems is not difficult.
+[6558.9-6560.1] I'm trying to know this because of.
+[6562.0-6562.7] I'm trying to know.
+[6564.4-6566.3] Where I'm looking at in the market.
+[6567.2-6567.9] Yes, I'm trying to know.
+[6567.9-6569.5] We are looking at the market.
+[6569.5-6569.8] If.
+[6571.9-6573.5] This one overlaps and every gene.
+[6573.5-6575.4] I probably it has an history.
+[6575.4-6576.7] I begin to pay attention to it.
+[6577.4-6578.7] What do I want to pay attention to?
+[6578.7-6580.9] If liquidity single kind of liquidity.
+[6581.5-6583.0] We have a killer who.
+[6585.6-6586.1] Sorry.
+[6586.1-6588.0] Let me just draw this out.
+[6588.0-6589.6] We have a killer who like this.
+[6589.6-6589.8] Right.
+[6590.4-6592.4] And we see that overlapping and every gene.
+[6593.0-6594.7] And then we have kind of like this.
+[6594.7-6595.6] You can liquidity.
+[6596.2-6596.7] Like this.
+[6600.1-6601.8] Then I know that I can take this aggressively.
+[6601.8-6603.2] Pull my SLU.
+[6603.2-6603.9] Right.
+[6603.9-6604.2] Okay.
+[6604.2-6605.6] We come reject now.
+[6605.6-6607.2] Before I can take this one aggressively.
+[6607.2-6608.4] Pull my SLU.
+[6608.4-6609.7] Remember I told you.
+[6609.7-6611.2] That let it be that this low.
+[6612.3-6613.1] This low now.
+[6613.7-6614.5] Is like this.
+[6615.0-6617.3] The only time I cannot take it aggressively now.
+[6617.3-6620.5] Is when this low is not a sweep form.
+[6620.5-6622.3] I will wait for rejection.
+[6622.9-6623.2] Yes.
+[6623.8-6625.5] Because of the Asia map begin to tell that.
+[6625.5-6627.9] Oh, we only take a trade when it trade.
+[6627.9-6630.4] As a sweep or a trade is sponsored by words.
+[6630.9-6631.5] A sweep.
+[6632.6-6633.7] Please write that down.
+[6634.7-6636.3] So if you reject from here now.
+[6637.3-6638.4] If you reject from here now.
+[6638.4-6639.7] From this particular points.
+[6639.7-6640.9] If you reject from this particular points.
+[6640.9-6642.2] And you never add a sweep.
+[6642.2-6644.2] Then my next entry will automatically be.
+[6644.2-6645.3] From this killer over here.
+[6645.3-6646.3] And my SLU plus is here.
+[6647.6-6648.9] Because of where the SLU.
+[6648.9-6650.2] I will just come.
+[6650.2-6651.6] Take it and go up.
+[6652.8-6655.3] But if it has a sweep already from this point.
+[6655.3-6656.9] I'm taking it aggressively from here.
+[6656.9-6658.1] And my SLU plus is what?
+[6658.1-6658.7] Is here.
+[6658.7-6660.3] Or am I taking it aggressively.
+[6660.3-6660.9] Because of.
+[6661.9-6662.5] Yes.
+[6662.5-6663.7] This in currently liquidity.
+[6663.7-6664.3] And everything.
+[6665.2-6665.7] Against me.
+[6666.6-6667.3] That is.
+[6667.3-6668.8] I'm trying to teach you.
+[6668.8-6670.0] How to take trade.
+[6670.0-6672.2] From intermediate time frame.
+[6674.4-6674.9] Against me.
+[6674.9-6675.4] So.
+[6675.4-6676.6] These are for traders that.
+[6676.6-6677.8] Oh, I only trade from.
+[6678.4-6679.3] Daily time frame.
+[6679.3-6680.7] Down to my intermediate time frame.
+[6683.6-6684.0] Shim.
+[6685.7-6686.7] They are not saying anything.
+[6687.9-6688.7] Are they confused?
+[6691.5-6692.0] We're good.
+[6692.0-6692.5] We're good.
+[6692.5-6693.0] We're good.
+[6693.9-6694.3] Please.
+[6694.3-6695.5] Other business to talk as well.
+[6695.5-6696.5] Yeah, I understand.
+[6697.5-6698.5] You understand what I'm saying.
+[6698.5-6699.1] Are we?
+[6699.1-6699.5] Yes.
+[6699.5-6699.9] Yes.
+[6703.1-6703.4] So.
+[6704.0-6704.5] Let's say.
+[6705.2-6707.5] I now find myself in this kind of situation.
+[6708.1-6710.1] In the H4 time frame.
+[6710.1-6710.8] I already know that.
+[6710.8-6712.5] Oh, from daily life.
+[6712.5-6713.6] I have something like this.
+[6714.3-6714.9] And I already know that.
+[6714.9-6717.2] Oh, we are going to take out this.
+[6717.2-6717.7] I'm.
+[6717.7-6719.2] And I begin to find myself like this.
+[6719.2-6720.3] In the H4 time frame.
+[6721.2-6722.2] Right in it's.
+[6722.2-6722.9] Right in it.
+[6723.7-6725.8] What kind of print am I taking?
+[6725.8-6727.2] How do I trade with these guys?
+[6728.4-6728.8] Simple.
+[6729.6-6730.6] Look for the one that has.
+[6731.8-6733.4] Sponsored by street number one.
+[6735.4-6735.9] Reject.
+[6736.7-6738.2] Or you can always take a trade.
+[6739.0-6740.8] That's reject with a sweep.
+[6740.8-6741.6] Probably reject.
+[6741.6-6743.3] Probably have a killer here.
+[6743.3-6743.5] And.
+[6744.1-6745.0] Let me zoom out this.
+[6745.0-6746.5] So this is a killer here.
+[6746.5-6747.8] And it comes at the killer room.
+[6747.8-6748.6] And it's reject.
+[6749.9-6752.7] Now, when it comes at this particular level.
+[6752.7-6753.4] And reject.
+[6754.5-6756.4] Another sweet way to trade this is that.
+[6756.4-6758.7] Oh, if here was a killer like this.
+[6759.3-6761.6] You guys probably here was a killer room.
+[6761.6-6764.0] And we have this killer here like this.
+[6764.8-6767.9] And I can now come invalidate this killer like this.
+[6767.9-6769.9] Trying to show you a breakout.
+[6769.9-6771.4] More like a breakout.
+[6771.4-6773.6] Oh, you can go ahead and trade.
+[6773.6-6775.6] Now, where do I trade this guy?
+[6775.6-6777.1] How do I trade this guy?
+[6777.1-6778.0] Simple thing.
+[6778.0-6779.3] We have to kill everywhere.
+[6779.3-6781.3] We have this killer that was invalidated.
+[6781.3-6782.8] We have another killer here.
+[6783.4-6784.1] Right.
+[6784.1-6786.1] So I need to wait for a guy like this.
+[6788.3-6788.7] This.
+[6789.5-6790.5] If this is where I stop.
+[6791.1-6794.5] Then I can take aggressively from here.
+[6794.5-6795.8] And put my SLB lawyer.
+[6796.9-6798.4] This is the invalidation zone.
+[6798.4-6800.1] Automatically, this is already liquidity.
+[6801.0-6802.7] If market comes to this particular point.
+[6803.6-6805.9] We take it from here and go.
+[6807.2-6807.9] You get me?
+[6807.9-6809.5] So even most of the time.
+[6809.5-6811.5] I most of the thing I doing.
+[6811.5-6813.1] I like to trade in the Internet.
+[6813.1-6815.7] I print is when I see something like this.
+[6816.7-6818.6] It gets me something like this.
+[6818.6-6820.3] Where is this something like this found?
+[6820.3-6822.8] It's found within this tiny region of rejection.
+[6824.3-6827.9] So we have something like this in H2.
+[6828.8-6830.7] Our market came into this guy market.
+[6830.7-6832.0] Not just something like this.
+[6833.1-6835.8] But to much that I put this guy actually from there.
+[6839.2-6841.7] That's everybody for those traders.
+[6841.7-6844.3] I want to treat from me time to time print.
+[6844.3-6845.1] What do you look like?
+[6850.4-6851.3] Those guys are clowns.
+[6858.9-6859.7] Let's see.
+[6861.5-6865.3] I think markets use this example.
+[6870.0-6870.8] Is there a D12?
+[6871.7-6872.4] It's 12.
+[6873.3-6874.8] Guys, it's literally 12.
+[6876.7-6878.5] I don't think market came.
+[6878.5-6878.8] Okay.
+[6881.2-6882.4] That was very.
+[6885.1-6887.4] They're not so very.
+[6889.9-6892.4] Oh, I might wonder is growing a bad mind.
+[6892.9-6893.2] Yeah.
+[6893.8-6895.2] It's lying.
+[6896.1-6897.0] Yeah, yeah.
+[6897.0-6899.7] So I saw this particular guy from my daily time frame.
+[6899.7-6901.6] I just saw this guy from my daily time frame
+[6901.6-6903.3] and there was this week like this.
+[6903.3-6904.2] I know that's cool.
+[6904.2-6905.6] Time for me to trade as fun.
+[6905.6-6905.9] Right?
+[6907.3-6908.3] I just saw this.
+[6908.3-6909.9] And I can't for me to trade as fun.
+[6909.9-6911.9] The next thing I have to do is you saw this.
+[6913.4-6914.7] Did I just stop?
+[6914.7-6916.3] Daily time frame, sweet.
+[6916.9-6918.2] I can go into my H4.
+[6918.2-6920.8] If my H4 is not that clear, I can go into my 3.
+[6920.8-6922.8] We are just tracing two prime frames.
+[6923.8-6925.4] Now, H4 is not that clear.
+[6926.2-6929.4] I can check whether H2 is clear.
+[6929.4-6933.4] Now, remember, remember that we are trading
+[6934.4-6936.5] to this particular high, right?
+[6940.0-6941.4] That's our CP level.
+[6947.2-6949.0] Check H2 whether H2 is clear.
+[6949.0-6950.9] This is the last thing we are doing for today.
+[6950.9-6953.1] Tomorrow we do another stop.
+[6953.1-6953.5] Okay.
+[6954.3-6955.4] Look at H2.
+[6956.4-6959.3] H2 is not that clear.
+[6960.3-6963.7] But I can trade it and it makes me.
+[6965.1-6968.2] Now, don't force it.
+[6968.2-6969.1] There's no need to force it.
+[6970.0-6973.7] This, we have the breakouts.
+[6973.7-6974.2] Let's see.
+[6974.8-6975.7] Tiny breakouts.
+[6975.7-6977.1] There's this breakout around here.
+[6979.5-6980.0] All right?
+[6980.0-6984.1] Around here.
+[6984.6-6986.5] Since I have this breakout around here
+[6986.5-6988.1] and we have this guy as sweep.
+[6989.4-6991.1] See, you don't need to stress yourself.
+[6991.7-6993.6] This is single-count liquidity.
+[6993.6-6994.5] This guy here.
+[6994.5-6997.1] So, automatically I'm trading from what's this key level.
+[6998.9-7000.1] This key level.
+[7000.1-7001.3] That's close out to the liquidity.
+[7001.9-7003.7] The key level close out to the liquidity.
+[7003.7-7005.1] You shouldn't joke with this.
+[7005.1-7006.5] That is what you should be trading.
+[7007.1-7008.4] This is the key level.
+[7009.1-7010.5] This is the liquidity here.
+[7010.5-7013.2] Single-count liquidity and this guy.
+[7013.9-7014.3] Zoomed.
+[7015.8-7016.2] All right.
+[7020.1-7021.2] How do I put my top loss?
+[7022.5-7024.1] I don't think you should stress yourself on that.
+[7026.8-7029.0] This is low.
+[7030.8-7035.2] And then, that is a very beautiful trade.
+[7036.8-7037.3] Trade.
+[7038.7-7040.2] I'm just putting it random.
+[7046.4-7047.0] Look at this.
+[7054.9-7056.2] I really don't like this one.
+[7056.2-7059.6] But, of course, we are looking at this oil.
+[7062.5-7063.4] I don't like this one.
+[7063.4-7065.0] But this is an example.
+[7065.0-7066.2] The key level with this string.
+[7067.0-7067.7] This guy here.
+[7070.2-7071.1] Where is the string?
+[7074.1-7076.0] The crest of this touch.
+[7076.6-7077.5] And they are very strong.
+[7078.8-7080.5] This top here.
+[7084.9-7088.0] And it's beautiful because of, okay,
+[7088.0-7090.0] we have this sweep around here.
+[7090.0-7092.8] Around this here.
+[7093.8-7094.3] Around here.
+[7095.7-7102.8] And I don't really like it that much.
+[7102.8-7105.8] A lot of reason why I don't like it.
+[7105.8-7107.1] A lot of reason why I don't like it.
+[7107.1-7108.5] But then, it is beautiful.
+[7109.1-7109.4] Yes.
+[7109.4-7111.5] And I will tell you why it is a beautiful trade.
+[7111.5-7112.6] There is why it is a beautiful trade.
+[7112.7-7114.9] It is because of this beginning to tell you that,
+[7114.9-7117.1] oh, market has dominated words.
+[7117.9-7120.3] This, you know, we have this sell guy here.
+[7120.9-7122.6] We have this sell guy here.
+[7122.6-7123.7] And we have this range.
+[7123.7-7125.6] This range was not actually filled up.
+[7125.6-7127.4] And we have this guy here that was actually
+[7127.4-7129.0] dominated around here.
+[7129.9-7130.4] It gets me.
+[7131.4-7134.0] So, begin to, if market should take us up
+[7134.0-7136.3] at that point, it's giving us a signal for a buy.
+[7136.3-7137.6] Just that, why I don't like it is that
+[7137.6-7140.4] I prefer, oh, since we have this range,
+[7140.4-7141.7] we have this internal range.
+[7143.3-7144.3] You should have come.
+[7144.3-7147.6] Okay, not really, you do not come that much.
+[7149.4-7152.7] But you should have come into 50% of the range.
+[7152.7-7155.4] But this is, I think this is a good take.
+[7156.0-7157.1] It is a good take.
+[7157.1-7157.7] A good take.
+[7158.8-7160.1] Probably a good take.
+[7160.1-7162.9] Not much of a take, but manage a good take.
+[7167.0-7180.0] If you want to take from that zone,
+[7180.6-7182.0] where I have here,
+[7182.0-7185.1] as liquidity and where I have here as liquidity,
+[7187.6-7190.0] we can push shades from here.
+[7191.9-7194.1] Well, this is a low probability range though.
+[7195.4-7196.7] Very low probability range.
+[7197.2-7199.9] We can do that.
+[7201.1-7202.3] Though, if I'm taking this guy,
+[7202.3-7204.3] I'll just leave the market from here first.
+[7205.2-7206.3] Here it becomes good.
+[7207.0-7207.3] Okay.
+[7208.3-7212.2] Now, before you bust in us,
+[7212.2-7213.6] FZ, FZ, FZ.
+[7214.4-7216.2] These other buy did not come,
+[7217.7-7221.4] you know, we add this guy
+[7222.5-7228.7] and immediately we have that bullish move to continue.
+[7229.5-7232.1] I've taught you this, sub-range, sub-range.
+[7233.5-7237.4] This, when market took out here,
+[7237.4-7238.4] it's more like in the,
+[7239.3-7242.8] you know, take out this particular guy here.
+[7244.9-7246.2] This is the reverse arrange.
+[7247.1-7250.9] From here, we have this move like this.
+[7251.5-7253.3] So, a conventional move is building.
+[7254.1-7254.8] Exactly.
+[7254.8-7256.6] I think we finally found our examples.
+[7257.2-7257.9] Thank you.
+[7257.9-7259.4] Thank you, thank you, thank you, thank you.
+[7259.4-7260.4] I've been looking for this example
+[7260.4-7261.6] and now it's looking at me
+[7261.6-7263.4] and I could not recognize it.
+[7264.1-7266.0] Though, not entirely that good.
+[7267.6-7269.2] Manageable, manageable.
+[7270.0-7271.9] We are from the H2.
+[7271.9-7273.0] We have this place as,
+[7274.9-7276.4] you know, as liquidity.
+[7276.4-7278.6] Our market uses breakout block around here
+[7279.3-7281.7] based on what you conversant with
+[7282.4-7283.8] use that breakout block.
+[7283.8-7286.5] And we really, really do not need to see
+[7286.5-7287.6] market begin to, you know,
+[7288.2-7290.5] it's a must that market must break here.
+[7290.5-7291.7] Why don't we need to see that
+[7291.7-7293.2] it's a must market must break here?
+[7293.2-7296.2] Before we can say, oh, it has changed and the rest of it.
+[7296.2-7298.4] The reason is because of we are in
+[7300.2-7301.2] a bullish market.
+[7302.5-7303.0] That's why.
+[7304.5-7305.6] We are in a bullish market.
+[7306.2-7307.6] So, we begin to see,
+[7307.6-7309.2] so this is a bullish market.
+[7310.0-7312.1] This buy momentum
+[7313.9-7314.6] are enough.
+[7315.2-7317.6] This buy, something like this.
+[7319.1-7320.5] That's me around here.
+[7322.4-7323.0] It enough.
+[7323.0-7325.9] Now, we have this breakout structure
+[7325.9-7327.2] around this particular point.
+[7327.8-7329.9] So, we don't need to start saying,
+[7331.6-7334.5] it did not, sorry, not that source.
+[7335.1-7336.1] We don't need to start saying that,
+[7336.1-7337.7] oh, this guy, yeah, now,
+[7338.9-7341.2] did not, we have this, you know,
+[7341.9-7343.5] you know, this second pullback
+[7344.4-7344.9] like this.
+[7344.9-7346.1] We don't need to start saying,
+[7346.1-7348.5] it not coming to 50% of the range
+[7348.5-7350.3] it's went to the buy side.
+[7350.3-7351.2] And because of that,
+[7351.2-7352.6] it's not a good place to trade.
+[7352.6-7353.4] Oh, you are wrong.
+[7354.0-7355.7] It is a good place to trade like mad.
+[7356.4-7357.0] Why?
+[7357.0-7359.2] Because of the last range we are looking at
+[7359.2-7361.0] is this breakout structure,
+[7362.4-7363.6] this range we are looking at.
+[7363.6-7365.5] And it came into 50% of that range.
+[7365.5-7367.2] What do I mean by that?
+[7367.2-7369.0] I'm saying that we have a range like this
+[7370.3-7373.1] and markets did not come into 50%
+[7373.7-7374.6] of this range,
+[7374.6-7376.1] but does something like this,
+[7376.1-7378.7] breakout structure and automatically,
+[7379.6-7381.0] a new range has been formed,
+[7382.4-7384.1] which is from here to here.
+[7384.1-7385.7] If I have a breakout structure of this,
+[7385.7-7387.2] a new range is being formed from here to here
+[7388.1-7388.7] to get that.
+[7389.6-7392.6] So, if market not coming to 50% of this major range
+[7393.3-7394.6] and give the breakout structure,
+[7394.6-7397.1] but automatically, a new range has been formed.
+[7397.1-7399.5] So, and sub-range,
+[7399.5-7400.5] I told you about sub-range,
+[7401.3-7402.9] sub-range can also be measured.
+[7402.9-7404.4] So, the major range,
+[7404.4-7406.0] since there's other transfer,
+[7406.9-7410.4] though we have this guy here,
+[7411.6-7413.2] this other that has not been taken,
+[7414.9-7416.3] this other that has not been taken.
+[7416.3-7418.9] But this new measurement of this range
+[7418.9-7421.7] would be from here to here.
+[7423.1-7424.1] So, that is why,
+[7424.1-7430.4] that was why we could take that move from here.
+[7430.4-7430.9] And then,
+[7433.6-7434.3] what did they do?
+[7434.9-7436.4] We needed to wait because of,
+[7436.4-7438.8] oh, what sponsored this move was not a sweep.
+[7438.8-7440.1] So, what sponsored this guy?
+[7440.1-7443.2] We waited for it to give us this sweep here.
+[7443.2-7443.5] Right?
+[7444.2-7445.9] Reacting from this Zoom
+[7445.9-7450.1] and it looks like a CV really not give us,
+[7450.1-7451.8] since we are doing 12 hours now.
+[7451.8-7453.6] 12 hours is not serving us and I have time.
+[7453.6-7456.1] We can't look at what 30 minutes of it looks like.
+[7458.1-7459.1] I feel like I'm wrapping.
+[7459.8-7464.5] I feel like I said I'm talking to myself.
+[7467.2-7468.1] You're making sense.
+[7470.1-7470.5] Okay.
+[7473.1-7474.7] Thank you for encouraging my business.
+[7476.9-7477.5] What was that?
+[7478.1-7487.2] Yeah, I'm just eating from the son of man.
+[7488.1-7488.8] Okay.
+[7488.8-7491.1] I think I cleaned up my shots because of you guys.
+[7502.6-7503.3] Don't mind me.
+[7503.9-7506.2] I'm always the only guy that's charged when it's 1%
+[7513.2-7513.9] Okay.
+[7513.9-7516.5] You know, today, I was mesmerizing.
+[7517.3-7523.1] I was thinking about when I'm going to be that.
+[7524.6-7526.9] I think my future kid will be so lucky to have me.
+[7529.9-7535.5] Like, well, I could not imagine how lucky my wife is going to be.
+[7536.0-7539.4] You know, don't worry.
+[7542.6-7543.2] They won't know.
+[7543.8-7545.2] They won't know any struggles.
+[7545.2-7546.3] So, I think, basically,
+[7546.9-7549.0] market normally give us a very,
+[7549.0-7550.5] not give us an entry.
+[7550.6-7552.1] It was an entry that I was giving here.
+[7552.7-7555.5] So, these are one of those range we just try and pass.
+[7557.3-7557.5] Yes.
+[7559.4-7562.2] And there's a lot of reason why we can't take a treat.
+[7562.2-7564.6] If you're thinking about taking a treat from here,
+[7564.6-7565.1] it's wrong.
+[7565.6-7567.7] Because of the real market shifts around here.
+[7569.7-7570.5] This guy, yeah.
+[7570.5-7573.6] So, there's no clean trade around here.
+[7573.6-7574.9] So, we just leave it.
+[7574.9-7576.2] We don't treat everything.
+[7576.2-7579.3] So, we just leave it.
+[7579.3-7585.4] So, I'm going to quickly give a very quick recap about what I've said.
+[7588.4-7589.6] Oh, that's my beautiful mom.
+[7593.7-7594.1] Okay.
+[7595.8-7608.1] I said, if you delete anything and add a key zone,
+[7609.2-7612.8] you have this guy, right?
+[7614.6-7617.0] Or any of the five things I showed you,
+[7617.0-7618.1] the five things you want to see.
+[7618.8-7623.5] Are you moving to the intermediate market?
+[7625.2-7631.4] I said, you must be able to be able to see a range.
+[7632.5-7634.1] If market is coming conceptively,
+[7634.8-7637.4] sell us, wait for your break out.
+[7637.4-7641.1] And I showed you how to trade this guy.
+[7641.1-7642.6] That is what we'll be here business.
+[7643.2-7644.9] At the K level, you put it through,
+[7645.8-7647.7] you don't trade your phone.
+[7650.6-7653.6] We're beginning to talk about sweep sponsor.
+[7653.6-7655.2] So, I said something.
+[7655.9-7658.8] If I want to keep trading the intermediate ranges,
+[7658.8-7660.0] how do I trade them?
+[7660.0-7663.7] Asia map, intermediate timeframe, Asia map is beautiful.
+[7665.9-7666.6] Yes.
+[7666.6-7669.1] Intermediate Asia map is very beautiful.
+[7670.4-7673.0] That's your Asia map, your H2 Asia map,
+[7673.0-7675.0] or your H4 Asia map.
+[7675.0-7678.3] So, at that particular K level is probably a K level around here.
+[7678.3-7683.0] I want to see this guy, our map, each our map,
+[7683.0-7684.5] everybody, this is the map.
+[7688.9-7689.9] So, I can see this guy.
+[7690.5-7692.7] I say, when is it necessary we don't see this guy
+[7692.7-7693.7] if it is here already?
+[7695.0-7698.9] So, we trade a range that has the map,
+[7698.9-7702.1] or that is being sponsored by the map, a sweep.
+[7703.8-7706.9] So, if I see this guy, he gets me.
+[7707.5-7709.7] I said, one of the best times you won't trade the map is
+[7710.4-7713.5] if markets can immediately tap you from here
+[7713.5-7714.7] and you can push it.
+[7714.7-7715.3] No problem.
+[7716.3-7718.9] Or we see something like this now.
+[7720.5-7721.4] We have something like this.
+[7722.1-7725.7] And when we see the map around here, for example,
+[7726.2-7728.2] we want to see something like this.
+[7728.9-7730.5] And beautiful.
+[7731.1-7732.7] We can trade from intermediate timeframe.
+[7733.3-7733.9] No problem.
+[7734.9-7735.5] Simple.
+[7735.5-7739.2] I wasn't even making life complicated for you.
+[7739.2-7739.7] I was not.
+[7740.9-7743.3] I was just showing you simplicity of how you can trade.
+[7745.4-7746.7] You can't look for an example.
+[7750.9-7751.1] True.
+[7753.0-7753.4] Yeah.
+[7754.6-7756.5] Thousands of examples around here.
+[7759.3-7759.6] Okay.
+[7760.4-7762.2] Let's look at this guy.
+[7762.8-7764.2] Why actually trade this now?
+[7764.2-7765.9] If I'm looking at this guy now, I don't like.
+[7765.9-7767.3] He said, how should I trade this guy?
+[7767.3-7769.3] You should not even be bordering yourself
+[7769.3-7770.3] or you should trade this guy.
+[7771.0-7772.0] You should not be bordering yourself
+[7772.0-7773.4] or you should trade this guy.
+[7773.4-7776.0] Like, I can enter aggressively from here.
+[7776.0-7777.6] Like this guy now.
+[7777.6-7779.0] I will just enter from here.
+[7785.2-7788.1] I can't use invalidations on both of these markets.
+[7788.1-7792.1] Now these are the invalidations one.
+[7792.1-7793.6] I'll just go up.
+[7793.6-7797.2] That's my intermediate timeframe.
+[7797.2-7798.1] And that's just it.
+[7798.1-7799.4] I don't stress myself.
+[7799.4-7800.1] This is the high.
+[7802.1-7802.4] Right.
+[7803.6-7804.4] Right.
+[7804.4-7805.7] Let's say we wait for the sweep now.
+[7807.2-7808.0] Let's wait for the sweep.
+[7808.0-7809.2] And we are pointing around here.
+[7809.2-7811.2] Now if I see something like this now,
+[7811.2-7813.4] after this sweep now,
+[7814.6-7816.1] I see this kind of projection.
+[7816.1-7819.6] Obviously, I know that I cannot be doing this kind of stuff.
+[7820.4-7822.8] Like probably even if I want to enter from here now,
+[7822.8-7824.2] I cannot be doing this kind of stuff.
+[7826.1-7828.3] You get a menu one hour.
+[7828.3-7829.6] I can't be doing this also.
+[7829.6-7832.0] So that is what we're going to talk about.
+[7832.0-7835.7] How to not trade from the lower timeframe,
+[7835.7-7837.5] 30 minutes, 15 minutes and the rest of it.
+[7838.1-7839.9] Now the first one to do,
+[7839.9-7841.7] this is tomorrow's class of orders.
+[7842.4-7844.4] But tomorrow we'll talk about liquidity again
+[7844.4-7845.2] and the rest of it.
+[7859.6-7885.5] Then we're going to trade in from the lower timeframe.
+[7885.5-7886.8] I was in three hours, two hours.
+[7891.6-7893.3] You know, I cannot find where we're trading from.
+[7894.1-7895.0] It's two days.
+[7896.2-7896.7] Two days.
+[7897.3-7897.6] Okay.
+[7898.8-7900.3] Should have to tell me I was fitting two days
+[7900.3-7900.9] as two hours.
+[7902.8-7903.0] Okay.
+[7904.2-7905.3] Now, two days.
+[7905.3-7906.1] Thank you very much.
+[7906.1-7907.3] I was even fitting as two hours.
+[7907.8-7910.4] So sometimes if I pass by sometimes,
+[7910.4-7913.2] I take a trade directly from daily timeframe
+[7913.2-7915.4] as long as the SL is not much.
+[7916.0-7919.3] So now we have this two days rejection.
+[7919.3-7920.7] And this is a very nice skill level
+[7920.7-7921.6] from two days, right?
+[7922.3-7923.7] From two days, we have this guy,
+[7924.5-7925.3] these points now.
+[7925.3-7926.3] If I have something like this
+[7927.6-7929.1] in my two day timeframe,
+[7930.8-7932.6] I don't need to stress myself.
+[7932.8-7933.3] Why?
+[7933.3-7936.0] From today's timeframe, this is liquidity, right?
+[7936.8-7938.5] And this is the last skill level.
+[7938.5-7941.1] So I can take a trade like this for my three days,
+[7942.5-7943.6] directly from two days.
+[7943.6-7946.8] And you are not soon trading.
+[7946.8-7950.6] You just saw a good market condition.
+[7950.6-7953.0] And now these points now,
+[7954.6-7957.5] I can reduce it, this particular point.
+[7957.5-7960.6] And probably I don't want to trade this thing now.
+[7961.2-7962.6] I want to trade it like this.
+[7962.8-7963.7] What do I do?
+[7964.2-7965.9] Go to your intermediate timeframe.
+[7965.9-7967.3] Life is not hard.
+[7967.3-7970.2] This is the zone you are expecting market to reject from.
+[7970.7-7972.5] A zone, you know we are not done with zones.
+[7973.4-7976.7] A zone, because the way to trade zones is
+[7977.9-7979.0] probably you are trying to see,
+[7979.0-7980.6] I'm trying to take a trade from these points.
+[7981.4-7985.2] Let that zone synchronize with your higher timeframe zone.
+[7989.7-7992.9] I go into two hours now.
+[7997.9-7999.0] Because here we're looking at,
+[8002.0-8004.0] are we repeating the same market we dealt with?
+[8006.4-8008.4] I think we are repeating the same market we dealt with, Abin.
+[8011.3-8012.8] We've handled that market before now.
+[8014.9-8015.3] Here now.
+[8017.8-8019.2] We've dealt with this market before now.
+[8020.3-8021.1] Yes, yes.
+[8022.7-8024.9] Should not be going back and forth again, Abin.
+[8028.6-8029.7] We left this thing before.
+[8031.7-8033.8] Let's look at, I don't think we've dealt with this one before.
+[8033.8-8036.7] Let's look at this key zone now.
+[8036.7-8038.2] If I want to trade this one from today,
+[8038.2-8039.4] there's nothing wrong with trading this one
+[8039.4-8040.6] that I don't want to do this.
+[8040.9-8042.0] Last thing about this one.
+[8042.5-8045.2] So, let's see now from the two hours,
+[8045.2-8046.5] intermediate timeframe,
+[8046.5-8047.7] two days to two hours now.
+[8050.2-8051.3] How do we trade this?
+[8055.4-8057.0] This is the zone.
+[8061.1-8065.4] If I see this guy now from two hours timeframe,
+[8065.9-8075.7] actually, the best time to take this trade
+[8076.3-8077.2] can be like this.
+[8078.4-8081.5] There's a lot of entries around this particular one.
+[8083.0-8083.4] Trade.
+[8084.3-8089.3] And we have these points now.
+[8089.3-8091.3] We already have a breakout around here.
+[8092.7-8093.9] A breakout around here.
+[8095.5-8096.4] Breakout around here.
+[8097.1-8098.4] Market did not give us an entry,
+[8098.4-8100.6] but we have two hours range now.
+[8101.2-8104.7] From here, we have this guy rejected,
+[8104.7-8106.3] but did not come into 50%.
+[8106.3-8107.6] But now we have another guy here
+[8108.3-8110.7] that came into the 50% of this new range.
+[8111.1-8111.9] Right?
+[8111.9-8114.3] How do I trade this one, these points?
+[8114.3-8115.6] I don't need to stress not at all.
+[8116.3-8117.9] This guy already has a sweep.
+[8118.6-8119.5] Yeah, like this.
+[8120.2-8121.4] Already has a sweep.
+[8121.4-8127.1] And we have this killer here that is here.
+[8136.1-8138.9] I think I'm tired of the hijack I'm making today.
+[8147.7-8149.6] It's supposed to be as fun as that.
+[8150.3-8152.0] I'll be in iPad before.
+[8152.0-8153.4] Oh, that's true.
+[8153.4-8154.1] That's true.
+[8154.1-8154.8] That's true.
+[8155.6-8159.8] All right.
+[8159.8-8161.1] To this class, what's your name?
+[8167.6-8168.6] This guy came now.
+[8170.2-8172.1] We still get the recording.
+[8173.2-8174.8] If this is saved.
+[8177.3-8178.9] Like the recording.
+[8178.9-8179.2] Good day.
+[8180.4-8182.3] I think it's 6,000.
+[8182.3-8184.5] I don't know if you'll say he starts recording again.
+[8185.3-8186.5] I think he's still recording.
+[8186.5-8187.5] He's recording.
+[8187.5-8188.0] Okay.
+[8190.0-8193.2] Yeah, he was recording because I don't
+[8193.9-8194.8] record.
+[8194.8-8196.4] Is he even recording now?
+[8196.4-8197.4] Yeah, he's still recording.
+[8197.4-8198.7] Yeah, he's still recording now.
+[8199.6-8203.6] So if he comes in and you know, you should be able to still,
+[8203.6-8204.9] he should be able to still get it.
+[8204.9-8208.8] If not, hopefully does not get corrupted like the last one.
+[8209.6-8210.4] I'm not sure.
+[8211.8-8213.9] Angel Food has been tough already.
+[8214.7-8215.9] Yeah, that's what I thought.
+[8216.9-8219.2] I'm not sure if he's even coming back.
+[8219.2-8220.5] And I'm not even sure maybe.
+[8221.2-8222.8] He's even wrapping up the class.
+[8222.9-8223.8] I swear.
+[8223.8-8225.5] And that record, he said, it might be
+[8226.8-8227.6] might be corrupted.
+[8227.6-8229.6] I'm not even sure maybe my seatbag said.
+[8231.6-8232.0] Damn.
+[8232.0-8232.9] Don't scurry with it.
+[8232.9-8234.4] You don't learn this now for your head.
+[8235.0-8237.5] And I swear, and my mind was,
+[8237.5-8239.1] my mind was already in that battery.
+[8239.1-8241.5] I said, Angel, you don't see this thing.
+[8241.5-8243.0] You don't need it to be sent to.
+[8243.0-8244.2] This won't go off now.
+[8244.2-8245.3] This won't go off now.
+[8245.3-8246.0] And he off.
+[8250.7-8251.1] God.
+[8256.0-8258.3] And nobody can record for class.
+[8259.2-8262.9] If you know what you learn this now,
+[8262.9-8264.0] you're just writing it down.
+[8264.6-8265.5] I swear.
+[8265.5-8267.1] He might not see the recording now.
+[8267.1-8268.6] He might not see the recording.
+[8269.9-8270.8] I got a record.
+[8271.6-8272.1] Hey.
+[8272.1-8272.4] Ah.
+[8273.7-8274.2] Blast.
+[8275.0-8275.5] She did you.
+[8276.9-8277.4] My phone.
+[8278.8-8279.2] Ah.
+[8279.2-8280.0] How are you?
+[8280.0-8280.4] Ciao.
+[8286.5-8288.0] I don't know this record now.
+[8288.5-8289.0] Ah.
+[8289.0-8290.3] Oh, my wife just found out off.
+[8296.5-8297.2] It is way.
+[8298.9-8299.6] It's right indeed.
+[8300.5-8301.8] There's something they read.
+[8301.8-8302.3] Are they?
+[8303.0-8304.9] Very far from my iPad.
+[8304.9-8306.4] But my iPad record has.
+[8309.0-8310.9] And it goes through this money.
+[8310.9-8313.4] So I just leave my iPad on.
+[8313.4-8314.4] On record.
+[8314.4-8315.0] For my house.
+[8316.8-8317.4] So it goes through.
+[8317.4-8318.9] He's gonna get the record.
+[8318.9-8319.8] So no work.
+[8319.9-8321.6] So I get her to send down for me.
+[8322.8-8324.0] I hope she knew the emutes.
+[8325.2-8325.5] No, no.
+[8325.5-8326.9] You know the emutes like the last time.
+[8329.6-8330.5] Sharp, sharp, sharp.
+[8331.1-8331.3] Yeah.
+[8332.8-8333.6] Not today itself.
+[8334.4-8334.9] Yeah, no.
+[8337.2-8339.2] I never see my kid for the school.
+[8339.2-8340.2] My PD class.
+[8340.2-8341.3] Why does he sign it?
+[8356.5-8357.0] Oh, my.
+[8357.0-8358.9] He get paid what I take yesterday.
+[8359.7-8360.6] Can't get the work.
+[8363.4-8365.7] Now from exactly what you don't learn so far.
+[8365.7-8367.5] And that they see they run back.
+[8368.7-8369.5] See they go away.
+[8372.5-8375.6] Now get mine, bro.
+[8377.6-8378.0] Why?
+[8378.0-8379.0] Why you talk like that?
+[8380.5-8381.0] Let me say.
+[8383.0-8384.2] I want to know the.
+[8384.2-8385.5] I want to get to the bottom.
+[8385.5-8388.3] How to like, you know, from the beginning to the end.
+[8388.3-8390.7] Before I can start betting my money inside.
+[8390.7-8391.0] Okay.
+[8391.0-8393.2] How to use each amount to train.
+[8393.2-8394.0] Very, very, very.
+[8394.8-8397.6] You know some of us done the trade before now.
+[8397.6-8398.2] You understand?
+[8398.8-8399.8] No, you do it too.
+[8399.8-8400.5] It's just like.
+[8401.7-8403.2] That's not your knowledge.
+[8403.7-8405.4] That's not what it is to be made in the talk.
+[8405.4-8408.6] Can you try to see if you don't reach as in.
+[8408.6-8410.3] Finish a share in my PD class.
+[8411.6-8412.8] Because I feel like they are so.
+[8412.8-8415.3] They are things that, you know, we don't know yet.
+[8415.3-8418.3] Because everything is just giving us small, small, small.
+[8418.3-8418.8] In true.
+[8419.6-8421.6] I don't want to bet my money inside something.
+[8421.6-8423.7] I don't understand fully.
+[8423.7-8426.7] And the money and the manipulation in this market.
+[8426.7-8428.4] This is a very, very crazy.
+[8429.0-8431.2] Since this was started, the market is just moving.
+[8431.2-8433.3] If you don't know what you are doing very well.
+[8434.1-8435.1] I'm going to collect.
+[8436.1-8436.7] Big time.
+[8439.6-8442.0] The prize that you are not good at all.
+[8442.0-8444.9] If you don't see it, you give a sign of bullish.
+[8444.9-8446.9] Then you just go back to.
+[8446.9-8448.5] You are not sure of what you are doing.
+[8448.5-8449.5] I'm going to collect.
+[8449.5-8450.8] I promise you.
+[8450.8-8452.3] And the prize that you are not going to do.
+[8452.9-8460.3] Ah, I just wish that FZ was just posting his, his man trade.
+[8462.0-8462.4] Come on.
+[8463.5-8465.1] At least somebody.
+[8466.0-8470.1] But he cannot keep on depending on FZ now.
+[8470.1-8471.1] Exactly.
+[8471.1-8473.7] I know if you tell him that's what he's going to say.
+[8473.7-8477.1] But as I said, I just wish, I just wish he would be doing that.
+[8479.3-8482.0] You know, to share this later is not easier.
+[8482.0-8483.0] I can't lie.
+[8483.0-8486.4] Because even you say when you are taking your own personal trade.
+[8486.4-8488.9] Some trade just need immediate reaction.
+[8488.9-8489.5] You understand?
+[8490.7-8494.4] As I use, as I use mostly, as I use limits most of the time.
+[8495.1-8496.5] You know, they do market order.
+[8497.2-8498.4] You know, they do market order.
+[8498.4-8501.1] But that last JP 225 when post.
+[8501.8-8503.6] That's an immediate reaction.
+[8503.6-8506.0] Now market order, but you need to be happy.
+[8507.1-8507.6] Yesterday.
+[8508.8-8510.2] Yesterday, okay.
+[8510.2-8511.6] Yeah, check for that telegram.
+[8513.4-8514.8] And I caught that trade too.
+[8518.6-8520.9] The one today, the first one he posted today.
+[8521.5-8522.5] Yeah, the first one.
+[8523.2-8524.2] He's sleeping now.
+[8531.4-8532.9] Yeah, that one, we don't need to sleep now.
+[8532.9-8533.7] Yeah.
+[8533.7-8535.4] That one, we don't need to sleep already.
+[8535.4-8536.4] And the second one.
+[8536.4-8538.1] Yes, and the second one in the week four.
+[8540.7-8542.5] Don't save us, trigger itself.
+[8542.5-8543.9] Don't take on one, don't trigger.
+[8548.5-8550.7] Most times, this is, this time.
+[8550.7-8551.9] Now limit order and you do.
+[8553.4-8554.7] Okay, our boss is back.
+[8555.5-8556.7] Jesus.
+[8556.7-8558.3] I can't believe you guys.
+[8558.9-8559.9] Yeah, we're waiting.
+[8563.8-8565.4] I came to end this session.
+[8565.4-8567.8] I'm looking for me to see 12 persons last year.
+[8571.5-8573.5] I think my, don't mind my part went off.
+[8574.1-8574.7] Okay.
+[8574.7-8576.5] So, oh.
+[8576.5-8578.4] I wanted to ask something.
+[8578.4-8580.3] This iPad, this one person.
+[8580.3-8582.6] So is it like, when you start, is it,
+[8583.5-8586.4] does it add extra profitability to it?
+[8586.4-8587.4] Because most times,
+[8589.2-8591.3] your, maybe that's the secret now.
+[8591.3-8593.1] Your, this thing used to be one person.
+[8593.1-8595.7] So, maybe let me start doing my own like that.
+[8595.7-8596.7] I'm just lazy.
+[8597.5-8598.5] I'm just lazy.
+[8600.0-8604.3] I love you that I've never taken any JPU IPA
+[8604.3-8607.4] that I've been dropping for a long while.
+[8607.4-8610.3] This, I've never taken a JPU IPA.
+[8610.4-8611.6] Because fundamentally speaking,
+[8611.6-8615.8] JPU IPAs are not yet clear to me.
+[8615.8-8618.1] So the only JPU IPAs that has been cleared
+[8618.1-8619.5] is this J225.
+[8620.2-8622.6] That's the only IPI I know that right now.
+[8623.4-8624.5] I'm playing with.
+[8625.5-8626.7] And to clear this by,
+[8626.7-8628.5] after I'm done, I buy on JPU 25.
+[8630.0-8632.2] The identity right now, I think today is probably
+[8632.8-8634.4] a chance to do it for good,
+[8634.4-8637.1] to see if good buy can come true.
+[8638.0-8639.2] If good buy can come true.
+[8639.2-8640.4] People drop on for us both.
+[8642.0-8643.2] Winifits in our group.
+[8644.3-8646.2] And I'm mostly at that on Google.
+[8646.2-8647.8] May we feel like melons more?
+[8650.3-8651.1] No problem.
+[8651.1-8652.1] No problem.
+[8653.1-8653.6] Okay.
+[8653.6-8654.8] Excuse me.
+[8654.8-8655.5] Hi.
+[8655.5-8655.9] Sorry.
+[8655.9-8656.8] Excuse myself.
+[8658.4-8660.4] I can't seem to find two days
+[8660.4-8663.1] or three days can do range
+[8663.1-8664.0] of my training.
+[8664.9-8666.4] Your training has been solved.
+[8667.6-8667.9] Huh?
+[8668.8-8670.3] Your training has been solved.
+[8671.8-8672.0] Oh.
+[8677.1-8677.6] Okay.
+[8679.1-8680.7] But I can just be working
+[8680.7-8682.3] with just one day.
+[8683.5-8684.3] Maybe I make it.
+[8685.5-8685.7] Yeah.
+[8685.7-8687.0] You can work with one day actually.
+[8688.2-8689.0] Please.
+[8689.0-8689.4] Thank you.
+[8693.8-8697.1] Sorry about that.
+[8698.5-8698.9] Okay.
+[8703.9-8704.6] Card WI.
+[8706.1-8708.1] I've not seen the cell around this card
+[8708.1-8708.9] that you are.
+[8708.9-8709.2] Yes.
+[8710.2-8712.1] I've not seen a good cell around this ball.
+[8713.4-8714.7] I'm just patiently waiting
+[8716.1-8717.7] to see a good cell from it.
+[8718.3-8720.3] See, I need to be pretty bullish.
+[8721.1-8721.6] You know what I mean?
+[8721.6-8721.9] Yeah.
+[8722.7-8723.9] Just playing around there.
+[8725.0-8726.7] But I know they are going to dump
+[8726.7-8727.2] very soon.
+[8728.0-8729.8] I'm waiting for this Tuesday.
+[8729.8-8730.8] Wednesday news again.
+[8731.5-8732.3] They will dump very soon.
+[8733.4-8733.8] Okay.
+[8734.5-8740.1] Oh, yeah.
+[8741.3-8742.1] They should be stopped.
+[8744.7-8745.1] Okay.
+[8745.6-8746.3] Okay.
+[8747.5-8748.3] Card WI.
+[8749.9-8751.2] Let's use this as an example.
+[8752.4-8753.1] Detail office.
+[8758.2-8759.4] History markets.
+[8759.4-8760.6] We jacked from this key level.
+[8763.3-8764.2] And the daily time frame.
+[8765.9-8766.8] What's that good cell?
+[8767.4-8770.6] I cannot take out this eye.
+[8772.0-8773.5] I cannot take out this now.
+[8773.5-8774.3] I'm not taking it.
+[8775.2-8776.1] I say we enter it.
+[8776.5-8777.0] It's work.
+[8781.1-8781.7] They don't need it.
+[8784.9-8786.2] I will see how I want to go sweep
+[8786.2-8787.1] from this key level.
+[8792.5-8794.4] Because this dude here was taking us.
+[8799.6-8800.3] That's how you are.
+[8801.6-8802.6] You don't need to.
+[8802.6-8803.0] Oh, good.
+[8803.0-8805.0] I don't need to go and start cleaning yourself.
+[8805.0-8806.3] It's fancy.
+[8806.3-8807.5] I'll use this thing.
+[8807.5-8808.0] Like me now.
+[8808.0-8809.5] My minimum RR is always five.
+[8810.4-8812.1] Minimum RR is always five.
+[8814.6-8818.2] So how would I have this guy here?
+[8819.1-8820.5] That's one of the questions I have to ask.
+[8826.4-8828.1] What's the difference between these two?
+[8829.8-8832.0] You guys are making me to pray by itself today.
+[8832.0-8832.6] The last one.
+[8838.0-8842.8] So from here, we have these breakouts.
+[8846.2-8846.7] Around here.
+[8850.3-8854.8] And if you ask me where should I go,
+[8855.6-8857.5] I can take this from here.
+[8859.0-8861.0] This is the key level market came to react from.
+[8862.6-8863.7] And that's it.
+[8863.7-8866.5] And based on where I'm keeping my stop loss,
+[8867.0-8868.2] I don't want to show you that.
+[8868.9-8871.0] Because of the key level that would have been
+[8871.0-8873.7] the third market to trade into.
+[8874.5-8876.2] That is just a break and a retest.
+[8878.0-8880.5] So I'm going to keep this around here.
+[8881.4-8882.6] The low of that sweep.
+[8885.3-8886.6] Pretty big to me.
+[8886.6-8887.4] 43 pips.
+[8888.4-8889.8] Something that I don't want to do with.
+[8891.2-8891.7] That's all.
+[8892.3-8897.1] But if I'm going to exit from this point,
+[8897.5-8899.1] probably four hour is between 100 pips.
+[8900.2-8901.6] Now, let's get better way to cash out.
+[8905.4-8906.1] Now, as you can see,
+[8909.7-8913.1] exit time frame is one of the best time
+[8913.1-8913.9] they've happened.
+[8913.9-8915.2] I love to trade from.
+[8916.7-8917.3] You listening?
+[8918.2-8919.1] I love to trade from.
+[8920.8-8923.9] Now, how do I take this guy?
+[8925.2-8927.4] I already, I'm seeing this.
+[8927.9-8928.3] Like this.
+[8928.9-8937.3] Something that I hope from this show
+[8937.8-8939.0] that has really been used
+[8939.0-8942.4] and we already have this sweep.
+[8942.4-8945.7] Asia map sweep from this point here.
+[8947.1-8953.7] And we have this guy filming from here.
+[8955.7-8956.2] That's me.
+[8956.8-8960.8] So from the first, we already have this
+[8961.3-8964.1] that market breaking that point.
+[8965.8-8968.8] But the H2 now was only building these buyers.
+[8971.6-8974.8] And now we have this sweep here.
+[8976.8-8978.2] We have this sweep here.
+[8978.2-8978.6] Right.
+[8979.5-8980.6] This sweep around here.
+[8981.5-8982.8] What still have this best?
+[8985.2-8987.2] This open close would have been best.
+[8987.2-8988.5] But why would I need this open close?
+[8988.5-8991.0] I will use this key level history.
+[8992.1-8992.4] Yeah.
+[8997.1-8998.5] And that's my low.
+[8999.7-9001.0] My low can't be like this.
+[9009.9-9013.8] Now, the entry.
+[9015.2-9016.3] I love the entry.
+[9017.0-9020.4] Actually, but the entry did not come so well
+[9021.9-9023.3] to the point I wanted to come from.
+[9024.1-9024.8] Yes.
+[9024.8-9028.3] And we don't need to rejection from the rent.
+[9028.3-9029.5] Don't forget that.
+[9029.5-9030.4] Don't forget that.
+[9031.1-9032.0] Don't forget that.
+[9032.0-9034.5] So where should I, where would I want to trade this guy
+[9039.3-9040.5] from this particular entry?
+[9042.0-9044.8] Now, we have this.
+[9045.2-9045.6] This.
+[9046.4-9054.5] LBG that is here around here.
+[9054.5-9055.6] And that's the market I use.
+[9056.6-9056.9] Okay.
+[9057.7-9061.5] If I take aggressive from that LBG, there will be no problem.
+[9063.3-9071.7] That's liquidity is LBG around here.
+[9071.7-9072.0] And.
+[9073.9-9074.8] Rampage.
+[9074.8-9075.9] This episode now.
+[9076.9-9080.3] At this point, looking too big, but.
+[9081.2-9083.5] That's also the most precise point.
+[9083.5-9086.0] This is not here.
+[9087.5-9089.6] Don't do that around here.
+[9091.5-9092.3] It's good.
+[9092.3-9095.3] But now, let's do something from this particular point.
+[9096.3-9098.3] Remember, I told you 30 minutes.
+[9098.3-9101.5] You see around, you know, we have this key level.
+[9105.2-9106.1] We have an everything.
+[9106.1-9107.3] So make it up everything.
+[9107.3-9109.3] Now, this is one of the time I can go into 30 minutes.
+[9110.5-9112.5] Because I'm trying to ensure that oh,
+[9112.5-9113.3] I don't trade.
+[9115.5-9118.7] Now, from 30 minutes now, 30 minutes begin to show me
+[9118.7-9122.2] oh, that we can, here can be liquidity.
+[9122.7-9124.4] And this, within my.
+[9125.8-9129.0] SL around this point is not entirely wrong.
+[9131.4-9132.3] Do you get me?
+[9132.3-9133.6] But where would I prefer?
+[9133.6-9135.8] I would still prefer to put this, this low.
+[9138.5-9139.1] Do you get me?
+[9139.1-9142.1] But still know that oh, this point here is my entire loss.
+[9142.9-9143.7] I got it wrong.
+[9144.9-9145.5] You get me?
+[9146.3-9146.8] Show us.
+[9146.8-9147.2] Yeah.
+[9147.2-9149.1] You see that same kind of liquidity?
+[9149.1-9151.3] It is more like a mini structural liquidity
+[9152.8-9153.4] at this point.
+[9153.4-9157.7] So like this is not bad.
+[9163.0-9163.2] So.
+[9164.8-9166.4] I think it's very clear.
+[9170.5-9171.9] See, I mean, it was very clear.
+[9174.8-9183.4] So I'm not putting the take profit.
+[9183.4-9186.3] So I'm just trying to show us the entry and stop loss.
+[9190.4-9191.8] So if I want to take profit,
+[9192.8-9194.8] I don't see it through this point.
+[9199.1-9199.4] Okay.
+[9203.1-9204.1] I like this guy.
+[9205.3-9207.9] The equity came into this open close.
+[9209.0-9211.4] And we, open close is there number one.
+[9212.2-9214.9] And also there is a, there is a killer with what?
+[9215.6-9217.2] With history as well.
+[9218.2-9219.1] And rejected.
+[9219.9-9220.8] And give it speed.
+[9222.0-9223.0] That's what we got.
+[9223.0-9223.9] H2 works.
+[9223.9-9224.6] Pressure map.
+[9225.4-9226.5] Which tells us that oh,
+[9226.5-9229.1] we are going for the structure hours.
+[9231.0-9231.2] Right.
+[9244.5-9248.2] So I don't really, really like going to
+[9249.4-9250.7] touch low attachment.
+[9256.5-9259.1] Oh, and I don't want to stress myself over.
+[9260.4-9261.1] Structures.
+[9268.0-9271.2] So at this, this did not really give me a kind of
+[9271.2-9272.0] thank you that I go.
+[9273.0-9281.1] No, we need a kind of kind of for each.
+[9284.3-9284.7] Okay.
+[9284.7-9285.9] I think it means this.
+[9285.9-9287.0] It needs to be clear.
+[9291.9-9292.6] No, really dark.
+[9294.9-9295.4] No, not clear.
+[9301.7-9302.3] You're all right.
+[9318.6-9327.1] No, I won't stress it.
+[9333.5-9334.4] So actually was.
+[9335.3-9335.9] Now the dark.
+[9341.7-9342.8] Let me check for us.
+[9346.2-9348.2] I would have to be fair if market commited this.
+[9348.2-9348.7] Okay.
+[9348.7-9349.5] I'm going to these points.
+[9350.1-9354.1] And just take it from the comments that are points.
+[9356.3-9383.4] I think it's a good spot to not come well and it's a world we are looking at so just leave it.
+[9383.4-9387.4] Okay let's look at this one.
+[9387.4-9393.4] Let's look at what it looks like in the image.
+[9393.4-9402.0] Next guys, this is this kind of bio thingy above here.
+[9402.0-9406.0] Where we have this kind of stuff.
+[9406.0-9413.5] Just take it aggressively.
+[9413.5-9416.5] It's kind of feeding.
+[9416.5-9423.6] How about this?
+[9423.6-9425.6] You can do this one.
+[9425.6-9442.0] You can do this one up there.
+[9442.0-9447.7] You have this point that is close up to the liquidity.
+[9447.7-9449.7] You know the liquidity.
+[9449.7-9453.7] So we can take aggressively from there.
+[9453.7-9461.7] That's a very beautiful, intangible interference.
+[9461.7-9465.7] And just, you don't stress it.
+[9465.7-9471.2] Just put it around here.
+[9471.2-9491.2] I think we have another one.
+[9491.2-9493.2] So it's beautiful.
+[9493.2-9497.2] Something like this.
+[9497.2-9500.9] I don't know.
+[9500.9-9502.9] This is another.
+[9502.9-9504.9] I think this open clue is the answer.
+[9504.9-9506.9] Another entry.
+[9506.9-9508.9] Why is it a very good entry?
+[9508.9-9510.9] Because of this breakout here.
+[9510.9-9512.9] Just gave this mini breakout.
+[9512.9-9514.9] Breaking out.
+[9514.9-9516.9] We have it on this point.
+[9516.9-9518.9] We have this another breakout.
+[9518.9-9520.9] It gets me.
+[9520.9-9522.9] Came into the video of it.
+[9522.9-9524.9] And it was just from here.
+[9524.9-9526.9] We have this point now.
+[9526.9-9528.9] And my question is,
+[9528.9-9530.9] since we have this free.
+[9530.9-9532.9] My question is,
+[9532.9-9534.9] give us a slide.
+[9534.9-9541.2] And you can use it as an entry.
+[9541.2-9545.2] So this.
+[9545.2-9547.2] So.
+[9547.2-9549.2] So.
+[9549.2-9551.2] I don't know.
+[9551.2-9555.5] I don't know.
+[9555.5-9557.5] So.
+[9557.5-9561.7] So.
+[9561.7-9563.7] I don't know.
+[9563.7-9565.7] I don't know.
+[9565.7-9567.7] So.
+[9567.7-9569.7] I don't know.
+[9569.7-9571.7] I don't know.
+[9571.7-9573.7] This range was not complete.
+[9573.7-9575.7] Right.
+[9575.7-9577.7] But another new range started from what?
+[9577.7-9579.7] And you can trade this only range.
+[9579.7-9581.7] Tap this nigga.
+[9581.7-9583.7] And pushes.
+[9583.7-9585.7] There's no need to even start saying,
+[9585.7-9587.7] should I trade this?
+[9587.7-9592.9] Yes, you should trade it.
+[9592.9-9594.9] Trades like this.
+[9594.9-9605.1] But.
+[9605.1-9607.1] This around here.
+[9607.1-9609.1] The mob router.
+[9609.1-9615.2] Around here.
+[9615.2-9617.2] And there's another.
+[9617.2-9619.2] So this.
+[9619.2-9624.0] It's not wrong.
+[9624.0-9627.3] Okay.
+[9627.3-9629.3] As.
+[9629.3-9631.3] For those that.
+[9631.3-9636.5] I don't know.
+[9636.5-9640.0] I believe this.
+[9640.0-9642.0] Everybody should understand this by now.
+[9642.0-9646.3] This.
+[9646.3-9648.3] Good night to everyone of you.
+[9648.3-9650.3] Yeah.
+[9650.3-9652.3] Yeah.
+[9652.3-9654.3] This is something I do.
+[9654.3-9656.3] There's one example for me.
+[9656.3-9658.3] From daily.
+[9658.3-9660.3] Daily.
+[9660.3-9662.3] Because I work at the school.
+[9662.3-9664.3] I work at the school as well because I work at the small.
+[9664.3-9666.3] I have.
+[9666.3-9668.3] The college.
+[9668.3-9670.3] You're looking at, I'm looking at your future.
+[9670.3-9672.3] You're looking at your future.
+[9672.3-9674.3] You are looking at your future you are looking at your future you are looking.
+[9674.3-9676.3] You still look at the opinion and every time you're not the only one.
+[9676.3-9678.3] The psychology.
+[9678.3-9680.3] So basically we have three more.
+[9680.3-9682.3] Class to go.
+[9682.3-9684.3] Liberty.
+[9684.3-9686.3] Only one psychology.
+[9686.3-9688.3] Only one psychology.
