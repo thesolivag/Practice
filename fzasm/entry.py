@@ -19,6 +19,9 @@ from .types import (
 )
 
 
+from . import instruments
+
+
 class EntryModelEvaluator:
     """Evaluates M15 / M10 / M5 candles following an H1/H2 sweep to construct TradeSetups."""
 
@@ -69,14 +72,18 @@ class EntryModelEvaluator:
         sweep_candle = h1_sweep.sweep_candle
         extreme = h1_sweep.sweep_price
         
+        pip_size = instruments.static(symbol)[0]
+        buf = max(3.0 * pip_size, 0.03 if symbol.endswith("JPY") else 0.0003)
+        
         if direction == BiasDirection.BULLISH:
-            entry = sweep_candle.close
-            stop_loss = extreme - buffer_pips
+            invalidation = min(extreme, poi.price_bottom) if poi else extreme
+            stop_loss = invalidation - buf
+            entry = min(sweep_candle.close, poi.price_top) if poi else sweep_candle.close
             if stop_loss >= entry:
-                stop_loss = entry - max(buffer_pips, 0.0010)
+                stop_loss = entry - buf
             tp2 = daily_map.target_level
             if tp2 <= entry:
-                tp2 = entry + 2.0 * abs(entry - stop_loss)
+                tp2 = entry + 2.5 * abs(entry - stop_loss)
             tp1 = daily_map.equilibrium_50
             if tp1 <= entry or tp1 >= tp2:
                 tp1 = entry + 0.5 * (tp2 - entry)
@@ -98,13 +105,14 @@ class EntryModelEvaluator:
                 key_level=poi
             )
         elif direction == BiasDirection.BEARISH:
-            entry = sweep_candle.close
-            stop_loss = extreme + buffer_pips
+            invalidation = max(extreme, poi.price_top) if poi else extreme
+            stop_loss = invalidation + buf
+            entry = max(sweep_candle.close, poi.price_bottom) if poi else sweep_candle.close
             if stop_loss <= entry:
-                stop_loss = entry + max(buffer_pips, 0.0010)
+                stop_loss = entry + buf
             tp2 = daily_map.target_level
             if tp2 >= entry:
-                tp2 = entry - 2.0 * abs(entry - stop_loss)
+                tp2 = entry - 2.5 * abs(entry - stop_loss)
             tp1 = daily_map.equilibrium_50
             if tp1 >= entry or tp1 <= tp2:
                 tp1 = entry - 0.5 * (entry - tp2)

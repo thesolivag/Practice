@@ -52,12 +52,12 @@ class HourlySweepDetector:
     def detect_h1_sweep(candles: List[Candle], poi: Optional[KeyLevel] = None) -> Optional[HourlySweepResult]:
         """
         Inspects the latest completed H1 candle against the previous H1 candle:
-        - Bullish Sweep: Current candle pierces below previous candle low with a wick,
-          then closes back above previous low (rejection wick).
-        - Bearish Sweep: Current candle pierces above previous candle high with a wick,
-          then closes back below previous high (rejection wick).
+        Implements CRT / 4th-Man confirmation:
+        - Bullish: Pierces below previous low with a wick, closes back inside previous range,
+                   AND previous high is still standing (unbroken).
+        - Bearish: Pierces above previous high with a wick, closes back inside previous range,
+                   AND previous low is still standing (unbroken).
         - Confluence: Confirms if the sweep tested the active KeyLevel/POI.
-        - Resolves dual-sweep ambiguity on outside bars via close direction.
         """
         if len(candles) < 2:
             return None
@@ -65,17 +65,23 @@ class HourlySweepDetector:
         prev = candles[-2]
         curr = candles[-1]
 
-        swept_low = curr.low < prev.low and curr.close > prev.low
-        swept_high = curr.high > prev.high and curr.close < prev.high
+        pierced_low = curr.low < prev.low
+        pierced_high = curr.high > prev.high
 
-        # Direction resolution for dual sweeps (outside bar sweeping both sides)
-        if swept_low and swept_high:
+        # Dual sweep (outside bar piercing both extremes):
+        if pierced_low and pierced_high:
             if curr.is_bullish:
+                swept_low = True
                 swept_high = False
             elif curr.is_bearish:
                 swept_low = False
+                swept_high = True
             else:
-                return None  # Doji outside bar is ambiguous
+                return None  # Doji is ambiguous
+        else:
+            # Single sweep: requires close inside AND opposite extreme standing (CRT / 4th Man rule)
+            swept_low = curr.low < prev.low and curr.close > prev.low and curr.high <= prev.high
+            swept_high = curr.high > prev.high and curr.close < prev.high and curr.low >= prev.low
 
         # Bullish Sweep of previous low
         if swept_low:
@@ -88,7 +94,7 @@ class HourlySweepDetector:
                     swept_candle=prev,
                     sweep_price=curr.low,
                     key_level_tested=poi,
-                    notes=f"Bullish H1 sweep: Pierced prior low {prev.low:.5f} with wick, rejected and closed at {curr.close:.5f}."
+                    notes=f"Bullish CRT/4th-man sweep: Pierced prior low {prev.low:.5f}, high standing, closed at {curr.close:.5f}."
                 )
 
         # Bearish Sweep of previous high
@@ -102,7 +108,7 @@ class HourlySweepDetector:
                     swept_candle=prev,
                     sweep_price=curr.high,
                     key_level_tested=poi,
-                    notes=f"Bearish H1 sweep: Pierced prior high {prev.high:.5f} with wick, rejected and closed at {curr.close:.5f}."
+                    notes=f"Bearish CRT/4th-man sweep: Pierced prior high {prev.high:.5f}, low standing, closed at {curr.close:.5f}."
                 )
 
         return None

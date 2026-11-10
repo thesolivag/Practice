@@ -44,8 +44,13 @@ class TradeOutcome:
         self.unit_risk = abs(setup.entry_price - setup.stop_loss)
         
         # Targets
+        # Targets
         self.fz_tp1 = setup.take_profit_1
         self.fz_tp2 = setup.take_profit_2
+        # FZ Partials & Break-even tracking
+        self.fz_tp1_hit: bool = False
+        self.fz_tp1_banked: float = 0.0
+        self.fz_sl: float = setup.stop_loss
         
         is_long = setup.bias == BiasDirection.BULLISH
         self.tp_1r = setup.entry_price + (1.0 * self.unit_risk if is_long else -1.0 * self.unit_risk)
@@ -83,24 +88,31 @@ class TradeOutcome:
         # Check Stop Loss hit
         sl_hit = (bar.low <= self.stop_loss) if is_long else (bar.high >= self.stop_loss)
         
-        # 1. FZ Target (TP1 = 50% Eq, TP2 = HTF Map Target)
+        # 1. FZ Target (TP1 = 50% Eq + Break-even, TP2 = HTF Map Target)
         if self.fz_result_r is None:
             tp2_hit = (bar.high >= self.fz_tp2) if is_long else (bar.low <= self.fz_tp2)
             tp1_hit = (bar.high >= self.fz_tp1) if is_long else (bar.low <= self.fz_tp1)
             
-            if sl_hit and (tp1_hit or tp2_hit):
-                # Conservative rule: same-bar conflict = loss
-                self.fz_result_r = -1.0
-            elif sl_hit:
-                self.fz_result_r = -1.0
-            elif tp2_hit:
-                # Full HTF target reached!
-                r_achieved = abs(self.fz_tp2 - self.entry_price) / max(self.unit_risk, 1e-6)
-                self.fz_result_r = round(r_achieved, 2)
-            elif tp1_hit:
-                # 50% equilibrium reached; partial / break-even lock
-                r_achieved = abs(self.fz_tp1 - self.entry_price) / max(self.unit_risk, 1e-6)
-                self.fz_result_r = round(r_achieved * 0.5, 2)
+            if not self.fz_tp1_hit:
+                if sl_hit and (tp1_hit or tp2_hit):
+                    self.fz_result_r = -1.0
+                elif sl_hit:
+                    self.fz_result_r = -1.0
+                elif tp2_hit:
+                    r_achieved = abs(self.fz_tp2 - self.entry_price) / max(self.unit_risk, 1e-6)
+                    self.fz_result_r = round(r_achieved, 2)
+                elif tp1_hit:
+                    r_tp1 = abs(self.fz_tp1 - self.entry_price) / max(self.unit_risk, 1e-6)
+                    self.fz_tp1_banked = r_tp1 * 0.5
+                    self.fz_tp1_hit = True
+                    self.fz_sl = self.entry_price
+            else:
+                be_hit = (bar.low <= self.fz_sl) if is_long else (bar.high >= self.fz_sl)
+                if tp2_hit:
+                    r_tp2 = abs(self.fz_tp2 - self.entry_price) / max(self.unit_risk, 1e-6)
+                    self.fz_result_r = round(self.fz_tp1_banked + 0.5 * r_tp2, 2)
+                elif be_hit:
+                    self.fz_result_r = round(self.fz_tp1_banked, 2)
                 
         # 2. Fixed 1R
         if self.r1_result_r is None:
@@ -145,8 +157,11 @@ class TradeOutcome:
         # Time-stop limit (120 hours / 5 days)
         if self.bars_held >= max_bars:
             if self.fz_result_r is None:
-                curr_r = (bar.close - self.entry_price if is_long else self.entry_price - bar.close) / max(self.unit_risk, 1e-6)
-                self.fz_result_r = round(max(-1.0, curr_r), 2)
+                if self.fz_tp1_hit:
+                    self.fz_result_r = round(self.fz_tp1_banked, 2)
+                else:
+                    curr_r = (bar.close - self.entry_price if is_long else self.entry_price - bar.close) / max(self.unit_risk, 1e-6)
+                    self.fz_result_r = round(max(-1.0, curr_r), 2)
             if self.r1_result_r is None: self.r1_result_r = -1.0 if sl_hit else 0.0
             if self.r2_result_r is None: self.r2_result_r = -1.0 if sl_hit else 0.0
             if self.r3_result_r is None: self.r3_result_r = -1.0 if sl_hit else 0.0
