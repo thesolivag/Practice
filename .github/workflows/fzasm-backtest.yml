@@ -44,7 +44,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -105,3 +104,4 @@ jobs:
           git commit -m "FZ-ASM Backtest Report ($IN_YEAR)" || exit 0
           git pull --rebase -X theirs origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
+
