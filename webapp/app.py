@@ -147,7 +147,7 @@ def version():
     manifest = Path(__file__).resolve().parents[1] / "extension" / "manifest.json"
     extension_version = json.loads(manifest.read_text())["version"] if manifest.is_file() else None
     return {"commit": os.environ.get("RENDER_GIT_COMMIT", "unknown"),
-            "bishop_paper": True, "bishop_entry_timeframes": ["H4","H3","H2","H1"], "extension_version": extension_version, "settings_validation": "flip-age-bounds-v1", "multiuser": True, "news": True, "deriv": True, "browser_login": True, "personal_alerts": True, "journal_replay": True, "research_review": True, "research_reports": True, "alert_timer": "direct-one-minute", "alert_modes": ["price", "confirmation"], "replay_modes": ["alert", "price"]}
+            "bishop_paper": True, "bishop_entry_timeframes": ["H4","H3","H2","H1"], "extension_version": extension_version, "settings_validation": "flip-age-bounds-v1", "multiuser": True, "news": True, "deriv": True, "browser_login": True, "personal_alerts": True, "journal_replay": True, "research_review": True, "research_reports": True, "entry_references": True, "alert_timer": "direct-one-minute", "alert_modes": ["price", "confirmation"], "replay_modes": ["alert", "price"]}
 
 
 @app.get("/")

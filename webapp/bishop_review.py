@@ -12,7 +12,16 @@ ROOT=Path(__file__).resolve().parents[1]/'data'/'bishop_review'
 @lru_cache(maxsize=1)
 def archive():
     if not (ROOT/'index.json.gz').exists():raise HTTPException(503,'Research archive is not installed')
-    with gzip.open(ROOT/'index.json.gz','rt') as f:return json.load(f)
+    with gzip.open(ROOT/'index.json.gz','rt') as f:data=json.load(f)
+    path=ROOT/'entry_references.json.gz'
+    if path.exists():
+        with gzip.open(path,'rt') as f:refs=json.load(f)['references']
+        for e in data['entries']:
+            ref=refs.get(e['targets'][0]['order_id'])
+            if ref:
+                e['entry_reference']=ref
+                if ref.get('confirmation'):e['confirmation']=ref['confirmation']
+    return data
 @lru_cache(maxsize=1)
 def lookup():return {e['id']:e for e in archive()['entries']}
 def selected(key):
@@ -41,8 +50,8 @@ def register_routes(app,require_user):
     @app.get('/api/research-review')
     def catalog(pair:str='',strategy:str='',confirmation:str='',offset:int=Query(0,ge=0),limit:int=Query(40,ge=1,le=100),user=Depends(require_user)):
         a=archive();allrows=a['entries']; rows=[e for e in allrows if (not pair or e['pair']==pair) and (not strategy or e['strategy']==strategy) and (not confirmation or e['confirmation']==confirmation)]
-        keys=('id','pair','strategy','confirmation','tf','side','decision','highlight')
-        return {'notice':a['notice'],'source_run':a['source_run'],'total':len(rows),'pairs':sorted({e['pair'] for e in allrows}),'strategies':sorted({e['strategy'] for e in allrows}),'confirmations':sorted({e['confirmation'] for e in allrows}),'entries':[{k:e[k] for k in keys} for e in rows[offset:offset+limit]]}
+        keys=('id','pair','strategy','confirmation','tf','side','decision','highlight','entry_reference')
+        return {'notice':a['notice'],'source_run':a['source_run'],'total':len(rows),'pairs':sorted({e['pair'] for e in allrows}),'strategies':sorted({e['strategy'] for e in allrows}),'confirmations':sorted({e['confirmation'] for e in allrows}),'entries':[{k:e[k] for k in keys if k in e} for e in rows[offset:offset+limit]]}
     @app.get('/api/research-review/{key}')
     def setup(key:str,reveal:bool=False,user=Depends(require_user)):return detail(selected(key),reveal)
     @app.get('/api/research-review/{key}/candles')

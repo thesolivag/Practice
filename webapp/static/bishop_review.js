@@ -23,7 +23,7 @@ window.BishopReview = (() => {
     for(const [key,values] of [['pair',d.pairs],['strategy',d.strategies],['confirmation',d.confirmations]]){const s=document.getElementById('review-'+key);if(s.options.length===1)values.forEach(v=>s.add(new Option(names[v]||v,v)));}
     root.querySelector('.review-status').textContent=`${d.total} setups · ${d.notice}`;
     const list=document.getElementById('review-setups');list.replaceChildren();list.dataset.total=d.total;
-    d.entries.forEach(e=>list.add(new Option(`${e.highlight?'★ ':''}${e.pair} ${e.side} · ${e.confirmation} ${e.tf} · ${e.decision.slice(0,16).replace('T',' ')} · ${names[e.strategy]||e.strategy}`,e.id)));
+    d.entries.forEach(e=>list.add(new Option(`${e.highlight?'★ ':''}${e.pair} ${e.side} · ${e.confirmation}${e.entry_reference?.kind?' ('+e.entry_reference.kind+' entry)':''} ${e.tf} · ${e.decision.slice(0,16).replace('T',' ')} · ${names[e.strategy]||e.strategy}`,e.id)));
     if(d.entries.length){list.value=d.entries[0].id;await choose(list.value);}else{generation++;panels.forEach(p=>p.chart.remove());panels=[];selected=null;root.querySelector('.review-detail').textContent='No setups match these filters.';}
   }
   async function reportForm(parent,e,version){
@@ -63,6 +63,11 @@ window.BishopReview = (() => {
 
   async function choose(id){const version=++generation;const e=await api('/api/research-review/'+encodeURIComponent(id));if(version!==generation)return;selected=e;clock=epoch(e.decision);panels.forEach(p=>p.chart.remove());panels=[];const detail=root.querySelector('.review-detail');detail.replaceChildren();
     detail.append(el('h3',`${e.pair} ${e.side} · ${e.confirmation} · ${names[e.strategy]||e.strategy}`),el('p',`${e.kind} entry ${price(e.entry)} · SL ${price(e.stop)} · ${e.targets.map(t=>t.label+' '+price(t.price)).join(' · ')}`));
+    if(e.entry_reference?.kind){const ref=e.entry_reference;detail.append(el('p',`Entry reference: ${ref.kind==='OC'?'engulfed open-close (OC)':'A/V retest'} · ${price(e.entry)}`));
+      detail.append(el('p',ref.pattern_link==='OC_CROSS_WITHOUT_SAVED_ADJACENT_ENGULF_PAIR'?'This OC-cross route has no saved adjacent engulf-pair proof. It is not automatically the two-candle OC junction you described.':'Reference alternatives below are matched to the same recorded confirmation and context.','muted'));
+      const refs=el('ul');(ref.alternatives||[]).forEach(a=>refs.append(el('li',`${a.kind==='OC'?'Open-close':'A/V'} level: ${price(a.price)}${Math.abs(a.price-e.entry)<e.tick_size/2?' · this entry':''}`)));detail.append(refs);
+      if(new Set((ref.alternatives||[]).map(a=>a.kind)).size<2)detail.append(el('p','A second eligible reference was not retained in this matched archive group. This does not establish that it was ineligible.','muted'));
+    }
     detail.append(el('p',e.flow?'★ Audited bot sequence. These markings are the model’s saved/reconstructed evidence, not Bishop’s original drawings.':'H4 sequence was not retained for this setup. Entry, stop and target values are recorded; no liquidity candle has been guessed.','muted'));
     if(e.bias)detail.append(el('p',`Reconstructed bias: ${e.bias.timeframe} ${e.bias.side} · confirmed ${e.bias.confirmed_at}`));
     const controls=el('div',undefined,'review-controls');controls.append(button('Reset to decision',()=>advance(epoch(e.decision),true)),button('+1 hour',()=>advance(clock+3600)),button('+4 hours',()=>advance(clock+14400)),button('+1 day',()=>advance(clock+86400)),button('+7 days',()=>advance(clock+604800)));
@@ -79,7 +84,7 @@ window.BishopReview = (() => {
     const series=chart.addSeries(LightweightCharts.CandlestickSeries,{upColor:'#32bd9b',downColor:'#ee7183',wickUpColor:'#32bd9b',wickDownColor:'#ee7183',borderVisible:false,priceFormat:{type:'price',precision:Math.max(0,Math.round(-Math.log10(selected.tick_size))),minMove:selected.tick_size}});
     const p={context:title==='H4 context',chart,series,select:s,bars:[],lines:[],markers:null,version,busy:false,more:true};panels.push(p);
     controls.append(button('Load earlier candles',()=>load(p,true)),button('Fit candles',()=>chart.timeScale().fitContent()));s.onchange=()=>load(p,false).catch(error);
-    chart.subscribeCrosshairMove(param=>{const b=param.seriesData.get(series);if(b)quote.textContent=`${stamp(b.time)} · O ${b.open} H ${b.high} L ${b.low} C ${b.close}`;});
+    chart.subscribeCrosshairMove(param=>{const b=param.seriesData.get(series);if(b)quote.textContent=`${stamp(b.time)} · O ${price(b.open)} H ${price(b.high)} L ${price(b.low)} C ${price(b.close)}`;});
     const full=button('Expand chart',()=>{box.classList.toggle('review-expanded');full.textContent=box.classList.contains('review-expanded')?'Close expanded view':'Expand chart';});controls.append(full);
   }
   async function advance(next,reset=false){if(!selected)return;clock=Math.min(next,epoch(selected.cutoff));root.querySelector('.review-clock').textContent=`Review clock: ${stamp(clock)}${clock===epoch(selected.decision)?' · decision time':''}`;if(reset){delete selected.revealedTargets;root.querySelector('.review-outcomes').textContent='Outcomes hidden. Revealing results does not move the chart clock.';const buttons=root.querySelectorAll('.review-detail > .review-controls button');buttons[buttons.length-1].disabled=false;}await Promise.all(panels.map(p=>load(p,false)));}
@@ -88,7 +93,8 @@ window.BishopReview = (() => {
     if(older&&range)p.chart.timeScale().setVisibleLogicalRange({from:range.from+count,to:range.to+count});else p.chart.timeScale().setVisibleLogicalRange({from:Math.max(0,p.bars.length-85),to:p.bars.length+5});
     const b=p.select.closest('.review-controls').querySelector('button');b.disabled=!d.has_more;b.textContent=d.has_more?'Load earlier candles':'Start of saved history';
   }
-  function decorate(p){p.lines.forEach(l=>p.series.removePriceLine(l));p.lines=[];const e=selected;const line=(price,title,color)=>{if(Number.isFinite(price))p.lines.push(p.series.createPriceLine({price,title,color,lineWidth:1,lineStyle:2,axisLabelVisible:true}));};if(!p.context||!e.flow){line(e.entry,'Entry','#73baff');line(e.stop,'SL','#ff7085');e.targets.forEach(t=>line(t.price,t.label,'#42d6ae'));}
+  function decorate(p){p.lines.forEach(l=>p.series.removePriceLine(l));p.lines=[];const e=selected;const line=(price,title,color)=>{if(Number.isFinite(price))p.lines.push(p.series.createPriceLine({price,title,color,lineWidth:1,lineStyle:2,axisLabelVisible:true}));};if(!p.context||!e.flow){line(e.entry,e.entry_reference?.kind?'Entry '+e.entry_reference.kind:'Entry','#73baff');line(e.stop,'SL','#ff7085');e.targets.forEach(t=>line(t.price,t.label,'#42d6ae'));}
+    if(!p.context)for(const a of e.entry_reference?.alternatives||[]){if(Math.abs(a.price-e.entry)>=e.tick_size/2)line(a.price,a.kind+' alternative','#cdb0ff');}
     const f=e.flow;let events=[{at:e.decision,stage:'ENTRY PLAN'}];if(f){if(p.context){line(f.break.level_ticks*e.tick_size,'H4 break level','#cdb0ff');line(f.pool.price_ticks*e.tick_size,'Single-candle liquidity','#ffc46b');line(f.level.price_ticks*e.tick_size,'Reaction key level','#fff099');}events=[...f.timeline,...events];}
     const markers=[];for(const [index,event] of events.entries()){const at=epoch(event.at);if(at>clock)continue;const b=p.bars.findLast(b=>b.time<at);if(!b||at>b.end+7*86400)continue;markers.push({time:b.time,position:'aboveBar',color:'#ffc46b',shape:'circle',text:String(index+1)});}
     for(const t of e.revealedTargets||[]){for(const [date,label] of [[t.result.fill_end,'Recorded fill bound '+t.label],[['WIN','LOSS','BREAK_EVEN'].includes(t.result.outcome)?t.result.observed_at:null,'Exit observed '+t.label]]){if(!date)continue;const at=epoch(date);if(!Number.isFinite(at)||at>clock)continue;const b=p.bars.findLast(b=>b.time<at);if(b&&at<=b.end+7*86400)markers.push({time:b.time,position:'belowBar',color:'#73baff',shape:'arrowUp',text:label});}}

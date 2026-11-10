@@ -1,0 +1,72 @@
+name: Bishop OC versus AV causal reference audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude-kevin-king]
+    paths: ['.github/workflows/bishop-oc-audit.yml']
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bishop-oc-reference-audit
+  cancel-in-progress: false
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pytest
+      - run: python -m pytest -q tests/test_bishop_oc_audit.py
+  audit:
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        pair: [AUDUSD, EURUSD, GBPUSD, NZDUSD, USDCAD, USDCHF, USDJPY, AUDCAD, AUDCHF, AUDJPY, CADCHF, CADJPY, CHFJPY, EURAUD, EURCAD, EURCHF, EURGBP, EURJPY, EURNZD, GBPAUD, GBPCAD, GBPCHF, GBPJPY, GBPNZD, NZDCAD, NZDJPY]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas pymysql requests websocket-client 'protobuf>=3.20'
+      - name: Read original saved checkpoint only
+        uses: actions/download-artifact@v4
+        with:
+          name: year-12-${{ matrix.pair }}
+          path: saved
+          run-id: 42371042901
+          github-token: ${{ github.token }}
+      - name: Replay only recorded AV decision clocks using frozen candles
+        env:
+          AUDIT_PAIR: ${{ matrix.pair }}
+        run: python -m slk.bishop_oc_audit pair --checkpoint saved/checkpoint.json.gz --feed "data/bishop_review/$AUDIT_PAIR.json.gz" --out "oc-audit/$AUDIT_PAIR"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: oc-audit-${{ matrix.pair }}
+          path: oc-audit/
+          if-no-files-found: warn
+          retention-days: 30
+  report:
+    needs: audit
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q pandas
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'oc-audit-*', path: audit-results}
+      - run: python -m slk.bishop_oc_audit report --root audit-results --out report
+      - if: always()
+        run: test ! -f report/REPORT.md || cat report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: oc-reference-report, path: report/, retention-days: 30}

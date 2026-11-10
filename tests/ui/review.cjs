@@ -6,7 +6,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  page.on('pageerror',e=>errors.push(e.message));
  const root=path.resolve(__dirname,'../../webapp/static'),decision=Date.parse('2026-02-18T10:00:00Z')/1000;
  let savedReport=null;
- const entry={id:'sample',pair:'EURUSD',strategy:'recognition_RR',confirmation:'breakout',tf:'H1',side:'BUY',decision:'2026-02-18T10:00:00Z',cutoff:'2026-02-20T10:00:00Z',tick_size:0.00001,entry:1.1,stop:1.099,kind:'LIMIT',targets:[{label:'1R',price:1.101}],flow:null,highlight:false};
+ const entry={id:'sample',pair:'EURUSD',strategy:'recognition_RR',confirmation:'breakout',tf:'H1',side:'BUY',decision:'2026-02-18T10:00:00Z',cutoff:'2026-02-20T10:00:00Z',tick_size:0.00001,entry:1.1,stop:1.099,kind:'LIMIT',targets:[{label:'1R',price:1.101}],flow:null,highlight:false,entry_reference:{kind:'AV',pattern_link:'ADJACENT_ENGULF_PAIR',alternatives:[{kind:'AV',price:1.1},{kind:'OC',price:1.1005}]}};
  await page.route('**/*',async route=>{const u=new URL(route.request().url()),reply=json=>route.fulfill({json});requests.push(u.href);
   if(u.hostname==='telegram.org')return route.fulfill({body:'window.Telegram={WebApp:{initData:"",ready(){},expand(){}}}',contentType:'application/javascript'});
   if(u.pathname==='/api/auth/session')return reply({user:{id:42},csrf:'test',auth_method:'browser'});
@@ -22,6 +22,9 @@ const fs=require('fs'),path=require('path'),assert=require('assert');
  });
  await page.goto('http://slk.test/');await page.locator('[data-tab=review]').click();await page.locator('.review-panel canvas').first().waitFor();
  assert.equal(await page.locator('.review-panel').count(),2);
+ assert((await page.locator('.review-detail').textContent()).includes('A/V retest'));
+ assert((await page.locator('.review-detail').textContent()).includes('Open-close level: 1.10050'));
+ assert((await page.locator('#review-setups').textContent()).includes('(AV entry)'));
  assert((await page.locator('.review-outcomes').textContent()).includes('hidden'));
  for(const tf of ['D','W','H2','H3','H4']){await page.locator('.review-panel select').first().selectOption(tf);await page.waitForResponse(r=>r.url().includes('/candles?tf='+tf));}
  await page.locator('.review-panel').first().getByRole('button',{name:'Load earlier candles'}).click();await page.getByRole('button',{name:'Start of saved history'}).waitFor();assert(requests.some(u=>u.includes('before=')));
