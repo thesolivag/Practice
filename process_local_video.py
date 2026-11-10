@@ -19,7 +19,7 @@ if os.path.exists(FFMPEG_DIR) and FFMPEG_DIR not in os.environ.get("PATH", ""):
     os.environ["PATH"] = FFMPEG_DIR + os.pathsep + os.environ.get("PATH", "")
 
 def extract_audio(video_path: str, wav_path: str):
-    print(f"[1/3] Extracting audio to {wav_path}...")
+    print(f"[1/3] Extracting audio to {wav_path}...", flush=True)
     cmd = [
         "ffmpeg", "-y", "-loglevel", "error",
         "-i", video_path,
@@ -27,15 +27,15 @@ def extract_audio(video_path: str, wav_path: str):
         wav_path
     ]
     subprocess.run(cmd, check=True)
-    print("      Audio extraction complete.")
+    print("      Audio extraction complete.", flush=True)
 
 def transcribe_audio(wav_path: str, transcript_path: str, model_size: str = "small"):
-    print(f"[2/3] Transcribing audio with faster-whisper ({model_size} model on local CPU)...")
+    print(f"[2/3] Transcribing audio with faster-whisper ({model_size} model on local CPU)...", flush=True)
     from faster_whisper import WhisperModel
 
     model = WhisperModel(model_size, device="cpu", compute_type="int8")
     segments, info = model.transcribe(wav_path, beam_size=5, vad_filter=True)
-    print(f"      Detected language: {info.language} (probability: {info.language_probability:.2f})")
+    print(f"      Detected language: {info.language} (probability: {info.language_probability:.2f})", flush=True)
 
     os.makedirs(os.path.dirname(transcript_path), exist_ok=True)
     count = 0
@@ -43,20 +43,27 @@ def transcribe_audio(wav_path: str, transcript_path: str, model_size: str = "sma
         for seg in segments:
             f.write(f"[{seg.start:.1f}-{seg.end:.1f}] {seg.text.strip()}\n")
             count += 1
-    print(f"      Transcription complete: {count} cues written to {transcript_path}")
+            if count % 200 == 0:
+                print(f"      Processed {count} transcript cues ({int(seg.end)}s / ~9678s)...", flush=True)
+    print(f"      Transcription complete: {count} cues written to {transcript_path}", flush=True)
 
-def extract_contact_sheets(video_path: str, transcript_path: str, slug: str, interval: int = 15):
-    print(f"[3/3] Generating contact sheets at {interval}s interval...")
+def extract_contact_sheets(video_path: str, transcript_path: str, slug: str, interval: int = 15, cols: int = 2, rows: int = 2, tile_width: int = 1280):
+    print(f"[3/3] Generating {cols}x{rows} (4 charts/sheet) high-res contact sheets ({tile_width}px tiles, {interval}s interval)...", flush=True)
     script = os.path.join(os.path.dirname(__file__), "knowledge-base", "tools", "extract_frames.py")
     cmd = [
         sys.executable, script, "sheets",
         "--video", video_path,
         "--transcript", transcript_path,
         "--name", slug,
-        "--interval", str(interval)
+        "--interval", str(interval),
+        "--cols", str(cols),
+        "--rows", str(rows),
+        "--tile-width", str(tile_width),
+        "--width", str(tile_width),
+        "--quality", "3"
     ]
     subprocess.run(cmd, check=True)
-    print(f"      Contact sheets and index generated in knowledge-base/frames/{slug}/")
+    print(f"      Contact sheets and index generated in knowledge-base/frames/{slug}/", flush=True)
 
 def main():
     parser = argparse.ArgumentParser(description="Process local video for knowledge-base")

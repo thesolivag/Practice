@@ -131,3 +131,4 @@ For deterministic implementation and backtesting:
        TP1 = Asian session opposite extreme.
        TP2 = HTF Map Target.
 ```
+
