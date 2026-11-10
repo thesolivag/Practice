@@ -59,6 +59,7 @@ import sys
 CUE = re.compile(r"^\[(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)\]\s*(.*)$")
 
 FONT_CANDIDATES = (
+    "C:/Windows/Fonts/arial.ttf",
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
     "/usr/share/fonts/dejavu/DejaVuSans.ttf",
     "/System/Library/Fonts/Supplemental/Arial.ttf",
@@ -104,7 +105,10 @@ def probe_duration(video):
 def _font():
     for path in FONT_CANDIDATES:
         if os.path.exists(path):
-            return path
+            p = path.replace("\\", "/")
+            if ":" in p:
+                p = p.replace(":", r"\:")
+            return f"'{p}'"
     return None
 
 
