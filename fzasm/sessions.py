@@ -90,3 +90,4 @@ class HourlySweepDetector:
         FZ Fallback Rule: If H1 is ambiguous or did not sweep, inspect H2 candles.
         """
         return HourlySweepDetector.detect_h1_sweep(h2_candles, poi)
+

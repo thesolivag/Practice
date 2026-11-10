@@ -209,3 +209,4 @@ class EntryModelEvaluator:
                 )
 
         return None
+

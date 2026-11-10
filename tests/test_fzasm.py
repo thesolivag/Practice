@@ -52,6 +52,16 @@ class TestCandleAndPowerUnit:
         c_bull_engulf = make_candle(4, 98.0, 105.0, 97.0, 104.0)
         assert c_bull_engulf.is_engulfing(c_small_bear)
 
+    def test_open_close_levels(self):
+        c1 = make_candle(1, 100.0, 101.0, 99.8, 100.2)  # small body 0.2
+        c2 = make_candle(2, 100.2, 101.0, 100.0, 100.4) # small body 0.2
+        c3 = make_candle(3, 100.4, 110.0, 100.0, 109.0) # large expansion body 8.6
+        levels = KeyLevelDetector.detect_open_close_levels([c1, c2, c3], timeframe="H1")
+        assert len(levels) >= 1
+        assert levels[-1].level_type == LevelType.OPEN_CLOSE
+        assert levels[-1].price_top == 109.0
+        assert levels[-1].price_bottom == 100.4
+
 
 class TestKeyLevels:
     def test_detect_order_blocks_with_fvg(self):
@@ -120,6 +130,73 @@ class TestDailyMaps:
         assert res.bias == BiasDirection.BULLISH
         assert res.target_level == 116.0  # Origin high of the consecutive run
 
+    def test_map_1_structural_range(self):
+        # 5 candles showing structural expansion
+        c1 = make_candle(0, 100.0, 105.0, 99.0, 102.0, tf="D1", day=1)
+        c2 = make_candle(0, 102.0, 106.0, 101.0, 104.0, tf="D1", day=2)
+        c3 = make_candle(0, 104.0, 107.0, 103.0, 105.0, tf="D1", day=3)
+        c4 = make_candle(0, 105.0, 108.0, 104.0, 106.0, tf="D1", day=4)
+        c5 = make_candle(0, 106.0, 112.0, 105.0, 111.0, tf="D1", day=5)
+        res = DailyMapEvaluator.evaluate([c1, c2, c3, c4, c5])
+        assert res is not None
+        assert res.map_type == MapType.MAP_1_STRUCTURAL_RANGE
+        assert res.bias == BiasDirection.BULLISH
+
+    def test_map_4_crt_poi_confluence(self):
+        poi = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=96.0,
+            price_bottom=92.0,
+            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
+            timeframe="D1"
+        )
+        d1 = make_candle(0, 100.0, 110.0, 95.0, 105.0, tf="D1", day=1)
+        # d2 sweeps d1 low into POI (tested between 92 and 96) and closes at 101.0 back inside
+        d2 = make_candle(0, 105.0, 106.0, 93.0, 101.0, tf="D1", day=2)
+        d3 = make_candle(0, 101.0, 103.0, 100.0, 102.0, tf="D1", day=3)
+        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi)
+        assert res is not None
+        assert res.map_type == MapType.MAP_4_CRT_POI_CONFLUENCE
+        assert res.bias == BiasDirection.BULLISH
+
+    def test_map_5a_rejection(self):
+        poi = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=100.0,
+            price_bottom=95.0,
+            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
+            timeframe="D1"
+        )
+        d1 = make_candle(0, 105.0, 108.0, 102.0, 104.0, tf="D1", day=1)
+        d2 = make_candle(0, 104.0, 105.0, 101.0, 102.0, tf="D1", day=2)
+        # d3 enters POI, doesn't sweep below 95.0, closes bullish with large lower wick
+        # open=97.0, low=96.0, high=101.0, close=100.0 -> body=3.0, lower_wick=1.0. We need lower_wick > body*0.5
+        d3 = make_candle(0, 98.0, 101.0, 95.5, 99.0, tf="D1", day=3) # body=1.0, lower_wick=2.5 > 0.5
+        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi)
+        assert res is not None
+        assert res.map_type == MapType.MAP_5A_REJECTION
+        assert res.bias == BiasDirection.BULLISH
+
+    def test_map_5b_sweep_invalidation(self):
+        poi = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=100.0,
+            price_bottom=95.0,
+            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
+            timeframe="D1"
+        )
+        d1 = make_candle(0, 105.0, 108.0, 102.0, 104.0, tf="D1", day=1)
+        d2 = make_candle(0, 104.0, 105.0, 101.0, 103.0, tf="D1", day=2)
+        # d3 pierces below 95.0 to 93.0, closes at 96.0 back above 95.0
+        d3 = make_candle(0, 103.0, 104.0, 93.0, 96.0, tf="D1", day=3)
+        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi)
+        assert res is not None
+        assert res.map_type == MapType.MAP_5B_SWEEP_INVALIDATION
+        assert res.bias == BiasDirection.BULLISH
+
 
 class TestSessionsAndSweeps:
     def test_asian_session_manager(self):
@@ -150,6 +227,15 @@ class TestSessionsAndSweeps:
         assert sweep.direction == BiasDirection.BULLISH
         assert sweep.sweep_price == 147.0
 
+    def test_h2_fallback_sweep(self):
+        # 2-hour candles
+        c_h2_prev = make_candle(22, 150.0, 152.0, 148.0, 151.0, tf="H2", day=1)
+        c_h2_curr = make_candle(0, 151.0, 151.5, 147.0, 150.5, tf="H2", day=2)
+        sweep = HourlySweepDetector.detect_h2_sweep_fallback([c_h2_prev, c_h2_curr])
+        assert sweep is not None
+        assert sweep.swept is True
+        assert sweep.direction == BiasDirection.BULLISH
+
 
 class TestEntryModels:
     def test_model_a_choch_retest(self):
@@ -174,6 +260,38 @@ class TestEntryModels:
         assert setup.bias == BiasDirection.BULLISH
         assert setup.stop_loss < 147.0
         assert setup.risk_reward > 0.0
+
+    def test_model_b_inducement_limit(self):
+        c_12am = make_candle(23, 150.0, 152.0, 148.0, 151.0, day=1)
+        c_1am = make_candle(0, 151.0, 151.5, 147.0, 150.5, day=2)
+        sweep = HourlySweepDetector.detect_h1_sweep([c_12am, c_1am])
+
+        daily_map = DailyMapEvaluator.evaluate([
+            make_candle(0, 148.0, 155.0, 145.0, 152.0, tf="D1", day=1),
+            make_candle(0, 152.0, 153.0, 143.0, 150.0, tf="D1", day=2),
+            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
+        ])
+
+        poi = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=148.5,
+            price_bottom=146.5,
+            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
+            timeframe="H4"
+        )
+
+        # M15 candles where current candle does NOT trigger CHOCH (no close above minor high)
+        # but prev candle pulls near POI (low = 148.8, above 148.5 by 0.3) with curr.body_size = 0.5 (0.3 <= 0.4)
+        m1 = make_candle(1, 150.0, 151.0, 149.0, 150.0, tf="M15")
+        m2 = make_candle(2, 150.0, 150.2, 148.8, 149.0, tf="M15")  # inducement candle: low 148.8 > poi.price_top 148.5
+        m3 = make_candle(3, 149.0, 149.8, 148.9, 149.5, tf="M15")  # body_size = 0.5, diff = 0.3 <= 0.4
+
+        setup = EntryModelEvaluator.evaluate_entry("USDJPY", [m1, m2, m3], sweep, daily_map, poi=poi)
+        assert setup is not None
+        assert setup.entry_model == EntryModelType.MODEL_B_INDUCEMENT_LIMIT
+        assert setup.entry_price == poi.price_top
+        assert setup.bias == BiasDirection.BULLISH
 
 
 class TestUnifiedEngine:
