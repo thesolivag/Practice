@@ -1,0 +1,107 @@
+name: FZ-ASM Full-Year Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Full calendar year to backtest (e.g. 2025)"
+        required: true
+        default: "2025"
+      pairs:
+        description: "Comma-separated list of symbols (empty = all Asian JPY + Gold + EURUSD + GBPUSD)"
+        required: false
+        default: "USDJPY,GBPJPY,EURJPY,AUDJPY,CADJPY,CHFJPY,NZDJPY,XAUUSD,EURUSD,GBPUSD"
+      out:
+        description: "Output directory for backtest reports and trade logs"
+        required: false
+        default: "reports"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fzasm-backtest
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    env:
+      IN_YEAR: ${{ inputs.year || '2025' }}
+      IN_PAIRS: ${{ inputs.pairs || 'USDJPY,GBPJPY,EURJPY,AUDJPY,CADJPY,CHFJPY,NZDJPY,XAUUSD,EURUSD,GBPUSD' }}
+      IN_OUT: ${{ inputs.out || 'reports' }}
+      SLK_STORE: data/store
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Verify FZ-ASM Strategy Integrity
+        run: |
+          python -m pytest tests/test_fzasm.py -q
+
+      - name: Restore candle store cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: candles-v3-
+
+      - name: Run FZ-ASM Full-Year Multi-Target Backtest
+        id: bt
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: |
+          mkdir -p "$IN_OUT"
+          echo "Starting FZ-ASM Backtest for $IN_YEAR..."
+          python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT"
+          rc=$?
+          echo "Backtest completed with exit code: $rc"
+          exit $rc
+
+      - name: Save candle store cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/store
+          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload Backtest Reports & Trade Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fzasm-backtest-reports-${{ env.IN_YEAR }}
+          path: ${{ env.IN_OUT }}/
+
+      - name: Commit Backtest Report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$IN_OUT"
+          git commit -m "FZ-ASM Backtest Report ($IN_YEAR)" || exit 0
+          git pull --rebase -X theirs origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}

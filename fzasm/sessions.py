@@ -19,14 +19,18 @@ SUPPORTED_PAIRS = {
 class AsianSessionManager:
     """Manages Asian Session timing rules and asset verification."""
 
-    def __init__(self, window: Optional[SessionWindow] = None):
+    def __init__(self, window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None):
         self.window = window or SessionWindow()
+        self.supported_pairs = set(SUPPORTED_PAIRS)
+        if extra_pairs:
+            for p in extra_pairs:
+                self.supported_pairs.add(p.upper().strip())
 
     def is_supported_symbol(self, symbol: str) -> bool:
         if not symbol or not isinstance(symbol, str):
             return False
         clean = symbol.upper().replace("/", "").replace("_", "").replace("-", "").strip()
-        return any(clean.startswith(pair) or pair in clean for pair in SUPPORTED_PAIRS)
+        return any(clean.startswith(pair) or pair in clean for pair in self.supported_pairs)
 
     def is_in_asian_session(self, dt: datetime) -> bool:
         """Asian Session: 1:00 AM - 7:00 AM Nigeria (WAT / UTC+1) == 00:00 - 06:00 UTC."""

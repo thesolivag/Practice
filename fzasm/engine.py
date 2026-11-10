@@ -26,8 +26,8 @@ from .entry import EntryModelEvaluator
 class FZASMEngine:
     """End-to-end evaluation engine for the FZ-ASM trading strategy."""
 
-    def __init__(self, session_window: Optional[SessionWindow] = None):
-        self.session_mgr = AsianSessionManager(session_window)
+    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None):
+        self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
 
     def scan_asset(
         self,

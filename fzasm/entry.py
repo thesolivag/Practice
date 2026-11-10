@@ -34,9 +34,12 @@ class EntryModelEvaluator:
         """
         Evaluates M15 candles after an H1 sweep:
         Tries Model A (CHOCH) first, then Model B (Inducement limit).
+        Falls back to direct H1 sweep close entry if M15 candles are not provided.
         """
-        if len(m15_candles) < 3:
-            return None
+        if not m15_candles or len(m15_candles) < 3:
+            return EntryModelEvaluator._check_h1_direct_entry(
+                symbol, h1_sweep, daily_map, poi, buffer_pips
+            )
 
         # Check Model A: CHOCH on M15
         setup_a = EntryModelEvaluator._check_model_a_choch(
@@ -52,6 +55,76 @@ class EntryModelEvaluator:
         if setup_b:
             return setup_b
 
+        return None
+
+    @staticmethod
+    def _check_h1_direct_entry(
+        symbol: str,
+        h1_sweep: HourlySweepResult,
+        daily_map: DailyMapResult,
+        poi: Optional[KeyLevel],
+        buffer_pips: float
+    ) -> Optional[TradeSetup]:
+        direction = h1_sweep.direction
+        sweep_candle = h1_sweep.sweep_candle
+        extreme = h1_sweep.sweep_price
+        
+        if direction == BiasDirection.BULLISH:
+            entry = sweep_candle.close
+            stop_loss = extreme - buffer_pips
+            if stop_loss >= entry:
+                stop_loss = entry - max(buffer_pips, 0.0010)
+            tp2 = daily_map.target_level
+            if tp2 <= entry:
+                tp2 = entry + 2.0 * abs(entry - stop_loss)
+            tp1 = daily_map.equilibrium_50
+            if tp1 <= entry or tp1 >= tp2:
+                tp1 = entry + 0.5 * (tp2 - entry)
+            risk = abs(entry - stop_loss)
+            reward = abs(tp2 - entry)
+            rr = round(reward / max(risk, 1e-6), 2)
+            return TradeSetup(
+                symbol=symbol,
+                timestamp=sweep_candle.timestamp,
+                bias=direction,
+                entry_model=EntryModelType.MODEL_A_CHOCH_RETEST,
+                entry_price=entry,
+                stop_loss=stop_loss,
+                take_profit_1=tp1,
+                take_profit_2=tp2,
+                risk_reward=rr,
+                daily_map=daily_map,
+                h1_sweep=h1_sweep,
+                key_level=poi
+            )
+        elif direction == BiasDirection.BEARISH:
+            entry = sweep_candle.close
+            stop_loss = extreme + buffer_pips
+            if stop_loss <= entry:
+                stop_loss = entry + max(buffer_pips, 0.0010)
+            tp2 = daily_map.target_level
+            if tp2 >= entry:
+                tp2 = entry - 2.0 * abs(entry - stop_loss)
+            tp1 = daily_map.equilibrium_50
+            if tp1 >= entry or tp1 <= tp2:
+                tp1 = entry - 0.5 * (entry - tp2)
+            risk = abs(entry - stop_loss)
+            reward = abs(entry - tp2)
+            rr = round(reward / max(risk, 1e-6), 2)
+            return TradeSetup(
+                symbol=symbol,
+                timestamp=sweep_candle.timestamp,
+                bias=direction,
+                entry_model=EntryModelType.MODEL_A_CHOCH_RETEST,
+                entry_price=entry,
+                stop_loss=stop_loss,
+                take_profit_1=tp1,
+                take_profit_2=tp2,
+                risk_reward=rr,
+                daily_map=daily_map,
+                h1_sweep=h1_sweep,
+                key_level=poi
+            )
         return None
 
     @staticmethod
