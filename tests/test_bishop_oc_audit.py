@@ -62,3 +62,12 @@ def test_one_tick_oc_gap_is_excluded_not_silently_tolerated():
     assert result['status']=='OC_JUNCTION_GAP'
     assert result['gap_ticks']==-1 and result['allowed_gap_ticks']==0
     assert result['price_ticks']==106
+
+
+def test_audit_overlay_never_leaks_later_touch_outcomes():
+    from slk.bishop_entry_reference import attach_audit
+    refs={'order':{'alternatives':[]}}
+    finding={'order_id':'order','pair':'TEST','status':'ENGINE_ELIGIBLE_OC','junction':{'status':'KNOWN_JUNCTION','price_ticks':105},'alternatives':[{'engine_status':'ELIGIBLE','entry_ticks':105,'level_id':'oc','model':'oc_break_retest'}],'touches':{'status':'OC_ONLY_PRICE_TOUCH','oc_first_window':{'end':'future'}}}
+    attach_audit(refs,[finding],{'TEST':.01})
+    assert refs['order']['alternatives'][0]['audit_only'] is True
+    assert 'OC_ONLY_PRICE_TOUCH' not in str(refs) and 'future' not in str(refs) and 'touches' not in str(refs)

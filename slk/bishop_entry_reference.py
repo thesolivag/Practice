@@ -32,3 +32,24 @@ def metadata(book,tick):
           'alternatives':sorted(candidates.values(),key=lambda x:(x['kind'],x['price'],x['level_id'])),
           'evidence_scope':'Recorded admitted orders with the same strategy, story, timeframe, direction, decision time and confirmation bars. Absence does not prove another reference was ineligible.'}
     return out
+
+
+def attach_audit(refs,findings,ticks):
+    """Publish decision evidence only. Never copy later touches/results into review."""
+    for finding in findings:
+        ref=refs.get(finding['order_id'])
+        if ref is None:continue
+        junction=finding['junction']
+        ref['junction_audit']={'status':finding['status'],'junction_status':junction['status'],
+            'gap_ticks':junction.get('gap_ticks'),'allowed_gap_ticks':junction.get('allowed_gap_ticks'),
+            'price':junction['price_ticks']*ticks[finding['pair']] if 'price_ticks' in junction else None}
+        if finding['status']!='ENGINE_ELIGIBLE_OC':continue
+        eligible_ids={a['level_id'] for a in finding['alternatives'] if a['engine_status']=='ELIGIBLE'}
+        for a in ref['alternatives']:
+            if a['kind']=='OC' and a['level_id'] in eligible_ids:a['immediate_junction']=True
+        existing={(a['kind'],a['level_id']) for a in ref['alternatives']}
+        for a in finding['alternatives']:
+            if a['engine_status']!='ELIGIBLE' or ('OC',a['level_id']) in existing:continue
+            ref['alternatives'].append({'kind':'OC','price':a['entry_ticks']*ticks[finding['pair']],
+                'level_id':a['level_id'],'models':[a['model']],'audit_only':True,'immediate_junction':True})
+            existing.add(('OC',a['level_id']))
