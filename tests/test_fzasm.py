@@ -327,3 +327,153 @@ class TestUnifiedEngine:
         assert setup.symbol == "USDJPY"
         assert setup.bias == BiasDirection.BULLISH
         assert setup.entry_model == EntryModelType.MODEL_A_CHOCH_RETEST
+
+
+class TestEdgeCasesAndSafety:
+    def test_edge_cases_empty_and_short_arrays(self):
+        assert DailyMapEvaluator.evaluate([]) is None
+        c1 = make_candle(0, 100.0, 105.0, 99.0, 102.0)
+        assert DailyMapEvaluator.evaluate([c1]) is None
+
+        assert KeyLevelDetector.detect_order_blocks([]) == []
+        assert KeyLevelDetector.detect_order_blocks([c1]) == []
+        assert KeyLevelDetector.detect_breaker_blocks([], []) == []
+        assert KeyLevelDetector.detect_open_close_levels([]) == []
+        assert KeyLevelDetector.detect_open_close_levels([c1]) == []
+        assert KeyLevelDetector.detect_power_unit_engulfing([]) is None
+        assert KeyLevelDetector.detect_power_unit_engulfing([c1]) is None
+
+        assert HourlySweepDetector.detect_h1_sweep([]) is None
+        assert HourlySweepDetector.detect_h1_sweep([c1]) is None
+
+        engine = FZASMEngine()
+        assert engine.scan_asset("USDJPY", {}) is None
+        assert engine.scan_asset("EURUSD", {"D1": [c1]}) is None
+
+    def test_edge_cases_flat_and_zero_body_candles(self):
+        c_flat1 = make_candle(1, 100.0, 100.0, 100.0, 100.0)
+        c_flat2 = make_candle(2, 100.0, 100.0, 100.0, 100.0)
+        assert c_flat1.is_doji
+        assert c_flat1.body_size == 0.0
+        assert c_flat1.total_range == 0.0
+
+        # Should safely return empty list without ZeroDivisionError
+        levels = KeyLevelDetector.detect_open_close_levels([c_flat1, c_flat2])
+        assert levels == []
+
+    def test_edge_cases_dual_sweep_direction_resolution(self):
+        # Prev candle: high 150.0, low 148.0
+        prev = make_candle(23, 149.0, 150.0, 148.0, 149.5, day=1)
+
+        # Bullish outside candle: sweeps low to 147.0 and high to 151.0, but closes near top at 150.8 (bullish)
+        c_bull = make_candle(0, 148.5, 151.0, 147.0, 150.8, day=2)
+        res_bull = HourlySweepDetector.detect_h1_sweep([prev, c_bull])
+        assert res_bull is not None
+        assert res_bull.direction == BiasDirection.BULLISH
+
+        # Bearish outside candle: sweeps low to 147.0 and high to 151.0, but closes near bottom at 147.5 (bearish)
+        c_bear = make_candle(0, 150.5, 151.0, 147.0, 147.5, day=2)
+        res_bear = HourlySweepDetector.detect_h1_sweep([prev, c_bear])
+        assert res_bear is not None
+        assert res_bear.direction == BiasDirection.BEARISH
+
+        # Ambiguous outside doji: closes at open
+        c_doji = make_candle(0, 149.0, 151.0, 147.0, 149.0, day=2)
+        res_doji = HourlySweepDetector.detect_h1_sweep([prev, c_doji])
+        assert res_doji is None
+
+    def test_edge_cases_symbol_parsing_variations(self):
+        mgr = AsianSessionManager()
+        assert mgr.is_supported_symbol("USDJPY")
+        assert mgr.is_supported_symbol("usdjpy")
+        assert mgr.is_supported_symbol("USD/JPY")
+        assert mgr.is_supported_symbol("GBPJPY.pro")
+        assert mgr.is_supported_symbol("XAUUSD-raw")
+        assert mgr.is_supported_symbol("gold")
+        assert mgr.is_supported_symbol("JP225")
+
+        assert not mgr.is_supported_symbol("EURUSD")
+        assert not mgr.is_supported_symbol("BTCUSD")
+        assert not mgr.is_supported_symbol("")
+        assert not mgr.is_supported_symbol(None)
+
+    def test_edge_cases_key_level_inverted_bounds(self):
+        # Inverted price bounds should be auto-corrected in __post_init__
+        lvl = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=90.0,
+            price_bottom=100.0,
+            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
+            timeframe="H4"
+        )
+        assert lvl.price_bottom == 90.0
+        assert lvl.price_top == 100.0
+        assert lvl.contains(95.0)
+
+    def test_edge_cases_session_boundaries(self):
+        mgr = AsianSessionManager()
+        # 23:59 UTC: outside
+        dt_before = datetime(2026, 11, 1, 23, 59, tzinfo=timezone.utc)
+        assert not mgr.is_in_asian_session(dt_before)
+
+        # 00:00 UTC (1:00 AM WAT): in Asian session & Prime window
+        dt_open = datetime(2026, 11, 2, 0, 0, tzinfo=timezone.utc)
+        assert mgr.is_in_asian_session(dt_open)
+        assert mgr.is_in_prime_asian_window(dt_open)
+
+        # 01:59 UTC: inside Asian session & Prime window
+        dt_prime = datetime(2026, 11, 2, 1, 59, tzinfo=timezone.utc)
+        assert mgr.is_in_asian_session(dt_prime)
+        assert mgr.is_in_prime_asian_window(dt_prime)
+
+        # 05:59 UTC: inside Asian session
+        dt_late = datetime(2026, 11, 2, 5, 59, tzinfo=timezone.utc)
+        assert mgr.is_in_asian_session(dt_late)
+
+        # 06:00 UTC: outside Asian session
+        dt_close = datetime(2026, 11, 2, 6, 0, tzinfo=timezone.utc)
+        assert not mgr.is_in_asian_session(dt_close)
+
+    def test_edge_cases_sound_tp_sl_and_rr(self):
+        c_12am = make_candle(23, 150.0, 152.0, 148.0, 151.0, day=1)
+        c_1am = make_candle(0, 151.0, 151.5, 147.0, 150.5, day=2)
+        sweep = HourlySweepDetector.detect_h1_sweep([c_12am, c_1am])
+
+        # Daily map with target_level inverted or below entry_price
+        inverted_daily_map = DailyMapEvaluator.evaluate([
+            make_candle(0, 148.0, 155.0, 145.0, 152.0, tf="D1", day=1),
+            make_candle(0, 152.0, 153.0, 143.0, 150.0, tf="D1", day=2),
+            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
+        ])
+        # Force inverted target on map to test safety clamp
+        inverted_daily_map.target_level = 145.0  # below entry price 151.5
+
+        m1 = make_candle(1, 149.0, 151.0, 148.0, 149.5, tf="M15")
+        m2 = make_candle(2, 149.5, 150.5, 149.0, 150.0, tf="M15")
+        m3 = make_candle(3, 150.0, 152.0, 149.8, 151.5, tf="M15")
+
+        setup = EntryModelEvaluator.evaluate_entry("USDJPY", [m1, m2, m3], sweep, inverted_daily_map)
+        assert setup is not None
+        # Must ensure stop_loss < entry_price < tp1 <= tp2 for Bullish
+        assert setup.stop_loss < setup.entry_price
+        assert setup.entry_price < setup.take_profit_1
+        assert setup.take_profit_1 <= setup.take_profit_2
+        assert setup.risk_reward > 0.0
+
+    def test_edge_cases_breaker_mitigation_lifecycle(self):
+        ob = KeyLevel(
+            level_type=LevelType.ORDER_BLOCK,
+            direction=BiasDirection.BULLISH,
+            price_top=100.0,
+            price_bottom=95.0,
+            timestamp=datetime(2026, 11, 1, 1, 0, tzinfo=timezone.utc),
+            timeframe="H4"
+        )
+        c_break = make_candle(5, 98.0, 99.0, 92.0, 93.0)
+        c_later = make_candle(6, 93.0, 94.0, 90.0, 91.0)
+
+        # Breaking candle should flip OB to breaker and mark OB mitigated
+        breakers = KeyLevelDetector.detect_breaker_blocks([c_break, c_later], [ob])
+        assert len(breakers) == 1
+        assert ob.mitigated is True

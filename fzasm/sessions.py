@@ -23,15 +23,21 @@ class AsianSessionManager:
         self.window = window or SessionWindow()
 
     def is_supported_symbol(self, symbol: str) -> bool:
-        clean = symbol.upper().replace("/", "").replace("_", "")
+        if not symbol or not isinstance(symbol, str):
+            return False
+        clean = symbol.upper().replace("/", "").replace("_", "").replace("-", "").strip()
         return any(clean.startswith(pair) or pair in clean for pair in SUPPORTED_PAIRS)
 
     def is_in_asian_session(self, dt: datetime) -> bool:
         """Asian Session: 1:00 AM - 7:00 AM Nigeria (WAT / UTC+1) == 00:00 - 06:00 UTC."""
+        if not dt:
+            return False
         return self.window.is_in_session(dt)
 
     def is_in_prime_asian_window(self, dt: datetime) -> bool:
         """Prime Execution: 1:00 AM - 3:00 AM Nigeria == 00:00 - 02:00 UTC."""
+        if not dt:
+            return False
         return self.window.is_in_prime_window(dt)
 
 
@@ -47,6 +53,7 @@ class HourlySweepDetector:
         - Bearish Sweep: Current candle pierces above previous candle high with a wick,
           then closes back below previous high (rejection wick).
         - Confluence: Confirms if the sweep tested the active KeyLevel/POI.
+        - Resolves dual-sweep ambiguity on outside bars via close direction.
         """
         if len(candles) < 2:
             return None
@@ -54,8 +61,20 @@ class HourlySweepDetector:
         prev = candles[-2]
         curr = candles[-1]
 
+        swept_low = curr.low < prev.low and curr.close > prev.low
+        swept_high = curr.high > prev.high and curr.close < prev.high
+
+        # Direction resolution for dual sweeps (outside bar sweeping both sides)
+        if swept_low and swept_high:
+            if curr.is_bullish:
+                swept_high = False
+            elif curr.is_bearish:
+                swept_low = False
+            else:
+                return None  # Doji outside bar is ambiguous
+
         # Bullish Sweep of previous low
-        if curr.low < prev.low and curr.close > prev.low:
+        if swept_low:
             tested_poi = poi.is_tested_by(curr) if poi else True
             if tested_poi:
                 return HourlySweepResult(
@@ -69,7 +88,7 @@ class HourlySweepDetector:
                 )
 
         # Bearish Sweep of previous high
-        if curr.high > prev.high and curr.close < prev.high:
+        if swept_high:
             tested_poi = poi.is_tested_by(curr) if poi else True
             if tested_poi:
                 return HourlySweepResult(

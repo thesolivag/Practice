@@ -7,7 +7,7 @@ Daily Maps -> ITF Key Levels -> Asian Session Window -> H1 Sweep -> M15 Executio
 from __future__ import annotations
 
 from typing import Dict, List, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 from .types import (
     Candle,
     DailyMapResult,
@@ -50,25 +50,37 @@ class FZASMEngine:
             return None
 
         # Step 2: Session timing validation
-        now = current_time or (candles_by_tf.get("M15")[-1].timestamp if candles_by_tf.get("M15") else datetime.utcnow())
+        m15_candles = candles_by_tf.get("M15", [])
+        h1_candles = candles_by_tf.get("H1", [])
+        now = current_time or (
+            m15_candles[-1].timestamp if m15_candles
+            else (h1_candles[-1].timestamp if h1_candles else datetime.now(timezone.utc))
+        )
         if not force_session and not self.session_mgr.is_in_asian_session(now):
             return None
 
         # Step 3: ITF Key Level Detection (H4 / H2)
-        h4_candles = candles_by_tf.get("H4", [])
-        h4_obs = KeyLevelDetector.detect_order_blocks(h4_candles, timeframe="H4") if h4_candles else []
-        h4_breakers = KeyLevelDetector.detect_breaker_blocks(h4_candles, h4_obs) if h4_candles else []
-        h4_levels = KeyLevelDetector.detect_open_close_levels(h4_candles, timeframe="H4") if h4_candles else []
-        all_pois = h4_obs + h4_breakers + h4_levels
+        itf_tf = "H4" if "H4" in candles_by_tf else ("H2" if "H2" in candles_by_tf else None)
+        itf_candles = candles_by_tf.get(itf_tf, []) if itf_tf else []
+        itf_obs = KeyLevelDetector.detect_order_blocks(itf_candles, timeframe=itf_tf or "H4") if itf_candles else []
+        itf_breakers = KeyLevelDetector.detect_breaker_blocks(itf_candles, itf_obs) if itf_candles else []
+        itf_levels = KeyLevelDetector.detect_open_close_levels(itf_candles, timeframe=itf_tf or "H4") if itf_candles else []
+        all_pois = itf_obs + itf_breakers + itf_levels
 
         # Pick the most relevant POI near current price
         active_poi = None
-        if all_pois and candles_by_tf.get("H1"):
-            latest_price = candles_by_tf["H1"][-1].close
-            # Filter unmitigated POIs
+        if all_pois:
+            latest_candle = h1_candles[-1] if h1_candles else (m15_candles[-1] if m15_candles else None)
             active_pois = [p for p in all_pois if not p.mitigated]
-            if active_pois:
-                active_poi = min(active_pois, key=lambda p: abs(p.mid_price - latest_price))
+            if active_pois and latest_candle:
+                # Prioritize POI currently tested by latest candle
+                tested = [p for p in active_pois if p.is_tested_by(latest_candle)]
+                if tested:
+                    active_poi = tested[0]
+                else:
+                    active_poi = min(active_pois, key=lambda p: abs(p.mid_price - latest_candle.close))
+            elif active_pois:
+                active_poi = active_pois[0]
 
         # Step 4: HTF Daily Map Evaluation
         d1_candles = candles_by_tf.get("D1", [])

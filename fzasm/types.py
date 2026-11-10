@@ -123,6 +123,11 @@ class KeyLevel:
     source_candle: Optional[Candle] = None
     metadata: dict = field(default_factory=dict)
 
+    def __post_init__(self):
+        # Guarantee price_bottom <= price_top
+        if self.price_bottom > self.price_top:
+            self.price_bottom, self.price_top = self.price_top, self.price_bottom
+
     @property
     def mid_price(self) -> float:
         return (self.price_top + self.price_bottom) / 2.0

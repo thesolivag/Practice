@@ -77,9 +77,9 @@ class EntryModelEvaluator:
             if curr.close > minor_high:
                 # Retest entry at M15 discount / FVG (or current close as market entry)
                 entry_price = curr.close
-                stop_loss = h1_sweep.sweep_candle.low - buffer_pips
-                tp1 = daily_map.equilibrium_50
-                tp2 = daily_map.target_level
+                stop_loss = min(h1_sweep.sweep_candle.low - buffer_pips, entry_price - buffer_pips)
+                tp2 = daily_map.target_level if daily_map.target_level > entry_price else entry_price + abs(entry_price - stop_loss) * 2.0
+                tp1 = daily_map.equilibrium_50 if daily_map.equilibrium_50 > entry_price else (entry_price + tp2) / 2.0
                 risk = abs(entry_price - stop_loss)
                 reward = abs(tp2 - entry_price)
                 rr = reward / risk if risk > 0 else 0.0
@@ -106,9 +106,9 @@ class EntryModelEvaluator:
             # CHOCH confirmation: current candle body closes below minor low
             if curr.close < minor_low:
                 entry_price = curr.close
-                stop_loss = h1_sweep.sweep_candle.high + buffer_pips
-                tp1 = daily_map.equilibrium_50
-                tp2 = daily_map.target_level
+                stop_loss = max(h1_sweep.sweep_candle.high + buffer_pips, entry_price + buffer_pips)
+                tp2 = daily_map.target_level if daily_map.target_level < entry_price else entry_price - abs(stop_loss - entry_price) * 2.0
+                tp1 = daily_map.equilibrium_50 if daily_map.equilibrium_50 < entry_price else (entry_price + tp2) / 2.0
                 risk = abs(stop_loss - entry_price)
                 reward = abs(entry_price - tp2)
                 rr = reward / risk if risk > 0 else 0.0
@@ -151,14 +151,15 @@ class EntryModelEvaluator:
 
         curr = candles[-1]
         prev = candles[-2]
+        tolerance = max(curr.body_size * 0.8, curr.total_range * 0.5, buffer_pips * 5)
 
         if h1_sweep.direction == BiasDirection.BULLISH:
             # Prev candle pulled down near POI but did not touch POI top (inducement)
-            if prev.low > poi.price_top and (prev.low - poi.price_top) <= (curr.body_size * 0.8):
+            if prev.low > poi.price_top and (prev.low - poi.price_top) <= tolerance:
                 entry_price = poi.price_top
-                stop_loss = poi.price_bottom - buffer_pips
-                tp1 = daily_map.equilibrium_50
-                tp2 = daily_map.target_level
+                stop_loss = min(poi.price_bottom - buffer_pips, entry_price - buffer_pips)
+                tp2 = daily_map.target_level if daily_map.target_level > entry_price else entry_price + abs(entry_price - stop_loss) * 2.0
+                tp1 = daily_map.equilibrium_50 if daily_map.equilibrium_50 > entry_price else (entry_price + tp2) / 2.0
                 risk = abs(entry_price - stop_loss)
                 reward = abs(tp2 - entry_price)
                 rr = reward / risk if risk > 0 else 0.0
@@ -182,11 +183,11 @@ class EntryModelEvaluator:
 
         if h1_sweep.direction == BiasDirection.BEARISH:
             # Prev candle pushed up near POI but did not touch POI bottom (inducement)
-            if prev.high < poi.price_bottom and (poi.price_bottom - prev.high) <= (curr.body_size * 0.8):
+            if prev.high < poi.price_bottom and (poi.price_bottom - prev.high) <= tolerance:
                 entry_price = poi.price_bottom
-                stop_loss = poi.price_top + buffer_pips
-                tp1 = daily_map.equilibrium_50
-                tp2 = daily_map.target_level
+                stop_loss = max(poi.price_top + buffer_pips, entry_price + buffer_pips)
+                tp2 = daily_map.target_level if daily_map.target_level < entry_price else entry_price - abs(stop_loss - entry_price) * 2.0
+                tp1 = daily_map.equilibrium_50 if daily_map.equilibrium_50 < entry_price else (entry_price + tp2) / 2.0
                 risk = abs(stop_loss - entry_price)
                 reward = abs(entry_price - tp2)
                 rr = reward / risk if risk > 0 else 0.0

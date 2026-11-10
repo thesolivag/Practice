@@ -131,6 +131,8 @@ class KeyLevelDetector:
 
         # Identify candles with body size in the top quartile of the dataset
         avg_body = sum(c.body_size for c in candles) / len(candles)
+        if avg_body <= 0.0:
+            return levels
         for c in candles:
             if c.body_size >= avg_body * 1.5:
                 # Open-close zone
