@@ -42,3 +42,13 @@ User authorized H1/H2 sweep-extreme and lower-timeframe invalidation stops as in
 - GitHub Actions inputs expose stop mode and entry policy. No annual run has been launched for this change; run full backtests via Actions when requested. Existing historical results are unchanged.
 - The separate direct H1 A/V entry route has not been added by this stop-study change. Its exact key-level extraction still needs a sourced mechanical definition; no silent H1 fallback is introduced.
 - Local regression: 59 tests pass, including mirrored stops, causal POI availability, actual separate stop outcomes, paired IDs, monthly reports and missing-stop accounting.
+
+## Direct H1 A/V route and chart-validation package
+
+Implemented `entry_policy=h1_av` as a separate opt-in route in the scanner, CLI and GitHub workflow. It uses H1 closes even when the lower-TF selector says M5. Requires the same frozen daily map, POI and session sweep context as other routes; does not bypass those gates.
+
+Provisional mechanical definition for user chart approval: contiguous opposite-colour H1 pair containing the sweep candle; previous close is the shared body junction (V for bear-to-bull, A for bull-to-bear). Current open must be within the existing 3-pip buffer of that close. The closing candle must finish away from entry in the intended direction. A later new sweep extreme or an already-taken target invalidates it. Pending limit only after the confirming H1 close, stop beyond the sweep extreme plus buffer. No H2 substitution, no fabricated M5 stop for this route. The source concept lesson explains V/A on a line chart at 2846–2881 seconds; the exact candle-pair and tolerance implementation remains a hypothesis for user validation, not a teacher-verified rule.
+
+64 regression tests pass. Added mirrored A/V tests, unavailable/future inputs, missing-hour and gap rejection, H2 rejection, and engine close-time/duplicate checks.
+
+Chart package: `scripts/build_asm_validation_charts.py --source <GBPUSD M1 CSV.gz>` renders real historical GBPUSD entry-module examples from the existing IC Markets cache. Source hash, all displayed candles, entries and stop evidence are retained in `evidence/av-validation/evidence.json`. Examples intentionally test entry/SL components only: prior-24-hour reference range is supplied to the evaluator, not asserted as a qualified daily map. These are NOT claimed full-scanner trades or performance evidence. No future bars are shown; missing context hours are marked as gaps. Selected without examining outcomes. H1 sell/M5 sell: 2026-06-26; H1 buy: June 30; M5 buy: July 8. Three PNG pages and a PDF are delivered in chat. No annual backtest or live deployment launched.

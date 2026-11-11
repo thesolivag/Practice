@@ -260,7 +260,7 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
     report_lines.append("## 3. Performance by Entry Model")
     report_lines.append("| Entry Model | Setups | FZ Win Rate | FZ Net R | 2R Net R | 3R Net R |")
     report_lines.append("|---|---|---|---|---|---|")
-    for model_type in [EntryModelType.MODEL_A_CHOCH_RETEST, EntryModelType.MODEL_B_INDUCEMENT_LIMIT]:
+    for model_type in list(EntryModelType):
         m_trades = [t for t in flat_trades if t.setup.entry_model == model_type]
         m_fz = compute_metrics(m_trades, "fz_result_r")
         m_r2 = compute_metrics(m_trades, "r2_result_r")
@@ -326,7 +326,7 @@ def main():
     parser.add_argument("--download-m1", action="store_true", help="Prepare historical cTrader M1 cache explicitly")
     parser.add_argument("--confirmation-tf", choices=["M5","M10","M15"], default="M5")
     parser.add_argument("--stop-mode", choices=["both","hourly_sweep","ltf_invalidation"], default="both")
-    parser.add_argument("--entry-policy", choices=["mss_retest","legacy"], default="mss_retest")
+    parser.add_argument("--entry-policy", choices=["mss_retest","legacy","h1_av"], default="mss_retest")
     parser.add_argument("--calendar-timezone", default="UTC", help="Provider bar anchor, e.g. Europe/Athens; UTC research default")
     args = parser.parse_args()
 

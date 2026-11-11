@@ -49,6 +49,7 @@ class LevelType(str, Enum):
 class EntryModelType(str, Enum):
     MODEL_A_CHOCH_RETEST = "MODEL_A_CHOCH_RETEST"
     MODEL_B_INDUCEMENT_LIMIT = "MODEL_B_INDUCEMENT_LIMIT"
+    H1_AV_RETEST = "H1_AV_RETEST"
 
 
 @dataclass(frozen=True)

@@ -30,10 +30,10 @@ class FZASMEngine:
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
         if confirmation_tf not in ("M5", "M10", "M15"):
             raise ValueError("confirmation_tf must be M5, M10 or M15")
-        if entry_policy not in ("mss_retest", "legacy"):
-            raise ValueError("entry_policy must be mss_retest or legacy")
+        if entry_policy not in ("mss_retest", "legacy", "h1_av"):
+            raise ValueError("entry_policy must be mss_retest, legacy or h1_av")
         self.entry_policy = entry_policy
-        self.confirmation_tf = confirmation_tf
+        self.confirmation_tf = "H1" if entry_policy == "h1_av" else confirmation_tf
         self._contexts = {}
         self._used = set()
 
@@ -69,7 +69,10 @@ class FZASMEngine:
                else (c.high > sweep.sweep_price or c.low <= daily_map.target_level) for c in after):
             self._contexts.pop(symbol, None)
             return None
-        setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi, None, self.entry_policy == "mss_retest")
+        if self.entry_policy == "h1_av":
+            setup = EntryModelEvaluator.evaluate_h1_av(symbol, bars, sweep, daily_map)
+        else:
+            setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi, None, self.entry_policy == "mss_retest")
         if setup:
             self._contexts.pop(symbol, None)
         return setup

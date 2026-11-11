@@ -110,3 +110,48 @@ class EntryModelEvaluator:
                           notes="Pending limit: requires subsequent retest/fill. Four-bar shift proxy; targets from frozen map.",
                           stop_candidates={"hourly_sweep": stop, "ltf_invalidation": local_stop},
                           entry_evidence=evidence)
+
+
+    @staticmethod
+    def evaluate_h1_av(symbol, candles, sweep, daily_map, buffer_price=None):
+        """Provisional direct H1 body-junction retest, explicit opt-in route.
+
+        The reversal pair must contain the sweep candle. A gap larger than the
+        buffer is not treated as a shared body level. No H2 substitution.
+        """
+        if not sweep or not sweep.swept or sweep.sweep_candle.timeframe != "H1" or len(candles) < 2:
+            return None
+        a, b = candles[-2:]
+        if a.timeframe != "H1" or b.timeframe != "H1" or a.available_at != b.timestamp:
+            return None
+        if sweep.sweep_candle.timestamp not in (a.timestamp, b.timestamp):
+            return None
+        if daily_map.bias != sweep.direction or daily_map.timestamp > b.available_at:
+            return None
+        long = sweep.direction == BiasDirection.BULLISH
+        if not ((a.is_bearish and b.is_bullish) if long else (a.is_bullish and b.is_bearish)):
+            return None
+        buf = 3 * instruments.pip(symbol) if buffer_price is None else buffer_price
+        if buf < 0 or abs(a.close-b.open) > buf:
+            return None
+        # The previous close is the vertex; the newly closed candle confirms it.
+        entry = a.close
+        stop = sweep.sweep_price-buf if long else sweep.sweep_price+buf
+        if (b.low < sweep.sweep_price if long else b.high > sweep.sweep_price):
+            return None
+        tp1, tp2 = daily_map.equilibrium_50, daily_map.target_level
+        if not (stop < entry < b.close and entry < tp1 < tp2 and b.high < tp2 if long
+                else stop > entry > b.close and entry > tp1 > tp2 and b.low > tp2):
+            return None
+        level = KeyLevel(LevelType.OPEN_CLOSE,sweep.direction,entry,entry,b.available_at,"H1",source_candle=a)
+        return TradeSetup(symbol,b.available_at,sweep.direction,EntryModelType.H1_AV_RETEST,
+                          entry,stop,tp1,tp2,abs(tp2-entry)/abs(entry-stop),daily_map,sweep,
+                          timeframe="H1",key_level=level,
+                          notes="Provisional direct H1 A/V junction; pending retracement, not a market fill.",
+                          stop_candidates={"hourly_sweep":stop,"ltf_invalidation":None},
+                          entry_evidence={"entry_rule":"h1_v_junction" if long else "h1_a_junction",
+                                          "junction_candle":a.timestamp.isoformat(),
+                                          "confirmation_close":b.available_at.isoformat(),
+                                          "sweep_extreme":sweep.sweep_price,
+                                          "stop_buffer_price":buf,
+                                          "qualification":"user_chart_validation_pending"})
