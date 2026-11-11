@@ -29,3 +29,16 @@ Use the `FZ-ASM Full-Year Backtest` GitHub workflow on FZ-ASM. Set year, selecte
 ## Source review follow-up
 
 See FZ_ASM_SOURCE_VALIDATION.md and FZ_ASM_SOURCE_REVIEW.html. Removed Map 5 fabricated projection: it now requires an explicit, already-known untaken range-target candle. The scanner does not yet select that candle, so it emits no Map 5 trades. Daily candle-range setups also reject a boundary already reached by the sweep. Order blocks record their formation availability separately from origin and label FVG versus unvalidated no-FVG displacement candidates. No blanket FVG-only filter was added: the lesson explicitly allows exceptions. Expanded local suite: 51 passing tests.
+
+## 2026-11-11 — paired stop study implemented
+
+User authorized H1/H2 sweep-extreme and lower-timeframe invalidation stops as independent backtest variants. New default engine policy `mss_retest` requires the completed lower-TF structural break before a pending FVG/OB retracement order; `legacy` explicitly retains the older inducement route. M5 remains the default, with M10/M15 fixed before running.
+
+- The existing four-bar structural-break detector is still a research proxy, not a newly validated swing detector.
+- FVG entry prefers an already-known, aligned, unmitigated POI boundary inside the gap; otherwise uses the gap surface. No-FVG shifts may use the last opposing candle OB. Overlapping local key-level discovery remains limited to the POI supplied by the context builder.
+- `hourly_sweep`: beyond the actual H1/H2 sweep extreme plus existing three-pip buffer.
+- `ltf_invalidation`: beyond the last opposing confirmation-TF candle and its departure leg through the confirmed break, plus the same buffer. This explicit candidate rule is provisional, not a claim that the teacher always uses it. No opposing candle means UNAVAILABLE, never a fabricated stop.
+- `--stop-mode both` clones each signal before replay; same entry/time, distinct stops and fixed-R targets. Each variant has independent M1 execution/ambiguity accounting. Reports are separated, with monthly breakdowns and a common signal ID; variant returns are not added together. Missing local stops are counted and have blank stop/P&L CSV values.
+- GitHub Actions inputs expose stop mode and entry policy. No annual run has been launched for this change; run full backtests via Actions when requested. Existing historical results are unchanged.
+- The separate direct H1 A/V entry route has not been added by this stop-study change. Its exact key-level extraction still needs a sourced mechanical definition; no silent H1 fallback is introduced.
+- Local regression: 59 tests pass, including mirrored stops, causal POI availability, actual separate stop outcomes, paired IDs, monthly reports and missing-stop accounting.

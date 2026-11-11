@@ -26,10 +26,13 @@ from .entry import EntryModelEvaluator
 class FZASMEngine:
     """End-to-end evaluation engine for the FZ-ASM trading strategy."""
 
-    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5"):
+    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5", entry_policy: str = "mss_retest"):
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
         if confirmation_tf not in ("M5", "M10", "M15"):
             raise ValueError("confirmation_tf must be M5, M10 or M15")
+        if entry_policy not in ("mss_retest", "legacy"):
+            raise ValueError("entry_policy must be mss_retest or legacy")
+        self.entry_policy = entry_policy
         self.confirmation_tf = confirmation_tf
         self._contexts = {}
         self._used = set()
@@ -66,7 +69,7 @@ class FZASMEngine:
                else (c.high > sweep.sweep_price or c.low <= daily_map.target_level) for c in after):
             self._contexts.pop(symbol, None)
             return None
-        setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi)
+        setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi, None, self.entry_policy == "mss_retest")
         if setup:
             self._contexts.pop(symbol, None)
         return setup

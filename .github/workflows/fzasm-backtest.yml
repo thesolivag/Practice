@@ -12,6 +12,16 @@ on:
         type: choice
         options: [M5, M10, M15]
         default: M5
+      stop_mode:
+        description: "Compare stops on identical entry signals"
+        type: choice
+        options: [both, hourly_sweep, ltf_invalidation]
+        default: both
+      entry_policy:
+        description: "MSS + retest, or older entry routes"
+        type: choice
+        options: [mss_retest, legacy]
+        default: mss_retest
       calendar_timezone:
         description: "Provider candle anchor (UTC = research calendar; set verified broker timezone)"
         default: UTC
@@ -41,6 +51,8 @@ jobs:
       IN_PAIRS: ${{ inputs.pairs || 'USDJPY,GBPJPY,EURJPY,AUDJPY,CADJPY,CHFJPY,NZDJPY,XAUUSD,EURUSD,GBPUSD' }}
       IN_OUT: ${{ inputs.out || 'reports/repaired' }}
       CONFIRMATION_TF: ${{ inputs.confirmation_tf || 'M5' }}
+      STOP_MODE: ${{ inputs.stop_mode || 'both' }}
+      ENTRY_POLICY: ${{ inputs.entry_policy || 'mss_retest' }}
       CALENDAR_TIMEZONE: ${{ inputs.calendar_timezone || 'UTC' }}
       SLK_STORE: data/store
 
@@ -62,7 +74,7 @@ jobs:
 
       - name: Verify FZ-ASM Strategy Integrity
         run: |
-          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py -q
+          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py -q
 
       - name: Restore candle store cache
         uses: actions/cache/restore@v4
@@ -86,7 +98,7 @@ jobs:
         run: |
           mkdir -p "$IN_OUT"
           echo "Starting FZ-ASM Backtest for $IN_YEAR..."
-          python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT" --confirmation-tf "$CONFIRMATION_TF" --calendar-timezone "$CALENDAR_TIMEZONE" --download-m1
+          python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT" --confirmation-tf "$CONFIRMATION_TF" --calendar-timezone "$CALENDAR_TIMEZONE" --stop-mode "$STOP_MODE" --entry-policy "$ENTRY_POLICY" --download-m1
           rc=$?
           echo "Backtest completed with exit code: $rc"
           exit $rc

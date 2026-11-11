@@ -209,3 +209,7 @@ class TradeSetup:
     timeframe: str = "M15"
     key_level: Optional[KeyLevel] = None
     notes: str = ""
+
+    stop_variant: str = "hourly_sweep"
+    stop_candidates: dict = field(default_factory=dict)
+    entry_evidence: dict = field(default_factory=dict)

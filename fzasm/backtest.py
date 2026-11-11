@@ -33,11 +33,24 @@ DEFAULT_PAIRS = [
 
 
 from .execution import TradeOutcome
+from dataclasses import replace
 from .data import load_minute_df
 from bisect import bisect_right
 
 
-def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC"):
+def stop_study_setups(setup, stop_mode):
+    """Paired counterfactuals share one signal; missing local evidence stays missing."""
+    if stop_mode not in ("both", "hourly_sweep", "ltf_invalidation"):
+        raise ValueError("Invalid stop_mode")
+    names = ("hourly_sweep", "ltf_invalidation") if stop_mode == "both" else (stop_mode,)
+    for name in names:
+        stop = setup.stop_candidates.get(name, setup.stop_loss if name == "hourly_sweep" else None)
+        yield replace(setup, stop_variant=name,
+                      stop_loss=stop if stop is not None else setup.stop_loss,
+                      risk_reward=abs(setup.take_profit_2-setup.entry_price)/abs(setup.entry_price-stop) if stop is not None else 0), stop is not None
+
+
+def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC", stop_mode="hourly_sweep"):
     """Replay real M1 bars; decisions only see completed, contiguous aggregates."""
     df = load_minute_df(pair, start_year, end_year)
     rules = {"M5":"5min", "M10":"10min", "M15":"15min", "H1":"1h",
@@ -64,9 +77,14 @@ def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC"):
             slices[name] = bars[max(0,n-240):n]
         setup = engine.scan_asset(pair,slices,current_time=now)
         if setup:
-            outcome = TradeOutcome(setup,i)
-            trades.append(outcome)
-            active.append(outcome)
+            for variant, available_stop in stop_study_setups(setup, stop_mode):
+                outcome = TradeOutcome(variant,i)
+                trades.append(outcome)
+                if available_stop:
+                    active.append(outcome)
+                else:
+                    for attr in outcome.attrs:
+                        outcome.finish(attr, "UNAVAILABLE", now, reason="NO_LOGICAL_LTF_STOP")
     for trade in active:
         trade.end_of_data(minutes[-1].available_at)
     engine.coverage = getattr(engine,'coverage',{})
@@ -76,6 +94,8 @@ def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC"):
                              "sha256":hashlib.sha256(pd.util.hash_pandas_object(df,index=True).values.tobytes()).hexdigest(),
                              "calendar_timezone":calendar_timezone,
                              "confirmation_tf":engine.confirmation_tf,
+                             "stop_mode":stop_mode,
+                             "entry_policy":getattr(engine,"entry_policy","legacy"),
                              "missing_intervals":int((df.index.to_series().diff()>pd.Timedelta(minutes=1)).sum())}
     return trades
 
@@ -133,7 +153,31 @@ def compute_metrics(trades: List[TradeOutcome], target_attr: str) -> Dict[str, A
 def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_dir: str = "reports") -> str:
     """Generates a comprehensive Markdown report and saves trades to CSV."""
     os.makedirs(out_dir, exist_ok=True)
+    variants = sorted({t.setup.stop_variant for trades in all_trades.values() for t in trades})
+    if len(variants) > 1:
+        lines = [f"# FZ-ASM paired stop comparison ({year})",
+                 "Same signals and entries, independently replayed stop/target scenarios. Do not add scenario returns together.",
+                 "See each linked report for monthly and pair breakdowns. UNAVAILABLE means no causal local stop was identified.",
+                 "| Stop | Target | Signals | Closed | Unknown | Unfilled | Unavailable | Gross resolved R |",
+                 "|---|---|---|---|---|---|---|---|"]
+        frames = []
+        for variant in variants:
+            grouped = {pair:[t for t in trades if t.setup.stop_variant == variant] for pair,trades in all_trades.items()}
+            directory = os.path.join(out_dir,variant)
+            generate_report(grouped,year,directory)
+            frames.append(pd.read_csv(os.path.join(directory,"fzasm_trades.csv")))
+            cohort = [t for trades in grouped.values() for t in trades]
+            for attr in TradeOutcome.attrs:
+                counts = [sum(t.status[attr]==state for t in cohort) for state in ("CLOSED","UNKNOWN","UNFILLED","UNAVAILABLE")]
+                lines.append(f"| {variant} | {attr} | {len(cohort)} | " + " | ".join(map(str,counts)) + f" | {compute_metrics(cohort,attr)['net_r']} |")
+            lines.append(f"\n[{variant}: full monthly report]({variant}/FZ_ASM_BACKTEST_REPORT.md)\n")
+        pd.concat(frames,ignore_index=True).to_csv(os.path.join(out_dir,"fzasm_trades.csv"),index=False)
+        content = "\n".join(lines)
+        with open(os.path.join(out_dir,"FZ_ASM_BACKTEST_REPORT.md"),"w") as f:
+            f.write(content)
+        return content
     report_lines = []
+    report_lines.append("**Stop scenario:** " + (variants[0] if variants else "no signals"))
     
     report_lines.append(f"# FZ-ASM Full-Year Strategy Backtest Report ({year})")
     report_lines.append(f"**Period:** {year}-01-01 to {year}-12-31  ")
@@ -169,22 +213,23 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
     report_lines.append("\n---\n")
 
     report_lines.append("## Outcome accounting (same setup cohort for every target)")
-    report_lines.append("| Target | All setups | Closed | Unknown | Unfilled |")
-    report_lines.append("|---|---|---|---|---|")
+    report_lines.append("| Target | All setups | Closed | Unknown | Unfilled | Unavailable |")
+    report_lines.append("|---|---|---|---|---|---|")
     for label, attr in targets:
         counts = {status:sum(t.status[attr]==status for t in flat_trades)
-                  for status in ("CLOSED","UNKNOWN","UNFILLED")}
-        report_lines.append(f"| {label} | {len(flat_trades)} | {counts['CLOSED']} | {counts['UNKNOWN']} | {counts['UNFILLED']} |")
+                  for status in ("CLOSED","UNKNOWN","UNFILLED","UNAVAILABLE")}
+        report_lines.append(f"| {label} | {len(flat_trades)} | {counts['CLOSED']} | {counts['UNKNOWN']} | {counts['UNFILLED']} | {counts['UNAVAILABLE']} |")
     report_lines.append("\n## Monthly results by setup month (UTC)")
-    report_lines.append("| Month | Target | Setups | Resolved | Unknown | Unfilled | Gross resolved R |")
-    report_lines.append("|---|---|---|---|---|---|---|")
+    report_lines.append("| Month | Target | Setups | Resolved | Unknown | Unfilled | Unavailable | Gross resolved R |")
+    report_lines.append("|---|---|---|---|---|---|---|---|")
     for month in sorted({t.setup.timestamp.strftime('%Y-%m') for t in flat_trades}):
         cohort = [t for t in flat_trades if t.setup.timestamp.strftime('%Y-%m')==month]
         for label,attr in targets:
             metrics = compute_metrics(cohort,attr)
             unknown = sum(t.status[attr]=='UNKNOWN' for t in cohort)
             unfilled = sum(t.status[attr]=='UNFILLED' for t in cohort)
-            report_lines.append(f"| {month} | {label} | {len(cohort)} | {metrics['trades']} | {unknown} | {unfilled} | {metrics['net_r']} |")
+            unavailable = sum(t.status[attr]=='UNAVAILABLE' for t in cohort)
+            report_lines.append(f"| {month} | {label} | {len(cohort)} | {metrics['trades']} | {unknown} | {unfilled} | {unavailable} | {metrics['net_r']} |")
 
     # 2. Pair-by-Pair Breakdown
     report_lines.append("## 2. Pair-by-Pair Detailed Performance")
@@ -233,6 +278,9 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
         pip_unit = instruments.static(s.symbol)[0]
         risk_pips = round(abs(s.entry_price - s.stop_loss) / max(pip_unit, 1e-6), 1)
         csv_rows.append({
+            "signal_id": f"{s.symbol}:{s.timestamp.isoformat()}:{s.timeframe}:{s.entry_model.value}",
+            "stop_variant": s.stop_variant,
+            "entry_evidence": json.dumps(s.entry_evidence, sort_keys=True),
             "timestamp": s.timestamp.isoformat(),
             "symbol": s.symbol,
             "direction": s.bias.value,
@@ -244,8 +292,8 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
             **{a+"_reason":t.reasons.get(a,"") for a in t.attrs},
             **{a+"_exit_time":t.exit_times[a].isoformat() if a in t.exit_times else "" for a in t.attrs},
             "entry_price": s.entry_price,
-            "stop_loss": s.stop_loss,
-            "risk_pips": risk_pips,
+            "stop_loss": s.stop_loss if t.status["r1_result_r"] != "UNAVAILABLE" else None,
+            "risk_pips": risk_pips if t.status["r1_result_r"] != "UNAVAILABLE" else None,
             "fz_tp1": t.fz_tp1,
             "fz_tp2": t.fz_tp2,
             "fz_result_r": t.fz_result_r,
@@ -277,20 +325,22 @@ def main():
     parser.add_argument("--out", type=str, default="reports/repaired", help="Output directory")
     parser.add_argument("--download-m1", action="store_true", help="Prepare historical cTrader M1 cache explicitly")
     parser.add_argument("--confirmation-tf", choices=["M5","M10","M15"], default="M5")
+    parser.add_argument("--stop-mode", choices=["both","hourly_sweep","ltf_invalidation"], default="both")
+    parser.add_argument("--entry-policy", choices=["mss_retest","legacy"], default="mss_retest")
     parser.add_argument("--calendar-timezone", default="UTC", help="Provider bar anchor, e.g. Europe/Athens; UTC research default")
     args = parser.parse_args()
 
     pairs = [p.strip().upper() for p in args.pairs.split(",") if p.strip()] if args.pairs else DEFAULT_PAIRS
     print(f"Starting FZ-ASM Backtest for {args.year} across {len(pairs)} pairs: {', '.join(pairs)}")
 
-    engine = FZASMEngine(extra_pairs=set(pairs), confirmation_tf=args.confirmation_tf)
+    engine = FZASMEngine(extra_pairs=set(pairs), confirmation_tf=args.confirmation_tf, entry_policy=args.entry_policy)
     all_trades: Dict[str, List[TradeOutcome]] = {}
 
     for pair in pairs:
         if args.download_m1:
             from .minute_cache import prepare
             prepare(pair,args.year)
-        trades = backtest_pair(pair, args.year, args.year, engine, args.calendar_timezone)
+        trades = backtest_pair(pair, args.year, args.year, engine, args.calendar_timezone, args.stop_mode)
         all_trades[pair] = trades
 
     os.makedirs(args.out,exist_ok=True)
