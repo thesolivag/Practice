@@ -1,0 +1,515 @@
+{
+  "charts": [
+    {
+      "symbol": "GBPUSD",
+      "event": {
+        "clock": "2026-11-10T12:00:00+00:00",
+        "direction": "BEARISH",
+        "blocks": [
+          {
+            "origin_time": "2026-11-10T11:00:00+00:00",
+            "departure_confirmed_at": "2026-11-10T11:25:00+00:00",
+            "actionable_at": "2026-11-10T12:00:00+00:00",
+            "role": "sweep_origin_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.34284,
+            "zone_high": 1.3432,
+            "entry": 1.34284
+          },
+          {
+            "origin_time": "2026-11-10T11:10:00+00:00",
+            "departure_confirmed_at": "2026-11-10T11:25:00+00:00",
+            "actionable_at": "2026-11-10T12:00:00+00:00",
+            "role": "secondary_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.34283,
+            "zone_high": 1.34317,
+            "entry": 1.34283
+          },
+          {
+            "origin_time": "2026-11-10T11:25:00+00:00",
+            "departure_confirmed_at": "2026-11-10T11:50:00+00:00",
+            "actionable_at": "2026-11-10T12:00:00+00:00",
+            "role": "secondary_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.34255,
+            "zone_high": 1.34277,
+            "entry": 1.34255
+          },
+          {
+            "origin_time": "2026-11-10T11:35:00+00:00",
+            "departure_confirmed_at": "2026-11-10T11:50:00+00:00",
+            "actionable_at": "2026-11-10T12:00:00+00:00",
+            "role": "secondary_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.34264,
+            "zone_high": 1.34285,
+            "entry": 1.34264
+          }
+        ]
+      },
+      "candles": [
+        {
+          "time": "2026-11-10T10:00:00+00:00",
+          "open": 1.34251,
+          "high": 1.34296,
+          "low": 1.34251,
+          "close": 1.34284
+        },
+        {
+          "time": "2026-11-10T10:05:00+00:00",
+          "open": 1.34284,
+          "high": 1.34295,
+          "low": 1.34265,
+          "close": 1.34274
+        },
+        {
+          "time": "2026-11-10T10:10:00+00:00",
+          "open": 1.34272,
+          "high": 1.34272,
+          "low": 1.3425,
+          "close": 1.34259
+        },
+        {
+          "time": "2026-11-10T10:15:00+00:00",
+          "open": 1.3426,
+          "high": 1.34273,
+          "low": 1.34243,
+          "close": 1.34267
+        },
+        {
+          "time": "2026-11-10T10:20:00+00:00",
+          "open": 1.34269,
+          "high": 1.34271,
+          "low": 1.3425,
+          "close": 1.34255
+        },
+        {
+          "time": "2026-11-10T10:25:00+00:00",
+          "open": 1.34254,
+          "high": 1.34264,
+          "low": 1.34228,
+          "close": 1.34264
+        },
+        {
+          "time": "2026-11-10T10:30:00+00:00",
+          "open": 1.34265,
+          "high": 1.34288,
+          "low": 1.34263,
+          "close": 1.34287
+        },
+        {
+          "time": "2026-11-10T10:35:00+00:00",
+          "open": 1.34292,
+          "high": 1.34305,
+          "low": 1.34286,
+          "close": 1.34298
+        },
+        {
+          "time": "2026-11-10T10:40:00+00:00",
+          "open": 1.34299,
+          "high": 1.34317,
+          "low": 1.34287,
+          "close": 1.34304
+        },
+        {
+          "time": "2026-11-10T10:45:00+00:00",
+          "open": 1.34303,
+          "high": 1.34311,
+          "low": 1.34289,
+          "close": 1.34294
+        },
+        {
+          "time": "2026-11-10T10:50:00+00:00",
+          "open": 1.34294,
+          "high": 1.34303,
+          "low": 1.34279,
+          "close": 1.34286
+        },
+        {
+          "time": "2026-11-10T10:55:00+00:00",
+          "open": 1.34287,
+          "high": 1.34289,
+          "low": 1.34253,
+          "close": 1.34285
+        },
+        {
+          "time": "2026-11-10T11:00:00+00:00",
+          "open": 1.34284,
+          "high": 1.3432,
+          "low": 1.34281,
+          "close": 1.34314
+        },
+        {
+          "time": "2026-11-10T11:05:00+00:00",
+          "open": 1.34315,
+          "high": 1.34324,
+          "low": 1.34282,
+          "close": 1.34283
+        },
+        {
+          "time": "2026-11-10T11:10:00+00:00",
+          "open": 1.34283,
+          "high": 1.34317,
+          "low": 1.34281,
+          "close": 1.34301
+        },
+        {
+          "time": "2026-11-10T11:15:00+00:00",
+          "open": 1.343,
+          "high": 1.34305,
+          "low": 1.34275,
+          "close": 1.34286
+        },
+        {
+          "time": "2026-11-10T11:20:00+00:00",
+          "open": 1.34281,
+          "high": 1.34285,
+          "low": 1.34254,
+          "close": 1.34254
+        },
+        {
+          "time": "2026-11-10T11:25:00+00:00",
+          "open": 1.34255,
+          "high": 1.34277,
+          "low": 1.3425,
+          "close": 1.34273
+        },
+        {
+          "time": "2026-11-10T11:30:00+00:00",
+          "open": 1.34274,
+          "high": 1.34283,
+          "low": 1.34261,
+          "close": 1.34265
+        },
+        {
+          "time": "2026-11-10T11:35:00+00:00",
+          "open": 1.34264,
+          "high": 1.34285,
+          "low": 1.34262,
+          "close": 1.34281
+        },
+        {
+          "time": "2026-11-10T11:40:00+00:00",
+          "open": 1.3428,
+          "high": 1.34283,
+          "low": 1.34262,
+          "close": 1.34264
+        },
+        {
+          "time": "2026-11-10T11:45:00+00:00",
+          "open": 1.34263,
+          "high": 1.34268,
+          "low": 1.34237,
+          "close": 1.34243
+        },
+        {
+          "time": "2026-11-10T11:50:00+00:00",
+          "open": 1.34245,
+          "high": 1.34253,
+          "low": 1.34229,
+          "close": 1.3425
+        },
+        {
+          "time": "2026-11-10T11:55:00+00:00",
+          "open": 1.34252,
+          "high": 1.34258,
+          "low": 1.34237,
+          "close": 1.34253
+        }
+      ]
+    },
+    {
+      "symbol": "GBPUSD",
+      "event": {
+        "clock": "2026-11-11T03:00:00+00:00",
+        "direction": "BEARISH",
+        "blocks": [
+          {
+            "origin_time": "2026-11-11T01:55:00+00:00",
+            "departure_confirmed_at": "2026-11-11T02:20:00+00:00",
+            "actionable_at": "2026-11-11T03:00:00+00:00",
+            "role": "sweep_origin_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.33522,
+            "zone_high": 1.33548,
+            "entry": 1.33522
+          },
+          {
+            "origin_time": "2026-11-11T02:25:00+00:00",
+            "departure_confirmed_at": "2026-11-11T02:35:00+00:00",
+            "actionable_at": "2026-11-11T03:00:00+00:00",
+            "role": "secondary_candidate",
+            "classification": "unvalidated_order_block_candidate",
+            "zone_low": 1.33488,
+            "zone_high": 1.33503,
+            "entry": 1.33488
+          }
+        ]
+      },
+      "candles": [
+        {
+          "time": "2026-11-11T01:00:00+00:00",
+          "open": 1.33488,
+          "high": 1.33497,
+          "low": 1.33478,
+          "close": 1.33489
+        },
+        {
+          "time": "2026-11-11T01:05:00+00:00",
+          "open": 1.3349,
+          "high": 1.33515,
+          "low": 1.33488,
+          "close": 1.33488
+        },
+        {
+          "time": "2026-11-11T01:10:00+00:00",
+          "open": 1.33487,
+          "high": 1.33493,
+          "low": 1.33452,
+          "close": 1.33452
+        },
+        {
+          "time": "2026-11-11T01:15:00+00:00",
+          "open": 1.33453,
+          "high": 1.33466,
+          "low": 1.33443,
+          "close": 1.33444
+        },
+        {
+          "time": "2026-11-11T01:20:00+00:00",
+          "open": 1.33445,
+          "high": 1.33466,
+          "low": 1.33444,
+          "close": 1.33463
+        },
+        {
+          "time": "2026-11-11T01:25:00+00:00",
+          "open": 1.33463,
+          "high": 1.33484,
+          "low": 1.33463,
+          "close": 1.3348
+        },
+        {
+          "time": "2026-11-11T01:30:00+00:00",
+          "open": 1.33479,
+          "high": 1.3351,
+          "low": 1.3347,
+          "close": 1.33505
+        },
+        {
+          "time": "2026-11-11T01:35:00+00:00",
+          "open": 1.33504,
+          "high": 1.33513,
+          "low": 1.33482,
+          "close": 1.33495
+        },
+        {
+          "time": "2026-11-11T01:40:00+00:00",
+          "open": 1.33496,
+          "high": 1.33508,
+          "low": 1.3348,
+          "close": 1.33508
+        },
+        {
+          "time": "2026-11-11T01:45:00+00:00",
+          "open": 1.33507,
+          "high": 1.33512,
+          "low": 1.335,
+          "close": 1.33506
+        },
+        {
+          "time": "2026-11-11T01:50:00+00:00",
+          "open": 1.33507,
+          "high": 1.33526,
+          "low": 1.33504,
+          "close": 1.33526
+        },
+        {
+          "time": "2026-11-11T01:55:00+00:00",
+          "open": 1.33522,
+          "high": 1.33548,
+          "low": 1.33513,
+          "close": 1.33548
+        },
+        {
+          "time": "2026-11-11T02:00:00+00:00",
+          "open": 1.33547,
+          "high": 1.33556,
+          "low": 1.33541,
+          "close": 1.33546
+        },
+        {
+          "time": "2026-11-11T02:05:00+00:00",
+          "open": 1.33549,
+          "high": 1.33554,
+          "low": 1.33533,
+          "close": 1.33534
+        },
+        {
+          "time": "2026-11-11T02:10:00+00:00",
+          "open": 1.33533,
+          "high": 1.33536,
+          "low": 1.33512,
+          "close": 1.33521
+        },
+        {
+          "time": "2026-11-11T02:15:00+00:00",
+          "open": 1.33521,
+          "high": 1.33521,
+          "low": 1.3349,
+          "close": 1.33494
+        },
+        {
+          "time": "2026-11-11T02:20:00+00:00",
+          "open": 1.33495,
+          "high": 1.33497,
+          "low": 1.33483,
+          "close": 1.33489
+        },
+        {
+          "time": "2026-11-11T02:25:00+00:00",
+          "open": 1.33488,
+          "high": 1.33503,
+          "low": 1.33483,
+          "close": 1.335
+        },
+        {
+          "time": "2026-11-11T02:30:00+00:00",
+          "open": 1.33499,
+          "high": 1.335,
+          "low": 1.33479,
+          "close": 1.33482
+        },
+        {
+          "time": "2026-11-11T02:35:00+00:00",
+          "open": 1.33481,
+          "high": 1.33491,
+          "low": 1.33473,
+          "close": 1.33473
+        },
+        {
+          "time": "2026-11-11T02:40:00+00:00",
+          "open": 1.33474,
+          "high": 1.33484,
+          "low": 1.33469,
+          "close": 1.33474
+        },
+        {
+          "time": "2026-11-11T02:45:00+00:00",
+          "open": 1.33475,
+          "high": 1.3348,
+          "low": 1.33462,
+          "close": 1.33462
+        },
+        {
+          "time": "2026-11-11T02:50:00+00:00",
+          "open": 1.33463,
+          "high": 1.33482,
+          "low": 1.33462,
+          "close": 1.33471
+        },
+        {
+          "time": "2026-11-11T02:55:00+00:00",
+          "open": 1.33471,
+          "high": 1.33484,
+          "low": 1.33471,
+          "close": 1.33479
+        }
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "symbol": "EURUSD",
+      "start": "2026-11-10 00:00:00+00:00",
+      "end": "2026-11-11 10:00:00+00:00",
+      "rows": 2023,
+      "sha256": "a9324e1371170d9ec9bbdfcd5e4e2dcc284f8a5107f2d9dc3f9b23966740ec38",
+      "h1_sweeps": 7,
+      "candidate_setups": 0,
+      "scope": "H1 close decisions only; no daily map/session qualification or trade results",
+      "events": []
+    },
+    {
+      "symbol": "GBPUSD",
+      "start": "2026-11-10 00:00:00+00:00",
+      "end": "2026-11-11 10:00:00+00:00",
+      "rows": 2037,
+      "sha256": "bb4e4c965397bf87c9fc5fa1373fd568f3f5c9b3bf29d01a3daed2c8065b3432",
+      "h1_sweeps": 8,
+      "candidate_setups": 3,
+      "scope": "H1 close decisions only; no daily map/session qualification or trade results",
+      "events": [
+        {
+          "clock": "2026-11-10T12:00:00+00:00",
+          "direction": "BEARISH",
+          "blocks": [
+            {
+              "origin_time": "2026-11-10T11:10:00+00:00",
+              "departure_confirmed_at": "2026-11-10T11:25:00+00:00",
+              "actionable_at": "2026-11-10T12:00:00+00:00",
+              "role": "secondary_candidate",
+              "classification": "unvalidated_order_block_candidate",
+              "zone_low": 1.34283,
+              "zone_high": 1.34317,
+              "entry": 1.34283
+            },
+            {
+              "origin_time": "2026-11-10T11:25:00+00:00",
+              "departure_confirmed_at": "2026-11-10T11:50:00+00:00",
+              "actionable_at": "2026-11-10T12:00:00+00:00",
+              "role": "secondary_candidate",
+              "classification": "unvalidated_order_block_candidate",
+              "zone_low": 1.34255,
+              "zone_high": 1.34277,
+              "entry": 1.34255
+            },
+            {
+              "origin_time": "2026-11-10T11:35:00+00:00",
+              "departure_confirmed_at": "2026-11-10T11:50:00+00:00",
+              "actionable_at": "2026-11-10T12:00:00+00:00",
+              "role": "secondary_candidate",
+              "classification": "unvalidated_order_block_candidate",
+              "zone_low": 1.34264,
+              "zone_high": 1.34285,
+              "entry": 1.34264
+            }
+          ]
+        },
+        {
+          "clock": "2026-11-11T03:00:00+00:00",
+          "direction": "BEARISH",
+          "blocks": [
+            {
+              "origin_time": "2026-11-11T02:25:00+00:00",
+              "departure_confirmed_at": "2026-11-11T02:35:00+00:00",
+              "actionable_at": "2026-11-11T03:00:00+00:00",
+              "role": "secondary_candidate",
+              "classification": "unvalidated_order_block_candidate",
+              "zone_low": 1.33488,
+              "zone_high": 1.33503,
+              "entry": 1.33488
+            }
+          ]
+        },
+        {
+          "clock": "2026-11-11T10:00:00+00:00",
+          "direction": "BULLISH",
+          "blocks": [
+            {
+              "origin_time": "2026-11-11T09:35:00+00:00",
+              "departure_confirmed_at": "2026-11-11T09:50:00+00:00",
+              "actionable_at": "2026-11-11T10:00:00+00:00",
+              "role": "sweep_origin_candidate",
+              "classification": "unvalidated_order_block_candidate",
+              "zone_low": 1.33142,
+              "zone_high": 1.33191,
+              "entry": 1.33191
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

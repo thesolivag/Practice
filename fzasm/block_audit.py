@@ -16,7 +16,13 @@ def block_candidates(candles, sweep, now):
     long = sweep.direction == BiasDirection.BULLISH
     start = context['sweep_extreme_time']
     end = context['break_time']
-    leg = [c for c in bars if c.timestamp.isoformat() >= start and c.available_at.isoformat() <= end]
+    # If the sweep extreme is on a directional candle, its opposing
+    # launch candle is earlier. Include that candle rather than losing the main block.
+    origins = [c for c in bars if sweep.swept_candle.timestamp <= c.timestamp
+               and c.timestamp.isoformat() <= start
+               and (c.is_bearish if long else c.is_bullish)]
+    main_origin = origins[-1].timestamp.isoformat() if origins else start
+    leg = [c for c in bars if c.timestamp.isoformat() >= main_origin and c.available_at.isoformat() <= end]
     result = []
     for index, c in enumerate(leg):
         if not (c.is_bearish if long else c.is_bullish):
@@ -27,7 +33,7 @@ def block_candidates(candles, sweep, now):
         result.append(dict(origin_time=c.timestamp.isoformat(),
                            departure_confirmed_at=departure.available_at.isoformat(),
                            actionable_at=context['context_available_at'],
-                           role='sweep_origin_candidate' if c.timestamp.isoformat() == start else 'secondary_candidate',
+                           role='sweep_origin_candidate' if c.timestamp.isoformat() == main_origin else 'secondary_candidate',
                            classification='unvalidated_order_block_candidate',
                            zone_low=c.low if long else c.body_low,
                            zone_high=c.body_high if long else c.high,
