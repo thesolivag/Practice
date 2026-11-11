@@ -1,0 +1,110 @@
+[
+  {
+    "clock": "2026-11-11T03:00:00+00:00",
+    "direction": "BiasDirection.BEARISH",
+    "candidates": [
+      {
+        "origin_time": "2026-11-11T02:10:00+00:00",
+        "departure_confirmed_at": "2026-11-11T02:30:00+00:00",
+        "actionable_at": "2026-11-11T03:00:00+00:00",
+        "role": "sweep_origin_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.134,
+        "zone_high": 89.185,
+        "entry": 89.134
+      },
+      {
+        "origin_time": "2026-11-11T02:30:00+00:00",
+        "departure_confirmed_at": "2026-11-11T02:50:00+00:00",
+        "actionable_at": "2026-11-11T03:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.126,
+        "zone_high": 89.139,
+        "entry": 89.126
+      },
+      {
+        "origin_time": "2026-11-11T02:40:00+00:00",
+        "departure_confirmed_at": "2026-11-11T02:50:00+00:00",
+        "actionable_at": "2026-11-11T03:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.13,
+        "zone_high": 89.138,
+        "entry": 89.13
+      }
+    ]
+  },
+  {
+    "clock": "2026-11-11T05:00:00+00:00",
+    "direction": "BiasDirection.BULLISH",
+    "candidates": [
+      {
+        "origin_time": "2026-11-11T04:25:00+00:00",
+        "departure_confirmed_at": "2026-11-11T04:45:00+00:00",
+        "actionable_at": "2026-11-11T05:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.038,
+        "zone_high": 89.056,
+        "entry": 89.056
+      },
+      {
+        "origin_time": "2026-11-11T04:35:00+00:00",
+        "departure_confirmed_at": "2026-11-11T04:45:00+00:00",
+        "actionable_at": "2026-11-11T05:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.039,
+        "zone_high": 89.055,
+        "entry": 89.055
+      },
+      {
+        "origin_time": "2026-11-11T04:50:00+00:00",
+        "departure_confirmed_at": "2026-11-11T05:00:00+00:00",
+        "actionable_at": "2026-11-11T05:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.064,
+        "zone_high": 89.078,
+        "entry": 89.078
+      }
+    ]
+  },
+  {
+    "clock": "2026-11-11T06:00:00+00:00",
+    "direction": "BiasDirection.BEARISH",
+    "candidates": [
+      {
+        "origin_time": "2026-11-11T05:10:00+00:00",
+        "departure_confirmed_at": "2026-11-11T05:20:00+00:00",
+        "actionable_at": "2026-11-11T06:00:00+00:00",
+        "role": "sweep_origin_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.09,
+        "zone_high": 89.12,
+        "entry": 89.09
+      },
+      {
+        "origin_time": "2026-11-11T05:20:00+00:00",
+        "departure_confirmed_at": "2026-11-11T05:40:00+00:00",
+        "actionable_at": "2026-11-11T06:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.085,
+        "zone_high": 89.099,
+        "entry": 89.085
+      },
+      {
+        "origin_time": "2026-11-11T05:25:00+00:00",
+        "departure_confirmed_at": "2026-11-11T05:40:00+00:00",
+        "actionable_at": "2026-11-11T06:00:00+00:00",
+        "role": "secondary_candidate",
+        "classification": "unvalidated_order_block_candidate",
+        "zone_low": 89.088,
+        "zone_high": 89.096,
+        "entry": 89.088
+      }
+    ]
+  }
+]
