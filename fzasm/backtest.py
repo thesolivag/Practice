@@ -32,226 +32,51 @@ DEFAULT_PAIRS = [
 ]
 
 
-class TradeOutcome:
-    """Tracks independent outcomes for all 5 exit targets on a single trade."""
-    def __init__(self, setup: TradeSetup, entry_bar_idx: int):
-        self.setup = setup
-        self.entry_bar_idx = entry_bar_idx
-        self.symbol = setup.symbol
-        self.direction = setup.bias
-        self.entry_price = setup.entry_price
-        self.stop_loss = setup.stop_loss
-        self.unit_risk = abs(setup.entry_price - setup.stop_loss)
-        
-        # Targets
-        # Targets
-        self.fz_tp1 = setup.take_profit_1
-        self.fz_tp2 = setup.take_profit_2
-        # FZ Partials & Break-even tracking
-        self.fz_tp1_hit: bool = False
-        self.fz_tp1_banked: float = 0.0
-        self.fz_sl: float = setup.stop_loss
-        
-        is_long = setup.bias == BiasDirection.BULLISH
-        self.tp_1r = setup.entry_price + (1.0 * self.unit_risk if is_long else -1.0 * self.unit_risk)
-        self.tp_2r = setup.entry_price + (2.0 * self.unit_risk if is_long else -2.0 * self.unit_risk)
-        self.tp_3r = setup.entry_price + (3.0 * self.unit_risk if is_long else -3.0 * self.unit_risk)
-        self.tp_4r = setup.entry_price + (4.0 * self.unit_risk if is_long else -4.0 * self.unit_risk)
-        
-        # Independent target results (R realized)
-        self.fz_result_r: Optional[float] = None
-        self.r1_result_r: Optional[float] = None
-        self.r2_result_r: Optional[float] = None
-        self.r3_result_r: Optional[float] = None
-        self.r4_result_r: Optional[float] = None
-        
-        self.exit_time: Optional[datetime] = None
-        self.bars_held: int = 0
-        self.closed: bool = False
-
-    def is_fully_evaluated(self) -> bool:
-        return (
-            self.fz_result_r is not None and
-            self.r1_result_r is not None and
-            self.r2_result_r is not None and
-            self.r3_result_r is not None and
-            self.r4_result_r is not None
-        )
-
-    def evaluate_bar(self, bar: Candle, bar_idx: int, max_bars: int = 120):
-        if self.is_fully_evaluated():
-            return
-            
-        self.bars_held += 1
-        is_long = self.direction == BiasDirection.BULLISH
-        
-        # Check Stop Loss hit
-        sl_hit = (bar.low <= self.stop_loss) if is_long else (bar.high >= self.stop_loss)
-        
-        # 1. FZ Target (TP1 = 50% Eq + Break-even, TP2 = HTF Map Target)
-        if self.fz_result_r is None:
-            tp2_hit = (bar.high >= self.fz_tp2) if is_long else (bar.low <= self.fz_tp2)
-            tp1_hit = (bar.high >= self.fz_tp1) if is_long else (bar.low <= self.fz_tp1)
-            
-            if not self.fz_tp1_hit:
-                if sl_hit and (tp1_hit or tp2_hit):
-                    self.fz_result_r = -1.0
-                elif sl_hit:
-                    self.fz_result_r = -1.0
-                elif tp2_hit:
-                    r_achieved = abs(self.fz_tp2 - self.entry_price) / max(self.unit_risk, 1e-6)
-                    self.fz_result_r = round(r_achieved, 2)
-                elif tp1_hit:
-                    r_tp1 = abs(self.fz_tp1 - self.entry_price) / max(self.unit_risk, 1e-6)
-                    self.fz_tp1_banked = r_tp1 * 0.5
-                    self.fz_tp1_hit = True
-                    self.fz_sl = self.entry_price
-            else:
-                be_hit = (bar.low <= self.fz_sl) if is_long else (bar.high >= self.fz_sl)
-                if tp2_hit:
-                    r_tp2 = abs(self.fz_tp2 - self.entry_price) / max(self.unit_risk, 1e-6)
-                    self.fz_result_r = round(self.fz_tp1_banked + 0.5 * r_tp2, 2)
-                elif be_hit:
-                    self.fz_result_r = round(self.fz_tp1_banked, 2)
-                
-        # 2. Fixed 1R
-        if self.r1_result_r is None:
-            tp1r_hit = (bar.high >= self.tp_1r) if is_long else (bar.low <= self.tp_1r)
-            if sl_hit and tp1r_hit:
-                self.r1_result_r = -1.0
-            elif sl_hit:
-                self.r1_result_r = -1.0
-            elif tp1r_hit:
-                self.r1_result_r = 1.0
-
-        # 3. Fixed 2R
-        if self.r2_result_r is None:
-            tp2r_hit = (bar.high >= self.tp_2r) if is_long else (bar.low <= self.tp_2r)
-            if sl_hit and tp2r_hit:
-                self.r2_result_r = -1.0
-            elif sl_hit:
-                self.r2_result_r = -1.0
-            elif tp2r_hit:
-                self.r2_result_r = 2.0
-
-        # 4. Fixed 3R
-        if self.r3_result_r is None:
-            tp3r_hit = (bar.high >= self.tp_3r) if is_long else (bar.low <= self.tp_3r)
-            if sl_hit and tp3r_hit:
-                self.r3_result_r = -1.0
-            elif sl_hit:
-                self.r3_result_r = -1.0
-            elif tp3r_hit:
-                self.r3_result_r = 3.0
-
-        # 5. Fixed 4R
-        if self.r4_result_r is None:
-            tp4r_hit = (bar.high >= self.tp_4r) if is_long else (bar.low <= self.tp_4r)
-            if sl_hit and tp4r_hit:
-                self.r4_result_r = -1.0
-            elif sl_hit:
-                self.r4_result_r = -1.0
-            elif tp4r_hit:
-                self.r4_result_r = 4.0
-
-        # Time-stop limit (120 hours / 5 days)
-        if self.bars_held >= max_bars:
-            if self.fz_result_r is None:
-                if self.fz_tp1_hit:
-                    self.fz_result_r = round(self.fz_tp1_banked, 2)
-                else:
-                    curr_r = (bar.close - self.entry_price if is_long else self.entry_price - bar.close) / max(self.unit_risk, 1e-6)
-                    self.fz_result_r = round(max(-1.0, curr_r), 2)
-            if self.r1_result_r is None: self.r1_result_r = -1.0 if sl_hit else 0.0
-            if self.r2_result_r is None: self.r2_result_r = -1.0 if sl_hit else 0.0
-            if self.r3_result_r is None: self.r3_result_r = -1.0 if sl_hit else 0.0
-            if self.r4_result_r is None: self.r4_result_r = -1.0 if sl_hit else 0.0
-            self.exit_time = bar.timestamp
-            self.closed = True
-
-        if self.is_fully_evaluated() and not self.closed:
-            self.exit_time = bar.timestamp
-            self.closed = True
+from .execution import TradeOutcome
+from .data import load_minute_df
+from bisect import bisect_right
 
 
-def backtest_pair(pair: str, start_year: int, end_year: int, engine: FZASMEngine) -> List[TradeOutcome]:
-    """Runs full-year backtest for one pair."""
-    try:
-        df_h1 = load_candles_df(pair, start_year, end_year)
-    except Exception as e:
-        print(f"[{pair}] Skipped: {e}", flush=True)
-        return []
-
-    if df_h1.empty or len(df_h1) < 200:
-        print(f"[{pair}] Insufficient data: {len(df_h1)} candles", flush=True)
-        return []
-
-    print(f"[{pair}] Processing {len(df_h1)} H1 candles ({df_h1.index[0].date()} to {df_h1.index[-1].date()})...", flush=True)
-
-    # Multi-timeframe resampling
-    df_h2 = resample_ohlc(df_h1, "2h")
-    df_h4 = resample_ohlc(df_h1, "4h")
-    df_d1 = resample_ohlc(df_h1, "1D")
-
-    h1_all = df_to_candles(df_h1, TimeFrame.H1)
-    h2_all = df_to_candles(df_h2, TimeFrame.H2)
-    h4_all = df_to_candles(df_h4, TimeFrame.H4)
-    d1_all = df_to_candles(df_d1, TimeFrame.D1)
-
-    # Map timestamps to index for fast lookup
-    h1_by_time = {c.timestamp: i for i, c in enumerate(h1_all)}
-    
-    trades: List[TradeOutcome] = []
-    active_trades: List[TradeOutcome] = []
-
-    # Iterate through H1 candles
-    for i, candle in enumerate(h1_all):
-        # Update existing active trades
-        for t in list(active_trades):
-            t.evaluate_bar(candle, i)
-            if t.closed:
-                active_trades.remove(t)
-
-        # We evaluate new trade setups during Asian Session Prime hours:
-        # Specifically at 01:00 UTC (1:00 AM WAT) or 02:00 UTC (2:00 AM WAT)
-        dt = candle.timestamp
-        if dt.hour not in (1, 2):
+def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC"):
+    """Replay real M1 bars; decisions only see completed, contiguous aggregates."""
+    df = load_minute_df(pair, start_year, end_year)
+    rules = {"M5":"5min", "M10":"10min", "M15":"15min", "H1":"1h",
+             "H2":"2h", "H4":"4h", "D1":"1D"}
+    series = {tf:df_to_candles(resample_ohlc(df,rule,calendar_timezone=calendar_timezone),TimeFrame(tf))
+              for tf,rule in rules.items()}
+    available = {tf:[c.available_at for c in bars] for tf,bars in series.items()}
+    minutes = df_to_candles(df,TimeFrame.M1)
+    trades, active = [], []
+    for i, candle in enumerate(minutes):
+        for trade in list(active):
+            trade.evaluate_bar(candle,i)
+            if trade.closed:
+                active.remove(trade)
+        now = candle.available_at
+        # Only scan when the explicitly selected confirmation timeframe closes.
+        tf = engine.confirmation_tf
+        end = bisect_right(available[tf],now)
+        if not end or available[tf][end-1] != now:
             continue
-
-        # Slice historical data up to current bar (strictly no lookahead)
-        d1_slice = [c for c in d1_all if c.timestamp.date() < dt.date()]
-        if len(d1_slice) < 5:
-            continue
-
-        h4_slice = [c for c in h4_all if c.timestamp <= dt]
-        h2_slice = [c for c in h2_all if c.timestamp <= dt]
-        h1_slice = h1_all[max(0, i - 24): i + 1]
-
-        candles_by_tf = {
-            "D1": d1_slice,
-            "H4": h4_slice,
-            "H2": h2_slice,
-            "H1": h1_slice
-        }
-
-        setup = engine.scan_asset(
-            symbol=pair,
-            candles_by_tf=candles_by_tf,
-            current_time=dt,
-            force_session=True
-        )
-
+        slices = {}
+        for name,bars in series.items():
+            n = bisect_right(available[name],now)
+            slices[name] = bars[max(0,n-240):n]
+        setup = engine.scan_asset(pair,slices,current_time=now)
         if setup:
-            outcome = TradeOutcome(setup, entry_bar_idx=i)
+            outcome = TradeOutcome(setup,i)
             trades.append(outcome)
-            active_trades.append(outcome)
-
-    # Close remaining trades at end of dataset
-    for t in active_trades:
-        if not t.closed:
-            t.evaluate_bar(h1_all[-1], len(h1_all) - 1, max_bars=0)
-
-    print(f"[{pair}] Completed: {len(trades)} setups generated.", flush=True)
+            active.append(outcome)
+    for trade in active:
+        trade.end_of_data(minutes[-1].available_at)
+    engine.coverage = getattr(engine,'coverage',{})
+    import hashlib
+    engine.coverage[pair] = {"first":df.index[0].isoformat(),"last":df.index[-1].isoformat(),
+                             "m1_rows":len(df),"source":df.attrs.get("source","fixture"),
+                             "sha256":hashlib.sha256(pd.util.hash_pandas_object(df,index=True).values.tobytes()).hexdigest(),
+                             "calendar_timezone":calendar_timezone,
+                             "confirmation_tf":engine.confirmation_tf,
+                             "missing_intervals":int((df.index.to_series().diff()>pd.Timedelta(minutes=1)).sum())}
     return trades
 
 
@@ -263,7 +88,9 @@ def compute_metrics(trades: List[TradeOutcome], target_attr: str) -> Dict[str, A
             "net_r": 0.0, "expectancy": 0.0, "profit_factor": 0.0, "max_dd_r": 0.0
         }
 
-    results = [getattr(t, target_attr) for t in trades if getattr(t, target_attr) is not None]
+    ordered = sorted((t for t in trades if getattr(t,target_attr) is not None),
+                     key=lambda t:t.exit_times[target_attr])
+    results = [getattr(t,target_attr) for t in ordered]
     if not results:
         return {
             "trades": 0, "wins": 0, "losses": 0, "win_rate": 0.0,
@@ -282,7 +109,11 @@ def compute_metrics(trades: List[TradeOutcome], target_attr: str) -> Dict[str, A
     pf = round(gross_profit / max(gross_loss, 1e-6), 2) if gross_loss > 0 else (99.0 if gross_profit > 0 else 0.0)
 
     # Max Drawdown in R
-    cum = np.cumsum([0.0] + results)
+    simultaneous = {}
+    for t in ordered:
+        at = t.exit_times[target_attr]
+        simultaneous[at] = simultaneous.get(at,0.) + getattr(t,target_attr)
+    cum = np.cumsum([0.0] + list(simultaneous.values()))
     peak = np.maximum.accumulate(cum)
     dd = peak - cum
     max_dd = round(float(np.max(dd)), 2)
@@ -308,6 +139,9 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
     report_lines.append(f"**Period:** {year}-01-01 to {year}-12-31  ")
     report_lines.append(f"**Generated:** {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}  ")
     report_lines.append(f"**Scope:** All Asian JPY Crosses + Gold (`XAUUSD`) + Major Pairs (`EURUSD`, `GBPUSD`)  \n")
+    report_lines.append("**Research execution:** gross returns exclude spread, commission, financing and slippage. "
+                        "Unresolved and unfilled orders are excluded from resolved P&L, never counted as zero. "
+                        "Coverage is recorded separately; requested dates do not prove full-year data.\n")
     report_lines.append("---\n")
 
     # 1. Executive Summary Table (Target Comparison)
@@ -321,7 +155,7 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
     ]
 
     report_lines.append("## 1. Overall Target Strategy Performance Comparison")
-    report_lines.append("| Strategy Target | Trades | Wins | Losses | Win Rate | Net Return (R) | Expectancy (R) | Profit Factor | Max DD (R) |")
+    report_lines.append("| Strategy Target | Trades | Wins | Losses | Win Rate | Gross resolved return (R) | Expectancy (R) | Profit Factor | Max DD (R) |")
     report_lines.append("|---|---|---|---|---|---|---|---|---|")
 
     for label, attr in targets:
@@ -332,6 +166,24 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
             f"{m['profit_factor']} | {m['max_dd_r']}R |"
         )
     report_lines.append("\n---\n")
+
+    report_lines.append("## Outcome accounting (same setup cohort for every target)")
+    report_lines.append("| Target | All setups | Closed | Unknown | Unfilled |")
+    report_lines.append("|---|---|---|---|---|")
+    for label, attr in targets:
+        counts = {status:sum(t.status[attr]==status for t in flat_trades)
+                  for status in ("CLOSED","UNKNOWN","UNFILLED")}
+        report_lines.append(f"| {label} | {len(flat_trades)} | {counts['CLOSED']} | {counts['UNKNOWN']} | {counts['UNFILLED']} |")
+    report_lines.append("\n## Monthly results by setup month (UTC)")
+    report_lines.append("| Month | Target | Setups | Resolved | Unknown | Unfilled | Gross resolved R |")
+    report_lines.append("|---|---|---|---|---|---|---|")
+    for month in sorted({t.setup.timestamp.strftime('%Y-%m') for t in flat_trades}):
+        cohort = [t for t in flat_trades if t.setup.timestamp.strftime('%Y-%m')==month]
+        for label,attr in targets:
+            metrics = compute_metrics(cohort,attr)
+            unknown = sum(t.status[attr]=='UNKNOWN' for t in cohort)
+            unfilled = sum(t.status[attr]=='UNFILLED' for t in cohort)
+            report_lines.append(f"| {month} | {label} | {len(cohort)} | {metrics['trades']} | {unknown} | {unfilled} | {metrics['net_r']} |")
 
     # 2. Pair-by-Pair Breakdown
     report_lines.append("## 2. Pair-by-Pair Detailed Performance")
@@ -385,6 +237,11 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
             "direction": s.bias.value,
             "entry_model": s.entry_model.value,
             "map_type": s.daily_map.map_type.value,
+            "confirmation_tf": s.timeframe,
+            "fill_bar_open": t.filled_at.isoformat() if t.filled_at else "",
+            **{a+"_status":t.status[a] for a in t.attrs},
+            **{a+"_reason":t.reasons.get(a,"") for a in t.attrs},
+            **{a+"_exit_time":t.exit_times[a].isoformat() if a in t.exit_times else "" for a in t.attrs},
             "entry_price": s.entry_price,
             "stop_loss": s.stop_loss,
             "risk_pips": risk_pips,
@@ -416,19 +273,28 @@ def main():
     parser = argparse.ArgumentParser(description="FZ-ASM Full Year Backtest")
     parser.add_argument("--year", type=int, default=2025, help="Backtest year (e.g. 2025)")
     parser.add_argument("--pairs", type=str, default="", help="Comma-separated symbols")
-    parser.add_argument("--out", type=str, default="reports", help="Output directory")
+    parser.add_argument("--out", type=str, default="reports/repaired", help="Output directory")
+    parser.add_argument("--download-m1", action="store_true", help="Prepare historical cTrader M1 cache explicitly")
+    parser.add_argument("--confirmation-tf", choices=["M5","M10","M15"], default="M5")
+    parser.add_argument("--calendar-timezone", default="UTC", help="Provider bar anchor, e.g. Europe/Athens; UTC research default")
     args = parser.parse_args()
 
     pairs = [p.strip().upper() for p in args.pairs.split(",") if p.strip()] if args.pairs else DEFAULT_PAIRS
     print(f"Starting FZ-ASM Backtest for {args.year} across {len(pairs)} pairs: {', '.join(pairs)}")
 
-    engine = FZASMEngine(extra_pairs=set(pairs))
+    engine = FZASMEngine(extra_pairs=set(pairs), confirmation_tf=args.confirmation_tf)
     all_trades: Dict[str, List[TradeOutcome]] = {}
 
     for pair in pairs:
-        trades = backtest_pair(pair, args.year, args.year, engine)
+        if args.download_m1:
+            from .minute_cache import prepare
+            prepare(pair,args.year)
+        trades = backtest_pair(pair, args.year, args.year, engine, args.calendar_timezone)
         all_trades[pair] = trades
 
+    os.makedirs(args.out,exist_ok=True)
+    with open(os.path.join(args.out,"coverage.json"),"w") as f:
+        json.dump(engine.coverage,f,indent=2)
     md_report = generate_report(all_trades, args.year, args.out)
 
     # If running in GitHub Actions, append to GITHUB_STEP_SUMMARY

@@ -237,98 +237,6 @@ class TestSessionsAndSweeps:
         assert sweep.direction == BiasDirection.BULLISH
 
 
-class TestEntryModels:
-    def test_model_a_choch_retest(self):
-        c_12am = make_candle(23, 150.0, 152.0, 148.0, 151.0, day=1)
-        c_1am = make_candle(0, 151.0, 151.5, 147.0, 150.5, day=2)
-        sweep = HourlySweepDetector.detect_h1_sweep([c_12am, c_1am])
-
-        daily_map = DailyMapEvaluator.evaluate([
-            make_candle(0, 148.0, 155.0, 145.0, 152.0, tf="D1", day=1),
-            make_candle(0, 152.0, 153.0, 143.0, 150.0, tf="D1", day=2),
-            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
-        ])
-
-        # M15 candles: minor high at 151.0, current M15 closes at 151.5 (CHOCH)
-        m1 = make_candle(1, 149.0, 151.0, 148.0, 149.5, tf="M15")
-        m2 = make_candle(2, 149.5, 150.5, 149.0, 150.0, tf="M15")
-        m3 = make_candle(3, 150.0, 152.0, 149.8, 151.5, tf="M15")
-
-        setup = EntryModelEvaluator.evaluate_entry("USDJPY", [m1, m2, m3], sweep, daily_map)
-        assert setup is not None
-        assert setup.entry_model == EntryModelType.MODEL_A_CHOCH_RETEST
-        assert setup.bias == BiasDirection.BULLISH
-        assert setup.stop_loss < 147.0
-        assert setup.risk_reward > 0.0
-
-    def test_model_b_inducement_limit(self):
-        c_12am = make_candle(23, 150.0, 152.0, 148.0, 151.0, day=1)
-        c_1am = make_candle(0, 151.0, 151.5, 147.0, 150.5, day=2)
-        sweep = HourlySweepDetector.detect_h1_sweep([c_12am, c_1am])
-
-        daily_map = DailyMapEvaluator.evaluate([
-            make_candle(0, 148.0, 155.0, 145.0, 152.0, tf="D1", day=1),
-            make_candle(0, 152.0, 153.0, 143.0, 150.0, tf="D1", day=2),
-            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
-        ])
-
-        poi = KeyLevel(
-            level_type=LevelType.ORDER_BLOCK,
-            direction=BiasDirection.BULLISH,
-            price_top=148.5,
-            price_bottom=146.5,
-            timestamp=datetime(2026, 11, 1, 0, 0, tzinfo=timezone.utc),
-            timeframe="H4"
-        )
-
-        # M15 candles where current candle does NOT trigger CHOCH (no close above minor high)
-        # but prev candle pulls near POI (low = 148.8, above 148.5 by 0.3) with curr.body_size = 0.5 (0.3 <= 0.4)
-        m1 = make_candle(1, 150.0, 151.0, 149.0, 150.0, tf="M15")
-        m2 = make_candle(2, 150.0, 150.2, 148.8, 149.0, tf="M15")  # inducement candle: low 148.8 > poi.price_top 148.5
-        m3 = make_candle(3, 149.0, 149.8, 148.9, 149.5, tf="M15")  # body_size = 0.5, diff = 0.3 <= 0.4
-
-        setup = EntryModelEvaluator.evaluate_entry("USDJPY", [m1, m2, m3], sweep, daily_map, poi=poi)
-        assert setup is not None
-        assert setup.entry_model == EntryModelType.MODEL_B_INDUCEMENT_LIMIT
-        assert setup.entry_price == poi.price_top
-        assert setup.bias == BiasDirection.BULLISH
-
-
-class TestUnifiedEngine:
-    def test_end_to_end_scan(self):
-        engine = FZASMEngine()
-
-        # Build multi-timeframe candles
-        d1 = [
-            make_candle(0, 140.0, 155.0, 138.0, 152.0, tf="D1", day=1),
-            make_candle(0, 152.0, 153.0, 146.0, 150.0, tf="D1", day=2),
-            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
-        ]
-        h4 = [
-            make_candle(0, 146.0, 151.0, 145.0, 150.0, tf="H4"),
-            make_candle(4, 150.0, 152.0, 149.0, 151.0, tf="H4")
-        ]
-        h1 = [
-            make_candle(23, 150.0, 152.0, 148.0, 151.0, tf="H1", day=1),
-            make_candle(0, 151.0, 151.5, 147.0, 150.5, tf="H1", day=2)
-        ]
-        m15 = [
-            make_candle(1, 149.0, 151.0, 148.0, 149.5, tf="M15"),
-            make_candle(2, 149.5, 150.5, 149.0, 150.0, tf="M15"),
-            make_candle(3, 150.0, 152.0, 149.8, 151.5, tf="M15")
-        ]
-
-        setup = engine.scan_asset(
-            symbol="USDJPY",
-            candles_by_tf={"D1": d1, "H4": h4, "H1": h1, "M15": m15},
-            force_session=True
-        )
-        assert setup is not None
-        assert setup.symbol == "USDJPY"
-        assert setup.bias == BiasDirection.BULLISH
-        assert setup.entry_model == EntryModelType.MODEL_A_CHOCH_RETEST
-
-
 class TestEdgeCasesAndSafety:
     def test_edge_cases_empty_and_short_arrays(self):
         assert DailyMapEvaluator.evaluate([]) is None
@@ -368,14 +276,12 @@ class TestEdgeCasesAndSafety:
         # Bullish outside candle: sweeps low to 147.0 and high to 151.0, but closes near top at 150.8 (bullish)
         c_bull = make_candle(0, 148.5, 151.0, 147.0, 150.8, day=2)
         res_bull = HourlySweepDetector.detect_h1_sweep([prev, c_bull])
-        assert res_bull is not None
-        assert res_bull.direction == BiasDirection.BULLISH
+        assert res_bull is None
 
         # Bearish outside candle: sweeps low to 147.0 and high to 151.0, but closes near bottom at 147.5 (bearish)
         c_bear = make_candle(0, 150.5, 151.0, 147.0, 147.5, day=2)
         res_bear = HourlySweepDetector.detect_h1_sweep([prev, c_bear])
-        assert res_bear is not None
-        assert res_bear.direction == BiasDirection.BEARISH
+        assert res_bear is None
 
         # Ambiguous outside doji: closes at open
         c_doji = make_candle(0, 149.0, 151.0, 147.0, 149.0, day=2)
@@ -434,32 +340,6 @@ class TestEdgeCasesAndSafety:
         # 06:00 UTC: outside Asian session
         dt_close = datetime(2026, 11, 2, 6, 0, tzinfo=timezone.utc)
         assert not mgr.is_in_asian_session(dt_close)
-
-    def test_edge_cases_sound_tp_sl_and_rr(self):
-        c_12am = make_candle(23, 150.0, 152.0, 148.0, 151.0, day=1)
-        c_1am = make_candle(0, 151.0, 151.5, 147.0, 150.5, day=2)
-        sweep = HourlySweepDetector.detect_h1_sweep([c_12am, c_1am])
-
-        # Daily map with target_level inverted or below entry_price
-        inverted_daily_map = DailyMapEvaluator.evaluate([
-            make_candle(0, 148.0, 155.0, 145.0, 152.0, tf="D1", day=1),
-            make_candle(0, 152.0, 153.0, 143.0, 150.0, tf="D1", day=2),
-            make_candle(0, 150.0, 152.0, 149.0, 151.0, tf="D1", day=3),
-        ])
-        # Force inverted target on map to test safety clamp
-        inverted_daily_map.target_level = 145.0  # below entry price 151.5
-
-        m1 = make_candle(1, 149.0, 151.0, 148.0, 149.5, tf="M15")
-        m2 = make_candle(2, 149.5, 150.5, 149.0, 150.0, tf="M15")
-        m3 = make_candle(3, 150.0, 152.0, 149.8, 151.5, tf="M15")
-
-        setup = EntryModelEvaluator.evaluate_entry("USDJPY", [m1, m2, m3], sweep, inverted_daily_map)
-        assert setup is not None
-        # Must ensure stop_loss < entry_price < tp1 <= tp2 for Bullish
-        assert setup.stop_loss < setup.entry_price
-        assert setup.entry_price < setup.take_profit_1
-        assert setup.take_profit_1 <= setup.take_profit_2
-        assert setup.risk_reward > 0.0
 
     def test_edge_cases_breaker_mitigation_lifecycle(self):
         ob = KeyLevel(

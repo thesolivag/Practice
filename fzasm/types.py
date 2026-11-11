@@ -6,7 +6,7 @@ Strictly typed dataclasses representing candles, swings, key levels, maps, and t
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from typing import Optional, List, Tuple
 
@@ -20,6 +20,7 @@ class TimeFrame(str, Enum):
     M15 = "M15"
     M10 = "M10"
     M5 = "M5"
+    M1 = "M1"
 
 
 class BiasDirection(str, Enum):
@@ -60,6 +61,15 @@ class Candle:
     close: float
     volume: float = 0.0
     timeframe: str = "H1"
+    close_time: Optional[datetime] = None
+
+    @property
+    def available_at(self) -> datetime:
+        if self.close_time is not None:
+            return self.close_time
+        minutes = {"M1": 1, "M5": 5, "M10": 10, "M15": 15,
+                   "H1": 60, "H2": 120, "H4": 240, "D1": 1440, "W1": 10080}
+        return self.timestamp + timedelta(minutes=minutes[self.timeframe])
 
     @property
     def is_bullish(self) -> bool:

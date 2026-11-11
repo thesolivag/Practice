@@ -6,7 +6,7 @@ Daily Maps -> ITF Key Levels -> Asian Session Window -> H1 Sweep -> M15 Executio
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 from datetime import datetime, timezone
 from .types import (
     Candle,
@@ -26,10 +26,52 @@ from .entry import EntryModelEvaluator
 class FZASMEngine:
     """End-to-end evaluation engine for the FZ-ASM trading strategy."""
 
-    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None):
+    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5"):
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
+        if confirmation_tf not in ("M5", "M10", "M15"):
+            raise ValueError("confirmation_tf must be M5, M10 or M15")
+        self.confirmation_tf = confirmation_tf
+        self._contexts = {}
+        self._used = set()
 
-    def scan_asset(
+    def scan_asset(self, symbol, candles_by_tf, current_time=None, force_session=False):
+        now = current_time or datetime.now(timezone.utc)
+        closed = {tf: [c for c in bars if c.available_at <= now]
+                  for tf, bars in candles_by_tf.items()}
+        if not self.session_mgr.is_in_asian_session(now):
+            self._contexts.pop(symbol, None)
+            return None
+        context = self._contexts.get(symbol)
+        if context and context[0].sweep_candle.timestamp.date() != now.date():
+            self._contexts.pop(symbol, None)
+            context = None
+        if context is None:
+            context = self._build_context(symbol, closed, now)
+            if context is None:
+                return None
+            sweep, daily_map, poi = context
+            key = (symbol, sweep.sweep_candle.timestamp, sweep.sweep_candle.timeframe)
+            if key in self._used:
+                return None
+            self._used.add(key)
+            self._contexts[symbol] = context
+        sweep, daily_map, poi = context
+        bars = closed.get(self.confirmation_tf, [])
+        # Do not emit the same completed confirmation repeatedly between closes.
+        if not bars or bars[-1].available_at != now:
+            return None
+        after = [c for c in bars if c.timestamp >= sweep.sweep_candle.available_at]
+        long = daily_map.bias == BiasDirection.BULLISH
+        if any((c.low < sweep.sweep_price or c.high >= daily_map.target_level) if long
+               else (c.high > sweep.sweep_price or c.low <= daily_map.target_level) for c in after):
+            self._contexts.pop(symbol, None)
+            return None
+        setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi)
+        if setup:
+            self._contexts.pop(symbol, None)
+        return setup
+
+    def _build_context(
         self,
         symbol: str,
         candles_by_tf: Dict[str, List[Candle]],
@@ -103,15 +145,8 @@ class FZASMEngine:
         if h1_sweep.direction != daily_map.bias:
             return None
 
-        # Step 6: Lower Timeframe Execution (M15)
-        m15_candles = candles_by_tf.get("M15", [])
-        setup = EntryModelEvaluator.evaluate_entry(
-            symbol=symbol,
-            m15_candles=m15_candles,
-            h1_sweep=h1_sweep,
-            daily_map=daily_map,
-            poi=active_poi
-        )
-
-        return setup
-
+        if active_poi.direction != daily_map.bias:
+            return None
+        if not self.session_mgr.is_in_prime_asian_window(h1_sweep.sweep_candle.timestamp):
+            return None
+        return h1_sweep, daily_map, active_poi

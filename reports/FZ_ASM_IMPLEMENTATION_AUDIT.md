@@ -1,5 +1,7 @@
 # ASM implementation and backtest audit
 
+**Historical audit:** the defects below describe revision 31ba0d9. See [repair handoff](FZ_ASM_REPAIR_HANDOFF.md) for implemented repairs and remaining source-validation limits.
+
 Inspected revision: `31ba0d91db6866e6fd493db48cf75dbedd82671d` (FZ-ASM).
 
 ## Conclusion

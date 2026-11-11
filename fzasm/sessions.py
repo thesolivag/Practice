@@ -5,7 +5,7 @@ Handles Asian Session window verification (00:00 - 06:00 UTC) and H1/H2 candle s
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List, Optional, Set
 from datetime import datetime
 from .types import Candle, HourlySweepResult, SessionWindow, BiasDirection, KeyLevel
 
@@ -52,7 +52,7 @@ class HourlySweepDetector:
     def detect_h1_sweep(candles: List[Candle], poi: Optional[KeyLevel] = None) -> Optional[HourlySweepResult]:
         """
         Inspects the latest completed H1 candle against the previous H1 candle:
-        Implements CRT / 4th-Man confirmation:
+        Implements the single-sided session sweep:
         - Bullish: Pierces below previous low with a wick, closes back inside previous range,
                    AND previous high is still standing (unbroken).
         - Bearish: Pierces above previous high with a wick, closes back inside previous range,
@@ -64,24 +64,18 @@ class HourlySweepDetector:
 
         prev = candles[-2]
         curr = candles[-1]
+        if prev.available_at != curr.timestamp:
+            return None
 
         pierced_low = curr.low < prev.low
         pierced_high = curr.high > prev.high
 
-        # Dual sweep (outside bar piercing both extremes):
+        # An outside bar has no standing opposite boundary: do not infer direction
+        # from candle colour. A separately sourced outside-bar model is not defined.
         if pierced_low and pierced_high:
-            if curr.is_bullish:
-                swept_low = True
-                swept_high = False
-            elif curr.is_bearish:
-                swept_low = False
-                swept_high = True
-            else:
-                return None  # Doji is ambiguous
-        else:
-            # Single sweep: requires close inside AND opposite extreme standing (CRT / 4th Man rule)
-            swept_low = curr.low < prev.low and curr.close > prev.low and curr.high <= prev.high
-            swept_high = curr.high > prev.high and curr.close < prev.high and curr.low >= prev.low
+            return None
+        swept_low = pierced_low and prev.low < curr.close <= prev.high and not pierced_high
+        swept_high = pierced_high and prev.low <= curr.close < prev.high and not pierced_low
 
         # Bullish Sweep of previous low
         if swept_low:
@@ -94,7 +88,7 @@ class HourlySweepDetector:
                     swept_candle=prev,
                     sweep_price=curr.low,
                     key_level_tested=poi,
-                    notes=f"Bullish CRT/4th-man sweep: Pierced prior low {prev.low:.5f}, high standing, closed at {curr.close:.5f}."
+                    notes=f"Bullish session sweep: Pierced prior low {prev.low:.5f}, high standing, closed at {curr.close:.5f}."
                 )
 
         # Bearish Sweep of previous high
@@ -108,7 +102,7 @@ class HourlySweepDetector:
                     swept_candle=prev,
                     sweep_price=curr.high,
                     key_level_tested=poi,
-                    notes=f"Bearish CRT/4th-man sweep: Pierced prior high {prev.high:.5f}, low standing, closed at {curr.close:.5f}."
+                    notes=f"Bearish session sweep: Pierced prior high {prev.high:.5f}, low standing, closed at {curr.close:.5f}."
                 )
 
         return None

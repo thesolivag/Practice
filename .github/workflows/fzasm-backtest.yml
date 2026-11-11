@@ -7,6 +7,14 @@ on:
         description: "Full calendar year to backtest (e.g. 2025)"
         required: true
         default: "2025"
+      confirmation_tf:
+        description: "Confirmation timeframe fixed before the run"
+        type: choice
+        options: [M5, M10, M15]
+        default: M5
+      calendar_timezone:
+        description: "Provider candle anchor (UTC = research calendar; set verified broker timezone)"
+        default: UTC
       pairs:
         description: "Comma-separated list of symbols (empty = all Asian JPY + Gold + EURUSD + GBPUSD)"
         required: false
@@ -14,10 +22,10 @@ on:
       out:
         description: "Output directory for backtest reports and trade logs"
         required: false
-        default: "reports"
+        default: "reports/repaired"
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: fzasm-backtest
@@ -26,12 +34,14 @@ concurrency:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 360
 
     env:
       IN_YEAR: ${{ inputs.year || '2025' }}
       IN_PAIRS: ${{ inputs.pairs || 'USDJPY,GBPJPY,EURJPY,AUDJPY,CADJPY,CHFJPY,NZDJPY,XAUUSD,EURUSD,GBPUSD' }}
-      IN_OUT: ${{ inputs.out || 'reports' }}
+      IN_OUT: ${{ inputs.out || 'reports/repaired' }}
+      CONFIRMATION_TF: ${{ inputs.confirmation_tf || 'M5' }}
+      CALENDAR_TIMEZONE: ${{ inputs.calendar_timezone || 'UTC' }}
       SLK_STORE: data/store
 
     steps:
@@ -52,14 +62,14 @@ jobs:
 
       - name: Verify FZ-ASM Strategy Integrity
         run: |
-          python -m pytest tests/test_fzasm.py -q
+          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py -q
 
       - name: Restore candle store cache
         uses: actions/cache/restore@v4
         with:
           path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: candles-v3-
+          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: fzasm-m1-v1-${{ env.IN_YEAR }}-
 
       - name: Run FZ-ASM Full-Year Multi-Target Backtest
         id: bt
@@ -76,7 +86,7 @@ jobs:
         run: |
           mkdir -p "$IN_OUT"
           echo "Starting FZ-ASM Backtest for $IN_YEAR..."
-          python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT"
+          python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT" --confirmation-tf "$CONFIRMATION_TF" --calendar-timezone "$CALENDAR_TIMEZONE" --download-m1
           rc=$?
           echo "Backtest completed with exit code: $rc"
           exit $rc
@@ -86,22 +96,12 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: data/store
-          key: candles-v3-${{ github.run_id }}-${{ github.run_attempt }}
+          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Upload Backtest Reports & Trade Logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fzasm-backtest-reports-${{ env.IN_YEAR }}
+          name: fzasm-repaired-${{ env.IN_YEAR }}-${{ env.CONFIRMATION_TF }}
           path: ${{ env.IN_OUT }}/
-
-      - name: Commit Backtest Report
-        if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "$IN_OUT"
-          git commit -m "FZ-ASM Backtest Report ($IN_YEAR)" || exit 0
-          git pull --rebase -X theirs origin ${{ github.ref_name }}
-          git push origin HEAD:${{ github.ref_name }}
 
