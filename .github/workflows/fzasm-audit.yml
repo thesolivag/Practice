@@ -22,8 +22,31 @@ jobs:
       - run: pip install pandas numpy pytest
       - name: Verify repaired timing, confirmation and execution
         run: PYTHONPATH=. pytest -q tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py tests/test_fzasm_block_audit.py tests/test_fzasm_h1_m5.py --junitxml=audit-results.xml
-      - uses: actions/upload-artifact@v4
+      - name: Publish test result independently of artifact storage
         if: always()
+        run: |
+          python - <<'PYREPORT'
+          import os
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          report = Path('audit-results.xml')
+          if report.exists():
+              root = ET.parse(report).getroot()
+              suites = [root] if root.tag == 'testsuite' else list(root.iter('testsuite'))
+              counts = {key: sum(int(s.get(key, '0')) for s in suites) for key in ('tests','failures','errors','skipped')}
+              message = 'ASM regression results: ' + ', '.join(f'{key}={value}' for key,value in counts.items())
+          else:
+              message = 'ASM regression report unavailable; inspect the test step. No pass is claimed.'
+          print(message)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write(message + '\n')
+          PYREPORT
+      - name: Upload optional audit evidence
+        id: audit_upload
+        uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 3
+        continue-on-error: true
         with:
           name: asm-defect-audit
           path: |
@@ -39,3 +62,8 @@ jobs:
             knowledge-base/frames/asm-asm-night-live-tarding-day-one/sheets/sheet_008.jpg
             knowledge-base/frames/asm-asm-night-live-tarding-day-one/sheets/sheet_009.jpg
             knowledge-base/frames/asm-all-you-need-asian-map-concept/sheets/sheet_005.jpg
+      - name: Report artifact storage failure
+        if: always() && steps.audit_upload.outcome == 'failure'
+        run: |
+          echo "::warning::Audit evidence upload failed or timed out; test results remain in the test log and run summary."
+          echo "Artifact upload failed or timed out. This does not change the recorded test result." >> "$GITHUB_STEP_SUMMARY"
