@@ -326,7 +326,7 @@ def main():
     parser.add_argument("--download-m1", action="store_true", help="Prepare historical cTrader M1 cache explicitly")
     parser.add_argument("--confirmation-tf", choices=["M5","M10","M15"], default="M5")
     parser.add_argument("--stop-mode", choices=["both","hourly_sweep","ltf_invalidation"], default="both")
-    parser.add_argument("--entry-policy", choices=["mss_retest","legacy","h1_av","swing_fvg","swing_ob"], default="mss_retest")
+    parser.add_argument("--entry-policy", choices=["mss_retest","legacy","h1_av","swing_fvg","swing_ob","h1_av_m5"], default="mss_retest")
     parser.add_argument("--calendar-timezone", default="UTC", help="Provider bar anchor, e.g. Europe/Athens; UTC research default")
     args = parser.parse_args()
 

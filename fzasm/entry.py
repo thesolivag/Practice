@@ -184,3 +184,33 @@ class EntryModelEvaluator:
                               entry_evidence=dict(item,stop_buffer_price=buf,sweep_extreme=sweep.sweep_price),
                               notes='Protected-swing research route: pending retest, teacher match not yet verified.')
         return None
+
+
+    @staticmethod
+    def evaluate_h1_av_m5(symbol, hourly, minutes, sweep, daily_map, buffer_price=None):
+        """Closed M5 shift gates a pending H1 A/V limit. No OB/FVG required."""
+        from dataclasses import replace
+        from .recognition import recognize_shift
+        if not minutes or not sweep or any(c.timeframe != 'M5' for c in minutes):
+            return None
+        now=minutes[-1].available_at
+        shift=recognize_shift(minutes,sweep,now)
+        if not shift:return None
+        closed=[c for c in hourly if c.available_at<=now]
+        plan=None
+        for i in range(1,len(closed)):
+            plan=EntryModelEvaluator.evaluate_h1_av(symbol,closed[i-1:i+1],sweep,daily_map,buffer_price)
+            if plan:break
+        if plan is None:return None
+        activated=max(plan.timestamp,shift['known'])
+        if now != activated:return None
+        long=sweep.direction==BiasDirection.BULLISH
+        after=[c for c in minutes if c.timestamp>=sweep.sweep_candle.available_at]
+        if any((c.low<sweep.sweep_price or c.high>=daily_map.target_level) if long else
+               (c.high>sweep.sweep_price or c.low<=daily_map.target_level) for c in after):return None
+        if not (plan.entry_price<minutes[-1].close if long else plan.entry_price>minutes[-1].close):return None
+        return replace(plan,timestamp=now,timeframe='M5',
+                       notes='H1 A/V limit after closed M5 structural shift; no OB/FVG requirement.',
+                       entry_evidence=dict(plan.entry_evidence,**shift['common'],
+                                           entry_route='h1_av_m5',h1_level_confirmed_at=plan.timestamp.isoformat(),
+                                           order_available_at=now.isoformat()))

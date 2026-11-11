@@ -1,0 +1,95 @@
+name: ASM H1 versus H1 with M5 confirmation — 2026 YTD
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: ['.github/workflows/fzasm-h1-comparison.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fzasm-h1-comparison
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pair: [NZDJPY, EURUSD, GBPUSD]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    env:
+      IN_YEAR: 2026
+      IN_PAIRS: ${{ matrix.pair }}
+      IN_OUT: reports/h1-comparison
+      CONFIRMATION_TF: M5
+      STOP_MODE: hourly_sweep
+      ENTRY_POLICY: h1_av_m5
+      CALENDAR_TIMEZONE: UTC
+      SLK_STORE: data/store
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Verify FZ-ASM Strategy Integrity
+        run: |
+          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py tests/test_fzasm_h1_m5.py -q
+
+      - name: Restore candle store cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: fzasm-m1-v1-${{ env.IN_YEAR }}-
+
+      - name: Run FZ-ASM Full-Year Multi-Target Backtest
+        id: bt
+        env:
+          CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
+          CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
+          CTRADER_ACCESS_TOKEN: ${{ secrets.CTRADER_ACCESS_TOKEN }}
+          CTRADER_REFRESH_TOKEN: ${{ secrets.CTRADER_REFRESH_TOKEN }}
+          CTRADER_ACCOUNT_ID: ${{ secrets.CTRADER_ACCOUNT_ID }}
+          CTRADER_ENV: demo
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: |
+          mkdir -p "$IN_OUT"
+          echo "Starting FZ-ASM Backtest for $IN_YEAR..."
+          python -c 'import os; from fzasm.minute_cache import prepare; prepare(os.environ["IN_PAIRS"], int(os.environ["IN_YEAR"]))'
+          for policy in h1_av h1_av_m5; do
+            python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT/$IN_PAIRS/$policy" --confirmation-tf M5 --calendar-timezone UTC --stop-mode hourly_sweep --entry-policy "$policy"
+          done
+
+      - name: Save candle store cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/store
+          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload Backtest Reports & Trade Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fzasm-h1-comparison-2026-${{ matrix.pair }}
+          path: ${{ env.IN_OUT }}/
+

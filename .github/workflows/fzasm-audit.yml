@@ -21,7 +21,7 @@ jobs:
           python-version: '3.12'
       - run: pip install pandas numpy pytest
       - name: Verify repaired timing, confirmation and execution
-        run: PYTHONPATH=. pytest -q tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py tests/test_fzasm_block_audit.py --junitxml=audit-results.xml
+        run: PYTHONPATH=. pytest -q tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py tests/test_fzasm_block_audit.py tests/test_fzasm_h1_m5.py --junitxml=audit-results.xml
       - uses: actions/upload-artifact@v4
         if: always()
         with:

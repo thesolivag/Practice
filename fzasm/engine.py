@@ -30,10 +30,10 @@ class FZASMEngine:
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
         if confirmation_tf not in ("M5", "M10", "M15"):
             raise ValueError("confirmation_tf must be M5, M10 or M15")
-        if entry_policy not in ("mss_retest", "legacy", "h1_av", "swing_fvg", "swing_ob"):
+        if entry_policy not in ("mss_retest", "legacy", "h1_av", "swing_fvg", "swing_ob", "h1_av_m5"):
             raise ValueError("entry_policy must be mss_retest, legacy, h1_av, swing_fvg or swing_ob")
         self.entry_policy = entry_policy
-        self.confirmation_tf = "H1" if entry_policy == "h1_av" else confirmation_tf
+        self.confirmation_tf = "H1" if entry_policy == "h1_av" else ("M5" if entry_policy == "h1_av_m5" else confirmation_tf)
         self._contexts = {}
         self._used = set()
 
@@ -71,6 +71,8 @@ class FZASMEngine:
             return None
         if self.entry_policy == "h1_av":
             setup = EntryModelEvaluator.evaluate_h1_av(symbol, bars, sweep, daily_map)
+        elif self.entry_policy == "h1_av_m5":
+            setup = EntryModelEvaluator.evaluate_h1_av_m5(symbol,closed.get('H1',[]),bars,sweep,daily_map)
         elif self.entry_policy in ("swing_fvg", "swing_ob"):
             setup = EntryModelEvaluator.evaluate_swing_retest(symbol,bars,sweep,daily_map,
                         "fvg_av_overlap" if self.entry_policy=="swing_fvg" else "order_block")

@@ -6,7 +6,7 @@ inside the sweeping hour; orders cannot exist until that hour has closed.
 from .types import BiasDirection
 
 
-def recognize_retests(candles, sweep, now):
+def recognize_shift(candles, sweep, now):
     bars=[c for c in candles if c.available_at<=now and c.timestamp>=sweep.swept_candle.timestamp]
     if not sweep.swept or sweep.sweep_candle.available_at>now or len(bars)<5:
         return []
@@ -35,6 +35,15 @@ def recognize_retests(candles, sweep, now):
             'structure_boundary':boundary,'pivot_time':bars[pivot].timestamp.isoformat(),
             'sweep_extreme_time':bars[extreme].timestamp.isoformat(),
             'break_time':bars[broken].available_at.isoformat(),'context_available_at':known.isoformat()}
+    return dict(common=common, bars=bars, extreme=extreme, broken=broken, known=known, long=long)
+
+
+def recognize_retests(candles, sweep, now):
+    shift = recognize_shift(candles, sweep, now)
+    if not shift:
+        return []
+    common=shift['common']; bars=shift['bars']; extreme=shift['extreme']
+    broken=shift['broken']; known=shift['known']; long=shift['long']
     candidates=[]
     # Freeze the opposing launch candle at the break; never choose a later candle
     # because its subsequent retest or profit looks better.
