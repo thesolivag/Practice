@@ -14,7 +14,7 @@
 
 ## Verification
 
-48 deterministic tests pass locally, including future-data perturbation, M5/M10/M15 routing, retest order pricing, missing-data rejection, fill-before-outcome, partial accounting, ambiguous intrabar outcomes, mirrored BUY/SELL stops, timeout valuation, DST daily closure, monthly checkpoint reuse and report reconciliation. GitHub Actions repeats these checks. No new full-year profitability result is claimed.
+48 deterministic tests pass locally, including future-data perturbation, M5/M10/M15 routing, retest order pricing, missing-data rejection, fill-before-outcome, partial accounting, ambiguous intrabar outcomes, mirrored BUY/SELL stops, timeout valuation, DST daily closure, monthly checkpoint reuse and report reconciliation. GitHub Actions run 42930371797 also passed all 48 checks. No new full-year profitability result is claimed.
 
 ## Remaining source-validation limits
 

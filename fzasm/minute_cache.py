@@ -39,7 +39,7 @@ def prepare(pair, year, root='data/store', client=None):
                     hi=min(lo+pd.Timedelta(hours=4),end)
                     # Only skip windows wholly inside the NY FX weekend.
                     hours=pd.date_range(lo,hi,freq='h',inclusive='left').tz_convert('America/New_York')
-                    closed=[d.dayofweek==5 or (d.dayofweek==4 and d.hour>=17) or (d.dayofweek==6 and d.hour<17) for d in hours]
+                    closed=[d.day_of_week==5 or (d.day_of_week==4 and d.hour>=17) or (d.day_of_week==6 and d.hour<17) for d in hours]
                     if hours.size and all(closed):
                         continue
                     batch=client.trendbar_rows(pair,'M1',int(lo.timestamp()),int(hi.timestamp()))
