@@ -1,0 +1,45 @@
+"""Build an offline source/code comparison, using unchanged repository sheets.
+
+The browser displays a single cell of a contact sheet. No candle values, teacher
+annotations, or bot replay results are reconstructed from the pixels.
+"""
+import json
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+CASES=[
+ dict(title='1. Lower-timeframe market shift',sheet='live008',folder='asm-asm-night-live-tarding-day-one',number=8,index=3,aspect='420 / 236',time='44:30',source='Live session · 44:28–44:51',quote='“Take out this low … then we can find our trade to the downside.”',finding='The teacher identifies a particular structural low. The transcript also names M5 and M15 after the hourly sweep.',code='The bot currently checks the extreme of the previous four lower-timeframe candles. That can differ from the structural low he points to.',status='Needs structural-rule validation',next='Do not claim the four-candle proxy is the teacher’s rule. Exact price comparison needs timestamp-matched OHLC; the contact sheet alone cannot establish pip offsets.'),
+ dict(title='2. FVG surface, midpoint and far edge',sheet='key003',folder='asm-key-level',number=3,index=19,aspect='420 / 314',time='17:15',source='Key-level lesson · 16:19–17:58',quote='He names the surface, the 50% threshold, and the depth of the FVG.',finding='The three-candle FVG definition and three separate locations are explicit. A surface touch does not automatically mean the gap is fully used; a deeper mitigation has a different meaning.',code='The bot’s current FVG limit uses the near edge. It does not yet model all three mitigation states or a source-backed rule choosing among their entry prices.',status='Definition supported; selection incomplete',next='Record gap boundaries and mitigation depth separately. A universal near-edge entry should remain a disclosed approximation until examples establish the choice.'),
+ dict(title='3. Liquidity in front of the entry level',sheet='concept005',folder='asm-all-you-need-asian-map-concept',number=5,index=9,aspect='420 / 308',time='27:15',source='Asian-map concept · 26:17–27:15',quote='A candle comes close without touching the key level; “set your entry here on that key level.”',finding='The original diagram labels the entry at the level behind the liquidity candle, and marks a stop above the selling zone.',code='The bot has a pending limit route, but the distance tolerance and selection of the level still use mechanical approximations. It also often uses the wider hourly sweep for the stop.',status='Sequence supported; geometry incomplete',next='Validate which nearby level is selected and which local invalidation the diagram marks. Do not invent exact numerical prices from this schematic.'),
+ dict(title='4. Blocks without an FVG: an exception',sheet='key006',folder='asm-key-level',number=6,index=20,aspect='420 / 314',time='36:15',source='Key-level lesson · 30:26–36:27',quote='He later allows no-FVG blocks and explains nearby liquidity and alignment with the higher-timeframe zone.',finding='The earlier “important to have an FVG” statement is not an absolute ban. The later explanation distinguishes lower-probability exceptions and order-block transfer.',code='The bot currently admits some no-FVG blocks using a 1.5× displacement-body test. That numerical shortcut is not established by the cited explanation. These candidates are now labeled displacement_proxy_unvalidated.',status='Exception supported; shortcut unvalidated',next='Keep FVG and exception evidence distinct. Do not replace the lesson with either “every block qualifies” or “no FVG means never valid.”'),
+ dict(title='5. Target identified on the chart',sheet='live009',folder='asm-asm-night-live-tarding-day-one',number=9,index=6,aspect='420 / 236',time='51:30',source='Live session · 51:19–51:34',quote='“Trade it into this low. This will be your new target.”',finding='The teacher points to a visible chart destination. This supports recording a specific boundary, not manufacturing a target from a price-unit multiplier.',code='Map 5 previously projected 3× a zone/range measure with a minimum 1.0 price unit. That projection is removed. Map 5 now needs an explicitly selected, already-known and untaken range boundary.',status='Projection removed',next='The automatic range selector remains unfinished, so the default scanner does not emit Map 5 trades. That restriction is an implementation limit, not a finding that Map 5 fails.')]
+
+TEMPLATE='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ASM source review</title><style>
+*{box-sizing:border-box}body{margin:0;background:#101923;color:#edf3fa;font:17px/1.5 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}h1{font-size:30px;margin:4px 0}p{margin:12px 0}.muted{color:#b5c5d5}.tag{display:inline-block;padding:5px 12px;background:#293c50;border-radius:20px;font-size:14px}nav{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}button,select{font:inherit;padding:10px;border:1px solid #71869d;background:#e8f2fc;color:#132639;border-radius:7px}select{flex:1;min-width:240px}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}.frame{width:100%;background-size:500% 500%;background-repeat:no-repeat;background-color:white;border:1px solid #8496a8}article{background:#192635;border:1px solid #34465b;padding:22px;border-radius:12px}h2{font-size:20px;margin:0 0 12px}h3{font-size:16px;color:#a6d6ff;margin:20px 0 6px}blockquote{border-left:3px solid #66c7bb;padding-left:14px;margin:15px 0}a{color:#a9d7ff}footer{margin-top:25px;font-size:14px;color:#b5c5d5}@media(max-width:850px){.grid{grid-template-columns:1fr}main{padding:14px}}@media print{nav{display:none}body{background:white;color:black}article{background:white;color:black}}
+</style><main><span class="tag">Source evidence • not a simulated trade result</span><h1>ASM: lesson versus implementation</h1><p class="muted">Original source frames beside the bot’s current rules. No invented price levels or claimed teacher-versus-bot pip accuracy.</p><nav><button id="prev">Previous</button><select id="cases" aria-label="Choose source comparison"></select><button id="next">Next</button></nav><h2 id="title"></h2><div class="grid"><article><h2>Teacher’s original frame <span id="time"></span></h2><div id="frame" class="frame" role="img"></div><p id="source" class="muted"></p><blockquote id="quote"></blockquote><a id="sheet" target="_blank" rel="noopener">Open complete original contact sheet</a></article><article><span id="status" class="tag"></span><h3>What the source supports</h3><p id="finding"></p><h3>What the bot currently does</h3><p id="code"></p><h3>Result of this comparison</h3><p id="nextstep"></p></article></div><footer>Source images are unchanged contact sheets from FZ-ASM. A browser viewport isolates one frame; zooming cannot restore detail absent from the source. Transcript wording contains speech-recognition errors. These are source/code comparisons, not backtested executions of the pictured trades.</footer></main><script>
+const cases=__CASES__, images=__IMAGES__;
+const sel=document.getElementById('cases');cases.forEach((c,i)=>sel.add(new Option(c.title,i)));
+function show(i){i=(i+cases.length)%cases.length;sel.value=i;const c=cases[i];for(const field of ['title','time','source','quote','status','finding','code'])document.getElementById(field).textContent=c[field];document.getElementById('nextstep').textContent=c.next;const f=document.getElementById('frame');f.style.aspectRatio=c.aspect;f.style.backgroundImage='url("'+images[c.sheet]+'")';f.style.backgroundPosition=(c.index%5*25)+'% '+(Math.floor(c.index/5)*25)+'%';f.setAttribute('aria-label',c.source+' original chart frame');document.getElementById('sheet').href='https://github.com/thesolivag/Practice/blob/223ae4415b7d19e6f7c6caecd9e1a281c45a8dc8/knowledge-base/frames/'+c.folder+'/sheets/sheet_'+String(c.number).padStart(3,'0')+'.jpg';}
+sel.onchange=()=>show(+sel.value);document.getElementById('prev').onclick=()=>show(+sel.value-1);document.getElementById('next').onclick=()=>show(+sel.value+1);show(0);
+</script></html>'''
+
+def build(offline=False):
+    images={}
+    for c in CASES:
+        if offline:
+            import base64
+            original=ROOT/'knowledge-base/frames'/c['folder']/'sheets'/f"sheet_{c['number']:03}.jpg"
+            encoded=base64.b64encode(original.read_bytes()).decode() if original.exists() else (ROOT/'evidence/source'/f"{c['sheet']}.b64").read_text().strip()
+            images[c['sheet']]='data:image/jpeg;base64,'+encoded
+        else:
+            images[c['sheet']]=f"../knowledge-base/frames/{c['folder']}/sheets/sheet_{c['number']:03}.jpg"
+    return TEMPLATE.replace('__CASES__',json.dumps(CASES)).replace('__IMAGES__',json.dumps(images))
+
+if __name__=='__main__':
+    (ROOT/'reports/FZ_ASM_SOURCE_REVIEW.html').write_text(build())
+    import argparse
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--offline-output')
+    args=parser.parse_args()
+    if args.offline_output:
+        Path(args.offline_output).write_text(build(True))

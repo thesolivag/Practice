@@ -219,3 +219,38 @@ def test_sweep_cannot_bridge_missing_hour():
     previous=bar(100,110,90,105,AT,'H1')
     current=bar(105,109,89,100,AT+timedelta(hours=2),'H1')
     assert HourlySweepDetector.detect_h1_sweep([previous,current]) is None
+
+
+def test_map5_requires_existing_untaken_target_and_preserves_price_scale():
+    from fzasm.maps import DailyMapEvaluator
+    for scale in (1.,.01):
+        prior=bar(105*scale,110*scale,101*scale,104*scale,AT-timedelta(days=2),'D1')
+        rejection=bar(98*scale,101*scale,95.5*scale,99*scale,AT,'D1')
+        poi=KeyLevel(LevelType.ORDER_BLOCK,BiasDirection.BULLISH,100*scale,95*scale,prior.timestamp,'D1')
+        assert DailyMapEvaluator._check_map_5([prior,rejection],poi) is None
+        got=DailyMapEvaluator._check_map_5([prior,rejection],poi,prior)
+        assert got and got.target_level==110*scale
+        assert DailyMapEvaluator._check_map_5([prior,rejection],poi,replace(prior,timestamp=AT)) is None
+        assert DailyMapEvaluator._check_map_5([prior,rejection],poi,replace(prior,high=100*scale)) is None
+
+
+def test_daily_crt_cannot_target_boundary_already_swept():
+    from fzasm.maps import DailyMapEvaluator
+    prior=bar(100,110,90,105,AT-timedelta(days=1),'D1')
+    outside=bar(100,115,85,105,AT,'D1')
+    assert DailyMapEvaluator._check_map_2([prior,outside]) is None
+
+
+def test_ob_formation_time_and_fvg_evidence_are_distinct_from_origin():
+    from fzasm.levels import KeyLevelDetector
+    a=bar(105,106,99,100,AT,'H1')
+    b=bar(100,115,99,112,AT+timedelta(hours=1),'H1')
+    c=bar(112,114,107,113,AT+timedelta(hours=2),'H1')
+    ob=KeyLevelDetector.detect_order_blocks([a,b,c])[0]
+    assert ob.timestamp==c.available_at
+    assert ob.metadata['origin_timestamp']==a.timestamp.isoformat()
+    assert ob.metadata['has_fvg']
+    c=replace(c,low=105)
+    ob=KeyLevelDetector.detect_order_blocks([a,b,c])[0]
+    assert not ob.metadata['has_fvg']
+    assert ob.metadata['qualification']=='displacement_proxy_unvalidated'

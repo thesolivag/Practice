@@ -14,7 +14,7 @@ class DailyMapEvaluator:
     """Evaluates Daily candles to identify the active FZ Daily Map."""
 
     @staticmethod
-    def evaluate(candles: List[Candle], structural_poi: Optional[KeyLevel] = None) -> Optional[DailyMapResult]:
+    def evaluate(candles: List[Candle], structural_poi: Optional[KeyLevel] = None, range_target: Optional[Candle] = None) -> Optional[DailyMapResult]:
         """
         Evaluates the latest completed daily candles (ordered oldest to newest).
         Returns the highest-priority qualifying Daily Map.
@@ -38,7 +38,7 @@ class DailyMapEvaluator:
             return m2
 
         # Priority 4: Map 5B (Sweep Invalidation) / Map 5A (Pure Rejection)
-        m5 = DailyMapEvaluator._check_map_5(candles, structural_poi)
+        m5 = DailyMapEvaluator._check_map_5(candles, structural_poi, range_target)
         if m5:
             return m5
 
@@ -64,7 +64,7 @@ class DailyMapEvaluator:
         prior = candles[-2]
 
         # Bullish CRT: Swept prior low, closed back inside prior range
-        if curr.low < prior.low and curr.close > prior.low and curr.close <= prior.high:
+        if curr.low < prior.low and curr.close > prior.low and curr.high < prior.high:
             return DailyMapResult(
                 map_type=MapType.MAP_2_CANDLE_RANGE_CRT,
                 bias=BiasDirection.BULLISH,
@@ -78,7 +78,7 @@ class DailyMapEvaluator:
             )
 
         # Bearish CRT: Swept prior high, closed back inside prior range
-        if curr.high > prior.high and curr.close < prior.high and curr.close >= prior.low:
+        if curr.high > prior.high and curr.close < prior.high and curr.low > prior.low:
             return DailyMapResult(
                 map_type=MapType.MAP_2_CANDLE_RANGE_CRT,
                 bias=BiasDirection.BEARISH,
@@ -98,7 +98,7 @@ class DailyMapEvaluator:
             latest = candles[-1]
 
             # Yesterday Bullish CRT
-            if curr.low < prior.low and curr.close > prior.low and curr.close <= prior.high:
+            if curr.low < prior.low and curr.close > prior.low and curr.high < prior.high:
                 # Latest candle must not have invalidated origin (broken curr.low),
                 # must not have completed target (prior.high),
                 # and must not have broken down below prior.low
@@ -116,7 +116,7 @@ class DailyMapEvaluator:
                     )
 
             # Yesterday Bearish CRT
-            if curr.high > prior.high and curr.close < prior.high and curr.close >= prior.low:
+            if curr.high > prior.high and curr.close < prior.high and curr.low > prior.low:
                 # Latest candle must not have invalidated origin (broken curr.high),
                 # must not have completed target (prior.low),
                 # and must not have broken out above prior.high
@@ -279,7 +279,7 @@ class DailyMapEvaluator:
         return None
 
     @staticmethod
-    def _check_map_5(candles: List[Candle], poi: Optional[KeyLevel]) -> Optional[DailyMapResult]:
+    def _check_map_5(candles: List[Candle], poi: Optional[KeyLevel], range_target: Optional[Candle] = None) -> Optional[DailyMapResult]:
         """
         Map 5: Rejection (5A) or Sweep Invalidation (5B) at Key Level.
         """
@@ -290,12 +290,17 @@ class DailyMapEvaluator:
         if not poi.is_tested_by(curr):
             return None
 
-        poi_height = max(poi.price_top - poi.price_bottom, curr.total_range, 1.0)
+        # A rejection does not identify its destination. Require an explicitly
+        # selected, already-closed range boundary. Never synthesize 3*zone height.
+        if range_target is None or range_target.available_at > curr.timestamp:
+            return None
+        target = range_target.high if poi.direction == BiasDirection.BULLISH else range_target.low
+        if (poi.direction == BiasDirection.BULLISH and target <= curr.high) or (poi.direction == BiasDirection.BEARISH and target >= curr.low):
+            return None
 
         # 5B: Pierced level with wick, closed back outside/inside the POI boundaries
         if poi.direction == BiasDirection.BULLISH:
             if curr.low < poi.price_bottom and curr.close >= poi.price_bottom:
-                target = poi.price_top + poi_height * 3
                 return DailyMapResult(
                     map_type=MapType.MAP_5B_SWEEP_INVALIDATION,
                     bias=BiasDirection.BULLISH,
@@ -305,11 +310,10 @@ class DailyMapEvaluator:
                     confidence=0.88,
                     notes="Map 5B: Bullish sweep invalidation below support POI with strong wick rejection.",
                     timestamp=curr.timestamp,
-                    reference_candles=[curr]
+                    reference_candles=[range_target, curr]
                 )
             # 5A: Pure rejection off top of support POI without penetration below
             if curr.low >= poi.price_bottom and curr.is_bullish and curr.lower_wick > curr.body_size * 0.5:
-                target = poi.price_top + poi_height * 3
                 return DailyMapResult(
                     map_type=MapType.MAP_5A_REJECTION,
                     bias=BiasDirection.BULLISH,
@@ -319,12 +323,11 @@ class DailyMapEvaluator:
                     confidence=0.82,
                     notes="Map 5A: Pure bullish rejection off support POI without sweep.",
                     timestamp=curr.timestamp,
-                    reference_candles=[curr]
+                    reference_candles=[range_target, curr]
                 )
 
         if poi.direction == BiasDirection.BEARISH:
             if curr.high > poi.price_top and curr.close <= poi.price_top:
-                target = poi.price_bottom - poi_height * 3
                 return DailyMapResult(
                     map_type=MapType.MAP_5B_SWEEP_INVALIDATION,
                     bias=BiasDirection.BEARISH,
@@ -334,11 +337,10 @@ class DailyMapEvaluator:
                     confidence=0.88,
                     notes="Map 5B: Bearish sweep invalidation above resistance POI with strong wick rejection.",
                     timestamp=curr.timestamp,
-                    reference_candles=[curr]
+                    reference_candles=[range_target, curr]
                 )
             # 5A: Pure rejection off bottom of resistance POI
             if curr.high <= poi.price_top and curr.is_bearish and curr.upper_wick > curr.body_size * 0.5:
-                target = poi.price_bottom - poi_height * 3
                 return DailyMapResult(
                     map_type=MapType.MAP_5A_REJECTION,
                     bias=BiasDirection.BEARISH,
@@ -348,7 +350,7 @@ class DailyMapEvaluator:
                     confidence=0.82,
                     notes="Map 5A: Pure bearish rejection off resistance POI without sweep.",
                     timestamp=curr.timestamp,
-                    reference_candles=[curr]
+                    reference_candles=[range_target, curr]
                 )
 
         return None

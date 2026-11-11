@@ -141,13 +141,14 @@ def generate_report(all_trades: Dict[str, List[TradeOutcome]], year: int, out_di
     report_lines.append(f"**Scope:** All Asian JPY Crosses + Gold (`XAUUSD`) + Major Pairs (`EURUSD`, `GBPUSD`)  \n")
     report_lines.append("**Research execution:** gross returns exclude spread, commission, financing and slippage. "
                         "Unresolved and unfilled orders are excluded from resolved P&L, never counted as zero. "
-                        "Coverage is recorded separately; requested dates do not prove full-year data.\n")
+                        "Coverage is recorded separately; requested dates do not prove full-year data. "
+                        "Map 5 is unavailable until an explicit range target is supplied; daily maps and four-bar minor structure remain research approximations.\n")
     report_lines.append("---\n")
 
     # 1. Executive Summary Table (Target Comparison)
     flat_trades = [t for pair_trades in all_trades.values() for t in pair_trades]
     targets = [
-        ("FZ Dynamic Target (TP1 50% Eq + TP2 HTF Target)", "fz_result_r"),
+        ("FZ research exit (50% at map equilibrium + remainder at map target)", "fz_result_r"),
         ("Fixed 1R", "r1_result_r"),
         ("Fixed 2R", "r2_result_r"),
         ("Fixed 3R", "r3_result_r"),

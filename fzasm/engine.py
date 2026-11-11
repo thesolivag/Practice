@@ -115,7 +115,7 @@ class FZASMEngine:
             latest_candle = h1_candles[-1] if h1_candles else (m15_candles[-1] if m15_candles else None)
             active_pois = [p for p in all_pois if not p.mitigated]
             if active_pois and latest_candle:
-                tested = [p for p in active_pois if p.is_tested_by(latest_candle)]
+                tested = [p for p in active_pois if p.timestamp <= latest_candle.timestamp and p.is_tested_by(latest_candle)]
                 if tested:
                     active_poi = min(tested, key=lambda p: abs(p.mid_price - latest_candle.close))
 

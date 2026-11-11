@@ -25,3 +25,7 @@ Minute OHLC cannot prove every intrabar event order; ambiguous outcomes are deli
 ## Run after validation
 
 Use the `FZ-ASM Full-Year Backtest` GitHub workflow on FZ-ASM. Set year, selected pairs, confirmation timeframe and provider calendar timezone explicitly. Start with one pair for data/coverage verification, then expand. New output defaults to `reports/repaired`; archived `reports/fzasm_trades.csv` and the original report remain unchanged. Credentials stay in existing GitHub secrets. No local full-year job has been run.
+
+## Source review follow-up
+
+See FZ_ASM_SOURCE_VALIDATION.md and FZ_ASM_SOURCE_REVIEW.html. Removed Map 5 fabricated projection: it now requires an explicit, already-known untaken range-target candle. The scanner does not yet select that candle, so it emits no Map 5 trades. Daily candle-range setups also reject a boundary already reached by the sweep. Order blocks record their formation availability separately from origin and label FVG versus unvalidated no-FVG displacement candidates. No blanket FVG-only filter was added: the lesson explicitly allows exceptions. Expanded local suite: 51 passing tests.

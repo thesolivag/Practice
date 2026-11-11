@@ -16,7 +16,7 @@ class KeyLevelDetector:
     @staticmethod
     def detect_order_blocks(candles: List[Candle], timeframe: str = "H4") -> List[KeyLevel]:
         """
-        Detects Order Blocks requiring FVG validation:
+        Detects order-block candidates, recording FVG versus provisional displacement qualification:
         - Bullish OB: Last bearish candle prior to a bullish rally that leaves a Fair Value Gap (FVG).
         - Bearish OB: Last bullish candle prior to a bearish drop that leaves an FVG.
         """
@@ -41,10 +41,13 @@ class KeyLevelDetector:
                         direction=BiasDirection.BULLISH,
                         price_top=c1.body_high,
                         price_bottom=c1.low,
-                        timestamp=c1.timestamp,
+                        timestamp=c3.available_at,
                         timeframe=timeframe,
                         source_candle=c1,
                         metadata={
+                            "origin_timestamp": c1.timestamp.isoformat(),
+                            "has_fvg": has_fvg,
+                            "qualification": "fvg" if has_fvg else "displacement_proxy_unvalidated",
                             "swept_liquidity": swept_liq,
                             "fvg_gap": max(0.0, c3.low - c1.high)
                         }
@@ -61,10 +64,13 @@ class KeyLevelDetector:
                         direction=BiasDirection.BEARISH,
                         price_top=c1.high,
                         price_bottom=c1.body_low,
-                        timestamp=c1.timestamp,
+                        timestamp=c3.available_at,
                         timeframe=timeframe,
                         source_candle=c1,
                         metadata={
+                            "origin_timestamp": c1.timestamp.isoformat(),
+                            "has_fvg": has_fvg,
+                            "qualification": "fvg" if has_fvg else "displacement_proxy_unvalidated",
                             "swept_liquidity": swept_liq,
                             "fvg_gap": max(0.0, c1.low - c3.high)
                         }
@@ -83,7 +89,7 @@ class KeyLevelDetector:
         breakers: List[KeyLevel] = []
         for ob in order_blocks:
             # Find candles that occurred after the OB
-            subsequent = [c for c in candles if c.timestamp > ob.timestamp]
+            subsequent = [c for c in candles if c.timestamp >= ob.timestamp and c.available_at > ob.timestamp]
             for c in subsequent:
                 # Bullish OB broken downward with body close below its bottom -> Bearish Breaker
                 if ob.direction == BiasDirection.BULLISH and c.close < ob.price_bottom:

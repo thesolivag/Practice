@@ -1,5 +1,7 @@
 # FZ ASM (Asian Session Model) — Comprehensive Strategy & Mechanical Specification
 
+> **Status:** Earlier derived draft, not a verified mechanical specification. Consult `reports/FZ_ASM_SOURCE_VALIDATION.md` for timestamped evidence, qualifications and corrections.
+
 > **Source Material**: 8 transcribed lectures + contact sheets from release `fz-asm` on `thesolivag/Practice`.
 > Videos referenced: `asm-intro-to-asm`, `asm-the-5-maps`, `asm-all-you-need-asian-map-concept`, `asm-all-you-need-asian-map-chart-work`, `asm-as-itf`, `asm-ranges-at-intermediate-timeframe`, `asm-key-level`, `asm-asm-night-live-tarding-day-one`.
 
@@ -63,7 +65,7 @@ FZ defines key levels mechanically:
 1. **Order Block (OB)**:
    - **Bearish OB**: The last bullish/buying candle before an aggressive downward expansion.
    - **Bullish OB**: The last bearish/selling candle before an aggressive upward expansion.
-   - *Requirement*: Must be followed by a Fair Value Gap (FVG / imbalance).
+   - *Preference with exceptions*: The key-level lesson initially emphasizes an FVG (1199–1205 seconds), then explicitly permits lower-probability no-FVG blocks in context (1826–2187 seconds), including nearby liquidity and higher-timeframe alignment. Do not treat this as an unconditional requirement or validate the existing body-size shortcut from it.
    - *Enhancer*: If the OB swept liquidity prior to the move, it is significantly higher probability.
 2. **Breaker Block (BB)**:
    - A previously valid Order Block that was violated/broken with a **candle body close** (disrespected).

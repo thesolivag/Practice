@@ -174,7 +174,7 @@ class TestDailyMaps:
         # d3 enters POI, doesn't sweep below 95.0, closes bullish with large lower wick
         # open=97.0, low=96.0, high=101.0, close=100.0 -> body=3.0, lower_wick=1.0. We need lower_wick > body*0.5
         d3 = make_candle(0, 98.0, 101.0, 95.5, 99.0, tf="D1", day=3) # body=1.0, lower_wick=2.5 > 0.5
-        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi)
+        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi, range_target=d1)
         assert res is not None
         assert res.map_type == MapType.MAP_5A_REJECTION
         assert res.bias == BiasDirection.BULLISH
@@ -192,7 +192,7 @@ class TestDailyMaps:
         d2 = make_candle(0, 104.0, 105.0, 101.0, 103.0, tf="D1", day=2)
         # d3 pierces below 95.0 to 93.0, closes at 96.0 back above 95.0
         d3 = make_candle(0, 103.0, 104.0, 93.0, 96.0, tf="D1", day=3)
-        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi)
+        res = DailyMapEvaluator.evaluate([d1, d2, d3], structural_poi=poi, range_target=d1)
         assert res is not None
         assert res.map_type == MapType.MAP_5B_SWEEP_INVALIDATION
         assert res.bias == BiasDirection.BULLISH
