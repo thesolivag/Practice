@@ -155,3 +155,32 @@ class EntryModelEvaluator:
                                           "sweep_extreme":sweep.sweep_price,
                                           "stop_buffer_price":buf,
                                           "qualification":"user_chart_validation_pending"})
+
+
+    @staticmethod
+    def evaluate_swing_retest(symbol, candles, sweep, daily_map, route, buffer_price=None):
+        from .recognition import recognize_retests
+        if not candles or not sweep or daily_map.bias!=sweep.direction:
+            return None
+        now=candles[-1].available_at
+        if daily_map.timestamp>now:return None
+        candidates=[x for x in recognize_retests(candles,sweep,now) if x['route']==route]
+        long=sweep.direction==BiasDirection.BULLISH
+        buf=3*instruments.pip(symbol) if buffer_price is None else buffer_price
+        if buf<0:return None
+        for item in candidates:
+            entry=item['entry'];stop=sweep.sweep_price-buf if long else sweep.sweep_price+buf
+            tp1,tp2=daily_map.equilibrium_50,daily_map.target_level
+            if not (stop<entry<tp1<tp2 if long else stop>entry>tp1>tp2):continue
+            local=item['local_extreme']-buf if long else item['local_extreme']+buf
+            if not (local<entry if long else local>entry):local=None
+            level=KeyLevel(LevelType.FAIR_VALUE_GAP if route=='fvg_av_overlap' else LevelType.ORDER_BLOCK,
+                           sweep.direction,item['zone_high'],item['zone_low'],now,candles[-1].timeframe)
+            return TradeSetup(symbol,now,sweep.direction,
+                              EntryModelType.SWING_FVG_RETEST if route=='fvg_av_overlap' else EntryModelType.SWING_OB_RETEST,
+                              entry,stop,tp1,tp2,abs(tp2-entry)/abs(entry-stop),daily_map,sweep,
+                              timeframe=candles[-1].timeframe,key_level=level,
+                              stop_candidates={'hourly_sweep':stop,'ltf_invalidation':local},
+                              entry_evidence=dict(item,stop_buffer_price=buf,sweep_extreme=sweep.sweep_price),
+                              notes='Protected-swing research route: pending retest, teacher match not yet verified.')
+        return None

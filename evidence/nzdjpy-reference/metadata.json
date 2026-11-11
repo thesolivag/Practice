@@ -1,0 +1,1 @@
+{"symbol": "NZDJPY", "provider": "IC Markets cTrader", "price_side": "bid", "reference_provider": "FOREX.com", "requested_start": "2026-11-10 00:00:00+00:00", "requested_end": "2026-11-11 10:00:00+00:00", "rows": 2031, "sha256": "f428c201ddd2c21811a5badd7c96d5dccab6154edf023eb7d7fdbd3861a29312", "pip_position": 2, "digits": 3, "utc": true}

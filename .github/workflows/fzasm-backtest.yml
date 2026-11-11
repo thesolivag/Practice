@@ -20,7 +20,7 @@ on:
       entry_policy:
         description: "MSS + retest, or older entry routes"
         type: choice
-        options: [mss_retest, legacy, h1_av]
+        options: [mss_retest, legacy, h1_av, swing_fvg, swing_ob]
         default: mss_retest
       calendar_timezone:
         description: "Provider candle anchor (UTC = research calendar; set verified broker timezone)"
@@ -74,7 +74,7 @@ jobs:
 
       - name: Verify FZ-ASM Strategy Integrity
         run: |
-          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py -q
+          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py -q
 
       - name: Restore candle store cache
         uses: actions/cache/restore@v4
