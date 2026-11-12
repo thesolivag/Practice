@@ -1,0 +1,168 @@
+[
+  {
+    "symbol": "NZDJPY",
+    "signals_by_model": {
+      "h1_av": 0,
+      "h1_av_m5": 0,
+      "swing_ob": 1,
+      "swing_fvg": 1
+    },
+    "aggregate_counts": {
+      "M5": 8511,
+      "M10": 4226,
+      "M15": 2802,
+      "H1": 660,
+      "H2": 320,
+      "H4": 150,
+      "D1": 50
+    },
+    "diagnostics": {
+      "h1_av": {
+        "outside_prime_sweep_hours": 24,
+        "sweep_daily_direction_mismatch": 84,
+        "no_hourly_sweep": 205,
+        "no_daily_map": 216,
+        "poi_daily_direction_mismatch": 24,
+        "qualified_context": 1
+      },
+      "h1_av_m5": {
+        "outside_prime_sweep_hours": 24,
+        "sweep_daily_direction_mismatch": 84,
+        "no_hourly_sweep": 205,
+        "no_daily_map": 216,
+        "poi_daily_direction_mismatch": 24,
+        "qualified_context": 1
+      },
+      "swing_ob": {
+        "outside_prime_sweep_hours": 24,
+        "sweep_daily_direction_mismatch": 96,
+        "no_hourly_sweep": 205,
+        "no_daily_map": 216,
+        "poi_daily_direction_mismatch": 24,
+        "qualified_context": 12,
+        "signals": 1
+      },
+      "swing_fvg": {
+        "outside_prime_sweep_hours": 24,
+        "sweep_daily_direction_mismatch": 96,
+        "no_hourly_sweep": 205,
+        "no_daily_map": 216,
+        "poi_daily_direction_mismatch": 24,
+        "qualified_context": 12,
+        "signals": 1
+      }
+    }
+  },
+  {
+    "symbol": "GBPUSD",
+    "signals_by_model": {
+      "h1_av": 0,
+      "h1_av_m5": 0,
+      "swing_ob": 0,
+      "swing_fvg": 0
+    },
+    "aggregate_counts": {
+      "M5": 8414,
+      "M10": 4153,
+      "M15": 2740,
+      "H1": 644,
+      "H2": 311,
+      "H4": 150,
+      "D1": 50
+    },
+    "diagnostics": {
+      "h1_av": {
+        "no_hourly_sweep": 120,
+        "sweep_daily_direction_mismatch": 72,
+        "poi_daily_direction_mismatch": 72,
+        "outside_prime_sweep_hours": 36,
+        "no_active_itf_poi": 96,
+        "no_daily_map": 144,
+        "qualified_context": 2
+      },
+      "h1_av_m5": {
+        "no_hourly_sweep": 120,
+        "sweep_daily_direction_mismatch": 74,
+        "poi_daily_direction_mismatch": 72,
+        "outside_prime_sweep_hours": 36,
+        "no_active_itf_poi": 96,
+        "no_daily_map": 144,
+        "qualified_context": 13
+      },
+      "swing_ob": {
+        "no_hourly_sweep": 120,
+        "sweep_daily_direction_mismatch": 74,
+        "poi_daily_direction_mismatch": 72,
+        "outside_prime_sweep_hours": 36,
+        "no_active_itf_poi": 96,
+        "no_daily_map": 144,
+        "qualified_context": 13
+      },
+      "swing_fvg": {
+        "no_hourly_sweep": 120,
+        "sweep_daily_direction_mismatch": 74,
+        "poi_daily_direction_mismatch": 72,
+        "outside_prime_sweep_hours": 36,
+        "no_active_itf_poi": 96,
+        "no_daily_map": 144,
+        "qualified_context": 13
+      }
+    }
+  },
+  {
+    "symbol": "EURUSD",
+    "signals_by_model": {
+      "h1_av": 1,
+      "h1_av_m5": 1,
+      "swing_ob": 1,
+      "swing_fvg": 1
+    },
+    "aggregate_counts": {
+      "M5": 8425,
+      "M10": 4163,
+      "M15": 2741,
+      "H1": 646,
+      "H2": 313,
+      "H4": 148,
+      "D1": 50
+    },
+    "diagnostics": {
+      "h1_av": {
+        "no_hourly_sweep": 301,
+        "sweep_daily_direction_mismatch": 60,
+        "outside_prime_sweep_hours": 36,
+        "poi_daily_direction_mismatch": 60,
+        "qualified_context": 13,
+        "signals": 1,
+        "no_daily_map": 70
+      },
+      "h1_av_m5": {
+        "no_hourly_sweep": 301,
+        "sweep_daily_direction_mismatch": 60,
+        "outside_prime_sweep_hours": 36,
+        "poi_daily_direction_mismatch": 60,
+        "qualified_context": 13,
+        "signals": 1,
+        "no_daily_map": 70
+      },
+      "swing_ob": {
+        "no_hourly_sweep": 301,
+        "sweep_daily_direction_mismatch": 60,
+        "outside_prime_sweep_hours": 36,
+        "poi_daily_direction_mismatch": 60,
+        "qualified_context": 13,
+        "signals": 1,
+        "no_daily_map": 70
+      },
+      "swing_fvg": {
+        "no_hourly_sweep": 301,
+        "sweep_daily_direction_mismatch": 60,
+        "outside_prime_sweep_hours": 36,
+        "poi_daily_direction_mismatch": 60,
+        "qualified_context": 12,
+        "signals": 1,
+        "no_daily_map": 70
+      }
+    }
+  }
+]

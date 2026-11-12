@@ -1,0 +1,47 @@
+{
+  "native_d1_available": 50,
+  "main_order_block": {
+    "structure_rule": "protected_pivot_before_sweep_extreme",
+    "pivot_span": 1,
+    "structure_boundary": 89.095,
+    "pivot_time": "2026-11-11T02:05:00+00:00",
+    "sweep_extreme_time": "2026-11-11T02:10:00+00:00",
+    "break_time": "2026-11-11T02:55:00+00:00",
+    "context_available_at": "2026-11-11T03:00:00+00:00",
+    "route": "order_block",
+    "entry": 89.134,
+    "zone_low": 89.134,
+    "zone_high": 89.185,
+    "formed_at": "2026-11-11T03:00:00+00:00",
+    "origin_time": "2026-11-11T02:10:00+00:00",
+    "block_rule": "main_origin_at_or_before_sweep_extreme",
+    "departure_confirmed_at": "2026-11-11T02:30:00+00:00",
+    "local_extreme": 89.185
+  },
+  "full_context": {
+    "h1_av": {
+      "entry": null,
+      "diagnostics": {
+        "poi_daily_direction_mismatch": 1
+      }
+    },
+    "h1_av_m5": {
+      "entry": null,
+      "diagnostics": {
+        "poi_daily_direction_mismatch": 1
+      }
+    },
+    "swing_ob": {
+      "entry": null,
+      "diagnostics": {
+        "poi_daily_direction_mismatch": 1
+      }
+    },
+    "swing_fvg": {
+      "entry": null,
+      "diagnostics": {
+        "poi_daily_direction_mismatch": 1
+      }
+    }
+  }
+}
