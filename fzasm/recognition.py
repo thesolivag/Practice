@@ -45,15 +45,19 @@ def recognize_retests(candles, sweep, now):
     common=shift['common']; bars=shift['bars']; extreme=shift['extreme']
     broken=shift['broken']; known=shift['known']; long=shift['long']
     candidates=[]
-    # Freeze the opposing launch candle at the break; never choose a later candle
-    # because its subsequent retest or profit looks better.
-    opposing=[i for i in range(extreme,broken) if (bars[i].is_bearish if long else bars[i].is_bullish)]
+    # Main launch origin is at/before the sweep extreme, not the last small
+    # opposing candle on the way to the break. Freeze using pre-break data.
+    opposing=[i for i in range(extreme+1) if (bars[i].is_bearish if long else bars[i].is_bullish)]
     if opposing:
         origin=opposing[-1];c=bars[origin]
+        departure=next((b for b in bars[origin+1:broken+1] if
+                        (b.close>c.high if long else b.close<c.low)),None)
         entry=c.body_high if long else c.body_low
-        candidates.append(dict(common,route='order_block',entry=entry,zone_low=c.low if long else c.body_low,
+        if departure is not None:
+            candidates.append(dict(common,route='order_block',entry=entry,zone_low=c.low if long else c.body_low,
                                zone_high=c.body_high if long else c.high,formed_at=known.isoformat(),
-                               origin_time=c.timestamp.isoformat(),local_extreme=min(b.low for b in bars[origin:broken+1]) if long else max(b.high for b in bars[origin:broken+1])))
+                               origin_time=c.timestamp.isoformat(),block_rule='main_origin_at_or_before_sweep_extreme',
+                               departure_confirmed_at=departure.available_at.isoformat(),local_extreme=min(b.low for b in bars[origin:broken+1]) if long else max(b.high for b in bars[origin:broken+1])))
     for k in range(max(broken,2),len(bars)):
         a,c=bars[k-2],bars[k]
         if not (c.low>a.high if long else c.high<a.low):continue

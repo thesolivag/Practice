@@ -31,7 +31,8 @@ def test_intrahour_break_waits_for_h1_close_and_records_local_overlap():
  fvg=next(x for x in events if x['route']=='fvg_av_overlap')
  assert ob['break_time']=='2026-11-11T02:55:00+00:00'
  assert ob['formed_at']=='2026-11-11T03:00:00+00:00'
- assert ob['entry']==89.13 and fvg['entry']==89.12
+ assert ob['origin_time']=='2026-11-11T02:10:00+00:00'
+ assert ob['entry']==89.134 and fvg['entry']==89.12
  assert fvg['zone_low']<=fvg['entry']<=fvg['zone_high']
  assert fvg['origin_time']=='2026-11-11T01:30:00+00:00' # different origin from user marking; not a claimed match
 
@@ -48,7 +49,7 @@ def test_mirrored_reference_and_missing_data_rejection():
  def mirror(c):return replace(c,open=200-c.open,high=200-c.low,low=200-c.high,close=200-c.close)
  flipped=replace(s,direction=BiasDirection.BULLISH,sweep_candle=mirror(s.sweep_candle),swept_candle=mirror(s.swept_candle),sweep_price=200-s.sweep_price)
  got=recognize_retests([mirror(c) for c in m],flipped,clock)
- assert next(x for x in got if x['route']=='order_block')['entry']==pytest.approx(200-89.13)
+ assert next(x for x in got if x['route']=='order_block')['entry']==pytest.approx(200-89.134)
  assert recognize_retests(m[:20]+m[21:],s,clock)==[]
 
 
@@ -57,7 +58,7 @@ def test_entry_routes_keep_hourly_stop_and_do_not_claim_targets_from_example():
  # Deliberately supplied test map; this tests the entry module, not daily-map qualification.
  dm=DailyMapResult(MapType.MAP_1_STRUCTURAL_RANGE,s.direction,89.185,89.012,89.0985,.5,'entry module fixture',clock)
  closed=[c for c in m if c.available_at<=clock]
- for route,price in [('order_block',89.13),('fvg_av_overlap',89.12)]:
+ for route,price in [('order_block',89.134),('fvg_av_overlap',89.12)]:
   plan=EntryModelEvaluator.evaluate_swing_retest('NZDJPY',closed,s,dm,route)
   assert plan and plan.entry_price==price
   assert plan.stop_loss==pytest.approx(89.215) # default three-pip buffer does not match screenshot 89.190

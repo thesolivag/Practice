@@ -34,6 +34,8 @@ class FZASMEngine:
             raise ValueError("entry_policy must be mss_retest, legacy, h1_av, swing_fvg or swing_ob")
         self.entry_policy = entry_policy
         self.confirmation_tf = "H1" if entry_policy == "h1_av" else ("M5" if entry_policy == "h1_av_m5" else confirmation_tf)
+        from collections import Counter
+        self.diagnostics = Counter()
         self._contexts = {}
         self._used = set()
 
@@ -79,8 +81,13 @@ class FZASMEngine:
         else:
             setup = EntryModelEvaluator.evaluate_entry(symbol, bars, sweep, daily_map, poi, None, self.entry_policy == "mss_retest")
         if setup:
+            self.diagnostics['signals'] += 1
             self._contexts.pop(symbol, None)
         return setup
+
+    def _reject_context(self, reason):
+        self.diagnostics[reason] += 1
+        return None
 
     def _build_context(
         self,
@@ -132,13 +139,13 @@ class FZASMEngine:
 
         # A valid FZ-ASM setup strictly requires an active Key Level / POI interaction
         if not active_poi:
-            return None
+            return self._reject_context('no_active_itf_poi')
 
         # Step 4: HTF Daily Map Evaluation
         d1_candles = candles_by_tf.get("D1", [])
         daily_map = DailyMapEvaluator.evaluate(d1_candles, structural_poi=active_poi)
         if not daily_map or daily_map.bias == BiasDirection.NEUTRAL:
-            return None
+            return self._reject_context('no_daily_map')
 
         # Step 5: Hourly Candle Sweep Detection (H1 / H2)
         h1_candles = candles_by_tf.get("H1", [])
@@ -150,14 +157,15 @@ class FZASMEngine:
             h1_sweep = HourlySweepDetector.detect_h2_sweep_fallback(h2_candles, poi=active_poi)
 
         if not h1_sweep or not h1_sweep.swept:
-            return None
+            return self._reject_context('no_hourly_sweep')
 
         # Ensure sweep direction aligns with Daily Map bias
         if h1_sweep.direction != daily_map.bias:
-            return None
+            return self._reject_context('sweep_daily_direction_mismatch')
 
         if active_poi.direction != daily_map.bias:
-            return None
+            return self._reject_context('poi_daily_direction_mismatch')
         if not self.session_mgr.is_in_prime_asian_window(h1_sweep.sweep_candle.timestamp):
-            return None
+            return self._reject_context('outside_prime_sweep_hours')
+        self.diagnostics['qualified_context'] += 1
         return h1_sweep, daily_map, active_poi

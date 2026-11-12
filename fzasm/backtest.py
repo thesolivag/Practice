@@ -50,13 +50,15 @@ def stop_study_setups(setup, stop_mode):
                       risk_reward=abs(setup.take_profit_2-setup.entry_price)/abs(setup.entry_price-stop) if stop is not None else 0), stop is not None
 
 
-def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC", stop_mode="hourly_sweep"):
+def backtest_pair(pair, start_year, end_year, engine, calendar_timezone="UTC", stop_mode="hourly_sweep", native_daily=None):
     """Replay real M1 bars; decisions only see completed, contiguous aggregates."""
     df = load_minute_df(pair, start_year, end_year)
     rules = {"M5":"5min", "M10":"10min", "M15":"15min", "H1":"1h",
              "H2":"2h", "H4":"4h", "D1":"1D"}
     series = {tf:df_to_candles(resample_ohlc(df,rule,calendar_timezone=calendar_timezone),TimeFrame(tf))
               for tf,rule in rules.items()}
+    if native_daily is not None:
+        series['D1'] = list(native_daily)
     available = {tf:[c.available_at for c in bars] for tf,bars in series.items()}
     minutes = df_to_candles(df,TimeFrame.M1)
     trades, active = [], []
@@ -323,6 +325,7 @@ def main():
     parser.add_argument("--year", type=int, default=2025, help="Backtest year (e.g. 2025)")
     parser.add_argument("--pairs", type=str, default="", help="Comma-separated symbols")
     parser.add_argument("--out", type=str, default="reports/repaired", help="Output directory")
+    parser.add_argument("--native-daily-dir", required=True, help="Directory of SYMBOL_native_D1.csv broker bars")
     parser.add_argument("--download-m1", action="store_true", help="Prepare historical cTrader M1 cache explicitly")
     parser.add_argument("--confirmation-tf", choices=["M5","M10","M15"], default="M5")
     parser.add_argument("--stop-mode", choices=["both","hourly_sweep","ltf_invalidation"], default="both")
@@ -340,7 +343,12 @@ def main():
         if args.download_m1:
             from .minute_cache import prepare
             prepare(pair,args.year)
-        trades = backtest_pair(pair, args.year, args.year, engine, args.calendar_timezone, args.stop_mode)
+        from .native_daily import candles_from_native_daily
+        native = pd.read_csv(os.path.join(args.native_daily_dir,f'{pair}_native_D1.csv'),index_col='time',parse_dates=True)
+        daily, audit = candles_from_native_daily(native,pd.Timestamp.now(tz='UTC'))
+        if not daily or audit['missing_weekday_gaps']:
+            raise ValueError('Missing or unverified native daily history for '+pair)
+        trades = backtest_pair(pair, args.year, args.year, engine, args.calendar_timezone, args.stop_mode, native_daily=daily)
         all_trades[pair] = trades
 
     os.makedirs(args.out,exist_ok=True)

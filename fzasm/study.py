@@ -53,13 +53,16 @@ def records_of(trades):
     return records
 
 
-def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requested_start=None,requested_end=None):
+def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requested_start=None,requested_end=None,native_daily=None):
     if df.empty:raise ValueError('No M1 data; refusing an empty success')
     out=Path(out_dir);out.mkdir(parents=True,exist_ok=True)
     requested_start=pd.Timestamp(requested_start) if requested_start is not None else pd.Timestamp(year=df.index[0].year,month=1,day=1,tz='UTC')
     requested_end=pd.Timestamp(requested_end) if requested_end is not None else df.index[-1]+pd.Timedelta(minutes=1)
     series={tf:df_to_candles(resample_ohlc(df,rule),TimeFrame(tf)) for tf,rule in
             {'M5':'5min','M10':'10min','M15':'15min','H1':'1h','H2':'2h','H4':'4h','D1':'1D'}.items()}
+    if native_daily is not None:
+        series['D1']=list(native_daily)
+        if not series['D1']:raise ValueError('No completed native D1 candles; refusing a zero-bias replay')
     available={tf:[c.available_at for c in bars] for tf,bars in series.items()}
     engines={p:engine_factory(extra_pairs={pair},entry_policy=p,confirmation_tf='M5') for p in policies}
     minutes=df_to_candles(df,TimeFrame.M1)
@@ -85,6 +88,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
             signals=len(trades)//2,open_scenarios=sum(t.status[a] in ('PENDING','OPEN') for _,t in trades for a in t.attrs)),indent=2))
         print(f'CHECKPOINT {pair} {at.isoformat()} signals={len(trades)//2} final={final}',flush=True)
     for i,candle in enumerate(minutes):
+        if candle.available_at<requested_start:continue
         month=candle.timestamp.strftime('%Y-%m')
         if current_month is not None and month!=current_month:checkpoint(candle.timestamp)
         current_month=month;months.add(month)
@@ -123,7 +127,10 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
         requested_start=requested_start.isoformat(),requested_end=requested_end.isoformat(),
         warmup='No prior-year input: January starts cold; early daily-map/POI eligibility may be suppressed',
         checkpoint_type='Cumulative report snapshots, not resumable execution state',
-        calendar='UTC research calendar',session='00:00–06:00 UTC; inherited prime sweep hours 00,01,02',
+        daily_source='broker-native completed D1' if native_daily is not None else 'strict M1 aggregation',
+        aggregate_counts={tf:len(bars) for tf,bars in series.items()},
+        engine_diagnostics={p:dict(getattr(e,'diagnostics',{})) for p,e in engines.items()},
+        calendar='Native daily boundaries; UTC intraday research calendar' if native_daily is not None else 'UTC research calendar',session='00:00–06:00 UTC; inherited prime sweep hours 00,01,02',
         costs='gross; excludes spread, commission, financing and slippage',
         fz_exit='Existing research exit: half at map equilibrium, move remainder to breakeven, half at map target; not teacher-validated',
         m5_routes='swing_ob and swing_fvg remain provisional; report separately'),indent=2))
@@ -133,7 +140,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--pair',choices=PAIRS,required=True)
     ap.add_argument('--year',type=int,default=2026);ap.add_argument('--as-of',required=True)
-    ap.add_argument('--out',default='reports/expanded-study');ap.add_argument('--download-m1',action='store_true')
+    ap.add_argument('--native-daily',required=True,help='Broker-native daily CSV; no M1-derived daily fallback');ap.add_argument('--out',default='reports/expanded-study');ap.add_argument('--download-m1',action='store_true')
     args=ap.parse_args();cutoff=pd.Timestamp(args.as_of)
     if cutoff.tzinfo is None:raise ValueError('as-of must include UTC timezone')
     if args.download_m1:
@@ -141,6 +148,10 @@ def main():
         prepare(args.pair,args.year,as_of=cutoff)
     df=load_minute_df(args.pair,args.year,args.year)
     df=df[df.index+pd.Timedelta(minutes=1)<=cutoff]
-    replay(args.pair,df,Path(args.out)/args.pair,requested_start=pd.Timestamp(year=args.year,month=1,day=1,tz='UTC'),requested_end=cutoff)
+    from .native_daily import candles_from_native_daily
+    native=pd.read_csv(args.native_daily,index_col='time',parse_dates=True)
+    daily,daily_audit=candles_from_native_daily(native,cutoff)
+    if daily_audit['missing_weekday_gaps']:raise ValueError('Native daily history has unverified gaps; refusing to bridge them')
+    replay(args.pair,df,Path(args.out)/args.pair,native_daily=daily,requested_start=pd.Timestamp(year=args.year,month=1,day=1,tz='UTC'),requested_end=cutoff)
 
 if __name__=='__main__':main()
