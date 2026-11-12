@@ -1,0 +1,130 @@
+[
+  {
+    "model": "01-direct-H1",
+    "entry": 89.117,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.185,
+    "stop_buffer_pips": 0.0,
+    "targets": {
+      "1R": 89.049,
+      "2R": 88.98100000000001,
+      "3R": 88.91300000000001,
+      "4R": 88.84500000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "01-direct-H1",
+    "entry": 89.117,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.215,
+    "stop_buffer_pips": 3.0,
+    "targets": {
+      "1R": 89.019,
+      "2R": 88.921,
+      "3R": 88.82300000000001,
+      "4R": 88.72500000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "02-H1-M5-confirmation",
+    "entry": 89.117,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.185,
+    "stop_buffer_pips": 0.0,
+    "targets": {
+      "1R": 89.049,
+      "2R": 88.98100000000001,
+      "3R": 88.91300000000001,
+      "4R": 88.84500000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "02-H1-M5-confirmation",
+    "entry": 89.117,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.215,
+    "stop_buffer_pips": 3.0,
+    "targets": {
+      "1R": 89.019,
+      "2R": 88.921,
+      "3R": 88.82300000000001,
+      "4R": 88.72500000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "03-M5-order-block",
+    "entry": 89.13,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.185,
+    "stop_buffer_pips": 0.0,
+    "targets": {
+      "1R": 89.07499999999999,
+      "2R": 89.01999999999998,
+      "3R": 88.96499999999997,
+      "4R": 88.90999999999997
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "03-M5-order-block",
+    "entry": 89.13,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.215,
+    "stop_buffer_pips": 3.0,
+    "targets": {
+      "1R": 89.04499999999999,
+      "2R": 88.95999999999998,
+      "3R": 88.87499999999997,
+      "4R": 88.78999999999996
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "04-M5-FVG-key-level",
+    "entry": 89.12,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.185,
+    "stop_buffer_pips": 0.0,
+    "targets": {
+      "1R": 89.055,
+      "2R": 88.99000000000001,
+      "3R": 88.92500000000001,
+      "4R": 88.86000000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  },
+  {
+    "model": "04-M5-FVG-key-level",
+    "entry": 89.12,
+    "decision": "2026-11-11T03:00:00+00:00",
+    "stop": 89.215,
+    "stop_buffer_pips": 3.0,
+    "targets": {
+      "1R": 89.025,
+      "2R": 88.93,
+      "3R": 88.83500000000001,
+      "4R": 88.74000000000001
+    },
+    "asian_target": 88.945,
+    "fz_target": null,
+    "full_strategy_signal": false
+  }
+]

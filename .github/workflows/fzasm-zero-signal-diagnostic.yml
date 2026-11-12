@@ -1,0 +1,30 @@
+name: ASM cached zero-signal diagnostic
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: ['.github/workflows/fzasm-zero-signal-diagnostic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas numpy
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-NZDJPY-43163729089-1
+          fail-on-cache-miss: true
+      - name: Inspect cached M1 aggregation and reference qualification
+        run: PYTHONPATH=. python scripts/diagnose_asm_zero_signals.py
+      - uses: actions/upload-artifact@v4
+        timeout-minutes: 2
+        with:
+          name: asm-zero-signal-diagnostic
+          path: reports/zero-signal-diagnostic/
