@@ -18,12 +18,13 @@ def recognize_shift(candles, sweep, now):
     during=[i for i,c in enumerate(bars) if sweep.sweep_candle.timestamp<=c.timestamp<sweep.sweep_candle.available_at]
     if not during:return []
     extreme=min(during,key=lambda i:bars[i].low) if long else max(during,key=lambda i:bars[i].high)
-    # Protected swing preceding the sweep extreme, confirmed by its right neighbour.
+    # Closing-price (line-chart) swing before the sweep extreme; the right
+    # neighbour must also be closed. Wick extremes do not define CHoCH levels.
     pivots=[i for i in range(1,extreme) if
-            (bars[i].high>bars[i-1].high and bars[i].high>=bars[i+1].high if long else
-             bars[i].low<bars[i-1].low and bars[i].low<=bars[i+1].low)]
+            (bars[i].close>bars[i-1].close and bars[i].close>=bars[i+1].close if long else
+             bars[i].close<bars[i-1].close and bars[i].close<=bars[i+1].close)]
     if not pivots:return []
-    pivot=pivots[-1];boundary=bars[pivot].high if long else bars[pivot].low
+    pivot=pivots[-1];boundary=bars[pivot].close
     broken=next((i for i in range(extreme+1,len(bars)) if
                  (bars[i].close>boundary if long else bars[i].close<boundary)),None)
     if broken is None:return []
@@ -31,7 +32,7 @@ def recognize_shift(candles, sweep, now):
     if now<known:return []
     after=[c for c in bars if c.timestamp>=sweep.sweep_candle.available_at]
     if any(c.low<sweep.sweep_price if long else c.high>sweep.sweep_price for c in after):return []
-    common={'structure_rule':'protected_pivot_before_sweep_extreme','pivot_span':1,
+    common={'structure_rule':'closing_price_pivot_before_sweep_extreme','break_basis':'closed_candle_close','pivot_span':1,
             'structure_boundary':boundary,'pivot_time':bars[pivot].timestamp.isoformat(),
             'sweep_extreme_time':bars[extreme].timestamp.isoformat(),
             'break_time':bars[broken].available_at.isoformat(),'context_available_at':known.isoformat()}

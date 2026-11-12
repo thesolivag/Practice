@@ -1,8 +1,9 @@
 {
-  "structure_rule": "protected_pivot_before_sweep_extreme",
+  "structure_rule": "closing_price_pivot_before_sweep_extreme",
+  "break_basis": "closed_candle_close",
   "pivot_span": 1,
-  "structure_boundary": 89.095,
-  "pivot_time": "2026-11-11T02:05:00+00:00",
+  "structure_boundary": 89.104,
+  "pivot_time": "2026-11-11T02:00:00+00:00",
   "sweep_extreme_time": "2026-11-11T02:10:00+00:00",
   "break_time": "2026-11-11T02:55:00+00:00",
   "context_available_at": "2026-11-11T03:00:00+00:00",

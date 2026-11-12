@@ -23,3 +23,9 @@ Nov1–11: NZDJPY0directH1/0H1+M5/1OB/1FVG; GBPUSDzeroall; EURUSDoneeach. Sixsig
 NZDJPY mainOBreference at03UTC correctlyorigin02:10UTCentry89.134, but fullcontext rejects atthatclock:poi_daily_direction_mismatch. Later04UTC signals (OB89.134/FVG89.133) expireunfilled. Therefore originalreference geometry fixed does NOT meanfullstrategyreplicatesreferenceentrytime. Do not secretlyremovefilter orclaimmodelmatchedteacher. Inheriteddaily/ITFPOIfilterneeds sourcereview beforefullannualrerun.
 
 No annualrerun launched. Userpreferredminimalexpense andfixesfirst. Outputs local evidence/native-validation-results, ZIPnative-daily-short-validation.zip. Newmainchart evidence/main-block-repair/NZDJPY-main-block-repaired.png. NewCLI nativeD1requirements intentionallypreventoldminute-derivedannualreuse; fullworkflows neednativecollector/gaphandling beforefuturemanualrun.
+
+## User correction: closing-price CHoCH
+
+User clarified M5 CHoCH uses line-chart/body closing-price levels, not wick swing levels. Prior code used closing break through WICK pivot. Corrected protected pivot detection and boundary to Candle.close; breakout still requires strictly beyond boundary by a completed candle. Equal touch/wick-only crossing rejected, both directions tested. Sweep detection and sweep SL remain wick extremes per specification. Applies h1_av_m5/swing_ob/swing_fvg via recognize_shift; directH1 alreadybodyjunction. Legacy mss_retest outside expandedstudy unchanged.
+
+NZDJPY reference boundary is now89.104 instead of89.095, breakclose02:55UTC unchanged for thisexample. GBPUSD reference breaks earlier, so only2prebreakOBcandidates vs4previously. Tests validateearlierorigin retained andlatercandidate exclusion. Previous shortvalidationresults usedwickpivot and do not validate this newCHoCHversion. Noannualrunlaunched. 108tests passlocally.

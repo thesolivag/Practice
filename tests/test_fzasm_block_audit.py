@@ -28,4 +28,6 @@ def test_real_gbpusd_keeps_origin_before_directional_sweep_extreme():
     rows=block_candidates(m,s,h[-1].available_at)
     main=next(r for r in rows if r['role']=='sweep_origin_candidate')
     assert main['origin_time']=='2026-11-10T11:00:00+00:00'
-    assert len(rows)==4
+    # Close-based CHoCH occurs earlier; later opposing candles are not origins.
+    assert {r["origin_time"] for r in rows}=={
+        "2026-11-10T11:00:00+00:00","2026-11-10T11:10:00+00:00"}
