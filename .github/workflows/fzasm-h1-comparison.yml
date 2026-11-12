@@ -1,66 +1,49 @@
-name: ASM H1 versus H1 with M5 confirmation — 2026 YTD
+name: ASM expanded monthly study — JPY gold majors 2026
 on:
   push:
     branches: [FZ-ASM]
     paths: ['.github/workflows/fzasm-h1-comparison.yml']
   workflow_dispatch:
-
 permissions:
   contents: read
-
 concurrency:
   group: fzasm-h1-comparison
-  cancel-in-progress: false
-
+  cancel-in-progress: true
+# Fixed once for all jobs: no pair gets a later outcome horizon.
+env:
+  STUDY_AS_OF: '2026-11-12T00:00:00Z'
+  STUDY_YEAR: '2026'
 jobs:
   backtest:
     strategy:
       fail-fast: false
       max-parallel: 1
       matrix:
-        pair: [NZDJPY, EURUSD, GBPUSD]
+        pair: [USDJPY, EURJPY, GBPJPY, AUDJPY, NZDJPY, CADJPY, CHFJPY, XAUUSD, EURUSD, GBPUSD]
     runs-on: ubuntu-latest
     timeout-minutes: 360
-
     env:
-      IN_YEAR: 2026
-      IN_PAIRS: ${{ matrix.pair }}
-      IN_OUT: reports/h1-comparison
-      CONFIRMATION_TF: M5
-      STOP_MODE: hourly_sweep
-      ENTRY_POLICY: h1_av_m5
-      CALENDAR_TIMEZONE: UTC
+      STUDY_PAIR: ${{ matrix.pair }}
       SLK_STORE: data/store
-
+      PYTHONUNBUFFERED: '1'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          fetch-depth: 1
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements-dev.txt
-
-      - name: Verify FZ-ASM Strategy Integrity
-        run: |
-          python -m pytest tests/test_fzasm.py tests/test_fzasm_audit.py tests/test_fzasm_repaired.py tests/test_fzasm_stop_study.py tests/test_fzasm_av.py tests/test_fzasm_reference.py tests/test_fzasm_h1_m5.py -q
-
-      - name: Restore candle store cache
-        uses: actions/cache/restore@v4
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Verify timing, target accounting and monthly reconciliation
+        run: PYTHONPATH=. pytest -q tests/test_fzasm*.py
+      - uses: actions/cache/restore@v4
         with:
           path: data/store
-          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: fzasm-m1-v1-${{ env.IN_YEAR }}-
-
-      - name: Run FZ-ASM Full-Year Multi-Target Backtest
-        id: bt
+          key: fzasm-study-m1-${{ env.STUDY_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            fzasm-study-m1-${{ env.STUDY_YEAR }}-${{ matrix.pair }}-
+            fzasm-m1-v1-${{ env.STUDY_YEAR }}-${{ matrix.pair }}-
+            fzasm-m1-v1-${{ env.STUDY_YEAR }}-
+      - name: Continuous replay with monthly report checkpoints
+        timeout-minutes: 335
         env:
           CTRADER_CLIENT_ID: ${{ secrets.CTRADER_CLIENT_ID }}
           CTRADER_CLIENT_SECRET: ${{ secrets.CTRADER_CLIENT_SECRET }}
@@ -72,24 +55,56 @@ jobs:
           DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
           DATABASE_CA: ${{ secrets.DATABASE_CA }}
         run: |
-          mkdir -p "$IN_OUT"
-          echo "Starting FZ-ASM Backtest for $IN_YEAR..."
-          python -c 'import os; from fzasm.minute_cache import prepare; prepare(os.environ["IN_PAIRS"], int(os.environ["IN_YEAR"]))'
-          for policy in h1_av h1_av_m5; do
-            python -m fzasm.backtest --year "$IN_YEAR" --pairs "$IN_PAIRS" --out "$IN_OUT/$IN_PAIRS/$policy" --confirmation-tf M5 --calendar-timezone UTC --stop-mode hourly_sweep --entry-policy "$policy"
-          done
-
-      - name: Save candle store cache
+          python -m fzasm.study --pair "$STUDY_PAIR" --year "$STUDY_YEAR" --as-of "$STUDY_AS_OF" --out reports/expanded-study --download-m1
+      - name: Preserve downloaded candle checkpoints
         if: always()
+        timeout-minutes: 5
+        continue-on-error: true
         uses: actions/cache/save@v4
         with:
           path: data/store
-          key: fzasm-m1-v1-${{ env.IN_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Upload Backtest Reports & Trade Logs
+          key: fzasm-study-m1-${{ env.STUDY_YEAR }}-${{ matrix.pair }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Publish pair progress and results
         if: always()
+        run: |
+          if [ -f "reports/expanded-study/$STUDY_PAIR/STUDY_REPORT.md" ]; then
+            cat "reports/expanded-study/$STUDY_PAIR/STUDY_REPORT.md" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No replay report produced for $STUDY_PAIR; inspect collection/test step. Missing is not zero trades." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload pair reports including partial checkpoints
+        if: always()
+        timeout-minutes: 5
         uses: actions/upload-artifact@v4
         with:
-          name: fzasm-h1-comparison-2026-${{ matrix.pair }}
-          path: ${{ env.IN_OUT }}/
-
+          name: asm-expanded-${{ matrix.pair }}
+          path: reports/expanded-study/${{ matrix.pair }}/
+          if-no-files-found: warn
+  aggregate:
+    needs: backtest
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas numpy
+      - name: Download available pair reports
+        uses: actions/download-artifact@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        with:
+          pattern: asm-expanded-*
+          path: pair-artifacts
+      - name: Build monthly and yearly comparison without hiding missing pairs
+        run: |
+          mkdir -p pair-artifacts
+          PYTHONPATH=. python scripts/merge_expanded_study.py --input pair-artifacts --out reports/expanded-summary --as-of "$STUDY_AS_OF"
+          cat reports/expanded-summary/STUDY_REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        timeout-minutes: 3
+        with:
+          name: asm-expanded-all-pairs-summary
+          path: reports/expanded-summary/

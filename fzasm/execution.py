@@ -6,7 +6,9 @@ from .types import BiasDirection
 class TradeOutcome:
     attrs = ('fz_result_r','r1_result_r','r2_result_r','r3_result_r','r4_result_r')
 
-    def __init__(self, setup, entry_bar_idx):
+    def __init__(self, setup, entry_bar_idx, asian_target=None, include_asian=False):
+        self.attrs = type(self).attrs + (("asian_result_r",) if include_asian else ())
+        self.asian_target = asian_target
         self.setup = setup
         self.entry_bar_idx = entry_bar_idx
         self.symbol, self.direction = setup.symbol, setup.bias
@@ -29,6 +31,8 @@ class TradeOutcome:
         self.fz_tp1_hit = False
         self.fz_tp1_banked = 0.
         self.last_bar = None
+        if include_asian and (asian_target is None or self.r(asian_target) <= 0):
+            self.finish('asian_result_r','UNAVAILABLE',setup.timestamp,reason='NO_CAUSAL_FAVORABLE_ASIAN_EXTREME')
 
     def is_fully_evaluated(self):
         return all(s not in ('PENDING','OPEN') for s in self.status.values())
@@ -45,12 +49,17 @@ class TradeOutcome:
     def r(self, price):
         return self.sign*(price-self.entry_price)/self.unit_risk
 
+    def target_r(self, attr):
+        if attr == 'fz_result_r':return self.r(self.fz_tp2)
+        if attr == 'asian_result_r':return self.r(self.asian_target)
+        return int(attr[1])
+
     def _path(self, points, attr, filled, partial):
         """Simulate one continuous OHLC traversal; return result and state.
 
         Opposite traversals are compared, not selected for their profit.
         """
-        target = self.r(self.fz_tp2) if attr == 'fz_result_r' else int(attr[1])
+        target = self.target_r(attr)
         tp1 = self.r(self.fz_tp1)
         start = self.r(points[0])
         if not filled and start <= 0:
@@ -110,6 +119,11 @@ class TradeOutcome:
             # break-even stop between TP1 and TP2. Two canonical paths alone
             # cannot prove that did not happen.
             lo_r, hi_r = sorted((self.r(bar.low),self.r(bar.high)))
+            # Two canonical traversals cannot rule out an extra entry->TP turn
+            # before the low/high that later hits SL on a pending-fill candle.
+            if status == 'PENDING' and self.r(bar.open) > 0 and lo_r <= -1 and hi_r >= self.target_r(attr):
+                self.finish(attr,'UNKNOWN',bar.available_at,reason='ENTRY_STOP_TARGET_ORDER')
+                continue
             if attr == 'fz_result_r' and not partial and lo_r <= 0 and hi_r >= self.r(self.fz_tp1):
                 self.finish(attr,'UNKNOWN',bar.available_at,reason='TP1_BREAK_EVEN_ORDER')
                 continue

@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 
-def prepare(pair, year, root='data/store', client=None):
+def prepare(pair, year, root='data/store', client=None, as_of=None):
     from . import instruments
     root = Path(root); root.mkdir(parents=True,exist_ok=True)
     own = client is None
@@ -21,12 +21,17 @@ def prepare(pair, year, root='data/store', client=None):
         instruments.register(pair,info.get('pip_position'),info.get('digits'))
         months=[]
         end_year = min(pd.Timestamp(year=year+1,month=1,day=1,tz='UTC'),pd.Timestamp.now(tz='UTC').floor('min'))
+        if as_of is not None:
+            cutoff=pd.Timestamp(as_of)
+            if cutoff.tzinfo is None:raise ValueError('as_of must be timezone-aware')
+            end_year=min(end_year,cutoff.tz_convert('UTC').floor('min'))
         for month in range(1,13):
             start=pd.Timestamp(year=year,month=month,day=1,tz='UTC')
             if start>=end_year:
                 break
             end=min(start+pd.offsets.MonthBegin(1),end_year)
             path=root/f'{pair}_M1_{year}_{month:02}.npz'
+            print(f'DATA_MONTH {pair} {year}-{month:02} start={start} end={end}',flush=True)
             cached = False
             if path.exists():
                 with np.load(path) as z:
@@ -35,6 +40,7 @@ def prepare(pair, year, root='data/store', client=None):
                         cached=True
             if not cached:
                 rows=[]
+                had_empty=False
                 for lo in pd.date_range(start,end,freq='4h',inclusive='left'):
                     hi=min(lo+pd.Timedelta(hours=4),end)
                     # Only skip windows wholly inside the NY FX weekend.
@@ -42,13 +48,27 @@ def prepare(pair, year, root='data/store', client=None):
                     closed=[d.day_of_week==5 or (d.day_of_week==4 and d.hour>=17) or (d.day_of_week==6 and d.hour<17) for d in hours]
                     if hours.size and all(closed):
                         continue
-                    batch=client.trendbar_rows(pair,'M1',int(lo.timestamp()),int(hi.timestamp()))
+                    chunks=root/'chunks'/pair;chunks.mkdir(parents=True,exist_ok=True)
+                    chunk=chunks/f'{int(lo.timestamp())}_{int(hi.timestamp())}.npz'
+                    if chunk.exists():
+                        with np.load(chunk) as z:batch=z['rows']
+                    else:
+                        batch=client.trendbar_rows(pair,'M1',int(lo.timestamp()),int(hi.timestamp()))
+                        batch=np.asarray([r[:5] for r in batch if lo.timestamp()<=r[0]<hi.timestamp() and r[0]%60==0],dtype=float).reshape(-1,5)
+                        temporary=chunk.with_suffix('.tmp.npz')
+                        if len(batch):
+                            np.savez_compressed(temporary,rows=batch);temporary.replace(chunk)
+                        else:
+                            had_empty=True
+                            print(f'DATA_EMPTY {pair} {lo} {hi}; not caching empty response',flush=True)
                     rows.extend(r[:5] for r in batch if lo.timestamp()<=r[0]<hi.timestamp() and r[0]%60==0)
                 rows=np.asarray(rows,dtype=float).reshape(-1,5)
                 if not len(rows):
                     raise RuntimeError(f'No M1 bars for {pair} {year}-{month:02}; refusing an empty-month success')
-                np.savez_compressed(path,rows=rows,complete=(end==start+pd.offsets.MonthBegin(1)))
+                np.savez_compressed(path,rows=rows,complete=(end==start+pd.offsets.MonthBegin(1) and not had_empty))
+            rows=rows[(rows[:,0]>=start.timestamp()) & (rows[:,0]<end.timestamp())]
             months.append(rows)
+            print(f'DATA_MONTH_DONE {pair} {year}-{month:02} rows={len(rows)} cached={cached}',flush=True)
         if not months:
             raise ValueError('Requested period has no historical data')
         rows=np.concatenate(months)
@@ -59,7 +79,7 @@ def prepare(pair, year, root='data/store', client=None):
                             **{k:rows[:,i+1] for i,k in enumerate(('open','high','low','close'))})
         (root/f'{pair}_M1.metadata.json').write_text(json.dumps({
             'source':'ctrader','price_side':'bid','year':year,'pip_position':info.get('pip_position'),
-            'digits':info.get('digits'),'generated_at':pd.Timestamp.now(tz='UTC').isoformat()},indent=2))
+            'digits':info.get('digits'),'requested_end':end_year.isoformat(),'generated_at':pd.Timestamp.now(tz='UTC').isoformat()},indent=2))
     finally:
         if own:
             client.close()
