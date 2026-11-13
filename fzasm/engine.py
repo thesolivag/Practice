@@ -26,12 +26,14 @@ from .entry import EntryModelEvaluator
 class FZASMEngine:
     """End-to-end evaluation engine for the FZ-ASM trading strategy."""
 
-    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5", entry_policy: str = "mss_retest"):
+    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5", entry_policy: str = "mss_retest", daily_filter=True, entry_only_targets=False):
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
         if confirmation_tf not in ("M5", "M10", "M15"):
             raise ValueError("confirmation_tf must be M5, M10 or M15")
         if entry_policy not in ("mss_retest", "legacy", "h1_av", "swing_fvg", "swing_ob", "h1_av_m5"):
             raise ValueError("entry_policy must be mss_retest, legacy, h1_av, swing_fvg or swing_ob")
+        self.daily_filter = daily_filter
+        self.entry_only_targets = entry_only_targets
         self.entry_policy = entry_policy
         self.confirmation_tf = "H1" if entry_policy == "h1_av" else ("M5" if entry_policy == "h1_av_m5" else confirmation_tf)
         from collections import Counter
@@ -143,8 +145,8 @@ class FZASMEngine:
 
         # Step 4: HTF Daily Map Evaluation
         d1_candles = candles_by_tf.get("D1", [])
-        daily_map = DailyMapEvaluator.evaluate(d1_candles, structural_poi=active_poi)
-        if not daily_map or daily_map.bias == BiasDirection.NEUTRAL:
+        daily_map = DailyMapEvaluator.evaluate(d1_candles, structural_poi=active_poi) if self.daily_filter else None
+        if self.daily_filter and (not daily_map or daily_map.bias == BiasDirection.NEUTRAL):
             return self._reject_context('no_daily_map')
 
         # Step 5: Hourly Candle Sweep Detection (H1 / H2)
@@ -160,18 +162,23 @@ class FZASMEngine:
             return self._reject_context('no_hourly_sweep')
 
         self.last_context_review = dict(sweep_direction=h1_sweep.direction.value,
-            daily_direction=daily_map.bias.value, daily_notes=daily_map.notes,
-            daily_target=daily_map.target_level, poi_direction=active_poi.direction.value,
+            daily_direction=daily_map.bias.value if daily_map else None, daily_notes=daily_map.notes if daily_map else None,
+            daily_target=daily_map.target_level if daily_map else None, poi_direction=active_poi.direction.value,
             poi_type=active_poi.level_type.value, poi_bottom=active_poi.price_bottom,
             poi_top=active_poi.price_top, poi_timestamp=active_poi.timestamp.isoformat())
 
         # Ensure sweep direction aligns with Daily Map bias
-        if h1_sweep.direction != daily_map.bias:
+        if self.daily_filter and h1_sweep.direction != daily_map.bias:
             return self._reject_context('sweep_daily_direction_mismatch')
 
-        if active_poi.direction != daily_map.bias:
-            return self._reject_context('poi_daily_direction_mismatch')
+        if active_poi.direction != h1_sweep.direction:
+            return self._reject_context('poi_daily_direction_mismatch' if self.daily_filter else 'poi_sweep_direction_mismatch')
         if not self.session_mgr.is_in_prime_asian_window(h1_sweep.sweep_candle.timestamp):
             return self._reject_context('outside_prime_sweep_hours')
+        if not self.daily_filter or self.entry_only_targets:
+            from .types import MapType
+            daily_map = DailyMapResult(MapType.MAP_1_STRUCTURAL_RANGE,h1_sweep.direction,
+                h1_sweep.sweep_price,0.,0.,0.,'Research fixed targets; no daily target gating',
+                h1_sweep.sweep_candle.available_at,entry_only=True)
         self.diagnostics['qualified_context'] += 1
         return h1_sweep, daily_map, active_poi

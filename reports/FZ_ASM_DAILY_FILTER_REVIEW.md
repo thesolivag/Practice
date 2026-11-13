@@ -25,3 +25,13 @@ Asian-only: direction from the completed single-sided H1 sweep, 00:00–06:00 UT
 Stops: exact H1 extreme and three instrument pips outside. Targets: 1R/2R/3R/4R and causal frozen Asian opposite extreme. FZ_RESEARCH is UNAVAILABLE without a daily map; internal fixed-R plan fields are not passed off as an FZ target. Asian target unavailable if history incomplete or target is unfavorable. Gross BID results exclude costs. Pending/open/unknown/unavailable remain separate. Latest trades may lack time to resolve.
 
 110 targeted tests pass, including no daily evaluator call in entry-only mode, later Asian sweep eligibility, actual NZDJPY reference plans and future candle exclusion. A successful backtest is not proof of profitability or exact teacher fidelity.
+
+## Matched follow-up
+
+The first ablation shortened intraday warmup from October 1 to October 25. It also changed multiple context gates. Its profit table cannot isolate the daily gate. The NZDJPY reference unexpectedly qualified in that run, prompting this correction.
+
+New workflow fzasm-matched-comparison.yml restores the exact prior artifact 14023956100 (M1 and native D1 snapshot), extends warmup backward with unchanged cached M1 to October 1, asserts overlapping OHLC agree, and fixes all arms to the saved November 13 08:59 UTC cutoff. No fresh broker requests or credential environment are needed.
+
+Arms: original behavior; daily_on with fixed targets; daily_off with the same fixed targets; Asian-only. Daily_on/off both retain H4 POI interaction and POI/sweep directional agreement, prime hours, H2 fallback, entry recognition and execution. Only daily-map availability and sweep/daily alignment differ. Original retains daily target eligibility and serves as a separate reference, not the isolation baseline. Daily targets are unavailable for fixed-target arms. Short-warmup original control is included to diagnose initialization sensitivity. Each pair/arm has a manifest input hash, coverage and diagnostics.
+
+111 targeted tests pass. New test verifies daily-off never calls the daily evaluator, still rejects opposite POI direction and still enforces prime hours. Default engine remains daily-on with original target behavior.

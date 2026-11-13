@@ -1,0 +1,52 @@
+name: ASM matched daily-filter comparison
+# Separate research ablation; does not change production settings.
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: ['.github/workflows/fzasm-matched-comparison.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: PYTHONPATH=. pytest -q tests/test_fzasm*.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-NZDJPY-43163729089-1
+          fail-on-cache-miss: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-GBPUSD-43163729089-1
+          fail-on-cache-miss: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-EURUSD-43163729089-1
+          fail-on-cache-miss: true
+      - name: Restore exact preceding study price snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/actions/artifacts/14023956100/zip > /tmp/asm-input.zip
+          mkdir -p reports/frozen-input
+          unzip -q /tmp/asm-input.zip -d reports/frozen-input
+      - name: Replay matched daily on and off plus context controls
+        timeout-minutes: 20
+        run: PYTHONPATH=. python scripts/compare_asm_matched_filters.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        timeout-minutes: 3
+        with:
+          name: asm-matched-filter-comparison
+          path: reports/matched-filter-comparison/
