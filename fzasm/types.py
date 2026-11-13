@@ -165,6 +165,7 @@ class DailyMapResult:
     notes: str
     timestamp: datetime
     reference_candles: List[Candle] = field(default_factory=list)
+    entry_only: bool = False
 
 
 @dataclass

@@ -67,8 +67,8 @@ class FZASMEngine:
             return None
         after = [c for c in bars if c.timestamp >= sweep.sweep_candle.available_at]
         long = daily_map.bias == BiasDirection.BULLISH
-        if any((c.low < sweep.sweep_price or c.high >= daily_map.target_level) if long
-               else (c.high > sweep.sweep_price or c.low <= daily_map.target_level) for c in after):
+        if any((c.low < sweep.sweep_price or (not daily_map.entry_only and c.high >= daily_map.target_level)) if long
+               else (c.high > sweep.sweep_price or (not daily_map.entry_only and c.low <= daily_map.target_level)) for c in after):
             self._contexts.pop(symbol, None)
             return None
         if self.entry_policy == "h1_av":
@@ -158,6 +158,12 @@ class FZASMEngine:
 
         if not h1_sweep or not h1_sweep.swept:
             return self._reject_context('no_hourly_sweep')
+
+        self.last_context_review = dict(sweep_direction=h1_sweep.direction.value,
+            daily_direction=daily_map.bias.value, daily_notes=daily_map.notes,
+            daily_target=daily_map.target_level, poi_direction=active_poi.direction.value,
+            poi_type=active_poi.level_type.value, poi_bottom=active_poi.price_bottom,
+            poi_top=active_poi.price_top, poi_timestamp=active_poi.timestamp.isoformat())
 
         # Ensure sweep direction aligns with Daily Map bias
         if h1_sweep.direction != daily_map.bias:

@@ -140,8 +140,11 @@ class EntryModelEvaluator:
         if (b.low < sweep.sweep_price if long else b.high > sweep.sweep_price):
             return None
         tp1, tp2 = daily_map.equilibrium_50, daily_map.target_level
-        if not (stop < entry < b.close and entry < tp1 < tp2 and b.high < tp2 if long
-                else stop > entry > b.close and entry > tp1 > tp2 and b.low > tp2):
+        if daily_map.entry_only:
+            sign = 1 if long else -1
+            tp1, tp2 = entry + sign*abs(entry-stop), entry + sign*4*abs(entry-stop)
+        if not (stop < entry < b.close and (daily_map.entry_only or (entry < tp1 < tp2 and b.high < tp2)) if long
+                else stop > entry > b.close and (daily_map.entry_only or (entry > tp1 > tp2 and b.low > tp2))):
             return None
         level = KeyLevel(LevelType.OPEN_CLOSE,sweep.direction,entry,entry,b.available_at,"H1",source_candle=a)
         return TradeSetup(symbol,b.available_at,sweep.direction,EntryModelType.H1_AV_RETEST,
@@ -171,6 +174,9 @@ class EntryModelEvaluator:
         for item in candidates:
             entry=item['entry'];stop=sweep.sweep_price-buf if long else sweep.sweep_price+buf
             tp1,tp2=daily_map.equilibrium_50,daily_map.target_level
+            if daily_map.entry_only:
+                sign=1 if long else -1
+                tp1,tp2=entry+sign*abs(entry-stop),entry+sign*4*abs(entry-stop)
             if not (stop<entry<tp1<tp2 if long else stop>entry>tp1>tp2):continue
             local=item['local_extreme']-buf if long else item['local_extreme']+buf
             if not (local<entry if long else local>entry):local=None
@@ -206,8 +212,8 @@ class EntryModelEvaluator:
         if now != activated:return None
         long=sweep.direction==BiasDirection.BULLISH
         after=[c for c in minutes if c.timestamp>=sweep.sweep_candle.available_at]
-        if any((c.low<sweep.sweep_price or c.high>=daily_map.target_level) if long else
-               (c.high>sweep.sweep_price or c.low<=daily_map.target_level) for c in after):return None
+        if any((c.low<sweep.sweep_price or (not daily_map.entry_only and c.high>=daily_map.target_level)) if long else
+               (c.high>sweep.sweep_price or (not daily_map.entry_only and c.low<=daily_map.target_level)) for c in after):return None
         if not (plan.entry_price<minutes[-1].close if long else plan.entry_price>minutes[-1].close):return None
         return replace(plan,timestamp=now,timeframe='M5',
                        notes='H1 A/V limit after closed M5 structural shift; no OB/FVG requirement.',

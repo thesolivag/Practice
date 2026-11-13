@@ -46,7 +46,7 @@ def records_of(trades):
                 exit_time=t.exit_times[attr].isoformat() if attr in t.exit_times else '',
                 reason=t.reasons.get(attr,''),entry_price=s.entry_price,
                 stop_price=s.entry_evidence['study_stop'],asian_target=t.asian_target,
-                target_price=(s.take_profit_2 if attr=='fz_result_r' else t.asian_target if attr=='asian_result_r'
+                target_price=((None if s.daily_map.entry_only else s.take_profit_2) if attr=='fz_result_r' else t.asian_target if attr=='asian_result_r'
                               else s.entry_price+t.sign*t.unit_risk*int(attr[1])),
                 fill_bar_open=t.filled_at.isoformat() if t.filled_at else '',
                 entry_evidence=json.dumps(s.entry_evidence,sort_keys=True)))
@@ -115,6 +115,8 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
                 asian_session_start=session_start.isoformat(),asian_history_complete=complete,entry_policy=policy))
             for candidate,valid in variants(setup):
                 outcome=TradeOutcome(candidate,i,asian_target=asian,include_asian=True)
+                if candidate.daily_map.entry_only:
+                    outcome.finish('fz_result_r','UNAVAILABLE',now,reason='NO_DAILY_MAP_IN_ENTRY_ONLY_STUDY')
                 if not valid:
                     for attr in outcome.attrs:outcome.finish(attr,'UNAVAILABLE',now,reason='NONPOSITIVE_STOP_RISK')
                 trades.append((policy,outcome))
@@ -127,6 +129,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
         requested_start=requested_start.isoformat(),requested_end=requested_end.isoformat(),
         warmup='No prior-year input: January starts cold; early daily-map/POI eligibility may be suppressed',
         checkpoint_type='Cumulative report snapshots, not resumable execution state',
+        context_mode='asian_only' if any(getattr(t.setup.daily_map,'entry_only',False) for _,t in trades) else engines[policies[0]].__class__.__name__,
         daily_source='broker-native completed D1' if native_daily is not None else 'strict M1 aggregation',
         aggregate_counts={tf:len(bars) for tf,bars in series.items()},
         engine_diagnostics={p:dict(getattr(e,'diagnostics',{})) for p,e in engines.items()},
