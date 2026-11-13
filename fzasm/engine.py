@@ -26,12 +26,13 @@ from .entry import EntryModelEvaluator
 class FZASMEngine:
     """End-to-end evaluation engine for the FZ-ASM trading strategy."""
 
-    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5", entry_policy: str = "mss_retest", daily_filter=True, entry_only_targets=False):
+    def __init__(self, session_window: Optional[SessionWindow] = None, extra_pairs: Optional[Set[str]] = None, confirmation_tf: str = "M5", entry_policy: str = "mss_retest", daily_filter=True, entry_only_targets=False, poi_lifecycle=False):
         self.session_mgr = AsianSessionManager(session_window, extra_pairs=extra_pairs)
         if confirmation_tf not in ("M5", "M10", "M15"):
             raise ValueError("confirmation_tf must be M5, M10 or M15")
         if entry_policy not in ("mss_retest", "legacy", "h1_av", "swing_fvg", "swing_ob", "h1_av_m5"):
             raise ValueError("entry_policy must be mss_retest, legacy, h1_av, swing_fvg or swing_ob")
+        self.poi_lifecycle = poi_lifecycle
         self.daily_filter = daily_filter
         self.entry_only_targets = entry_only_targets
         self.entry_policy = entry_policy
@@ -128,6 +129,12 @@ class FZASMEngine:
         itf_breakers = KeyLevelDetector.detect_breaker_blocks(itf_candles, itf_obs) if itf_candles else []
         itf_levels = KeyLevelDetector.detect_open_close_levels(itf_candles, timeframe=itf_tf or "H4") if itf_candles else []
         all_pois = itf_obs + itf_breakers + itf_levels
+        if self.poi_lifecycle:
+            from .poi_lifecycle import apply_lifecycle
+            all_pois = apply_lifecycle(all_pois,itf_candles)
+        self.last_poi_review = [dict(type=p.level_type.value,direction=p.direction.value,
+            bottom=p.price_bottom,top=p.price_top,available_at=p.timestamp.isoformat(),
+            retired=p.mitigated,metadata=p.metadata) for p in all_pois]
 
         # Pick the active POI currently tested by the sweeping candle
         active_poi = None
