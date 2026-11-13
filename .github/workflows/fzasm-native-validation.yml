@@ -1,4 +1,5 @@
-name: ASM native-daily and main-block short validation
+name: ASM close-based CHoCH short validation
+# Revalidate the fixed November sample after the closing-price pivot correction.
 on:
   push:
     branches: [FZ-ASM]
