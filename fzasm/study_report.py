@@ -45,7 +45,7 @@ def _rollup(monthly, keys):
     return _ratios(result.merge(coverage, on=keys, validate='one_to_one'))
 
 
-def write_study_report(records, out_dir, coverage=None):
+def write_study_report(records, out_dir, coverage=None, stop_variants=None):
     """Write CSVs plus STUDY_REPORT.md; return the six aggregate DataFrames.
 
     Coverage rows need symbol, entry_policy, month, status. 'complete' means
@@ -53,6 +53,9 @@ def write_study_report(records, out_dir, coverage=None):
     minute exists. Input-source gaps must remain explicit in outcome reasons.
     Non-complete coverage is preserved in coverage.csv, without zero filling.
     """
+    expected_stops = tuple(stop_variants) if stop_variants is not None else STOPS
+    if not expected_stops or len(set(expected_stops)) != len(expected_stops) or any(s not in STOPS for s in expected_stops):
+        raise ValueError('Invalid requested stop variants')
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     rows = [dict(r) for r in records]
@@ -61,7 +64,7 @@ def write_study_report(records, out_dir, coverage=None):
         for key in COLUMNS[:-1]:
             if key not in row:
                 raise ValueError(f'Missing outcome field: {key}')
-        if row['target'] not in TARGETS or row['stop_variant'] not in STOPS:
+        if row['target'] not in TARGETS or row['stop_variant'] not in expected_stops:
             raise ValueError('Unknown target or stop scenario')
         if row['status'] not in STATUSES:
             raise ValueError('Unknown outcome status')
@@ -125,9 +128,9 @@ def write_study_report(records, out_dir, coverage=None):
             signals = {r['signal_id'] for r in selected}
             for signal in signals:
                 scenarios = {(r['stop_variant'], r['target']) for r in selected if r['signal_id'] == signal}
-                if scenarios != {(s, t) for s in STOPS for t in TARGETS}:
+                if scenarios != {(s, t) for s in expected_stops for t in TARGETS}:
                     raise ValueError('Complete coverage requires all stop/target outcomes for each signal')
-        for stop in STOPS:
+        for stop in expected_stops:
             for target in TARGETS:
                 key = (month, symbol, policy, stop, target)
                 if key not in existing:
@@ -175,7 +178,7 @@ def write_study_report(records, out_dir, coverage=None):
         'Entry labels: h1_av = direct H1 A/V retest; h1_av_m5 = H1 A/V retest gated by M5 change of character; swing_ob = provisional M5 order-block retest; swing_fvg = provisional M5 FVG with overlapping A/V level.', '',
         'Stops: sweep_exact = at the H1 sweep extreme; sweep_plus_3p = three broker-defined pips beyond it. These are independent alternatives on the same signals.', '',
         'ASIAN_EXTREME is the opposite session extreme known when the order was placed, frozen thereafter. FZ_RESEARCH retains the existing half-at-equilibrium / remainder-at-map-target exit with break-even, not a newly verified teacher target rule.', '',
-        'Daily-map and POI filters still qualify every model. January has no prior-year warm-up; M5 interpretations remain provisional. Pending limits expire at 06:00 UTC; filled positions retain the existing 120-hour maximum hold. Source-data gaps stay unknown.', '',
+        'Context filters and warmup depend on the run configuration; see manifest.json and the run handoff. M5 interpretations remain provisional. Pending limits expire at 06:00 UTC; filled positions retain the existing 120-hour maximum hold. Source-data gaps stay unknown.', '',
         '## Yearly results across all selected symbols', '',
         'Totals sum independent trade R across selected symbols. They do not model portfolio sizing, exposure limits or compound returns.', '',
         '| Year | Entry | Stop | Target | Coverage | Setups | Closed | Unknown | Unfilled | Unavailable | Open | Pending | Win % | Gross resolved R |',

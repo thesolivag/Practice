@@ -97,3 +97,18 @@ def test_all_symbol_totals_preserve_models_and_missing_coverage(tmp_path):
     markdown=(tmp_path/'STUDY_REPORT.md').read_text()
     assert '## Yearly results across all selected symbols' in markdown
     assert '| Coverage |' in markdown and 'partial_or_unverified' in markdown
+
+
+def test_complete_buffer_only_month_and_missing_target_guard(tmp_path):
+    coverage=[dict(symbol='USDJPY',entry_policy='h1_av',month='2026-01',status='complete')]
+    rows=[outcome(stop='sweep_plus_3p',target=t) for t in TARGETS]
+    got=write_study_report(rows,tmp_path/'valid',coverage,stop_variants=('sweep_plus_3p',))
+    assert len(got['monthly'])==6
+    assert set(got['monthly'].stop_variant)=={'sweep_plus_3p'}
+    assert got['monthly'].setups.sum()==6
+    with pytest.raises(ValueError,match='Complete coverage requires'):
+        write_study_report(rows[:-1],tmp_path/'missing',coverage,stop_variants=('sweep_plus_3p',))
+    with pytest.raises(ValueError,match='Complete coverage requires'):
+        write_study_report(rows,tmp_path/'default',coverage)
+    empty=write_study_report([],tmp_path/'empty',coverage,stop_variants=('sweep_plus_3p',))
+    assert len(empty['monthly'])==6

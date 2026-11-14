@@ -63,8 +63,15 @@ def test_replay_preserves_month_crossing_and_freezes_session(tmp_path):
  assert [(t.asian_target,t.stop_loss) for _,t in again]==[(t.asian_target,t.stop_loss) for _,t in trades]
  # Buffer-only replay must reproduce the same buffered scenario, not widen twice.
  only=replay('EURUSD',df,tmp_path/'buffer_only',policies=('h1_av',),engine_factory=Engine,
-             stop_variants=('sweep_plus_3p',))
+             stop_variants=('sweep_plus_3p',),requested_start=pd.Timestamp('2026-01-01T00:00:00Z'))
  assert len(only)==1
+ # Explicit complete-month reporter coverage catches the production checkpoint failure.
+ from fzasm.study import records_of
+ from fzasm.study_report import write_study_report
+ report=write_study_report(records_of(only),tmp_path/'completed_buffer',
+     [dict(symbol='EURUSD',entry_policy='h1_av',month='2026-01',status='complete')],
+     stop_variants=('sweep_plus_3p',))
+ assert set(report['monthly'].stop_variant)=={'sweep_plus_3p'}
  assert only[0][1].stop_loss==trades[1][1].stop_loss
  assert only[0][1].r1_result_r==trades[1][1].r1_result_r
  import json

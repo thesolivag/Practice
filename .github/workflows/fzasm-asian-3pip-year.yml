@@ -10,6 +10,7 @@ permissions:
 concurrency:
   group: fzasm-asian-3pip-year
   cancel-in-progress: false
+# Completed-month reporting validates only the explicitly selected stop variants.
 # Fixed once for all jobs: no pair gets a later outcome horizon.
 env:
   STUDY_AS_OF: '2026-11-01T00:00:00Z'

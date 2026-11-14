@@ -86,7 +86,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
                     missing_intervals=int((scope.index.to_series().diff()>pd.Timedelta(minutes=1)).sum()),
                     final_snapshot=final))
         records=records_of(trades)
-        write_study_report(records,out,coverage)
+        write_study_report(records,out,coverage,stop_variants=selected_stops)
         (out/'progress.json').write_text(json.dumps(dict(replay_through=at.isoformat(),final=final,
             signals=len(trades)//len(selected_stops),open_scenarios=sum(t.status[a] in ('PENDING','OPEN') for _,t in trades for a in t.attrs)),indent=2))
         print(f'CHECKPOINT {pair} {at.isoformat()} signals={len(trades)//len(selected_stops)} final={final}',flush=True)
