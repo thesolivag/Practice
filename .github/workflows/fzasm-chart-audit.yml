@@ -1,0 +1,39 @@
+name: ASM saved trade chart audit — no backtest rerun
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: ['.github/workflows/fzasm-chart-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  export:
+    strategy:
+      fail-fast: false
+      matrix:
+        pair: [NZDJPY, EURUSD, GBPUSD]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-${{ matrix.pair }}-43163729089-1
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: asm-frozen-${{ matrix.pair }}
+          run-id: 43566057398
+          github-token: ${{ github.token }}
+          path: saved-outcomes
+      - run: PYTHONPATH=. python scripts/export_asm_trade_audit.py --pair '${{ matrix.pair }}'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asm-chart-audit-${{ matrix.pair }}
+          path: reports/trade-audit/${{ matrix.pair }}/
