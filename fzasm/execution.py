@@ -94,8 +94,19 @@ class TradeOutcome:
             start = end
         return None, filled, partial, ''
 
+    def _expire_observed_pending(self):
+        """Expire only when observed coverage proves no fill through expiry."""
+        expiry = self.setup.timestamp.replace(hour=6, minute=0, second=0, microsecond=0)
+        if self.last_bar is not None and self.last_close >= expiry:
+            for attr in self.attrs:
+                if self.status[attr] == 'PENDING':
+                    self.finish(attr, 'UNFILLED', expiry, reason='SESSION_EXPIRED')
+
     def evaluate_bar(self, bar, bar_idx, max_bars=120):
         if self.closed or bar.timestamp < self.setup.timestamp or bar.timestamp == self.last_bar:
+            return
+        self._expire_observed_pending()
+        if self.closed:
             return
         # Missing intervals could hide either fill or exit: never jump over them.
         if bar.timestamp > (self.last_close if self.last_bar is not None else self.setup.timestamp):
@@ -150,6 +161,7 @@ class TradeOutcome:
                 self.finish(attr,'CLOSED',bar.available_at,result,reason='TIME_EXIT')
 
     def end_of_data(self, at):
+        self._expire_observed_pending()
         for attr in self.attrs:
             if self.status[attr] in ('PENDING','OPEN'):
                 self.finish(attr,'UNKNOWN',at,reason='END_OF_DATA')

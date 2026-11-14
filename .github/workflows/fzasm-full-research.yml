@@ -1,0 +1,78 @@
+name: ASM full-context research — bounded manual sample
+on:
+  workflow_dispatch:
+    inputs:
+      pair:
+        type: choice
+        options: [NZDJPY, USDJPY, EURJPY, GBPJPY, AUDJPY, CADJPY, CHFJPY, XAUUSD, EURUSD, GBPUSD]
+        default: NZDJPY
+      start:
+        description: UTC start (within archived Jan–Oct2026 data)
+        required: true
+        default: '2026-05-01T00:00:00Z'
+      end:
+        description: UTC end (maximum31 days after start)
+        required: true
+        default: '2026-05-08T00:00:00Z'
+      policy:
+        type: choice
+        options: [auto, h1_av, h1_av_m5, swing_ob, swing_fvg]
+        default: auto
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: asm-full-research-${{ inputs.pair }}-${{ inputs.policy }}
+  cancel-in-progress: false
+jobs:
+  bounded-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      STUDY_PAIR: ${{ inputs.pair }}
+      STUDY_START: ${{ inputs.start }}
+      STUDY_END: ${{ inputs.end }}
+      STUDY_POLICY: ${{ inputs.policy }}
+      SLK_STORE: data/store
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Validate bounded scope
+        run: |
+          python - <<'PY'
+          import os,pandas as pd
+          a,b=[pd.Timestamp(os.environ[k]) for k in ('STUDY_START','STUDY_END')]
+          assert a.tzinfo is not None and b.tzinfo is not None
+          assert pd.Timedelta(0)<b-a<=pd.Timedelta(days=31)
+          assert pd.Timestamp('2026-01-01T00:00Z')<=a<b<=pd.Timestamp('2026-11-01T00:00Z')
+          PY
+      - name: Verify model and execution regressions
+        run: PYTHONPATH=. pytest -q tests/test_fzasm*.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-${{ inputs.pair }}-43163729089-1
+          fail-on-cache-miss: true
+      - name: Restore existing native daily and warmup evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          artifact_id=$(gh api "repos/${{ github.repository }}/actions/runs/43447511346/artifacts" --jq ".artifacts[] | select(.name == \"asm-frozen-$STUDY_PAIR\") | .id")
+          test -n "$artifact_id"
+          gh api "repos/${{ github.repository }}/actions/artifacts/$artifact_id/zip" > /tmp/asm-prior.zip
+          mkdir -p reports/prior-pair
+          unzip -q /tmp/asm-prior.zip -d reports/prior-pair
+      - name: Run bounded full-context sample
+        timeout-minutes: 30
+        run: |
+          PYTHONPATH=. python scripts/run_asm_full_research.py --pair "$STUDY_PAIR" --start "$STUDY_START" --end "$STUDY_END" --policy "$STUDY_POLICY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: asm-full-${{ inputs.pair }}-${{ inputs.policy }}
+          path: reports/full-asm-research/
+          if-no-files-found: warn

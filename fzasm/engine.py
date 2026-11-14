@@ -53,6 +53,16 @@ class FZASMEngine:
         if context and context[0].sweep_candle.timestamp.date() != now.date():
             self._contexts.pop(symbol, None)
             context = None
+        # Direct H1 recognition requires the sweep in the final adjacent pair.
+        # Once it falls out, that context can never qualify again. Retire it
+        # before looking for a newer sweep; do not supersede longer-lived M5 routes.
+        if context and self.entry_policy == "h1_av":
+            h1 = closed.get("H1", [])
+            sweep_time = context[0].sweep_candle.timestamp
+            if len(h1) >= 2 and h1[-2].timestamp > sweep_time:
+                self._contexts.pop(symbol, None)
+                self.diagnostics['expired_h1_context'] += 1
+                context = None
         if context is None:
             context = self._build_context(symbol, closed, now)
             if context is None:

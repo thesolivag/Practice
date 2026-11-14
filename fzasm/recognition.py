@@ -39,7 +39,7 @@ def recognize_shift(candles, sweep, now):
     return dict(common=common, bars=bars, extreme=extreme, broken=broken, known=known, long=long)
 
 
-def recognize_retests(candles, sweep, now):
+def recognize_retests(candles, sweep, now, junction_tolerance=None):
     shift = recognize_shift(candles, sweep, now)
     if not shift:
         return []
@@ -68,7 +68,8 @@ def recognize_retests(candles, sweep, now):
         for j in range(1,k):
             left,right=bars[j-1],bars[j]
             reversal=(left.is_bearish and right.is_bullish) if long else (left.is_bullish and right.is_bearish)
-            if reversal and low<=left.close<=high:
+            aligned=(junction_tolerance is None or abs(left.close-right.open)<=junction_tolerance)
+            if reversal and aligned and low<=left.close<=high:
                 junctions.append((j,left.close))
         if not junctions:continue
         j,entry=junctions[-1]

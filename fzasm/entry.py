@@ -161,13 +161,13 @@ class EntryModelEvaluator:
 
 
     @staticmethod
-    def evaluate_swing_retest(symbol, candles, sweep, daily_map, route, buffer_price=None):
+    def evaluate_swing_retest(symbol, candles, sweep, daily_map, route, buffer_price=None, junction_tolerance=None):
         from .recognition import recognize_retests
         if not candles or not sweep or daily_map.bias!=sweep.direction:
             return None
         now=candles[-1].available_at
         if daily_map.timestamp>now:return None
-        candidates=[x for x in recognize_retests(candles,sweep,now) if x['route']==route]
+        candidates=[x for x in recognize_retests(candles,sweep,now,junction_tolerance=junction_tolerance) if x['route']==route]
         long=sweep.direction==BiasDirection.BULLISH
         buf=3*instruments.pip(symbol) if buffer_price is None else buffer_price
         if buf<0:return None
