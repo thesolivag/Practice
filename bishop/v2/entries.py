@@ -76,6 +76,31 @@ def _atr(bars, at, policy):
     return sum(values)/len(values)*float(policy.near_atr_fraction)
 
 
+def three_candle_oc(bars, side, *, gap_policy='exact'):
+    """Owner-defined confirmation: two opposing bodies then a close across OC.
+
+    Deliberately does NOT require closing beyond candle1's open or wick.
+    gap_policy='first_close' uses candle1 close and records candle2 open offset.
+    """
+    if gap_policy not in ('exact','first_close'):
+        raise ValueError('Unknown OC gap policy')
+    if len(bars)!=3 or side not in ('BUY','SELL'):return None
+    p,a,b=bars
+    if (not all(x.complete for x in bars) or len({x.segment_id for x in bars})!=1
+            or len({x.tf for x in bars})!=1 or p.end!=a.start or a.end!=b.start
+            or p.side is None or p.side!=a.side or p.side==side or b.side!=side
+            or max(p.available_at,a.available_at)>b.available_at):return None
+    price=p.close_ticks;gap=a.open_ticks-price
+    if gap_policy=='exact' and gap:return None
+    crossed=(a.close_ticks<=price<b.close_ticks) if side=='BUY' else (b.close_ticks<price<=a.close_ticks)
+    if not crossed:return None
+    return dict(price_ticks=price,bar_ids=tuple(x.id for x in bars),
+        junction_bar_ids=(p.id,a.id),gap_ticks=gap,gap_policy=gap_policy,
+        first_close_ticks=price,second_open_ticks=a.open_ticks,
+        confirmation_closed_at=b.available_at.isoformat(),
+        rule='two_opposing_bodies_third_close_beyond_immediate_oc_v1')
+
+
 def _engulfs(a,b,side):
     if a.segment_id != b.segment_id or a.side == side or a.side is None or b.side != side:
         return False
@@ -472,7 +497,9 @@ def _protection_episode_bars(first_takes, reaction_bar, bars, *, bar_starts=None
     return episode
 
 
-def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_events=(), eligibility_start=None):
+def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_events=(), eligibility_start=None, engulfing_rule="legacy", oc_gap_policy="exact"):
+    if engulfing_rule not in ("legacy","three_candle_oc"):
+        raise ValueError("Unknown engulfing rule")
     if eligibility_start is not None:
         eligibility_start=utc(eligibility_start)
     from .structure import RoleIndex
@@ -966,15 +993,31 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
                     # the entry window. The remaining routes only emit setups;
                     # emit() would reject all of them at these clocks anyway.
                     if not can_submit:continue
-                    # Session OC disrespect permits variable engulf body placement.
-                    for lv in result.levels:
-                        if lv.kind!='OC' or lv.available_at>b.start or lv.side==story.side: continue
-                        if not (b.open_ticks<=lv.price_ticks<b.close_ticks if story.side=='BUY' else b.close_ticks<lv.price_ticks<=b.open_ticks): continue
-                        if hp:
-                            emit('confirmation_engulfed_oc',story,tf,lv,at,(*causes,b.id),(rb,b),hp,protection_episode=episode,
-                                 confirmation_bars=(bs[i-1],b) if i and _engulfs(bs[i-1],b,story.side) else ())
-                        if i and _engulfs(bs[i-1],b,story.side):
-                            emit('oc_break_retest',story,tf,lv,at,(*causes,b.id),(rb,bs[i-1],b),hp,protection_episode=episode,confirmation_bars=(bs[i-1],b))
+                    if engulfing_rule=='three_candle_oc' and i>=2 and hp:
+                        pattern=three_candle_oc(bs[i-2:i+1],story.side,gap_policy=oc_gap_policy)
+                        if pattern:
+                            from .types import Level
+                            p,a=bs[i-2:i]
+                            lv=Level(id=stable_id('three_candle_oc',instrument.symbol,tf,pattern['bar_ids'],policy.id),
+                                instrument=instrument.symbol,tf=tf,kind='OC',price_ticks=pattern['price_ticks'],
+                                side=story.side,formed_at=a.end,available_at=b.available_at,
+                                bar_ids=(p.id,a.id),policy_id=policy.id,
+                                details={'reference_policy':pattern['rule'],'gap_ticks':pattern['gap_ticks']})
+                            emit('confirmation_engulfed_oc',story,tf,lv,at,(*causes,p.id,a.id,b.id),(p,a,b),hp,
+                                 protection_episode=episode,confirmation_bars=(p,a,b),
+                                 extra={'entry_reference_policy':pattern['rule'],'three_candle_oc':pattern,
+                                        'confirmation_protection_policy':'current_three_candle_oc_pattern_v1',
+                                        'h4_parent_break_id':hbr.id,'entry_requires_later_retest':True})
+                    if engulfing_rule=='legacy':
+                        # Session OC disrespect permits variable engulf body placement.
+                        for lv in result.levels:
+                            if lv.kind!='OC' or lv.available_at>b.start or lv.side==story.side: continue
+                            if not (b.open_ticks<=lv.price_ticks<b.close_ticks if story.side=='BUY' else b.close_ticks<lv.price_ticks<=b.open_ticks): continue
+                            if hp:
+                                emit('confirmation_engulfed_oc',story,tf,lv,at,(*causes,b.id),(rb,b),hp,protection_episode=episode,
+                                     confirmation_bars=(bs[i-1],b) if i and _engulfs(bs[i-1],b,story.side) else ())
+                            if i and _engulfs(bs[i-1],b,story.side):
+                                emit('oc_break_retest',story,tf,lv,at,(*causes,b.id),(rb,bs[i-1],b),hp,protection_episode=episode,confirmation_bars=(bs[i-1],b))
                     if i and bs[i-1].segment_id==b.segment_id:
                         a=bs[i-1]
                         standing=(b.low_ticks<a.low_ticks and b.high_ticks<a.high_ticks and b.close_ticks>a.low_ticks) if story.side=='BUY' else (b.high_ticks>a.high_ticks and b.low_ticks>a.low_ticks and b.close_ticks<a.high_ticks)
@@ -984,7 +1027,7 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
                                 emit('confirmation_standing_extreme',story,tf,lv,at,(*causes,a.id,b.id),(rb,a,b),hp,
                                      protection_episode=episode,extra={'geometry':'restricted_adjacent_E5_OUR_CHOICE','reference_bar_id':a.id,
                                             'standing_through':b.end.isoformat(),'pdf_p8_mapping':'UNRESOLVED'})
-                    if i and _engulfs(bs[i-1],b,story.side):
+                    if engulfing_rule=='legacy' and i and _engulfs(bs[i-1],b,story.side):
                         lv=select_level(tf,story.side,at,b.close_ticks,kind='V' if story.side=='BUY' else 'A',formed_after=bs[i-1].start)
                         if lv:
                             emit('engulf_av_retest',story,tf,lv,max(at,lv.available_at),(*causes,b.id),(rb,bs[i-1],b),hp,protection_episode=episode,confirmation_bars=(bs[i-1],b))

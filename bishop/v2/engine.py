@@ -182,7 +182,7 @@ def _confirmed_bias_result(feed, inst, clock, lower, policy, costs, story_result
 
 def run(feed_or_path, manifest=None, *, as_of, history_start=None,
         scan_start=None, policy=None, costs=None, max_open_orders=10,
-        include_diagnostics=False, management_actions=(), bias_only=False, execution_feed=None, refinement_directory=None, detection_only=False, confirmed_story_bias_only=False, detection_feed=None, compact_story_diagnostics=False, entry_gate=None):
+        include_diagnostics=False, management_actions=(), bias_only=False, execution_feed=None, refinement_directory=None, detection_only=False, confirmed_story_bias_only=False, detection_feed=None, compact_story_diagnostics=False, entry_gate=None, engulfing_rule="legacy", oc_gap_policy="exact"):
     """Compute a frozen local run; never fetch data, dispatch, or trade.
 
     Costs must be supplied explicitly, including an explicit zero-cost hypothesis.
@@ -305,7 +305,7 @@ def run(feed_or_path, manifest=None, *, as_of, history_start=None,
         from types import SimpleNamespace
         entry_result=SimpleNamespace(setups=(), events=(), support=(), imbalances=())
     else:
-        entry_result=detect_setups(bars_by_tf,structures,story_result,inst,policy,story_events=story_result.events,eligibility_start=lower)
+        entry_result=detect_setups(bars_by_tf,structures,story_result,inst,policy,story_events=story_result.events,eligibility_start=lower,engulfing_rule=engulfing_rule,oc_gap_policy=oc_gap_policy)
     candidates=sorted((s for s in entry_result.setups if (lower is None or s.available_at>=lower) and s.available_at<=clock),key=lambda s:(s.available_at,policy.entry_tfs.index(s.tf) if s.tf in policy.entry_tfs else len(policy.entry_tfs),s.id))
     if detection_only:
         from .entries import _StoryActivityIndex
