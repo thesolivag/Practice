@@ -53,7 +53,10 @@ def records_of(trades):
     return records
 
 
-def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requested_start=None,requested_end=None,native_daily=None):
+def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requested_start=None,requested_end=None,native_daily=None,stop_variants=None):
+    selected_stops=tuple(stop_variants) if stop_variants is not None else ('sweep_exact','sweep_plus_3p')
+    if not selected_stops or len(set(selected_stops))!=len(selected_stops) or any(s not in ('sweep_exact','sweep_plus_3p') for s in selected_stops):
+        raise ValueError('Invalid stop variants')
     if df.empty:raise ValueError('No M1 data; refusing an empty success')
     out=Path(out_dir);out.mkdir(parents=True,exist_ok=True)
     requested_start=pd.Timestamp(requested_start) if requested_start is not None else pd.Timestamp(year=df.index[0].year,month=1,day=1,tz='UTC')
@@ -85,8 +88,8 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
         records=records_of(trades)
         write_study_report(records,out,coverage)
         (out/'progress.json').write_text(json.dumps(dict(replay_through=at.isoformat(),final=final,
-            signals=len(trades)//2,open_scenarios=sum(t.status[a] in ('PENDING','OPEN') for _,t in trades for a in t.attrs)),indent=2))
-        print(f'CHECKPOINT {pair} {at.isoformat()} signals={len(trades)//2} final={final}',flush=True)
+            signals=len(trades)//len(selected_stops),open_scenarios=sum(t.status[a] in ('PENDING','OPEN') for _,t in trades for a in t.attrs)),indent=2))
+        print(f'CHECKPOINT {pair} {at.isoformat()} signals={len(trades)//len(selected_stops)} final={final}',flush=True)
     for i,candle in enumerate(minutes):
         if candle.available_at<requested_start:continue
         month=candle.timestamp.strftime('%Y-%m')
@@ -114,6 +117,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
             setup=replace(setup,entry_evidence=dict(setup.entry_evidence,asian_target_frozen_at=now.isoformat(),
                 asian_session_start=session_start.isoformat(),asian_history_complete=complete,entry_policy=policy))
             for candidate,valid in variants(setup):
+                if candidate.stop_variant not in selected_stops:continue
                 outcome=TradeOutcome(candidate,i,asian_target=asian,include_asian=True)
                 if candidate.daily_map.entry_only:
                     outcome.finish('fz_result_r','UNAVAILABLE',now,reason='NO_DAILY_MAP_IN_ENTRY_ONLY_STUDY')
@@ -125,7 +129,7 @@ def replay(pair,df,out_dir,policies=POLICIES,engine_factory=FZASMEngine,requeste
     checkpoint(minutes[-1].available_at,True)
     (out/'manifest.json').write_text(json.dumps(dict(symbol=pair,first=df.index[0].isoformat(),last=df.index[-1].isoformat(),
         rows=len(df),sha256=hashlib.sha256(pd.util.hash_pandas_object(df,index=True).values.tobytes()).hexdigest(),
-        entry_policies=list(policies),targets=TARGETS,stops=['sweep_exact','sweep_plus_3p'],
+        entry_policies=list(policies),targets=TARGETS,stops=list(selected_stops),
         requested_start=requested_start.isoformat(),requested_end=requested_end.isoformat(),
         warmup='No prior-year input: January starts cold; early daily-map/POI eligibility may be suppressed',
         checkpoint_type='Cumulative report snapshots, not resumable execution state',

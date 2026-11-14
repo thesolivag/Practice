@@ -1,0 +1,91 @@
+name: ASM pure Asian entry-only — 3-pip stops Jan–Oct 2026
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: ['.github/workflows/fzasm-asian-3pip-year.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: fzasm-asian-3pip-year
+  cancel-in-progress: false
+# Fixed once for all jobs: no pair gets a later outcome horizon.
+env:
+  STUDY_AS_OF: '2026-11-01T00:00:00Z'
+  STUDY_YEAR: '2026'
+  ASM_BUFFER_ONLY: '1'
+jobs:
+  backtest:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        pair: [USDJPY, EURJPY, GBPJPY, AUDJPY, NZDJPY, CADJPY, CHFJPY, XAUUSD, EURUSD, GBPUSD]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      STUDY_PAIR: ${{ matrix.pair }}
+      SLK_STORE: data/store
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Verify timing, target accounting and monthly reconciliation
+        run: PYTHONPATH=. pytest -q tests/test_fzasm*.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-${{ matrix.pair }}-43163729089-1
+          fail-on-cache-miss: true
+      - name: Restore prior completed pair warmup
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          artifact_id=$(gh api repos/${{ github.repository }}/actions/runs/43447511346/artifacts --jq '.artifacts[] | select(.name == "asm-frozen-${{ matrix.pair }}") | .id')
+          test -n "$artifact_id"
+          gh api "repos/${{ github.repository }}/actions/artifacts/$artifact_id/zip" > /tmp/prior.zip
+          mkdir -p reports/prior-pair
+          unzip -q /tmp/prior.zip -d reports/prior-pair
+      - name: Replay pure Asian entry model with user cost assumption
+        timeout-minutes: 155
+        run: PYTHONPATH=. python scripts/run_asm_pure_asian_year.py --pair "$STUDY_PAIR"
+      - name: Upload pair reports including partial checkpoints
+        if: always()
+        timeout-minutes: 5
+        uses: actions/upload-artifact@v4
+        with:
+          name: asm-frozen-${{ matrix.pair }}
+          path: reports/frozen-year/${{ matrix.pair }}/
+          if-no-files-found: warn
+  aggregate:
+    needs: backtest
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas numpy
+      - name: Download available pair reports
+        uses: actions/download-artifact@v4
+        timeout-minutes: 5
+        continue-on-error: true
+        with:
+          pattern: asm-frozen-*
+          path: pair-artifacts
+      - name: Build monthly and yearly comparison without hiding missing pairs
+        run: |
+          mkdir -p pair-artifacts
+          PYTHONPATH=. python scripts/merge_asm_pure_asian_year.py
+          cat reports/frozen-summary/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        timeout-minutes: 3
+        with:
+          name: asm-frozen-all-pairs-summary
+          path: reports/frozen-summary/

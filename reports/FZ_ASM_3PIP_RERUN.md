@@ -1,0 +1,5 @@
+# User-requested full three-pip-stop rerun
+
+Pure AsianOnlyEngine, January–October 2026, all ten selected instruments. Same frozen candles and December warmup as prior study. Only sweep_plus_3p is executed: sell SL = H1 sweep high + 3 instrument pips; buy SL = H1 sweep low - 3 instrument pips. Runtime assertions verify each emitted stop. Fixed 1R–4R targets recalculate against buffered risk. Causal Asian extreme target remains its absolute price. No daily/H4/prime-hour filters. Four entry routes remain separate. Gross and 0.08R user-cost outcomes are alternatives, not summed.
+
+This requested rerun repeats the already-existing buffered arm in isolation; it is not a new strategy change and should reproduce its prior outcomes. Previous exact-stop results are excluded from this report. Dedicated workflow fzasm-asian-3pip-year.yml. Added replay stop selection without changing default two-stop behavior; targeted regression confirms identical buffered outcome and correct one-signal reporting. No broker orders.

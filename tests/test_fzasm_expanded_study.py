@@ -61,3 +61,12 @@ def test_replay_preserves_month_crossing_and_freezes_session(tmp_path):
  changed=df.copy();changed.loc[signal+timedelta(minutes=10),'high']=150
  again=replay('EURUSD',changed,tmp_path/'perturbed',policies=('h1_av',),engine_factory=Engine)
  assert [(t.asian_target,t.stop_loss) for _,t in again]==[(t.asian_target,t.stop_loss) for _,t in trades]
+ # Buffer-only replay must reproduce the same buffered scenario, not widen twice.
+ only=replay('EURUSD',df,tmp_path/'buffer_only',policies=('h1_av',),engine_factory=Engine,
+             stop_variants=('sweep_plus_3p',))
+ assert len(only)==1
+ assert only[0][1].stop_loss==trades[1][1].stop_loss
+ assert only[0][1].r1_result_r==trades[1][1].r1_result_r
+ import json
+ assert json.loads((tmp_path/'buffer_only/progress.json').read_text())['signals']==1
+ assert json.loads((tmp_path/'buffer_only/manifest.json').read_text())['stops']==['sweep_plus_3p']
