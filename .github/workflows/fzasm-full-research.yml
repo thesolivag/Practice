@@ -1,5 +1,8 @@
-name: ASM full-context research — bounded manual sample
+name: ASM full-context research — bounded diagnostic sample
 on:
+  push:
+    branches: [FZ-ASM]
+    paths: [.github/workflows/fzasm-full-research.yml]
   workflow_dispatch:
     inputs:
       pair:
@@ -22,17 +25,21 @@ permissions:
   contents: read
   actions: read
 concurrency:
-  group: asm-full-research-${{ inputs.pair }}-${{ inputs.policy }}
+  group: asm-full-research-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   bounded-replay:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        pair: ${{ fromJSON(github.event_name == 'push' && '["NZDJPY","EURUSD","GBPUSD"]' || format('["{0}"]', inputs.pair)) }}
     env:
-      STUDY_PAIR: ${{ inputs.pair }}
-      STUDY_START: ${{ inputs.start }}
-      STUDY_END: ${{ inputs.end }}
-      STUDY_POLICY: ${{ inputs.policy }}
+      STUDY_PAIR: ${{ matrix.pair }}
+      STUDY_START: ${{ inputs.start || '2026-05-01T00:00:00Z' }}
+      STUDY_END: ${{ inputs.end || '2026-05-08T00:00:00Z' }}
+      STUDY_POLICY: ${{ inputs.policy || 'auto' }}
       SLK_STORE: data/store
       PYTHONUNBUFFERED: '1'
     steps:
@@ -55,7 +62,7 @@ jobs:
       - uses: actions/cache/restore@v4
         with:
           path: data/store
-          key: fzasm-study-m1-2026-${{ inputs.pair }}-43163729089-1
+          key: fzasm-study-m1-2026-${{ matrix.pair }}-43163729089-1
           fail-on-cache-miss: true
       - name: Restore existing native daily and warmup evidence
         env:
@@ -73,6 +80,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: asm-full-${{ inputs.pair }}-${{ inputs.policy }}
+          name: asm-full-${{ matrix.pair }}-${{ inputs.policy || 'auto' }}
           path: reports/full-asm-research/
           if-no-files-found: warn
