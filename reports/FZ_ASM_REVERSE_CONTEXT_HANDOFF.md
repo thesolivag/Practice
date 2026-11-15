@@ -1,0 +1,11 @@
+# Reverse-context study v1
+
+User authorized backwards investigation of existing Asian entries, including losing/unfilled/unknown cases. Reuses completed 3-pip entry ledger43574624074 and original native daily/warmup43447511346 plus exact named M1 cache. Does not rerun or repair the old engine; ledger/hash provenance is explicit. New results do not overwrite old performance.
+
+Seven fixed boolean features: aligned daily map, opposing map, map conflict, aligned H4 touch, aligned H2 touch, either HTF touch, and touched aligned level in corresponding half of an aligned map range. Source teacher validation remains incomplete. Features use closed bars at the decision clock. Levels must preexist the sweep opening. Match H1 sweeps by direction, day and saved extreme; zero/multiple matches leave level features unknown. Context extraction receives no outcome fields. Native daily gaps reset context history, requiring at least3 closed daily bars before map features enter comparisons.
+
+Discovery Jan1–Jun25; only exits beforeJul1 count as resolved discovery outcomes. Jun26–Jul5 embargo; Jul6–Oct31 historical validation. These periods were previously inspected; do not claim pristine out-of-sample proof. Do not combine target/route/feature alternatives into portfolio profit. Fee0.08R is an assumption, not measured bid/ask execution. Unfilled, unresolved, unavailable and boundary-excluded outcomes remain counted.
+
+Candidate rule: feature present, >=30 resolved discovery cases in each present/absent group, >=3 present-group months, positive present mean netR and improvement over absent. All seven single factors screened independently; no combinations, no validation-period tuning. Multiple testing and correlated trades preclude a significance claim. Per-pair and pooled comparisons, monthly baselines and all candidate validation rows exported. Missing pairs explicitly reported. No annual simulation or live orders launched by this study; only contextual annotation of frozen entries on Actions.
+
+Files: fzasm/reverse_context.py, scripts/run_asm_reverse_context.py, scripts/merge_asm_reverse_context.py, tests/test_fzasm_reverse_context.py, .github/workflows/fzasm-reverse-context.yml. Tests cover future poisoning, outcome invariance, unmatched sweep handling, temporal purge and validation-independent selection.

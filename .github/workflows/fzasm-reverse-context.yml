@@ -1,0 +1,79 @@
+name: ASM reverse-context study — frozen Asian entries
+on:
+  push:
+    branches: [FZ-ASM]
+    paths: [.github/workflows/fzasm-reverse-context.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: asm-reverse-context
+  cancel-in-progress: false
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        pair: [USDJPY, EURJPY, GBPJPY, AUDJPY, NZDJPY, CADJPY, CHFJPY, XAUUSD, EURUSD, GBPUSD]
+    env:
+      SLK_STORE: data/store
+      STUDY_PAIR: ${{ matrix.pair }}
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements-dev.txt
+      - run: PYTHONPATH=. pytest -q tests/test_fzasm*.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/store
+          key: fzasm-study-m1-2026-${{ matrix.pair }}-43163729089-1
+          fail-on-cache-miss: true
+      - name: Restore fixed outcomes and original context history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import subprocess,json,os,zipfile,io
+          for run,dest in [(43574624074,'reports/ledger'),(43447511346,'reports/prior-pair')]:
+              base='repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/'
+              data=json.loads(subprocess.check_output(['gh','api',base+f'runs/{run}/artifacts?per_page=100']))
+              found=[a for a in data['artifacts'] if a['name']=='asm-frozen-'+os.environ['STUDY_PAIR'] and not a['expired']]
+              assert len(found)==1, 'Required frozen artifact missing'
+              raw=subprocess.check_output(['gh','api',base+f"artifacts/{found[0]['id']}/zip"])
+              zipfile.ZipFile(io.BytesIO(raw)).extractall(dest)
+          PY
+      - name: Annotate context without changing outcomes
+        timeout-minutes: 50
+        run: PYTHONPATH=. python scripts/run_asm_reverse_context.py --pair "$STUDY_PAIR"
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: asm-reverse-${{ matrix.pair }}
+          path: reports/reverse/${{ matrix.pair }}/
+          if-no-files-found: error
+  aggregate:
+    needs: annotate
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pandas numpy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: asm-reverse-*
+          path: pair-artifacts
+      - run: PYTHONPATH=. python scripts/merge_asm_reverse_context.py
+      - run: cat reports/reverse-summary/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asm-reverse-summary
+          path: reports/reverse-summary/
