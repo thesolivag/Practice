@@ -9,7 +9,7 @@ from .types import BiasDirection as B
 
 @lru_cache(maxsize=400)
 def cached_maps(daily,pip_size):
-    return map_candidates(daily,pip_size)
+    return map_candidates(list(daily),pip_size)
 
 FEATURES=('aligned_map','opposing_map','map_conflict','h4_touch','h2_touch','htf_touch','aligned_range_half')
 

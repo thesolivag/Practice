@@ -39,3 +39,14 @@ def test_candidate_selection_never_uses_validation_profit():
     a=candidates(pd.DataFrame(rows));assert len(a)==1
     rows.append(dict(common,phase='validation',present=True,mean_net_r=-999))
     assert candidates(pd.DataFrame(rows))==a
+
+
+def test_cached_map5_preserves_detector_list_contract():
+    from test_fzasm_full import candles
+    from fzasm.reverse_context import cached_maps
+    from fzasm.full_context import map_candidates
+    bars=candles([(105,108,99,100),(100,110,100,108),(108,109,101,104),(104,108,100,106)])
+    bars.append(Candle(bars[-1].available_at,106,108,103,107,timeframe='D1'))
+    expected=map_candidates(bars)
+    assert any('MAP_5' in m.map_type.value for m in expected)
+    assert cached_maps(tuple(bars),0.)==expected
