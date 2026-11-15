@@ -68,6 +68,9 @@ def pilot(inputs,out):
     C.dump(out/'engulfing-reference.json',{'pair':pair,'at':reference_at.isoformat(),
         'corrected_setups':reference,'note':'Closed-prefix detection; statuses retain risk/context restrictions.'})
     if not reference:raise RuntimeError('Known EURUSD engulfing reference did not reproduce; stop before full replay')
+    for setup in reference:
+        assert setup['entry_ticks']==setup['details']['three_candle_oc']['first_close_ticks'], 'Incorrect OC entry'
+        assert setup['details']['confirmation_protection_policy']=='current_three_candle_oc_pattern_v1', 'Incorrect stop evidence'
     C.dump(out/'pilot.json',{'status':'PASS','pair':pair,'hours':24,'prefix_equal':True,'poisoned_equal':True,
         'seconds_per_hour':secs,'estimated_31day_minutes':estimate,'note':'Early pilot is a runtime estimate, not a full-year performance result.'})
     if estimate>300:raise RuntimeError('Monthly replay exceeds runtime budget')
@@ -89,8 +92,12 @@ def main():
     else:
         C.feed_file=load_feed
         J.collect(a.inputs,a.results,a.out)
-        from slk.bishop_session_costs import build
-        build(a.inputs,a.results,Path(a.out)/'sessions')
+        completed=C.load(Path(a.out)/'REPORT.json')['matched_comparison_markets']
+        if completed:
+            from slk.bishop_session_costs import build
+            build(a.inputs,a.results,Path(a.out)/'sessions')
+        else:
+            (Path(a.out)/'NO_PERFORMANCE_RESULT.txt').write_text('No completed comparison markets. No annual performance result is available. Check pilot/job failures.\n')
         from slk.bishop_oc_review_bundle import build_bundle
         build_bundle(a.inputs,a.results,Path(a.out)/'review-bundle')
 

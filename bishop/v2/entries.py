@@ -758,7 +758,7 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
         details=dict(risk.details,study_pattern_bar_ids=tuple(b.id for b in study_pattern),
                      study_stop_policy='current_confirmation_episode_v1',entry_weekly_relation=entry_relation,entry_weekly_context=weekly,
                      confirmation_protection_bar_ids=tuple(b.id for b in confirmation_bars),
-                     confirmation_protection_policy='current_adjacent_engulf_pair_v1' if confirmation_bars else None,
+                     confirmation_protection_policy=('current_three_candle_oc_pattern_v1' if (extra or {}).get('three_candle_oc') else 'current_adjacent_engulf_pair_v1') if confirmation_bars else None,
                      protection_episode_bar_ids=tuple(b.id for b in protection_episode),
                      protection_episode_policy='linked_first_take_through_reaction_v1_OUR_CHOICE' if protection_episode else None,phase=phase,source_profile=profile,model_enabled=True,
                      causal_selection='first_eligible_then_higher_tf_same_batch_OUR_CHOICE',
@@ -1006,7 +1006,6 @@ def detect_setups(bars_by_tf, structures, stories, instrument, policy, *, story_
                             emit('confirmation_engulfed_oc',story,tf,lv,at,(*causes,p.id,a.id,b.id),(p,a,b),hp,
                                  protection_episode=episode,confirmation_bars=(p,a,b),
                                  extra={'entry_reference_policy':pattern['rule'],'three_candle_oc':pattern,
-                                        'confirmation_protection_policy':'current_three_candle_oc_pattern_v1',
                                         'h4_parent_break_id':hbr.id,'entry_requires_later_retest':True})
                     if engulfing_rule=='legacy':
                         # Session OC disrespect permits variable engulf body placement.
