@@ -1,0 +1,16 @@
+{
+  "status": "FROZEN_RESEARCH_CANDIDATE_NOT_DEPLOYED",
+  "source_run": 43685082614,
+  "source_ledger": 43574624074,
+  "symbol": "GBPUSD",
+  "entry_policy": "h1_av_m5",
+  "context_feature": "at_least_one_causally_active_daily_map_aligned_with_entry",
+  "opposing_map_policy": "allowed; no conflict veto",
+  "target": "1R",
+  "stop": "sweep extreme plus3 instrument pips",
+  "pending_expiry": "06:00 UTC per source ledger",
+  "session": "00:00\u201306:00 UTC research calendar",
+  "cost_assumption_r": 0.08,
+  "execution": "Must reproduce archived entry-engine behavior before prospective deployment",
+  "selection_warning": "Selected after historical validation inspection; needs new prospective evidence"
+}

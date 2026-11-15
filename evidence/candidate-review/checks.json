@@ -1,0 +1,17 @@
+[
+  {
+    "pair": "GBPUSD",
+    "selected_signals": 105,
+    "timestamp_stop_target_checks": "PASS"
+  },
+  {
+    "pair": "NZDJPY",
+    "selected_signals": 92,
+    "timestamp_stop_target_checks": "PASS"
+  },
+  {
+    "pair": "AUDJPY",
+    "selected_signals": 92,
+    "timestamp_stop_target_checks": "PASS"
+  }
+]
