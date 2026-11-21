@@ -1,0 +1,7 @@
+# Corrected OC cohort unknown refinement
+
+Pinned source43680765429 at6945d9b9a05e2af22b079504da76e8f49eee32cf. Execute through .github/workflows/bishop-oc-unknown.yml on isolated research branch. Restores exact year-inputs including existing M1 and final per-pair checkpoints. No new entry detection or position-capacity replay. Uses the SAME research_stop_simulation.py, pinned SHA256, as source replay. Every original observation must reproduce before any refinement.
+
+Replaces only ambiguous H1 hours. Fetch original broker H1 and M1 under shared DB feed locks. Require60 minutes, exact tick grid and exact frozen H1 OHLC rollup. Existing M1 ambiguity remains unknown. Never infer news, path or win/loss. If refined fill depends on pending management unavailable after original censor, retain unknown. Fresh broker responses without matching original prices are excluded. Max2 concurrent jobs,90-minute fetch budget per pair,120-minute job cap. Credentials referenced through existing secrets; never logged. Upload incremental audits and new minute evidence. Collector shows reasons, added grossR, and revised resolved grossR only when all pair summaries exist. Old reports/mini-app remain unchanged. No historical costs invented.
+
+Local regression11 tests passed: exact rollup, outcome ordering, original reproduction, immutable geometry, and already-minute ambiguous cases. Full resolution is not guaranteed; missing data and same-minute ambiguity remain explicit.
