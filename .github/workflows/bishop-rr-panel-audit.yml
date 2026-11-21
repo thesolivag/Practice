@@ -1,0 +1,30 @@
+name: Mini-app Bishop study — read-only unknown audit
+on:
+  push:
+    branches: [research/bishop-oc-h12-20261114]
+    paths: [.github/workflows/bishop-rr-panel-audit.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pymysql pandas
+      - name: Inspect owner study without updating outcomes
+        env:
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DATABASE_CA: ${{ secrets.DATABASE_CA }}
+        run: python -m slk.bishop_rr_audit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bishop-rr-panel-audit
+          path: reports/rr-panel-audit/
+          retention-days: 7
+          if-no-files-found: error
